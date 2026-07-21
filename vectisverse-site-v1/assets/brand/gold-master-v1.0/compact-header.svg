@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 190" role="img" aria-label="VectisVerse">
+<defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".28" stop-color="#b9c2cb"/><stop offset=".54" stop-color="#eef1f4"/><stop offset=".8" stop-color="#626c77"/><stop offset="1" stop-color="#242c34"/></linearGradient><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34dbff"/><stop offset=".52" stop-color="#087dff"/><stop offset="1" stop-color="#0735c8"/></linearGradient></defs>
+<text x="26" y="145" fill="url(#s)" stroke="#151c23" stroke-width="2" font-family="Rajdhani, Exo 2, Arial, sans-serif" font-size="142" font-weight="700" letter-spacing="-5">VECTIS</text>
+<g transform="translate(465 5)"><path d="M5 4 L62 4 L96 132 L130 4 L187 4 L128 180 L64 180 Z" fill="url(#s)" stroke="#151c23" stroke-width="5"/><path d="M96 54 L158 91 L96 128 L34 91 Z" fill="url(#b)" stroke="#24c9ff" stroke-width="3"/></g>
+<text x="655" y="145" fill="url(#s)" stroke="#151c23" stroke-width="2" font-family="Rajdhani, Exo 2, Arial, sans-serif" font-size="142" font-weight="700" letter-spacing="-5">ERSE</text>
+</svg>
