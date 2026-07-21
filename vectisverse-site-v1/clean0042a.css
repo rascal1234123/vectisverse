@@ -1,0 +1,20 @@
+/* VectisVerse Clean Build 004.2A — hero correction */
+.hero{min-height:620px;padding:34px 20px 24px;background:linear-gradient(180deg,#010409 0%,#020914 58%,#010409 100%)}
+.hero-copy{width:min(1500px,98vw)}
+.hero-copy>.eyebrow{margin:4px 0 8px;font-size:14px;letter-spacing:.42em;position:relative;display:inline-flex;align-items:center;gap:24px}
+.hero-copy>.eyebrow::before,.hero-copy>.eyebrow::after{content:'';width:90px;height:1px;background:linear-gradient(90deg,transparent,var(--arcade-cyan));box-shadow:0 0 7px rgba(32,216,255,.55)}
+.hero-copy>.eyebrow::after{background:linear-gradient(90deg,var(--arcade-cyan),transparent)}
+.hero-identity{margin:0 auto 2px}
+.master-hero-logo{width:min(1420px,92vw)!important;max-height:330px!important;filter:drop-shadow(0 0 8px rgba(0,197,255,.58)) drop-shadow(0 0 32px rgba(0,85,255,.28))}
+.hero-summary{margin:0 auto!important;max-width:700px!important;font-size:17px!important;line-height:1.35!important}
+.hero .button{margin-top:15px;min-width:320px}
+.hero .vector-horizon{bottom:135px;left:4%;right:4%;height:2px}
+.hero .vector-grid{bottom:-30%;height:55%;background-size:46px 34px;opacity:.92}
+.hero::before{opacity:.72;background-size:121px 121px,179px 179px,229px 229px}
+.hero .starfield{background:radial-gradient(circle at 50% 44%,rgba(0,121,255,.3),transparent 25%),radial-gradient(circle at 50% 68%,rgba(0,209,255,.16),transparent 18%)}
+.site-header{height:76px}
+.site-header .brand{width:60px;height:60px}
+.site-header .brand img{width:52px!important;height:52px!important}
+.site-header nav a{font-size:16px;letter-spacing:.09em}
+@media(max-width:1000px){.hero{min-height:590px}.master-hero-logo{width:96vw!important}.hero .vector-horizon{bottom:126px}.hero .button{min-width:280px}}
+@media(max-width:680px){.hero{min-height:520px;padding:28px 8px 20px}.hero-copy>.eyebrow{font-size:9px;letter-spacing:.26em;gap:8px}.hero-copy>.eyebrow::before,.hero-copy>.eyebrow::after{width:24px}.master-hero-logo{width:118vw!important;max-width:none!important;max-height:220px!important;transform:translateX(0)}.hero-summary{font-size:14px!important;max-width:92vw!important}.hero .button{min-width:240px;margin-top:12px}.hero .vector-horizon{bottom:118px}.hero .vector-grid{bottom:-23%;height:46%;background-size:30px 24px}}
