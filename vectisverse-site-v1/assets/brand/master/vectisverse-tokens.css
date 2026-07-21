@@ -1,0 +1,32 @@
+:root {
+  --vv-space-black: #05090F;
+  --vv-void-navy: #081D33;
+  --vv-electric-cyan: #00D9FF;
+  --vv-signal-blue: #0066FF;
+  --vv-deep-cobalt: #0B2A6F;
+  --vv-chrome-white: #F5F7F8;
+  --vv-chrome-silver: #C0C7CF;
+  --vv-gunmetal: #454F5A;
+  --vv-font-display: "Orbitron", "Arial Narrow", sans-serif;
+  --vv-font-body: "Rajdhani", "Segoe UI", Arial, sans-serif;
+  --vv-space-1: 4px;
+  --vv-space-2: 8px;
+  --vv-space-3: 12px;
+  --vv-space-4: 16px;
+  --vv-space-5: 24px;
+  --vv-space-6: 32px;
+  --vv-space-7: 48px;
+  --vv-space-8: 64px;
+  --vv-space-9: 96px;
+  --vv-space-10: 128px;
+  --vv-radius-sm: 8px;
+  --vv-radius-md: 14px;
+  --vv-radius-lg: 20px;
+  --vv-glow-focus: 0 0 0 3px rgba(0, 217, 255, .35);
+  --vv-glow-sm: 0 0 10px rgba(0, 217, 255, .38);
+  --vv-glow-md: 0 0 20px rgba(0, 217, 255, .30);
+  --vv-glow-lg: 0 0 34px rgba(0, 102, 255, .24);
+  --vv-chrome: linear-gradient(180deg, #FFFFFF 0%, #C0C7CF 22%, #F5F7F8 43%, #737E89 63%, #313A44 78%, #C0C7CF 100%);
+}
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--vv-chrome-white); background: var(--vv-space-black); font-family: var(--vv-font-body); }
