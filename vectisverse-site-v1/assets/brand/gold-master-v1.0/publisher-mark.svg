@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="VectisVerse publisher mark">
+<defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".25" stop-color="#b9c2cb"/><stop offset=".52" stop-color="#eef1f4"/><stop offset=".78" stop-color="#626c77"/><stop offset="1" stop-color="#242c34"/></linearGradient><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34dbff"/><stop offset=".52" stop-color="#087dff"/><stop offset="1" stop-color="#0735c8"/></linearGradient><filter id="g" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="7" result="x"/><feMerge><feMergeNode in="x"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect x="5" y="5" width="230" height="230" rx="24" fill="#03070b" stroke="#2ccfff" stroke-opacity=".45" stroke-width="3"/>
+<path d="M40 28 L95 28 L120 135 L145 28 L200 28 L156 204 L84 204 Z" fill="url(#s)" stroke="#151c23" stroke-width="6"/>
+<path d="M120 72 L190 120 L120 168 L50 120 Z" fill="url(#b)" stroke="#24c9ff" stroke-width="4" filter="url(#g)"/>
+<path d="M76 120 L120 90 L164 120 L120 150 Z" fill="none" stroke="#baf2ff" stroke-opacity=".62" stroke-width="3"/>
+</svg>
