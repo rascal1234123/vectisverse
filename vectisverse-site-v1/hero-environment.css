@@ -1,4 +1,4 @@
-/* VectisVerse Hero Environment Gold Master v1.0 */
+/* VectisVerse Hero Environment Gold Master v1.1 */
 .hero{min-height:650px;background:#05090f url('assets/hero-environment/space-background.svg') center/cover no-repeat;isolation:isolate}
 .hero::before{content:'';position:absolute;inset:0;background:url('assets/hero-environment/starfield.svg') center top/cover no-repeat;opacity:.92;z-index:0;pointer-events:none}
 .hero::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(255,255,255,.025) 0,rgba(255,255,255,.025) 1px,transparent 1px,transparent 4px),radial-gradient(circle at 50% 58%,rgba(0,102,255,.22),transparent 34%);z-index:7;pointer-events:none}
@@ -11,4 +11,18 @@
 .hero-summary,.hero .button,.hero .eyebrow{position:relative;z-index:6}
 .hero .button{box-shadow:0 0 16px rgba(0,217,255,.55),0 0 42px rgba(0,102,255,.25),inset 0 0 18px rgba(0,102,255,.22)}
 @media(max-width:1000px){.hero{min-height:620px}.vector-horizon{bottom:74px;height:235px}.vector-horizon::before{height:220px}.vector-grid{height:42%}}
-@media(max-width:680px){.hero{min-height:545px}.vector-horizon{bottom:65px;height:180px;background-size:125% 115px}.vector-horizon::before{height:155px;background-size:140% 100%}.vector-horizon::after{bottom:75px;width:180px}.vector-grid{height:36%;bottom:0;background-size:145% 100%}}
+@media(max-width:680px){
+  .site-header{padding-left:22px;padding-right:22px}
+  .brand{width:58px;height:58px;overflow:visible;flex:0 0 58px}
+  .brand img{display:block;width:58px!important;height:58px!important;max-width:none;object-fit:contain;object-position:center}
+  .hero{min-height:600px;padding:28px 12px 0;overflow:hidden}
+  .hero-copy{width:100%;padding-top:0;overflow:visible}
+  .hero-identity{width:100%;margin:6px auto 0;display:flex;align-items:center;justify-content:center;overflow:visible}
+  .master-hero-logo{display:block;width:92vw!important;max-width:92vw!important;height:auto!important;max-height:none!important;margin:0 auto;object-fit:contain;object-position:center;transform:none}
+  .hero-summary{max-width:88vw;margin:18px auto 0;font-size:14px;line-height:1.45}
+  .hero .button{margin-top:18px}
+  .vector-horizon{bottom:52px;height:188px;background-size:135% 118px}
+  .vector-horizon::before{height:160px;background-size:155% 100%}
+  .vector-horizon::after{bottom:76px;width:180px}
+  .vector-grid{height:38%;bottom:0;background-size:150% 100%}
+}
