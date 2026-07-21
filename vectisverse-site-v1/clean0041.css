@@ -1,0 +1,14 @@
+/* Clean Build 004.1 — install the locked VectisVerse master identity */
+.site-header .brand{width:62px;height:62px;padding:0;border:0;background:transparent;box-shadow:none;overflow:visible}
+.site-header .brand img{display:block!important;position:static!important;width:62px!important;height:62px!important;max-width:100%!important;object-fit:contain!important}
+.site-header .brand .vv-icon{display:none!important}
+.hero{min-height:700px;padding:62px 24px 54px}
+.hero-copy{width:min(1420px,97vw)}
+.hero-copy>.eyebrow{margin-bottom:10px}
+.hero-identity{width:100%;margin:0 auto 18px;display:grid;place-items:center}
+.master-hero-logo{display:block;width:min(1450px,96vw);height:auto;max-height:370px;object-fit:contain;filter:drop-shadow(0 0 30px rgba(0,127,255,.18))}
+.hero-wordmark,.hero-tagline,.hero-emblem{display:none!important}
+.hero-summary{max-width:760px!important;margin:8px auto 0!important}
+.hero .button{margin-top:24px}
+.footer-brand img{width:min(360px,72vw);height:auto}
+@media(max-width:680px){.site-header .brand,.site-header .brand img{width:50px!important;height:50px!important}.hero{min-height:570px;padding:64px 10px 44px}.master-hero-logo{width:112vw;max-width:none}.hero-summary{max-width:90vw!important}.hero-copy>.eyebrow{font-size:9px}}
