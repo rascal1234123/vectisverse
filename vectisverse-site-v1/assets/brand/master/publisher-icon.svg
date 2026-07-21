@@ -1,1 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="1122 150 658 517" role="img" aria-label="VectisVerse publisher mark"><defs><linearGradient id="c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".16" stop-color="#cfd5dc"/><stop offset=".34" stop-color="#fff"/><stop offset=".54" stop-color="#7e8791"/><stop offset=".72" stop-color="#2c333b"/><stop offset=".86" stop-color="#dfe4e8"/><stop offset="1" stop-color="#707984"/></linearGradient><path id="v" d="M 1732.5,185.0 L 1735.5,218.0 L 1744.5,222.0 L 1744.5,243.0 L 1742.0,245.5 L 1736.0,245.5 L 1734.5,251.0 L 1733.5,278.0 L 1730.5,248.0 L 1718.0,247.5 L 1701.5,272.0 L 1673.0,321.5 L 1629.0,321.5 L 1534.5,386.0 L 1467.0,630.5 L 1377.0,631.5 L 1375.5,630.0 L 1275.5,450.0 L 1239.5,389.0 L 1178.5,275.0 L 1156.5,240.0 L 1157.0,236.5 L 1315.0,236.5 L 1437.0,454.5 L 1576.0,236.5 L 1710.0,236.5 L 1711.0,234.5 L 1703.0,233.5 L 1637.5,232.0 L 1716.0,229.5 L 1720.0,221.5 L 1730.5,217.0 L 1732.5,185.0 Z" fill-rule="evenodd" stroke-linejoin="miter"/></defs><use href="#v" fill="#06162d" stroke="#00cfff" stroke-width="11"/><use href="#v" fill="url(#c)" stroke="#243341" stroke-width="5"/><use href="#v" fill="none" stroke="#e9fbff" stroke-width="1.5" opacity=".76"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="VectisVerse publisher mark">
+  <defs>
+    <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.18" stop-color="#dce3ea"/>
+      <stop offset="0.38" stop-color="#ffffff"/>
+      <stop offset="0.58" stop-color="#8d98a3"/>
+      <stop offset="0.78" stop-color="#303a44"/>
+      <stop offset="1" stop-color="#aeb8c1"/>
+    </linearGradient>
+    <linearGradient id="crystal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5df4ff"/>
+      <stop offset="0.45" stop-color="#0c8cff"/>
+      <stop offset="1" stop-color="#173cff"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <path d="M34 34h48l46 90 46-90h48L128 226 34 34z" fill="#06162d" stroke="#00cfff" stroke-width="8" stroke-linejoin="miter"/>
+  <path d="M42 40h34l52 102 52-102h34L128 210 42 40z" fill="url(#chrome)" stroke="#243341" stroke-width="4" stroke-linejoin="miter"/>
+  <path d="M128 86l50 42-50 42-50-42 50-42z" fill="url(#crystal)" stroke="#5df4ff" stroke-width="5" filter="url(#glow)"/>
+  <path d="M128 96l38 32-38 32-38-32 38-32z" fill="none" stroke="#d8fbff" stroke-width="2.5" opacity="0.78"/>
+</svg>
