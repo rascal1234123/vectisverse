@@ -1,0 +1,10 @@
+/* Build 006 — approved Gold Master hero composite */
+.hero.hero-single{min-height:780px;background:#00040a;overflow:hidden}
+.hero-single .starfield{opacity:.22}
+.hero-single .hero-aurora{background:radial-gradient(ellipse at 50% 48%,rgba(0,84,168,.16),transparent 48%)}
+.hero-single .hero-lockup{width:min(1480px,96vw);transform:translateY(-10px)}
+.hero-single .hero-composite{display:block;width:min(1420px,95vw);height:auto;object-fit:contain;filter:drop-shadow(0 0 24px rgba(0,118,255,.24))}
+.hero-single .hero-action{margin-top:20px;font-family:"Exo 2","Arial Narrow",Arial,sans-serif;padding:14px 31px;border:1px solid rgba(29,194,255,.66);background:rgba(0,8,18,.42);color:#27c8ff;text-transform:uppercase;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.18em}
+.hero-single .hero-logo,.hero-single .hero-tagline{display:none!important}
+@media(max-width:900px){.hero.hero-single{min-height:680px}.hero-single .hero-composite{width:98vw}.hero-single .hero-action{margin-top:18px}}
+@media(max-width:680px){.hero.hero-single{min-height:570px}.hero-single .hero-lockup{width:100vw}.hero-single .hero-composite{width:108vw;max-width:none}.hero-single .hero-action{margin-top:14px;padding:13px 22px;font-size:10px}}
