@@ -1,0 +1,20 @@
+{
+  "name": "VectisVerse Website Gold Master v1.0 update",
+  "type": "merge update",
+  "target": "vectisverse-site-v1",
+  "requires_existing_asset_folders": [
+    "assets/brand",
+    "assets/riptide",
+    "assets/v",
+    "assets/ftw",
+    "assets/shop",
+    "assets/concepts"
+  ],
+  "new_files": [
+    "index.html",
+    "concepts.html",
+    "css/goldmaster.css",
+    "js/site.js",
+    "assets/brand/hero-composite-reference.jpg"
+  ]
+}
