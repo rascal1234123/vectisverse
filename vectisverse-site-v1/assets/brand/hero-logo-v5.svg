@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" role="img" aria-labelledby="title desc">
-<title id="title">VectisVerse — One Island. Endless Stories.</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 650" role="img" aria-labelledby="title desc">
+<title id="title">VectisVerse</title>
 <desc id="desc">Metallic VectisVerse wordmark above a glowing Earth horizon and Isle of Wight silhouette.</desc>
 <defs>
  <linearGradient id="silver" x1="0" y1="0" x2="0" y2="1">
@@ -10,22 +10,15 @@
  <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
   <stop stop-color="#19d8ff"/><stop offset=".52" stop-color="#0876ff"/><stop offset="1" stop-color="#063eaa"/>
  </linearGradient>
- <radialGradient id="earth" cx="50%" cy="0%" r="86%">
-  <stop offset="0" stop-color="#1d78b7"/><stop offset=".2" stop-color="#0c3757"/>
-  <stop offset=".56" stop-color="#041421"/><stop offset="1" stop-color="#01050a"/>
- </radialGradient>
  <filter id="blueGlow" x="-70%" y="-70%" width="240%" height="240%">
   <feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
  </filter>
- <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-  <feGaussianBlur stdDeviation="18"/>
- </filter>
+ <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
 </defs>
-<ellipse cx="800" cy="586" rx="610" ry="120" fill="#0066ff" opacity=".11" filter="url(#softGlow)"/>
-<path d="M110 594 Q800 442 1490 594 L1490 800 L110 800 Z" fill="url(#earth)" opacity=".92"/>
-<path d="M105 591 Q800 442 1495 591" fill="none" stroke="#0879ff" stroke-width="6" opacity=".82" filter="url(#blueGlow)"/>
-<path d="M110 600 Q800 468 1490 600" fill="none" stroke="#38ccff" stroke-width="1.7" opacity=".9"/>
-<path d="M645 558 C680 535 720 531 760 540 C802 550 824 536 858 539 C904 543 930 565 962 568 C925 585 883 590 840 586 C789 581 752 591 711 581 C680 574 655 567 645 558 Z" fill="#01050a" stroke="#0a75ff" stroke-width="3" filter="url(#blueGlow)"/>
+<ellipse cx="800" cy="586" rx="610" ry="90" fill="#0066ff" opacity=".08" filter="url(#softGlow)"/>
+<path d="M105 591 Q800 442 1495 591" fill="none" stroke="#0879ff" stroke-width="5" opacity=".78" filter="url(#blueGlow)"/>
+<path d="M110 600 Q800 468 1490 600" fill="none" stroke="#38ccff" stroke-width="1.5" opacity=".82"/>
+<path d="M665 558 C694 539 726 536 760 543 C799 551 822 539 854 542 C891 545 916 562 942 566 C910 579 877 583 842 580 C799 576 765 584 731 576 C701 570 678 565 665 558 Z" fill="#01050a" stroke="#0a75ff" stroke-width="2.4" filter="url(#blueGlow)"/>
 <text x="800" y="320" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-weight="700" font-size="154" letter-spacing="-7" fill="url(#silver)" stroke="#20252c" stroke-width="4">VECTISVERSE</text>
 <g transform="translate(698,128) scale(.84)">
  <path d="M0 0 L122 245 L244 0 L182 0 L122 132 L62 0 Z" fill="url(#silver)" stroke="#141820" stroke-width="8"/>
@@ -33,5 +26,4 @@
  <path d="M28 40 L122 230 L216 40" fill="none" stroke="#e1e5e9" stroke-width="9"/>
 </g>
 <g filter="url(#blueGlow)" stroke="#fff" opacity=".95"><path d="M800 134v64M768 166h64" stroke-width="5"/></g>
-<text x="800" y="725" text-anchor="middle" fill="#12bfff" font-family="Arial, sans-serif" font-size="32" letter-spacing="15">ONE ISLAND. ENDLESS STORIES.</text>
 </svg>
