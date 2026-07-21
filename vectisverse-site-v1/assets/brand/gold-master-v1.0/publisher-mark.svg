@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="VectisVerse publisher mark">
-<defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".25" stop-color="#b9c2cb"/><stop offset=".52" stop-color="#eef1f4"/><stop offset=".78" stop-color="#626c77"/><stop offset="1" stop-color="#242c34"/></linearGradient><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34dbff"/><stop offset=".52" stop-color="#087dff"/><stop offset="1" stop-color="#0735c8"/></linearGradient><filter id="g" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="7" result="x"/><feMerge><feMergeNode in="x"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-<rect x="5" y="5" width="230" height="230" rx="24" fill="#03070b" stroke="#2ccfff" stroke-opacity=".45" stroke-width="3"/>
-<path d="M40 28 L95 28 L120 135 L145 28 L200 28 L156 204 L84 204 Z" fill="url(#s)" stroke="#151c23" stroke-width="6"/>
-<path d="M120 72 L190 120 L120 168 L50 120 Z" fill="url(#b)" stroke="#24c9ff" stroke-width="4" filter="url(#g)"/>
-<path d="M76 120 L120 90 L164 120 L120 150 Z" fill="none" stroke="#baf2ff" stroke-opacity=".62" stroke-width="3"/>
+<defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".22" stop-color="#dce2e7"/><stop offset=".48" stop-color="#7b858f"/><stop offset=".62" stop-color="#f7f9fa"/><stop offset="1" stop-color="#26303a"/></linearGradient><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#43e6ff"/><stop offset=".48" stop-color="#0b8cff"/><stop offset="1" stop-color="#0732c9"/></linearGradient><filter id="g" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="7" result="x"/><feMerge><feMergeNode in="x"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect x="6" y="6" width="228" height="228" rx="12" fill="#02070c" stroke="#2bdcff" stroke-opacity=".7" stroke-width="3"/>
+<path d="M38 24 H93 L120 133 L147 24 H202 L157 212 H83 Z" fill="url(#s)" stroke="#061827" stroke-width="7"/>
+<path d="M120 70 L198 120 L120 170 L42 120 Z" fill="url(#b)" stroke="#28d9ff" stroke-width="4" filter="url(#g)"/>
+<path d="M69 120 L120 87 L171 120 L120 153 Z" fill="none" stroke="#c2f7ff" stroke-opacity=".78" stroke-width="3"/>
+<path d="M120 50 V190 M53 120 H187" stroke="#39dfff" stroke-opacity=".3" stroke-width="2"/>
+<circle cx="120" cy="120" r="5" fill="#fff" filter="url(#g)"/>
 </svg>
