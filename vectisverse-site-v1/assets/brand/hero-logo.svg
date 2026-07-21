@@ -12,7 +12,6 @@
   <feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
  </filter>
 </defs>
-<rect width="1600" height="720" fill="#000"/>
 <path d="M40 535 Q800 355 1560 535" fill="none" stroke="#0066ff" stroke-width="8" filter="url(#glow)"/>
 <path d="M45 545 Q800 390 1555 545" fill="none" stroke="#35c7ff" stroke-width="2"/>
 <path d="M510 498 C560 465 610 460 670 475 C725 488 765 468 820 472 C890 478 930 520 985 520 C920 548 855 555 790 548 C710 540 650 552 585 536 C550 528 520 514 510 498 Z" fill="#02060a" stroke="#0066ff" stroke-width="4" filter="url(#glow)"/>
