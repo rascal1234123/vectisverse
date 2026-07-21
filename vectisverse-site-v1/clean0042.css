@@ -1,0 +1,28 @@
+/* VectisVerse Clean Build 004.2 — retro vector hero and navigation */
+:root{--arcade-cyan:#20d8ff;--arcade-blue:#0877ff;--arcade-navy:#020812;--arcade-grid:rgba(16,166,255,.34)}
+body{background:#01050a}
+.site-header{height:78px;background:rgba(0,4,9,.96);border-bottom:1px solid rgba(32,216,255,.34);box-shadow:0 8px 30px rgba(0,0,0,.45)}
+.site-header::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--arcade-cyan),transparent);opacity:.5}
+.site-header nav a{font-family:'Rajdhani','Exo 2',sans-serif;font-size:15px;letter-spacing:.08em;position:relative}
+.site-header nav a:first-child{color:var(--arcade-cyan)}
+.site-header nav a:first-child::after{content:'';position:absolute;left:0;right:0;bottom:-17px;height:2px;background:var(--arcade-cyan);box-shadow:0 0 9px var(--arcade-cyan)}
+.site-header .brand{width:64px;height:64px;border:1px solid rgba(32,216,255,.75);border-radius:3px;background:linear-gradient(145deg,#06101b,#010306);box-shadow:inset 0 0 20px rgba(0,140,255,.08),0 0 14px rgba(0,140,255,.12)}
+.site-header .brand img{display:block!important;width:54px!important;height:54px!important;object-fit:contain!important;position:static!important}
+.hero{position:relative;isolation:isolate;min-height:700px;padding:52px 24px 38px;display:flex;align-items:flex-start;justify-content:center;overflow:hidden;background:linear-gradient(180deg,#01050a 0%,#020b18 62%,#01050a 100%)}
+.hero::before{content:'';position:absolute;inset:0;z-index:-4;background-image:radial-gradient(circle at 12% 18%,rgba(255,255,255,.95) 0 1px,transparent 1.6px),radial-gradient(circle at 69% 23%,rgba(52,209,255,.9) 0 1px,transparent 1.5px),radial-gradient(circle at 84% 14%,rgba(255,255,255,.8) 0 1px,transparent 1.7px);background-size:149px 149px,211px 211px,257px 257px;opacity:.52}
+.hero::after{content:'';position:absolute;inset:0;z-index:8;pointer-events:none;background:repeating-linear-gradient(180deg,rgba(255,255,255,.018) 0,rgba(255,255,255,.018) 1px,transparent 1px,transparent 4px);mix-blend-mode:screen;opacity:.45}
+.hero .starfield{position:absolute;inset:0;z-index:-3;opacity:.5;background:radial-gradient(circle at 50% 38%,rgba(0,116,255,.28),transparent 27%),linear-gradient(180deg,transparent 58%,rgba(0,109,230,.07) 100%)}
+.hero .vector-grid{position:absolute;left:-12%;right:-12%;bottom:-22%;height:48%;z-index:-2;transform:perspective(500px) rotateX(63deg);transform-origin:center bottom;background-image:linear-gradient(var(--arcade-grid) 1px,transparent 1px),linear-gradient(90deg,var(--arcade-grid) 1px,transparent 1px);background-size:52px 38px;mask-image:linear-gradient(to top,#000 0%,#000 55%,transparent 100%);filter:drop-shadow(0 0 5px rgba(0,160,255,.38))}
+.hero .vector-horizon{position:absolute;left:6%;right:6%;bottom:174px;height:2px;z-index:-1;background:linear-gradient(90deg,transparent 0%,var(--arcade-cyan) 14%,#fff 50%,var(--arcade-cyan) 86%,transparent 100%);box-shadow:0 0 8px var(--arcade-cyan),0 0 30px rgba(0,129,255,.78)}
+.hero .vector-horizon::before,.hero .vector-horizon::after{content:'';position:absolute;bottom:0;width:25%;height:80px;border-top:1px solid rgba(32,216,255,.7);filter:drop-shadow(0 0 4px rgba(0,157,255,.55))}
+.hero .vector-horizon::before{left:0;clip-path:polygon(0 100%,12% 62%,20% 72%,31% 38%,43% 62%,55% 28%,68% 50%,78% 18%,88% 47%,100% 0,100% 100%)}
+.hero .vector-horizon::after{right:0;clip-path:polygon(0 0,12% 47%,22% 18%,32% 50%,45% 28%,57% 62%,69% 38%,80% 72%,88% 62%,100% 100%,0 100%)}
+.hero-copy{width:min(1360px,96vw);position:relative;z-index:2;text-align:center}
+.hero-copy>.eyebrow{margin:0 0 18px;font-size:15px;letter-spacing:.36em;color:var(--arcade-cyan);text-shadow:0 0 10px rgba(32,216,255,.45)}
+.hero-identity{width:100%;margin:0 auto 10px;display:flex;justify-content:center;overflow:visible}
+.master-hero-logo{display:block;width:min(1260px,88vw)!important;max-width:100%!important;height:auto!important;max-height:350px;object-fit:contain;overflow:visible;filter:drop-shadow(0 0 10px rgba(0,161,255,.45)) drop-shadow(0 0 36px rgba(0,92,255,.24))}
+.hero-summary{max-width:720px!important;margin:4px auto 0!important;color:#eef8ff!important;font-size:18px!important;line-height:1.45!important;text-shadow:0 2px 4px #000}
+.hero .button{margin-top:20px;padding:14px 42px;font-family:'Rajdhani','Exo 2',sans-serif;font-size:18px;letter-spacing:.08em;border:1px solid var(--arcade-cyan);color:var(--arcade-cyan);background:linear-gradient(180deg,rgba(0,47,87,.62),rgba(0,14,29,.72));clip-path:polygon(10px 0,calc(100% - 10px) 0,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0 calc(100% - 10px),0 10px);box-shadow:0 0 0 1px rgba(32,216,255,.14),0 0 22px rgba(0,154,255,.22),inset 0 0 22px rgba(0,131,255,.12)}
+.hero .button:hover{background:rgba(0,117,190,.2);box-shadow:0 0 30px rgba(0,190,255,.42),inset 0 0 24px rgba(0,131,255,.16)}
+@media(max-width:900px){.master-hero-logo{width:min(1100px,94vw)!important}.hero{min-height:640px}.hero .vector-horizon{bottom:155px}}
+@media(max-width:680px){.site-header{height:66px}.site-header .brand{width:52px;height:52px}.site-header .brand img{width:45px!important;height:45px!important}.hero{min-height:560px;padding:46px 10px 26px}.hero-copy>.eyebrow{font-size:10px;letter-spacing:.25em}.master-hero-logo{width:112vw!important;max-width:none!important;max-height:245px}.hero-summary{font-size:15px!important;max-width:90vw!important}.hero .button{font-size:15px;padding:12px 28px}.hero .vector-horizon{bottom:142px;left:1%;right:1%}.hero .vector-grid{height:42%;bottom:-18%;background-size:34px 28px}}
