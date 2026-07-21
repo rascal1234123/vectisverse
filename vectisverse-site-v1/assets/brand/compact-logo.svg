@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260">
+<defs><linearGradient id="s" y2="1"><stop stop-color="#fff"/><stop offset=".5" stop-color="#777"/><stop offset="1" stop-color="#eee"/></linearGradient><linearGradient id="b"><stop stop-color="#00cfff"/><stop offset="1" stop-color="#0066ff"/></linearGradient></defs>
+<g transform="translate(20,15)"><path d="M0 0L105 220 210 0h-58l-47 112L58 0z" fill="url(#s)"/><path d="M52 82l53-34 53 34-53 37z" fill="url(#b)"/></g>
+<text x="250" y="175" font-family="Cinzel,Georgia,serif" font-size="150" fill="url(#s)">VECTISVERSE</text></svg>

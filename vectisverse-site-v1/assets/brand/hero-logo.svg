@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 720">
+<defs>
+ <linearGradient id="silver" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#ffffff"/><stop offset=".18" stop-color="#bfc4ca"/>
+  <stop offset=".45" stop-color="#5c626a"/><stop offset=".62" stop-color="#f0f0f0"/>
+  <stop offset="1" stop-color="#222831"/>
+ </linearGradient>
+ <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+  <stop stop-color="#00cfff"/><stop offset=".55" stop-color="#0066ff"/><stop offset="1" stop-color="#043b9e"/>
+ </linearGradient>
+ <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+  <feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+ </filter>
+</defs>
+<rect width="1600" height="720" fill="#000"/>
+<path d="M40 535 Q800 355 1560 535" fill="none" stroke="#0066ff" stroke-width="8" filter="url(#glow)"/>
+<path d="M45 545 Q800 390 1555 545" fill="none" stroke="#35c7ff" stroke-width="2"/>
+<path d="M510 498 C560 465 610 460 670 475 C725 488 765 468 820 472 C890 478 930 520 985 520 C920 548 855 555 790 548 C710 540 650 552 585 536 C550 528 520 514 510 498 Z" fill="#02060a" stroke="#0066ff" stroke-width="4" filter="url(#glow)"/>
+<text x="800" y="260" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-weight="700" font-size="190" letter-spacing="-8" fill="url(#silver)" stroke="#20252c" stroke-width="5">VECTISVERSE</text>
+<g transform="translate(678,70)">
+ <path d="M0 0 L122 245 L244 0 L182 0 L122 132 L62 0 Z" fill="url(#silver)" stroke="#141820" stroke-width="8"/>
+ <path d="M63 92 L122 54 L181 92 L122 130 Z" fill="url(#blue)" stroke="#0066ff" stroke-width="4" filter="url(#glow)"/>
+ <path d="M28 40 L122 230 L216 40" fill="none" stroke="#d8dde3" stroke-width="10"/>
+</g>
+<g filter="url(#glow)" stroke="#fff">
+ <path d="M800 80v80M760 120h80" stroke-width="6"/>
+</g>
+<text x="800" y="665" text-anchor="middle" fill="#00aaff" font-family="Arial, sans-serif" font-size="42" letter-spacing="18">ONE ISLAND. ENDLESS STORIES.</text>
+</svg>

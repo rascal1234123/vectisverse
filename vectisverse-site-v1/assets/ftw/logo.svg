@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420">
+<defs>
+ <filter id="rough"><feTurbulence baseFrequency=".9" numOctaves="2" seed="7" type="fractalNoise" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3"/></filter>
+ <linearGradient id="blade" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#d9d9d9"/><stop offset=".45" stop-color="#6b6b6b"/><stop offset=".75" stop-color="#151515"/><stop offset="1" stop-color="#e60000"/></linearGradient>
+</defs>
+<rect width="1200" height="420" fill="#080808"/>
+<g transform="translate(45 45)">
+ <text x="0" y="235" font-family="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif" font-size="270" letter-spacing="2" fill="#f4f4f4" stroke="#303030" stroke-width="5" filter="url(#rough)">F.T.W.</text>
+ <path d="M50 30 L105 20 L83 250 L55 260 Z" fill="url(#blade)" stroke="#111" stroke-width="6"/>
+ <path d="M70 35 L88 32 L72 250 L61 252 Z" fill="#f8f8f8" opacity=".75"/>
+ <path d="M64 205 L83 198 L80 235 L62 241 Z" fill="#9d0000"/>
+</g>
+<text x="600" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="32" letter-spacing="5" fill="#fff">THIRTEEN BOSSES. <tspan fill="#e60000">ONE WAY HOME.</tspan></text>
+</svg>

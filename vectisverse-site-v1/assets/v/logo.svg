@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+<defs>
+  <linearGradient id="pinkBlue" x1="0" x2="1">
+    <stop offset="0" stop-color="#ff2e9a"/><stop offset=".48" stop-color="#c000ff"/><stop offset="1" stop-color="#00cfff"/>
+  </linearGradient>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+<g fill="none" stroke="url(#pinkBlue)" stroke-width="15" stroke-linejoin="round" filter="url(#glow)">
+  <path d="M95 70 L330 420 L445 235 L555 410 L720 75 L575 75 L445 315 L315 75 Z"/>
+  <path d="M455 235 C540 185 635 230 640 320 C645 410 550 455 480 405 C435 374 435 325 470 293 C505 260 565 276 570 325"/>
+</g>
+<text x="400" y="495" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="30" letter-spacing="14">THE NEXT EVOLUTION</text>
+</svg>
