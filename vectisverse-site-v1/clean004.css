@@ -1,0 +1,33 @@
+/* VectisVerse Clean Build 004 — point 1: definitive publisher logo */
+:root{--vv-silver-1:#f7f9fb;--vv-silver-2:#a9b2bc;--vv-silver-3:#4d5660;--vv-blue:#20c8ff;--vv-deep:#0649ff}
+
+/* Header publisher mark: same V and diamond geometry as the hero */
+.site-header .brand{width:62px;height:62px;display:grid;place-items:center;overflow:visible;border:1px solid rgba(55,190,245,.34);border-radius:7px;background:linear-gradient(145deg,#07111c,#010407);box-shadow:0 0 18px rgba(0,153,255,.10)}
+.site-header .brand img{display:none!important}
+.vv-icon{position:relative;width:46px;height:48px;filter:drop-shadow(0 0 10px rgba(0,144,255,.28))}
+.vv-icon::before,.vv-icon::after{content:'';position:absolute;top:1px;width:20px;height:45px;background:linear-gradient(180deg,var(--vv-silver-1) 0,var(--vv-silver-2) 38%,#edf1f4 58%,var(--vv-silver-3) 100%);clip-path:polygon(8% 0,100% 0,64% 100%,42% 100%);border:1px solid #131a21}
+.vv-icon::before{left:4px;transform:skewX(5deg)}
+.vv-icon::after{right:4px;transform:skewX(-5deg)}
+.vv-icon .vv-diamond{position:absolute;z-index:3;left:50%;top:17px;width:28px;height:18px;transform:translateX(-50%) rotate(45deg);background:linear-gradient(135deg,var(--vv-blue),var(--vv-deep) 72%);box-shadow:0 0 13px rgba(0,138,255,.78)}
+
+/* Central publisher identity */
+.hero{min-height:720px;padding:78px 24px 58px;background:radial-gradient(circle at 50% 43%,rgba(0,111,214,.23),transparent 30%),linear-gradient(180deg,#02060b,#03111d 60%,#02060b)}
+.hero-copy{width:min(1280px,96vw)}
+.hero-copy>.eyebrow{margin-bottom:22px}
+.hero-identity{margin:0 auto 25px;display:flex;flex-direction:column;align-items:center}
+.hero-emblem{display:none!important}
+.hero-wordmark{display:flex;align-items:center;justify-content:center;gap:.01em;white-space:nowrap;font-family:'Rajdhani','Exo 2',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(70px,9.4vw,150px);letter-spacing:.005em;line-height:.82;color:#eef2f5;text-shadow:0 2px 0 #505a64,0 5px 0 #151c23,0 0 32px rgba(0,130,255,.16)}
+.hero-wordmark .vv-first{display:inline-block;font-size:1.18em;line-height:.72;transform:scaleX(.78) translateY(.025em);transform-origin:right center;margin-right:-.06em;background:linear-gradient(180deg,var(--vv-silver-1),var(--vv-silver-2) 38%,#f1f4f6 58%,var(--vv-silver-3));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 0 #151c23)}
+.hero-wordmark .vv-plain{background:linear-gradient(180deg,var(--vv-silver-1),var(--vv-silver-2) 39%,#eef1f4 60%,var(--vv-silver-3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-wordmark .vv-core{position:relative;display:inline-grid;place-items:center;width:.86em;height:.92em;margin:0 .025em;transform:translateY(.03em);filter:drop-shadow(0 0 16px rgba(0,146,255,.25))}
+.hero-wordmark .vv-core::before,.hero-wordmark .vv-core::after{content:'';position:absolute;top:0;width:41%;height:100%;background:linear-gradient(180deg,var(--vv-silver-1),var(--vv-silver-2) 37%,#f0f3f5 58%,var(--vv-silver-3));clip-path:polygon(0 0,100% 0,63% 100%,40% 100%);border:2px solid #121a22}
+.hero-wordmark .vv-core::before{left:10%;transform:skewX(6deg)}
+.hero-wordmark .vv-core::after{right:10%;transform:skewX(-6deg)}
+.hero-wordmark .vv-core .vv-diamond{position:absolute;z-index:4;left:50%;top:38%;width:74%;height:29%;transform:translate(-50%,-50%) rotate(45deg) scaleX(1.28);background:linear-gradient(135deg,var(--vv-blue),var(--vv-deep) 72%);box-shadow:0 0 24px rgba(0,138,255,.8)}
+.hero-wordmark .vv-core .vv-diamond::after{content:'';position:absolute;inset:16%;background:rgba(255,255,255,.14)}
+.hero-tagline{margin:30px 0 0;letter-spacing:.34em;color:#62dbff}
+.hero-summary{margin-top:22px!important}
+.hero .button{margin-top:26px}
+
+@media(max-width:900px){.hero-wordmark{font-size:clamp(58px,10vw,105px)}}
+@media(max-width:680px){.site-header .brand{width:50px;height:50px}.vv-icon{transform:scale(.78)}.hero{min-height:620px;padding:72px 12px 50px}.hero-wordmark{font-size:clamp(40px,12.3vw,62px);letter-spacing:-.01em}.hero-wordmark .vv-first{font-size:1.12em}.hero-tagline{font-size:10px;letter-spacing:.20em}.hero-summary{font-size:16px!important;max-width:92vw!important}}
