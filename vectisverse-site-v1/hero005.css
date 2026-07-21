@@ -1,13 +1,18 @@
-/* Build 005 — refined Brand Bible hero proportions */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@500;600;700&display=swap');
+/* Build 005 — seamless Brand Bible hero and Gold Master typography */
 .site-header{height:76px;background:rgba(0,3,8,.96);border-bottom:1px solid rgba(57,183,232,.24)}
 .site-header .brand img{width:290px;height:58px}.site-header nav{gap:34px}
-.hero.hero-single{min-height:790px;background:radial-gradient(ellipse at 50% 48%,rgba(0,76,145,.23),rgba(0,16,34,.12) 38%,#00040a 76%),#00040a}
-.hero-single .starfield{opacity:.36;background-size:112px 112px,169px 169px,63px 63px;background-position:7px 3px,41px 31px,17px 11px}
-.hero-single .hero-aurora{background:radial-gradient(circle at 50% 27%,rgba(0,95,255,.21),transparent 26%),radial-gradient(ellipse at 50% 65%,rgba(0,156,255,.13),transparent 48%)}
-.hero-single .hero-lockup{width:min(1320px,94vw);transform:translateY(-28px)}
-.hero-single .hero-logo{width:min(1180px,88vw);filter:drop-shadow(0 0 8px rgba(255,255,255,.12)) drop-shadow(0 0 28px rgba(0,120,255,.38));animation:hero-pulse-v5 6s ease-in-out infinite}
-@keyframes hero-pulse-v5{50%{filter:drop-shadow(0 0 11px rgba(255,255,255,.16)) drop-shadow(0 0 36px rgba(0,136,255,.48))}}
-.hero-single .hero-action{margin-top:-18px;padding:15px 32px;border-color:rgba(29,194,255,.72);background:rgba(0,8,18,.5);font-size:12px;letter-spacing:.16em}
-.hero-single .hero-action:hover{background:rgba(0,96,160,.14);box-shadow:0 0 18px rgba(0,170,255,.22)}
-@media(max-width:900px){.site-header .brand img{width:225px}.hero.hero-single{min-height:690px}.hero-single .hero-lockup{transform:translateY(-18px)}.hero-single .hero-logo{width:94vw}.hero-single .hero-action{margin-top:-8px}}
-@media(max-width:680px){.site-header{height:68px}.site-header .brand img{width:182px}.hero.hero-single{min-height:590px}.hero-single .hero-lockup{transform:translateY(-10px)}.hero-single .hero-logo{width:103vw;max-width:none}.hero-single .hero-action{margin-top:0;padding:13px 22px;font-size:10px}}
+.site-header nav a,.hero-single .hero-tagline,.hero-single .hero-action{font-family:"Exo 2","Arial Narrow",Arial,sans-serif}
+.site-header nav a{font-weight:700;letter-spacing:.14em}
+.hero.hero-single{min-height:790px;background:radial-gradient(ellipse at 50% 50%,rgba(0,76,145,.21),rgba(0,16,34,.1) 39%,#00040a 77%),#00040a}
+.hero-single .starfield{opacity:.32;background-size:112px 112px,169px 169px,63px 63px;background-position:7px 3px,41px 31px,17px 11px}
+.hero-single .hero-aurora{background:radial-gradient(circle at 50% 27%,rgba(0,95,255,.18),transparent 26%),radial-gradient(ellipse at 50% 66%,rgba(0,156,255,.11),transparent 47%)}
+.hero-single .hero-lockup{width:min(1320px,94vw);transform:translateY(-22px)}
+.hero-single .hero-logo{width:min(1180px,88vw);filter:drop-shadow(0 0 7px rgba(255,255,255,.1)) drop-shadow(0 0 24px rgba(0,120,255,.32));animation:hero-pulse-v5 6s ease-in-out infinite}
+@keyframes hero-pulse-v5{50%{filter:drop-shadow(0 0 10px rgba(255,255,255,.14)) drop-shadow(0 0 31px rgba(0,136,255,.42))}}
+.hero-single .hero-tagline{display:block!important;margin:-22px 0 0!important;padding:0!important;border:0!important;color:#17bfff!important;font-size:clamp(12px,1.25vw,18px)!important;font-weight:600;line-height:1.2;letter-spacing:.42em!important;text-transform:uppercase;text-shadow:0 0 12px rgba(0,174,255,.45)!important}
+.hero-single .hero-action{margin-top:30px;padding:14px 31px;border-color:rgba(29,194,255,.66);background:rgba(0,8,18,.42);font-size:12px;font-weight:700;letter-spacing:.18em}
+.hero-single .hero-action:hover{background:rgba(0,96,160,.13);box-shadow:0 0 17px rgba(0,170,255,.2)}
+.hero-single .island-stage,.hero-single .earth-horizon,.hero-single .hero-orbit,.hero-single .scroll-cue{display:none!important}
+@media(max-width:900px){.site-header .brand img{width:225px}.hero.hero-single{min-height:690px}.hero-single .hero-lockup{transform:translateY(-15px)}.hero-single .hero-logo{width:94vw}.hero-single .hero-tagline{margin-top:-13px!important;letter-spacing:.3em!important}.hero-single .hero-action{margin-top:26px}}
+@media(max-width:680px){.site-header{height:68px}.site-header .brand img{width:182px}.hero.hero-single{min-height:590px}.hero-single .hero-lockup{transform:translateY(-7px)}.hero-single .hero-logo{width:103vw;max-width:none}.hero-single .hero-tagline{margin-top:-7px!important;font-size:9px!important;letter-spacing:.22em!important}.hero-single .hero-action{margin-top:22px;padding:13px 22px;font-size:10px}}
