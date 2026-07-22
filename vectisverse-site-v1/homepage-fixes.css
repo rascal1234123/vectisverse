@@ -15,6 +15,9 @@
 .ftw-teaser{color:#ff3b2f!important;border-color:#ff3b2f!important;box-shadow:0 0 22px rgba(255,59,47,.52),0 16px 40px rgba(0,0,0,.55)!important}
 .ftw-teaser::before{background:#ff3b2f;box-shadow:0 0 12px #ff3b2f,0 0 28px rgba(255,59,47,.86)}
 .ftw-teaser::after{left:82%;top:-16px;height:18px;transform:translateX(-50%);background:linear-gradient(to bottom,rgba(255,59,47,0),#ff3b2f 62%,#fff);box-shadow:0 0 18px #ff3b2f,0 0 36px rgba(255,59,47,.84)}
+.shop-banner{grid-column:1/-1;display:block;padding:0!important;overflow:hidden;border:2px solid #19d8ff!important;background:#02060b!important;box-shadow:0 0 22px rgba(25,216,255,.56),0 16px 40px rgba(0,0,0,.55)!important;clip-path:polygon(15px 0,calc(100% - 15px) 0,100% 15px,100% calc(100% - 15px),calc(100% - 15px) 100%,15px 100%,0 calc(100% - 15px),0 15px)}
+.shop-banner img{display:block;width:100%;height:auto}
+.shop-banner:hover,.shop-banner:focus-visible{transform:translateY(-2px);box-shadow:0 0 30px rgba(25,216,255,.72),0 18px 44px rgba(0,0,0,.62)!important}
 .contact-section{width:min(1100px,92vw);margin:0 auto 72px;padding:clamp(34px,5vw,62px);border:1px solid rgba(33,220,255,.55);background:linear-gradient(145deg,#071828,#02070d);clip-path:polygon(15px 0,calc(100% - 15px) 0,100% 15px,100% calc(100% - 15px),calc(100% - 15px) 100%,15px 100%,0 calc(100% - 15px),0 15px);box-shadow:0 16px 40px rgba(0,0,0,.5)}
 .contact-section h2{font-family:'Rajdhani',sans-serif;font-size:clamp(42px,7vw,76px);line-height:.9;text-transform:uppercase;margin:.25em 0}
 .contact-section>p{max-width:700px;color:#c6d6e1;line-height:1.6}
@@ -32,6 +35,7 @@
   .teaser-panel::before{left:9px;right:9px;height:3px}
   .riptide-teaser::after{top:-46px;height:48px;width:6px}
   .v-teaser::after,.ftw-teaser::after{top:-12px;height:14px;width:6px}
+  .shop-banner{clip-path:polygon(10px 0,calc(100% - 10px) 0,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0 calc(100% - 10px),0 10px)}
   .contact-form{grid-template-columns:1fr}
   .contact-form label:last-of-type,.contact-form button,.contact-note{grid-column:auto}
 }
