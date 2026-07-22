@@ -1,27 +1,21 @@
-/* VectisVerse Hero Environment Gold Master v1.1 */
-.hero{min-height:650px;background:#05090f url('assets/hero-environment/space-background.svg') center/cover no-repeat;isolation:isolate}
-.hero::before{content:'';position:absolute;inset:0;background:url('assets/hero-environment/starfield.svg') center top/cover no-repeat;opacity:.92;z-index:0;pointer-events:none}
-.hero::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(255,255,255,.025) 0,rgba(255,255,255,.025) 1px,transparent 1px,transparent 4px),radial-gradient(circle at 50% 58%,rgba(0,102,255,.22),transparent 34%);z-index:7;pointer-events:none}
+/* VectisVerse Hero Environment Gold Master v2.0 */
+.hero{min-height:650px;background:#02060b url('assets/hero-environment/1036F2D5-4F34-4FFA-94F0-87DF537B20C0.png?v=1') center center/cover no-repeat;isolation:isolate}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.02) 55%,rgba(0,0,0,.16));z-index:0;pointer-events:none}
+.hero::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(255,255,255,.018) 0,rgba(255,255,255,.018) 1px,transparent 1px,transparent 4px);z-index:7;pointer-events:none}
 .hero-copy{z-index:5;padding-top:10px}
-.vector-grid{left:0;right:0;bottom:-2%;height:46%;transform:none;background:url('assets/hero-environment/perspective-grid.svg') center bottom/100% 100% no-repeat;mask-image:linear-gradient(to top,#000 0%,#000 75%,transparent 100%);filter:drop-shadow(0 0 7px rgba(0,217,255,.48));opacity:.92;z-index:1}
-.vector-horizon{left:0;right:0;bottom:88px;height:280px;background:url('assets/hero-environment/horizon-glow.svg') center bottom/100% 150px no-repeat;box-shadow:none;z-index:2;pointer-events:none}
-.vector-horizon::before{content:'';position:absolute;inset:auto 0 0;height:260px;width:auto;border:0;background:url('assets/hero-environment/wireframe-landscape.svg') center bottom/100% 100% no-repeat;clip-path:none;filter:drop-shadow(0 0 8px rgba(0,217,255,.52));opacity:.92}
-.vector-horizon::after{display:none!important;content:none!important}
+.vector-grid,.vector-horizon{display:none!important}
 .master-hero-logo{position:relative;z-index:4;filter:drop-shadow(0 0 8px rgba(0,217,255,.75)) drop-shadow(0 0 30px rgba(0,102,255,.4))}
 .hero-summary,.hero .button,.hero .eyebrow{position:relative;z-index:6}
 .hero .button{box-shadow:0 0 16px rgba(0,217,255,.55),0 0 42px rgba(0,102,255,.25),inset 0 0 18px rgba(0,102,255,.22)}
-@media(max-width:1000px){.hero{min-height:620px}.vector-horizon{bottom:74px;height:235px}.vector-horizon::before{height:220px}.vector-grid{height:42%}}
+@media(max-width:1000px){.hero{min-height:620px;background-position:center center}}
 @media(max-width:680px){
   .site-header{padding-left:22px;padding-right:22px}
   .brand{width:58px;height:58px;overflow:visible;flex:0 0 58px}
   .brand img{display:block;width:58px!important;height:58px!important;max-width:none;object-fit:contain;object-position:center}
-  .hero{min-height:600px;padding:28px 12px 0;overflow:hidden}
+  .hero{min-height:600px;padding:28px 12px 0;overflow:hidden;background-position:center top}
   .hero-copy{width:100%;padding-top:0;overflow:visible}
   .hero-identity{width:100%;margin:6px auto 0;display:flex;align-items:center;justify-content:center;overflow:visible}
   .master-hero-logo{display:block;width:92vw!important;max-width:92vw!important;height:auto!important;max-height:none!important;margin:0 auto;object-fit:contain;object-position:center;transform:none}
   .hero-summary{max-width:88vw;margin:18px auto 0;font-size:14px;line-height:1.45}
   .hero .button{margin-top:18px}
-  .vector-horizon{bottom:52px;height:188px;background-size:135% 118px}
-  .vector-horizon::before{height:160px;background-size:155% 100%}
-  .vector-grid{height:38%;bottom:0;background-size:150% 100%}
 }
