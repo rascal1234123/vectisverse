@@ -6,9 +6,7 @@
   <meta name="description" content="VectisVerse — One Island. Endless Stories.">
   <title>VectisVerse | One Island. Endless Stories.</title>
   <link rel="stylesheet" href="assets/css/site.css?v=stage2">
-  <link rel="stylesheet" href="assets/css/hero-stage2.css?v=1">
-  <link rel="stylesheet" href="assets/css/shop-stage3.css?v=1">
-  <link rel="stylesheet" href="assets/css/concepts-stage4.css?v=1">
+  <link rel="stylesheet" href="assets/css/approved-layout-fixes.css?v=1">
   <script defer src="assets/js/site.js"></script>
 </head>
 <body>
@@ -25,20 +23,22 @@
   </header>
 
   <main id="main">
-    <section class="vv-hero-system comic-surface" aria-labelledby="hero-title">
-      <img class="vv-hero-system__environment" src="assets/hero/VV_HeroEnvironment_v1.svg" alt="">
-      <img class="vv-hero-system__characters" src="assets/hero/character-composition.svg" alt="Riptide, V and FTW character artwork">
-      <img class="vv-hero-system__effects" src="assets/hero/hero-effects.svg" alt="">
-      <div class="vv-hero-system__content">
-        <img class="vv-hero-system__logo" src="assets/svg/vectisverse-hero-logo.svg" alt="VectisVerse — One Island. Endless Stories.">
-        <div class="vv-hero-burst">
+    <section class="approved-hero" aria-labelledby="hero-title">
+      <div class="approved-energy" aria-hidden="true"></div>
+      <div class="approved-hero-copy">
+        <img class="approved-hero-logo" src="assets/svg/vectisverse-hero-logo.svg?v=4" alt="VectisVerse — One Island. Endless Stories.">
+        <div class="approved-burst">
           <p class="eyebrow">Independent comic publishing</p>
           <h1 id="hero-title">Comics that hit <span>different.</span></h1>
           <p>Original heroes. New worlds. One island.</p>
           <a class="button button-dark" href="#comics">Explore our universe</a>
         </div>
       </div>
-      <a class="vv-hero-system__scroll" href="#comics" aria-label="Scroll to featured comics"></a>
+      <div class="approved-character-stack" aria-label="Characters and artwork from Riptide, V and FTW">
+        <img class="v" src="assets/v/413D481C-EABD-4ACE-836F-9EC3C03CC4CA.png" alt="">
+        <img class="rip" src="assets/riptide/IMG_4210.png" alt="">
+        <img class="ftw" src="assets/ftw/5D898AA6-8E2F-4D12-8976-AE979DA53124.png" alt="">
+      </div>
     </section>
 
     <section id="comics" class="section-wrap" aria-labelledby="comics-heading">
@@ -50,18 +50,12 @@
       </div>
     </section>
 
-    <section id="shop" class="stage3-shop" aria-labelledby="shop-heading">
-      <h2 id="shop-heading" class="visually-hidden">Official VectisVerse store</h2>
-      <a class="stage3-shop-link" href="https://vectisverse.teemill.com" target="_blank" rel="noopener noreferrer">
-        <img class="stage3-shop-image" src="assets/shop/shop-banner-stage3.svg" alt="Shop the VectisVerse. Official merchandise including T-shirts, hoodies, mugs, prints and collectables. Visit the official store.">
-        <span class="stage3-shop-caption">Open the official VectisVerse Teemill store in a new tab</span>
+    <section class="approved-promos" aria-label="Store and Vectis Concepts">
+      <a id="shop" class="approved-promo-link" href="https://vectisverse.teemill.com" target="_blank" rel="noopener noreferrer">
+        <img src="assets/shop/shop-banner-stage3.svg?v=2" alt="Shop the VectisVerse. Visit the official merchandise store.">
       </a>
-    </section>
-
-    <section class="stage4-concepts-poster" aria-labelledby="concepts-poster-title">
-      <h2 id="concepts-poster-title" class="visually-hidden">Vectis Concepts creative services</h2>
-      <a href="concepts.html" aria-label="Explore Vectis Concepts">
-        <img src="assets/concepts/vectis-concepts-home-poster.svg" alt="Vectis Concepts. Ideas that build worlds. Characters, worlds, brands and stories from the first spark to a finished universe.">
+      <a class="approved-promo-link concepts" href="concepts.html">
+        <img src="assets/concepts/vectis-concepts-home-poster.svg?v=2" alt="Vectis Concepts. Ideas that build worlds. Explore creative services.">
       </a>
     </section>
   </main>
