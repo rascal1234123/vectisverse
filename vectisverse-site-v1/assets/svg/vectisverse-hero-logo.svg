@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1800" height="620" viewBox="0 0 1800 620" role="img" aria-labelledby="title desc">
+<title id="title">VectisVerse Hero Logo Master</title><desc id="desc">Layered chrome and cyan VectisVerse wordmark with light flare and strapline.</desc>
+<defs>
+<linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffffff"/><stop offset="18%" stop-color="#dfe6ea"/><stop offset="36%" stop-color="#7f8d96"/><stop offset="50%" stop-color="#f9fbfc"/><stop offset="67%" stop-color="#8c969d"/><stop offset="84%" stop-color="#e7ecef"/><stop offset="100%" stop-color="#6b747b"/></linearGradient>
+<linearGradient id="chromeDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#dce4e8"/><stop offset="45%" stop-color="#5d6971"/><stop offset="60%" stop-color="#f7f9fa"/><stop offset="100%" stop-color="#30373c"/></linearGradient>
+<radialGradient id="flareCore"><stop offset="0%" stop-color="#ffffff"/><stop offset="30%" stop-color="#dff8ff"/><stop offset="60%" stop-color="#23cfff" stop-opacity=".9"/><stop offset="100%" stop-color="#00aeea" stop-opacity="0"/></radialGradient>
+<filter id="shadow" x="-20%" y="-30%" width="150%" height="180%"><feGaussianBlur in="SourceAlpha" stdDeviation="14"/><feOffset dx="0" dy="18"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0.14  0 0 0 0 0.22  0 0 0 .9 0"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="cyanGlow" x="-30%" y="-40%" width="170%" height="190%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="flareGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="9"/></filter>
+<style>.word{font-family:"Arial Black","Impact","Helvetica Neue",sans-serif;font-weight:900;font-style:italic;letter-spacing:-12px;text-anchor:middle;paint-order:stroke fill}.strap{font-family:"Trebuchet MS","Arial",sans-serif;font-weight:800;font-style:italic;letter-spacing:8px;text-anchor:middle}</style>
+<text id="wordmark" class="word" x="900" y="380" font-size="270">VECTISVERSE</text>
+</defs>
+<g id="layer-shadow" opacity=".95"><use xlink:href="#wordmark" transform="translate(8 25) skewX(-5)" fill="#000" stroke="#000" stroke-width="34" filter="url(#shadow)"/></g>
+<g id="layer-cyan-outline"><use xlink:href="#wordmark" transform="skewX(-5)" fill="none" stroke="#00bfff" stroke-width="28" opacity=".95" filter="url(#cyanGlow)"/></g>
+<g id="layer-black-keyline"><use xlink:href="#wordmark" transform="skewX(-5)" fill="#0b0e10" stroke="#020304" stroke-width="21"/></g>
+<g id="layer-chrome"><use xlink:href="#wordmark" transform="skewX(-5)" fill="url(#chrome)" stroke="#eef7fb" stroke-width="6"/></g>
+<g id="layer-lower-bevel" opacity=".68"><use xlink:href="#wordmark" transform="translate(0 8) skewX(-5)" fill="none" stroke="url(#chromeDark)" stroke-width="8"/></g>
+<g id="layer-v-extensions"><path d="M104 205 L177 208 L273 482 L244 525 L154 260 L92 250 Z" fill="url(#chrome)" stroke="#040709" stroke-width="10"/><path d="M104 205 L177 208 L273 482 L244 525" fill="none" stroke="#04bdf5" stroke-width="5"/><path d="M904 104 L957 121 L924 423 L888 493 L893 161 Z" fill="url(#chrome)" stroke="#040709" stroke-width="10"/><path d="M904 104 L957 121 L924 423 L888 493" fill="none" stroke="#05c9ff" stroke-width="5"/></g>
+<g id="layer-speed-streaks" fill="none" stroke-linecap="round"><path d="M175 164 L805 156" stroke="#00bfff" stroke-width="7"/><path d="M294 141 L824 137" stroke="#baf4ff" stroke-width="3"/><path d="M958 144 L1608 151" stroke="#00bfff" stroke-width="7"/><path d="M995 126 L1540 132" stroke="#baf4ff" stroke-width="3"/><path d="M126 442 L357 451" stroke="#007da9" stroke-width="3"/><path d="M1404 430 L1678 421" stroke="#007da9" stroke-width="3"/></g>
+<g id="layer-white-highlights" opacity=".9"><path d="M282 199 C510 157 706 164 838 169" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/><path d="M1000 177 C1210 167 1432 180 1607 201" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/></g>
+<g id="layer-light-flare"><circle cx="921" cy="139" r="78" fill="url(#flareCore)" filter="url(#flareGlow)"/><circle cx="921" cy="139" r="11" fill="#fff"/><path d="M921 45 V233 M827 139 H1015" stroke="#dffbff" stroke-width="5"/><path d="M861 79 L981 199 M981 79 L861 199" stroke="#2acfff" stroke-width="2.5"/><path d="M774 139 H1068" stroke="#00aeea" stroke-width="2" opacity=".7"/></g>
+<g id="layer-strapline"><text class="strap" x="900" y="532" font-size="48" fill="#fff" stroke="#000" stroke-width="2.5" paint-order="stroke fill">ONE ISLAND. ENDLESS STORIES.</text></g>
+</svg>
