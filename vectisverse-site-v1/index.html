@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="VectisVerse — One Island. Endless Stories.">
   <title>VectisVerse | One Island. Endless Stories.</title>
-  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/site.css?v=stage2">
   <script defer src="assets/js/site.js"></script>
 </head>
 <body>
@@ -22,34 +22,33 @@
   </header>
 
   <main id="main">
-    <section class="hero comic-surface">
-      <div class="hero-copy">
-        <img class="hero-logo" src="assets/svg/vectisverse-hero-logo.svg" alt="VectisVerse — One Island. Endless Stories.">
-        <div class="burst-panel">
+    <section class="vv-hero-system comic-surface" aria-labelledby="hero-title">
+      <img class="vv-hero-system__environment" src="assets/hero/VV_HeroEnvironment_v1.svg" alt="">
+      <img class="vv-hero-system__characters" src="assets/hero/character-composition.svg" alt="Riptide, V and FTW character artwork">
+      <img class="vv-hero-system__effects" src="assets/hero/hero-effects.svg" alt="">
+      <div class="vv-hero-system__content">
+        <img class="vv-hero-system__logo" src="assets/svg/vectisverse-hero-logo.svg" alt="VectisVerse — One Island. Endless Stories.">
+        <div class="vv-hero-burst">
           <p class="eyebrow">Independent comic publishing</p>
-          <h1>Comics that hit <span>different.</span></h1>
+          <h1 id="hero-title">Comics that hit <span>different.</span></h1>
+          <p>Original heroes. New worlds. One island.</p>
           <a class="button button-dark" href="#comics">Explore our universe</a>
         </div>
       </div>
-      <div class="hero-art placeholder-art" role="img" aria-label="Hero character group artwork placeholder">
-        <span>Approved hero character composition</span>
-      </div>
+      <a class="vv-hero-system__scroll" href="#comics" aria-label="Scroll to featured comics"></a>
     </section>
 
     <section id="comics" class="section-wrap" aria-labelledby="comics-heading">
       <h2 id="comics-heading" class="visually-hidden">Featured comics</h2>
-      <div class="comic-grid">
+      <div class="comic-grid approved-panels">
         <article class="comic-card card-riptide">
-          <div class="card-art placeholder-art"><span>Riptide artwork</span></div>
-          <div class="card-copy"><h3>Riptide</h3><strong>Epic adventures.</strong><p>The ocean hides many secrets.</p></div>
+          <img class="approved-panel-image" src="assets/riptide/IMG_4210.png" alt="Riptide — thrill seeker, environmentalist and treasure hunter Rip Tidewell">
         </article>
         <article class="comic-card card-v">
-          <div class="card-art placeholder-art"><span>V artwork</span></div>
-          <div class="card-copy"><h3>V</h3><strong>Pop idol power.</strong><p>Three girls. One dream. One unstoppable sound.</p></div>
+          <img class="approved-panel-image" src="assets/v/413D481C-EABD-4ACE-836F-9EC3C03CC4CA.png" alt="V — The Next Evolution. Coming to rock your world in 2027">
         </article>
         <article class="comic-card card-ftw">
-          <div class="card-art placeholder-art"><span>FTW artwork</span></div>
-          <div class="card-copy"><h3>FTW</h3><strong>No heroes. Just survivors.</strong><p>Thirteen bosses. One shot.</p></div>
+          <img class="approved-panel-image" src="assets/ftw/5D898AA6-8E2F-4D12-8976-AE979DA53124.png" alt="FTW — One Island. Thirteen bosses. One way home">
         </article>
       </div>
     </section>
