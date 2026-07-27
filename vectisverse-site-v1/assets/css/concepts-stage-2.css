@@ -8,10 +8,9 @@ body{margin:0;background:#000;color:var(--ink);font-family:Arial,Helvetica,sans-
 img{display:block;max-width:100%}
 a{color:inherit}
 .vc-page{max-width:var(--max);margin:0 auto;background:var(--paper) url("../shared/paper-background.svg") center top/cover repeat-y;border-inline:1px solid #28202c}
-.vc-top-label{position:absolute;z-index:9;top:0;left:0;background:#3c1667;color:#fff;padding:8px 16px;border:1px solid #8b56bd;font-weight:900;text-transform:uppercase}
 .vc-hero{position:relative;display:grid;grid-template-columns:29% 71%;min-height:420px;border-bottom:7px solid #111;overflow:hidden}
-.vc-hero-copy{padding:54px 26px 24px 42px;position:relative;z-index:2}
-.vc-logo{width:100%;max-width:420px}
+.vc-hero-copy{padding:54px 26px 24px 42px;position:relative;z-index:2;overflow:visible}
+.vc-logo{display:block;width:100%;max-width:420px;overflow:visible}
 .vc-intro{font-size:17px;line-height:1.42;max-width:330px;margin:8px 0 17px;font-weight:600}
 .vc-btn{display:inline-flex;align-items:center;gap:12px;background:#111;color:#fff;text-decoration:none;text-transform:uppercase;font-weight:900;padding:12px 18px;box-shadow:7px 7px 0 var(--purple);font-size:14px}
 .vc-hero-art{min-width:0;height:100%;position:relative}
@@ -59,9 +58,8 @@ a{color:inherit}
 }
 @media (max-width:700px){
  .vc-page{border:0}
- .vc-top-label{font-size:11px;padding:6px 10px}
  .vc-hero{display:block}
- .vc-hero-copy{padding:42px 20px 20px}
+ .vc-hero-copy{padding:28px 20px 20px}
  .vc-logo{max-width:350px}
  .vc-intro{max-width:none;font-size:15px}
  .vc-hero-art{height:360px}
@@ -88,9 +86,9 @@ a{color:inherit}
 
 @media (min-width:1051px){
   .vc-hero{grid-template-columns:27% 73%;min-height:390px;height:390px}
-  .vc-hero-copy{padding:32px 18px 18px 29px}
-  .vc-logo{max-width:490px;transform:translate(-7px,-12px)}
-  .vc-intro{max-width:318px;margin-top:-8px;margin-bottom:14px}
+  .vc-hero-copy{padding:22px 12px 18px 32px;overflow:visible}
+  .vc-logo{width:calc(100% - 4px);max-width:478px;transform:none;overflow:visible}
+  .vc-intro{max-width:318px;margin-top:-2px;margin-bottom:14px}
   .vc-btn{box-shadow:5px 5px 0 #6d25b4}
   .service img{width:70px;height:70px}
   .service{grid-template-columns:76px 1fr;padding:5px 12px 4px}
@@ -111,6 +109,6 @@ a{color:inherit}
 }
 @media (max-width:700px){
   .vc-hero-art{height:340px}
-  .vc-logo{max-width:330px}
+  .vc-logo{max-width:330px;transform:none}
   .vc-ribbon-text{font-size:17px;min-height:32px}
 }
