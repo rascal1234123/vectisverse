@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 660" role="img" aria-labelledby="title desc">
+<title id="title">VectisVerse</title><desc id="desc">Layered chrome and electric-blue VectisVerse publisher wordmark.</desc>
+<defs>
+<linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".22" stop-color="#dfe7ec"/><stop offset=".42" stop-color="#fff"/><stop offset=".66" stop-color="#7f909c"/><stop offset=".84" stop-color="#eef3f6"/><stop offset="1" stop-color="#bac6cd"/></linearGradient>
+<linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8cecff"/><stop offset=".48" stop-color="#00b7f4"/><stop offset="1" stop-color="#0069ca"/></linearGradient>
+<radialGradient id="flare"><stop stop-color="#fff"/><stop offset=".25" stop-color="#dffaff"/><stop offset=".65" stop-color="#25c0ff" stop-opacity=".55"/><stop offset="1" stop-color="#25c0ff" stop-opacity="0"/></radialGradient>
+<filter id="glow" x="-30%" y="-40%" width="160%" height="180%"><feGaussianBlur stdDeviation="5"/></filter>
+<filter id="shadow" x="-20%" y="-20%" width="150%" height="160%"><feGaussianBlur stdDeviation="7"/><feOffset dx="10" dy="18"/></filter>
+<style>.w{font-family:Impact,'Arial Black',sans-serif;font-style:italic;font-weight:900;letter-spacing:-16px;text-anchor:middle;paint-order:stroke fill}.a{fill:none;stroke-linejoin:miter}</style>
+<text id="word" class="w" x="768" y="405" font-size="276">VECTISVERSE</text>
+</defs>
+<g id="VV_Deep_Extrusion" opacity=".95"><use href="#word" transform="translate(12 22) skewX(-5)" fill="#020713" stroke="#020713" stroke-width="42" filter="url(#shadow)"/></g>
+<g id="VV_Navy_Outline"><use href="#word" transform="skewX(-5)" fill="#071425" stroke="#020713" stroke-width="34"/></g>
+<g id="VV_Cyan_Edge_Glow" opacity=".8" filter="url(#glow)"><use href="#word" transform="skewX(-5)" class="a" stroke="#00b9f5" stroke-width="25"/></g>
+<g id="VV_Cyan_Edge_Core"><use href="#word" transform="skewX(-5)" class="a" stroke="url(#edge)" stroke-width="19"/></g>
+<g id="VV_White_Keyline"><use href="#word" transform="skewX(-5)" fill="#101a23" stroke="#f1fbff" stroke-width="10"/></g>
+<g id="VV_Chrome_Base"><use href="#word" transform="skewX(-5)" fill="url(#chrome)" stroke="#364b5a" stroke-width="4"/></g>
+<g id="VV_Custom_V_Extensions">
+<path d="M45 198L126 202 224 518 182 606 91 260 34 226Z" fill="url(#chrome)" stroke="#020713" stroke-width="20"/><path d="M45 198L126 202 224 518 182 606" fill="none" stroke="url(#edge)" stroke-width="10"/>
+<path d="M811 114L872 126 850 477 805 558 804 164Z" fill="url(#chrome)" stroke="#020713" stroke-width="20"/><path d="M811 114L872 126 850 477 805 558" fill="none" stroke="url(#edge)" stroke-width="10"/>
+</g>
+<g id="VV_Speed_Lines" fill="none" stroke-linecap="square"><path d="M207 157L723 148" stroke="#e9fbff" stroke-width="12"/><path d="M332 135L744 132" stroke="#00b9f5" stroke-width="6"/><path d="M875 151L1354 158" stroke="#e9fbff" stroke-width="12"/><path d="M946 130L1402 139" stroke="#00b9f5" stroke-width="6"/></g>
+<g id="VV_Chrome_Highlights" fill="none" stroke="#fff" stroke-linecap="round" opacity=".78"><path d="M270 203C470 168 653 170 770 181" stroke-width="7"/><path d="M895 184C1090 174 1268 187 1406 207" stroke-width="6"/></g>
+<g id="VV_Starburst_Glow"><circle cx="837" cy="151" r="83" fill="url(#flare)" filter="url(#glow)"/></g>
+<g id="VV_Starburst_Core" fill="#fff" stroke="#9cecff" stroke-width="2"><path d="M837 55L846 141 936 151 846 161 837 251 828 161 738 151 828 141Z"/><path d="M781 92L831 145 895 99 845 152 901 211 843 165 780 215 831 159Z" opacity=".82"/></g>
+</svg>
