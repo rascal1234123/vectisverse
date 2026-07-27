@@ -36,7 +36,8 @@ a{color:inherit}
 .card-copy{text-align:center;padding:8px 5px 10px}
 .card-copy h3{font-size:11px;text-transform:uppercase;margin:0 0 4px}
 .card-copy p{font-size:10px;margin:0}
-.why{position:relative;padding:12px 20px;background:url("../shared/why-panel.svg") center/100% 100% no-repeat;min-height:250px}
+.why{position:relative;isolation:isolate;padding:12px 20px;background:url("../shared/why-panel.svg") center/100% 100% no-repeat;min-height:250px;overflow:hidden}
+.why::after{content:"";position:absolute;z-index:-1;right:-2%;bottom:-6%;width:57%;height:94%;background:url("../shared/why-v-watermark.svg") right bottom/contain no-repeat;opacity:.075;pointer-events:none}
 .why h2{font:900 19px/1 Arial,Helvetica,sans-serif;text-transform:uppercase;margin:0 0 10px}
 .why-list{display:grid;gap:10px;padding:0;margin:0;list-style:none}
 .why-list li{position:relative;padding-left:34px;font-size:11px;line-height:1.25}
@@ -70,6 +71,7 @@ a{color:inherit}
  .service:nth-child(2n){border-right:0}.service:nth-child(3){border-right:1px solid #aaa4a0}
  .cards{grid-template-columns:repeat(2,1fr)}
  .why{min-height:360px}
+ .why::after{width:72%;height:68%;opacity:.055}
  .vc-footer{min-height:300px;background-image:url("../footer/footer-mobile.svg");background-size:cover;padding:30px 18px}
  .footer-nav{flex-wrap:wrap}
 }
@@ -81,14 +83,14 @@ a{color:inherit}
 
 /* Final production pass — locked reference matching */
 .vc-hero-art picture,
-.vc-hero-art img { width:100%; height:100%; }
-.vc-hero-reference { object-fit:cover; object-position:48% center; }
+.vc-hero-art img{width:100%;height:100%}
+.vc-hero-reference{object-fit:cover;object-position:50% center}
 
 @media (min-width:1051px){
-  .vc-hero{grid-template-columns:27% 73%;min-height:430px}
-  .vc-hero-copy{padding:38px 18px 22px 29px}
-  .vc-logo{max-width:490px;transform:translate(-7px,-10px)}
-  .vc-intro{max-width:318px;margin-top:-2px;margin-bottom:16px}
+  .vc-hero{grid-template-columns:27% 73%;min-height:390px;height:390px}
+  .vc-hero-copy{padding:32px 18px 18px 29px}
+  .vc-logo{max-width:490px;transform:translate(-7px,-12px)}
+  .vc-intro{max-width:318px;margin-top:-8px;margin-bottom:14px}
   .vc-btn{box-shadow:5px 5px 0 #6d25b4}
   .service img{width:70px;height:70px}
   .service{grid-template-columns:76px 1fr;padding:5px 12px 4px}
@@ -102,6 +104,7 @@ a{color:inherit}
   .why{padding:16px 24px}
   .why h2{font-size:21px;margin-bottom:12px}
   .why-list{gap:11px}
+  .vc-footer{min-height:84px;padding:12px 42px;grid-template-columns:270px 1fr 300px}
 }
 @media (max-width:1050px){
   .vc-hero-art picture,.vc-hero-art img{object-fit:cover}
