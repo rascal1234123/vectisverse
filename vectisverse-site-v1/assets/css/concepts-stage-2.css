@@ -1,4 +1,3 @@
-
 :root{
   --paper:#eee5d5;--ink:#111015;--purple:#6d25b4;--purple2:#8d43d4;
   --line:#5d5553;--max:1500px;
@@ -17,6 +16,29 @@ a{color:inherit}
 .vc-btn{display:inline-flex;align-items:center;gap:12px;background:#111;color:#fff;text-decoration:none;text-transform:uppercase;font-weight:900;padding:12px 18px;box-shadow:7px 7px 0 var(--purple);font-size:14px}
 .vc-hero-art{min-width:0;height:100%;position:relative}
 .vc-hero-art picture,.vc-hero-art img{width:100%;height:100%;object-fit:cover}
+
+/* Stage 5 desktop hero composite: direct HTML/CSS assembly avoids nested SVG image blocking in Safari. */
+.vc-hero-composite{position:absolute;inset:0;overflow:hidden;background:#efe6d7}
+.vc-hero-panel{position:absolute;inset:0;overflow:hidden;background:#efe6d7}
+.vc-hero-panel img{position:absolute;width:100%;height:100%;object-fit:cover;max-width:none}
+.vc-hero-panel--1{clip-path:polygon(0 0,20% 0,15.5% 100%,0 100%)}
+.vc-hero-panel--2{clip-path:polygon(17.5% 0,38% 0,32.5% 100%,13.2% 100%)}
+.vc-hero-panel--3{clip-path:polygon(35.5% 0,57% 0,51% 100%,30% 100%)}
+.vc-hero-panel--4{clip-path:polygon(54.5% 0,78% 0,71% 100%,48.5% 100%);background:#160d24}
+.vc-hero-panel--5{clip-path:polygon(75% 0,100% 0,100% 100%,68% 100%);background:#160d24}
+.vc-hero-panel--1 img{object-position:47% 42%;transform:scale(1.08)}
+.vc-hero-panel--2 img{object-position:50% 42%;transform:scale(1.08)}
+.vc-hero-panel--3 img{object-position:50% 40%;transform:scale(1.04)}
+.vc-hero-panel--4 img{object-position:50% 42%;transform:scale(1.05)}
+.vc-hero-panel--5 img{object-position:56% 52%;transform:scale(1.03)}
+.vc-hero-separator{position:absolute;top:-2%;height:104%;width:10px;background:#fff;box-shadow:6px 0 4px rgb(0 0 0 / 30%);transform-origin:top center;transform:rotate(9deg);z-index:8}
+.vc-hero-separator--1{left:18.1%}.vc-hero-separator--2{left:36.3%}.vc-hero-separator--3{left:55.7%}.vc-hero-separator--4{left:76.2%}
+.vc-hero-arrow{position:absolute;top:47%;width:54px;height:32px;background:#111015;border:4px solid #fff;z-index:10;filter:drop-shadow(2px 2px 0 rgb(0 0 0 / 35%))}
+.vc-hero-arrow::after{content:"";position:absolute;right:-25px;top:-10px;border-left:25px solid #111015;border-top:22px solid transparent;border-bottom:22px solid transparent;filter:drop-shadow(4px 0 0 #fff)}
+.vc-hero-arrow--1{left:34.2%}.vc-hero-arrow--2{left:53.7%}.vc-hero-arrow--3{left:74.1%}
+.vc-hero-responsive-fallback{display:none}
+@media (max-width:1050px){.vc-hero-composite--desktop{display:none}.vc-hero-responsive-fallback{display:block;width:100%;height:100%}.vc-hero-responsive-fallback img{width:100%;height:100%;object-fit:cover}}
+
 .vc-section{padding:16px 38px}
 .vc-ribbon{height:46px;width:auto;max-width:360px;object-fit:contain;object-position:left center;margin-bottom:8px}
 .vc-ribbon.featured{max-width:470px}
