@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="900" height="1200" viewBox="0 0 900 1200"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Vectis Concepts layered sketch girl</title>
+  <desc id="desc">Layered rough graphite-style female character concept sketch with construction lines, pose guides, facial features, hair, clothing, annotations and transparent background.</desc>
+
+  <defs>
+    <linearGradient id="graphite" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4b3f4f"/>
+      <stop offset="0.55" stop-color="#6f5b73"/>
+      <stop offset="1" stop-color="#312a35"/>
+    </linearGradient>
+
+    <linearGradient id="purplePencil" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a05dc3"/>
+      <stop offset="1" stop-color="#5b2e74"/>
+    </linearGradient>
+
+    <filter id="roughPencil" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.025"
+                    numOctaves="2" seed="61" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise"
+                         scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <filter id="softSmudge" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+
+    <style>
+      .construction { fill:none; stroke:#b29db8; stroke-width:5; opacity:.35; stroke-linecap:round; stroke-linejoin:round; }
+      .rough { fill:none; stroke:url(#graphite); stroke-width:7; opacity:.76; stroke-linecap:round; stroke-linejoin:round; }
+      .detail { fill:none; stroke:#443848; stroke-width:6; opacity:.92; stroke-linecap:round; stroke-linejoin:round; }
+      .accent { fill:none; stroke:url(#purplePencil); stroke-width:7; opacity:.72; stroke-linecap:round; stroke-linejoin:round; }
+      .note { font-family: "Comic Sans MS", "Bradley Hand", cursive; font-size:26px; fill:#6f5b73; opacity:.72; }
+    </style>
+  </defs>
+
+  <!-- 01_TRANSPARENT_BASE -->
+  <g id="01_TRANSPARENT_BASE">
+    <rect width="900" height="1200" fill="#ffffff" opacity="0"/>
+  </g>
+
+  <!-- 02_SOFT_GRAPHITE_SHADOW -->
+  <g id="02_SOFT_GRAPHITE_SHADOW" opacity="0.18" filter="url(#softSmudge)">
+    <ellipse cx="455" cy="1110" rx="185" ry="34" fill="#4b3f4f"/>
+    <path d="M380 250 C325 355 322 475 345 602 C364 705 347 842 315 1000"
+          fill="none" stroke="#4b3f4f" stroke-width="28"/>
+  </g>
+
+  <!-- 03_CONSTRUCTION_LINES -->
+  <g id="03_CONSTRUCTION_LINES" class="construction">
+    <circle cx="456" cy="232" r="86"/>
+    <path d="M456 146 V320"/>
+    <path d="M377 234 H535"/>
+    <path d="M455 318 C444 430 447 553 455 661"/>
+    <path d="M455 355 L340 462"/>
+    <path d="M455 355 L590 455"/>
+    <path d="M455 660 L364 840"/>
+    <path d="M455 660 L554 842"/>
+    <circle cx="342" cy="463" r="18"/>
+    <circle cx="590" cy="455" r="18"/>
+    <circle cx="365" cy="840" r="18"/>
+    <circle cx="554" cy="842" r="18"/>
+    <path d="M340 462 L282 625 L320 744"/>
+    <path d="M590 455 L646 606 L621 730"/>
+    <path d="M364 840 L330 1046"/>
+    <path d="M554 842 L603 1042"/>
+    <ellipse cx="454" cy="520" rx="120" ry="190"/>
+  </g>
+
+  <!-- 04_GESTURE_LINE -->
+  <g id="04_GESTURE_LINE" class="accent" opacity="0.48">
+    <path d="M475 147 C425 330 481 478 451 664 C424 830 477 976 541 1087"/>
+    <path d="M355 394 C423 425 520 430 591 392"/>
+  </g>
+
+  <!-- 05_HEAD_AND_JAW -->
+  <g id="05_HEAD_AND_JAW" class="rough" filter="url(#roughPencil)">
+    <path d="M399 171
+             C430 136 491 132 526 170
+             C553 198 551 247 535 281
+             C520 312 490 337 454 342
+             C420 338 390 315 375 284
+             C359 249 363 202 399 171Z"/>
+    <path d="M404 290 C418 320 438 336 455 341 C476 336 495 320 510 291"/>
+  </g>
+
+  <!-- 06_HAIR_MASS -->
+  <g id="06_HAIR_MASS" filter="url(#roughPencil)">
+    <path d="M377 214
+             C354 144 415 101 474 112
+             C541 124 578 175 558 246
+             C546 227 537 210 522 195
+             C500 174 476 162 449 156
+             C421 153 397 173 377 214Z"
+          fill="#5c4a61" opacity="0.16"/>
+    <g class="rough">
+      <path d="M379 214 C360 142 415 98 476 110 C539 123 578 173 559 245"/>
+      <path d="M401 151 C379 214 376 284 396 352"/>
+      <path d="M429 132 C404 221 409 309 429 379"/>
+      <path d="M469 123 C456 232 468 317 484 389"/>
+      <path d="M510 139 C523 221 518 298 502 363"/>
+      <path d="M541 170 C569 237 560 310 528 377"/>
+      <path d="M397 183 C428 160 457 152 490 161"/>
+    </g>
+  </g>
+
+  <!-- 07_FACE_FEATURES -->
+  <g id="07_FACE_FEATURES" class="detail">
+    <path d="M395 225 C414 210 437 210 451 224"/>
+    <path d="M462 224 C479 209 504 210 520 226"/>
+    <path d="M401 226 C416 239 434 240 449 227"/>
+    <path d="M465 227 C480 240 499 240 516 227"/>
+    <ellipse cx="427" cy="227" rx="5" ry="7" fill="#443848" stroke="none"/>
+    <ellipse cx="490" cy="227" rx="5" ry="7" fill="#443848" stroke="none"/>
+    <path d="M458 229 L448 266 L459 272"/>
+    <path d="M427 293 C446 304 468 304 489 292"/>
+    <path d="M436 299 C451 309 468 309 480 299" stroke-width="4"/>
+    <path d="M395 207 C412 194 434 192 450 203"/>
+    <path d="M467 203 C486 191 506 195 521 209"/>
+  </g>
+
+  <!-- 08_NECK_AND_SHOULDERS -->
+  <g id="08_NECK_AND_SHOULDERS" class="rough">
+    <path d="M425 332 L419 377"/>
+    <path d="M486 331 L491 378"/>
+    <path d="M419 376 C382 384 346 403 323 431"/>
+    <path d="M491 377 C534 388 574 409 602 441"/>
+  </g>
+
+  <!-- 09_TORSO_OUTLINE -->
+  <g id="09_TORSO_OUTLINE" class="rough" filter="url(#roughPencil)">
+    <path d="M322 430
+             C344 398 387 382 420 376
+             C439 396 471 396 491 377
+             C529 385 574 407 603 440
+             C578 489 564 551 568 623
+             C543 658 506 676 455 680
+             C405 676 366 658 342 623
+             C347 548 336 488 322 430Z"/>
+    <path d="M421 377 C430 417 444 447 455 472"/>
+    <path d="M490 377 C479 417 466 447 455 472"/>
+    <path d="M391 410 C408 446 425 472 455 488"/>
+    <path d="M522 412 C506 448 487 473 455 488"/>
+  </g>
+
+  <!-- 10_OUTFIT_DESIGN -->
+  <g id="10_OUTFIT_DESIGN">
+    <path d="M365 442 L412 401 L455 478 L498 401 L548 444
+             L523 602 L455 642 L386 602Z"
+          fill="#7b4a92" opacity="0.12"/>
+    <g class="accent">
+      <path d="M365 442 L412 401 L455 478 L498 401 L548 444"/>
+      <path d="M455 478 V642"/>
+      <path d="M386 602 L455 642 L523 602"/>
+      <path d="M400 526 H510"/>
+      <path d="M413 401 L394 488"/>
+      <path d="M498 401 L518 490"/>
+    </g>
+    <g class="detail" stroke-width="4" opacity="0.7">
+      <path d="M410 552 L455 578 L500 552"/>
+      <path d="M426 425 L455 462 L484 425"/>
+      <path d="M441 603 H469"/>
+    </g>
+  </g>
+
+  <!-- 11_LEFT_ARM -->
+  <g id="11_LEFT_ARM" class="rough">
+    <path d="M325 432 C295 484 278 545 276 611"/>
+    <path d="M350 446 C328 504 314 567 315 626"/>
+    <path d="M276 611 C271 653 281 698 310 741"/>
+    <path d="M315 626 C314 667 320 704 339 738"/>
+    <path d="M310 741 C321 758 341 765 357 754"/>
+    <path d="M339 738 C350 741 360 746 368 757"/>
+  </g>
+
+  <!-- 12_RIGHT_ARM -->
+  <g id="12_RIGHT_ARM" class="rough">
+    <path d="M600 441 C628 492 645 548 648 607"/>
+    <path d="M574 452 C597 509 610 568 610 626"/>
+    <path d="M648 607 C653 650 645 692 621 731"/>
+    <path d="M610 626 C611 665 606 701 588 736"/>
+    <path d="M621 731 C610 750 590 759 574 747"/>
+    <path d="M588 736 C579 741 570 746 562 756"/>
+  </g>
+
+  <!-- 13_HANDS -->
+  <g id="13_HANDS" class="detail">
+    <path d="M309 741 C296 755 292 774 302 786 C315 797 337 789 345 773"/>
+    <path d="M621 731 C635 746 637 765 628 778 C615 791 594 784 585 768"/>
+    <path d="M307 766 L291 784 M320 773 L308 794 M334 771 L326 792"/>
+    <path d="M623 755 L640 772 M610 764 L622 785 M596 762 L602 784"/>
+  </g>
+
+  <!-- 14_HIPS_AND_LEGS -->
+  <g id="14_HIPS_AND_LEGS" class="rough" filter="url(#roughPencil)">
+    <path d="M390 624 C381 669 379 720 388 766"/>
+    <path d="M520 624 C529 670 532 718 523 767"/>
+    <path d="M388 766 C373 836 354 920 340 1038"/>
+    <path d="M523 767 C544 848 567 927 590 1036"/>
+    <path d="M455 681 L448 786"/>
+    <path d="M448 786 C427 856 403 931 382 1037"/>
+    <path d="M448 786 C475 855 507 935 548 1040"/>
+  </g>
+
+  <!-- 15_BOOTS -->
+  <g id="15_BOOTS">
+    <path d="M340 1038 L382 1037 L374 1111 L306 1111 L320 1084Z"
+          fill="#4a3d4d" opacity="0.12"/>
+    <path d="M548 1040 L590 1036 L610 1110 L541 1110 L538 1082Z"
+          fill="#4a3d4d" opacity="0.12"/>
+    <g class="detail">
+      <path d="M340 1038 L382 1037 L374 1111 H306 L320 1084Z"/>
+      <path d="M548 1040 L590 1036 L610 1110 H541 L538 1082Z"/>
+      <path d="M320 1084 H376"/>
+      <path d="M539 1082 H601"/>
+      <path d="M309 1111 H376"/>
+      <path d="M541 1110 H611"/>
+    </g>
+  </g>
+
+  <!-- 16_DESIGN_NOTES -->
+  <g id="16_DESIGN_NOTES">
+    <path d="M160 288 C228 289 282 302 348 331" class="accent" stroke-width="4"/>
+    <path d="M696 414 C646 420 612 438 572 476" class="accent" stroke-width="4"/>
+    <path d="M150 770 C226 746 284 720 337 680" class="accent" stroke-width="4"/>
+    <text x="70" y="280" class="note">youthful silhouette</text>
+    <text x="650" y="400" class="note">bold shoulder line</text>
+    <text x="58" y="804" class="note">simple stage costume</text>
+    <text x="618" y="878" class="note">clean boot shape</text>
+  </g>
+
+  <!-- 17_MEASUREMENT_MARKS -->
+  <g id="17_MEASUREMENT_MARKS" class="construction" opacity="0.28">
+    <path d="M710 150 V1110"/>
+    <path d="M695 150 H725 M695 320 H725 M695 490 H725 M695 660 H725 M695 830 H725 M695 1000 H725 M695 1110 H725"/>
+    <path d="M180 1115 H680"/>
+    <path d="M180 1100 V1130 M430 1100 V1130 M680 1100 V1130"/>
+  </g>
+
+  <!-- 18_PURPLE_SKETCH_ACCENTS -->
+  <g id="18_PURPLE_SKETCH_ACCENTS" class="accent" opacity="0.5">
+    <path d="M358 198 C382 145 421 119 468 116"/>
+    <path d="M536 196 C552 238 548 280 532 321"/>
+    <path d="M331 427 C298 469 282 523 278 584"/>
+    <path d="M603 442 C631 491 646 543 648 596"/>
+    <path d="M391 625 C372 700 366 766 366 832"/>
+    <path d="M520 625 C539 705 551 770 556 842"/>
+  </g>
+
+  <!-- 19_GRAPHITE_FLECKS -->
+  <g id="19_GRAPHITE_FLECKS" fill="#493c4c" opacity="0.18">
+    <circle cx="244" cy="198" r="3"/>
+    <circle cx="586" cy="232" r="2.5"/>
+    <circle cx="255" cy="501" r="3"/>
+    <circle cx="653" cy="520" r="4"/>
+    <circle cx="279" cy="888" r="3"/>
+    <circle cx="630" cy="941" r="2.5"/>
+    <path d="M224 392 l12 -4 l5 8 l-11 5z"/>
+    <path d="M641 700 l10 3 l-3 9 l-10 -3z"/>
+  </g>
+</svg>

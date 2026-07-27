@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="512" height="512" viewBox="0 0 512 512"
+     role="img" aria-labelledby="title desc">
+  <title id="title">World Building icon</title>
+  <desc id="desc">Layered purple ringed planet icon with continents, orbit lines and creative sparks.</desc>
+
+  <defs>
+    <linearGradient id="purpleMain" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9b39d3"/>
+      <stop offset="0.55" stop-color="#6d22a5"/>
+      <stop offset="1" stop-color="#461167"/>
+    </linearGradient>
+
+    <linearGradient id="purpleLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e0a8ff"/>
+      <stop offset="1" stop-color="#8c3ac0"/>
+    </linearGradient>
+
+    <radialGradient id="planetFill" cx="38%" cy="30%" r="72%">
+      <stop offset="0" stop-color="#dca5ff"/>
+      <stop offset="0.45" stop-color="#9b42cf"/>
+      <stop offset="1" stop-color="#5a177f"/>
+    </radialGradient>
+
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7"
+                    flood-color="#2b093f" flood-opacity="0.30"/>
+    </filter>
+
+    <filter id="roughInk" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018"
+                    numOctaves="2" seed="17" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise"
+                         scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <clipPath id="planetClip">
+      <circle cx="256" cy="256" r="122"/>
+    </clipPath>
+  </defs>
+
+  <!-- 01_SHADOW -->
+  <g id="01_SHADOW" opacity="0.22" transform="translate(0 10)">
+    <ellipse cx="256" cy="256" rx="196" ry="75"
+             fill="none" stroke="#2b093f" stroke-width="22"
+             transform="rotate(-17 256 256)"/>
+    <circle cx="256" cy="256" r="122" fill="#2b093f"/>
+  </g>
+
+  <!-- 02_BACK_ORBIT -->
+  <g id="02_BACK_ORBIT"
+     fill="none" stroke="url(#purpleMain)"
+     stroke-width="20" stroke-linecap="round">
+    <path d="M92 319
+             C57 290 60 244 107 205
+             C158 162 245 132 323 137"
+          opacity="0.72"/>
+    <path d="M419 190
+             C459 221 459 269 412 309
+             C367 346 294 373 225 376"
+          opacity="0.72"/>
+  </g>
+
+  <!-- 03_PLANET_BODY -->
+  <g id="03_PLANET_BODY" filter="url(#softShadow)">
+    <circle cx="256" cy="256" r="122"
+            fill="url(#planetFill)"
+            stroke="url(#purpleMain)"
+            stroke-width="18"/>
+  </g>
+
+  <!-- 04_CONTINENTS -->
+  <g id="04_CONTINENTS" clip-path="url(#planetClip)"
+     fill="#f0d7ff" opacity="0.92" filter="url(#roughInk)">
+    <path d="M170 176
+             L194 156 L230 150 L249 166
+             L238 185 L211 193 L202 218
+             L177 222 L160 204Z"/>
+    <path d="M268 161
+             L301 149 L329 164 L345 189
+             L332 208 L308 204 L291 219
+             L271 202Z"/>
+    <path d="M214 241
+             L244 228 L272 239 L281 263
+             L266 282 L239 278 L221 296
+             L201 281 L198 256Z"/>
+    <path d="M309 250
+             L337 237 L359 247 L370 274
+             L352 296 L328 290 L314 307
+             L294 292Z"/>
+    <path d="M196 312
+             L220 300 L243 310 L246 337
+             L226 355 L201 344Z"/>
+  </g>
+
+  <!-- 05_LONGITUDE_LINES -->
+  <g id="05_LONGITUDE_LINES"
+     fill="none" stroke="#54206d"
+     stroke-width="8" opacity="0.55" clip-path="url(#planetClip)">
+    <ellipse cx="256" cy="256" rx="54" ry="122"/>
+    <ellipse cx="256" cy="256" rx="93" ry="122"/>
+    <path d="M134 256 H378"/>
+    <path d="M149 209 C201 231 311 231 363 209"/>
+    <path d="M149 303 C201 281 311 281 363 303"/>
+  </g>
+
+  <!-- 06_FRONT_ORBIT -->
+  <g id="06_FRONT_ORBIT"
+     fill="none" stroke="url(#purpleMain)"
+     stroke-width="22" stroke-linecap="round">
+    <path d="M92 319
+             C143 361 233 384 318 373
+             C396 363 452 328 454 289"/>
+    <path d="M419 190
+             C374 151 290 128 211 137
+             C133 146 73 180 58 221"/>
+  </g>
+
+  <!-- 07_ORBIT_HIGHLIGHT -->
+  <g id="07_ORBIT_HIGHLIGHT"
+     fill="none" stroke="#dda7ff"
+     stroke-width="7" stroke-linecap="round" opacity="0.82">
+    <path d="M110 331 C174 370 268 382 345 360"/>
+    <path d="M403 178 C345 143 269 130 198 143"/>
+  </g>
+
+  <!-- 08_WORLD_SPARKS -->
+  <g id="08_WORLD_SPARKS" fill="url(#purpleMain)">
+    <path d="M92 119 L101 139 L124 142 L107 156
+             L111 178 L92 165 L74 178 L78 156
+             L61 142 L83 139Z"/>
+    <path d="M414 113 L422 131 L442 134 L427 146
+             L431 166 L414 154 L398 166 L401 146
+             L386 134 L406 131Z"/>
+    <circle cx="82" cy="390" r="10"/>
+    <circle cx="429" cy="390" r="10"/>
+    <circle cx="463" cy="236" r="7"/>
+  </g>
+
+  <!-- 09_HIGHLIGHTS -->
+  <g id="09_HIGHLIGHTS"
+     fill="none" stroke="#f1d3ff"
+     stroke-width="8" stroke-linecap="round" opacity="0.82">
+    <path d="M192 176 C214 153 241 142 269 143"/>
+    <path d="M179 216 C171 238 170 260 177 281"/>
+  </g>
+
+  <!-- 10_ACCENT_DOTS -->
+  <g id="10_ACCENT_DOTS" fill="#dba8ff">
+    <circle cx="143" cy="118" r="6"/>
+    <circle cx="367" cy="102" r="6"/>
+    <circle cx="462" cy="325" r="6"/>
+    <circle cx="55" cy="277" r="6"/>
+  </g>
+</svg>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="512" height="512" viewBox="0 0 512 512"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Creative Strategy icon</title>
+  <desc id="desc">Layered purple comic-style chess rook and strategic route icon for Vectis Concepts.</desc>
+
+  <defs>
+    <linearGradient id="purpleMain" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9b39d3"/>
+      <stop offset="0.55" stop-color="#6d22a5"/>
+      <stop offset="1" stop-color="#461167"/>
+    </linearGradient>
+
+    <linearGradient id="purpleLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e0a8ff"/>
+      <stop offset="1" stop-color="#8c3ac0"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7"
+                    flood-color="#2b093f" flood-opacity="0.30"/>
+    </filter>
+
+    <filter id="roughInk" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018"
+                    numOctaves="2" seed="31" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise"
+                         scale="1.3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <!-- 01_SHADOW -->
+  <g id="01_SHADOW" opacity="0.22" transform="translate(0 10)">
+    <path d="M176 154 H336 L320 214 L306 248 L318 354 H350 L366 420 H146 L162 354 H194 L206 248 L192 214Z"
+          fill="#2b093f"/>
+  </g>
+
+  <!-- 02_STRATEGY_GRID -->
+  <g id="02_STRATEGY_GRID"
+     fill="none" stroke="url(#purpleMain)"
+     stroke-width="8" opacity="0.34">
+    <path d="M78 118 H434"/>
+    <path d="M78 196 H434"/>
+    <path d="M78 274 H434"/>
+    <path d="M78 352 H434"/>
+    <path d="M118 78 V434"/>
+    <path d="M196 78 V434"/>
+    <path d="M274 78 V434"/>
+    <path d="M352 78 V434"/>
+  </g>
+
+  <!-- 03_ROUTE_PATH -->
+  <g id="03_ROUTE_PATH"
+     fill="none" stroke="url(#purpleMain)"
+     stroke-width="14" stroke-linecap="round" stroke-linejoin="round"
+     stroke-dasharray="18 14" filter="url(#roughInk)">
+    <path d="M92 364
+             C128 326 145 288 169 252
+             C198 207 246 197 285 176
+             C329 152 356 119 414 102"/>
+  </g>
+
+  <!-- 04_ROUTE_NODES -->
+  <g id="04_ROUTE_NODES" fill="url(#purpleMain)">
+    <circle cx="92" cy="364" r="13"/>
+    <circle cx="169" cy="252" r="12"/>
+    <circle cx="285" cy="176" r="12"/>
+    <circle cx="414" cy="102" r="13"/>
+  </g>
+
+  <!-- 05_ROOK_BODY -->
+  <g id="05_ROOK_BODY" filter="url(#softShadow)">
+    <path d="M176 154
+             H336
+             L320 214
+             L306 248
+             L318 354
+             H350
+             L366 420
+             H146
+             L162 354
+             H194
+             L206 248
+             L192 214Z"
+          fill="url(#purpleLight)"
+          stroke="url(#purpleMain)"
+          stroke-width="18"
+          stroke-linejoin="round"/>
+  </g>
+
+  <!-- 06_ROOK_FACETS -->
+  <g id="06_ROOK_FACETS" opacity="0.45">
+    <path d="M206 248 H306 L318 354 H194Z" fill="#7b2bac"/>
+    <path d="M176 154 H336 L320 214 H192Z" fill="#d8a9f3"/>
+    <path d="M194 354 H318 L350 420 H162Z" fill="#6c2199"/>
+    <path d="M230 248 H256 V354 H210Z" fill="#f0d7ff" opacity="0.55"/>
+  </g>
+
+  <!-- 07_ROOK_CROWN -->
+  <g id="07_ROOK_CROWN">
+    <path d="M168 105
+             H213 V142
+             H235 V105
+             H277 V142
+             H299 V105
+             H344
+             V171
+             H168Z"
+          fill="url(#purpleLight)"
+          stroke="url(#purpleMain)"
+          stroke-width="18"
+          stroke-linejoin="round"/>
+    <path d="M180 159 H332"
+          fill="none" stroke="#e8c3fa"
+          stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <!-- 08_DECISION_ARROW -->
+  <g id="08_DECISION_ARROW"
+     fill="none" stroke="url(#purpleMain)"
+     stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M357 303 C394 280 420 250 430 214"/>
+    <path d="M408 224 L432 204 L443 232"/>
+  </g>
+
+  <!-- 09_STRATEGY_SPARKS -->
+  <g id="09_STRATEGY_SPARKS" fill="url(#purpleMain)">
+    <path d="M96 115 L105 135 L128 139 L109 153
+             L114 176 L96 162 L77 176 L82 153
+             L63 139 L86 135Z"/>
+    <path d="M414 352 L423 372 L446 376 L427 390
+             L432 413 L414 399 L395 413 L400 390
+             L381 376 L404 372Z"/>
+    <circle cx="442" cy="154" r="8"/>
+    <circle cx="84" cy="279" r="8"/>
+  </g>
+
+  <!-- 10_HIGHLIGHTS -->
+  <g id="10_HIGHLIGHTS"
+     fill="none" stroke="#f0d3ff"
+     stroke-width="8" stroke-linecap="round" opacity="0.84">
+    <path d="M190 121 H209"/>
+    <path d="M245 121 H265"/>
+    <path d="M310 121 H330"/>
+    <path d="M210 270 L203 334"/>
+    <path d="M177 372 H329"/>
+  </g>
+
+  <!-- 11_BASE_DETAIL -->
+  <g id="11_BASE_DETAIL"
+     fill="none" stroke="url(#purpleMain)"
+     stroke-width="10" stroke-linecap="round" opacity="0.9">
+    <path d="M171 384 H341"/>
+    <path d="M160 404 H352"/>
+  </g>
+</svg>

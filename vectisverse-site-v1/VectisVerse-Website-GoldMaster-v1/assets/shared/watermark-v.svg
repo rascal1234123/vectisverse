@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="512" height="512" viewBox="0 0 512 512"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Vectis Concepts watermark V</title>
+  <desc id="desc">Layered pale geometric V watermark for use behind page content.</desc>
+
+  <defs>
+    <linearGradient id="vFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b48bc8"/>
+      <stop offset="0.5" stop-color="#8d62a6"/>
+      <stop offset="1" stop-color="#654278"/>
+    </linearGradient>
+
+    <linearGradient id="vHighlight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8d8ef"/>
+      <stop offset="1" stop-color="#a17ab2"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10"
+                    flood-color="#3f2850" flood-opacity="0.16"/>
+    </filter>
+
+    <filter id="roughTexture" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.028"
+                    numOctaves="2" seed="19" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise"
+                         scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <!-- 01_SHADOW -->
+  <g id="01_SHADOW" opacity="0.18" transform="translate(0 10)">
+    <path d="M74 76 H168 L256 340 L344 76 H438 L305 438 H207Z"
+          fill="#3f2850"/>
+  </g>
+
+  <!-- 02_OUTER_V -->
+  <g id="02_OUTER_V" filter="url(#softShadow)">
+    <path d="M74 76 H168 L256 340 L344 76 H438 L305 438 H207Z"
+          fill="url(#vFill)"/>
+  </g>
+
+  <!-- 03_INNER_CUT -->
+  <g id="03_INNER_CUT">
+    <path d="M150 112 H192 L256 310 L320 112 H362 L286 382 H226Z"
+          fill="#ffffff" opacity="0.16"/>
+  </g>
+
+  <!-- 04_FACET_LEFT -->
+  <g id="04_FACET_LEFT" opacity="0.48">
+    <path d="M74 76 H168 L256 340 L207 438Z"
+          fill="#c5a5d3"/>
+  </g>
+
+  <!-- 05_FACET_RIGHT -->
+  <g id="05_FACET_RIGHT" opacity="0.34">
+    <path d="M438 76 H344 L256 340 L305 438Z"
+          fill="#5f3d71"/>
+  </g>
+
+  <!-- 06_CENTRE_FACET -->
+  <g id="06_CENTRE_FACET" opacity="0.42">
+    <path d="M168 76 L256 340 L344 76 L305 438 L256 382 L207 438Z"
+          fill="#8e64a2"/>
+  </g>
+
+  <!-- 07_HIGHLIGHT -->
+  <g id="07_HIGHLIGHT"
+     fill="none" stroke="url(#vHighlight)"
+     stroke-width="10" stroke-linecap="round" opacity="0.55">
+    <path d="M102 95 H151 L227 324"/>
+    <path d="M356 95 H408"/>
+  </g>
+
+  <!-- 08_OUTLINE -->
+  <g id="08_OUTLINE"
+     fill="none" stroke="#5f3e70"
+     stroke-width="8" stroke-linejoin="round" opacity="0.5">
+    <path d="M74 76 H168 L256 340 L344 76 H438 L305 438 H207Z"/>
+  </g>
+
+  <!-- 09_DISTRESS_TEXTURE -->
+  <g id="09_DISTRESS_TEXTURE" opacity="0.16" filter="url(#roughTexture)">
+    <path d="M110 126 H150 M132 174 H169 M180 246 H204 M307 202 H347 M326 148 H370 M236 382 H278"
+          stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>

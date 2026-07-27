@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="840" viewBox="0 0 900 840">
+<defs><clipPath id="panel1"><polygon points="0,0 310,0 240,840 0,840"/></clipPath><clipPath id="panel2"><polygon points="270,0 620,0 530,840 200,840"/></clipPath><clipPath id="panel3"><polygon points="570,0 900,0 900,840 480,840"/></clipPath>
+<linearGradient id="globalGlow" x1="0" y1="0" x2="1" y2="0"><stop offset=".48" stop-color="#8f3abb" stop-opacity="0"/><stop offset=".7" stop-color="#8f3abb" stop-opacity=".18"/><stop offset="1" stop-color="#24c7e8" stop-opacity=".08"/></linearGradient>
+</defs>
+<g id="01_TRANSPARENT_BASE"><rect width="900" height="840" fill="#efe6d7"/></g>
+<g id="02_PANEL_1" clip-path="url(#panel1)"><rect width="900" height="840" fill="#efe6d7"/><image href="sketch-boy.svg" x="0" y="0" width="900" height="840" preserveAspectRatio="xMidYMid slice"/></g><g id="03_PANEL_2" clip-path="url(#panel2)"><rect width="900" height="840" fill="#efe6d7"/><image href="finished-character.svg" x="0" y="0" width="900" height="840" preserveAspectRatio="xMidYMid slice"/></g><g id="04_PANEL_3" clip-path="url(#panel3)"><rect width="900" height="840" fill="#efe6d7"/><image href="future-city.svg" x="0" y="0" width="900" height="840" preserveAspectRatio="xMidYMid slice"/></g>
+<g id="20_DIAGONAL_SEPARATORS"><path d="M 310 0 L 240 840" stroke="#fff" stroke-width="12" /><path d="M 620 0 L 530 840" stroke="#fff" stroke-width="12" /></g>
+<g id="21_TRANSITION_ARROWS"><g transform="translate(550.2 388.5)">
+              <path d="M0 20.2 H29.7 V0 L49.5 31.5 L29.7 63.0 V42.8 H0Z"
+              fill="#111" stroke="#fff" stroke-width="5.0" stroke-linejoin="round"/>
+            </g></g>
+<g id="22_GLOBAL_LIGHTING"><rect width="900" height="840" fill="url(#globalGlow)"/></g>
+</svg>

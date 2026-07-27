@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="760" viewBox="0 0 900 760">
+
+<defs>
+  <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#c86fe8"/>
+    <stop offset=".5" stop-color="#8f39b6"/>
+    <stop offset="1" stop-color="#4a1762"/>
+  </linearGradient>
+  <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f3ecdf"/>
+    <stop offset=".55" stop-color="#e4dacb"/>
+    <stop offset="1" stop-color="#c9baa7"/>
+  </linearGradient>
+  <linearGradient id="silver" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#f4f1f5"/>
+    <stop offset=".5" stop-color="#aaa0ad"/>
+    <stop offset="1" stop-color="#4f4753"/>
+  </linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#160a1c" flood-opacity=".28"/>
+  </filter>
+  <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency=".58" numOctaves="3" seed="42" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="table" tableValues="0 .11"/></feComponentTransfer>
+  </filter>
+  <filter id="rough" x="-15%" y="-15%" width="130%" height="130%">
+    <feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="58" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="1.4"/>
+  </filter>
+</defs>
+
+<g id="01_TRANSPARENT_BASE"><rect width="900" height="760" fill="#fff" opacity="0"/></g>
+<g id="02_SHADOW" filter="url(#shadow)" opacity=".32"><rect x="35" y="42" width="830" height="680" fill="#1a0f1d"/></g>
+<g id="03_CARD_BACKGROUND"><rect x="24" y="24" width="830" height="680" fill="url(#paper)" stroke="#5a505b" stroke-width="6"/></g>
+<g id="04_ART_WINDOW"><rect x="48" y="48" width="782" height="470" fill="#ddd2c3" stroke="#5a505b" stroke-width="4"/></g>
+<g id="05_CAPTION_DIVIDER"><path d="M48 520 H830" stroke="#5a505b" stroke-width="4"/></g>
+<g id="06_TITLE_GUIDE"><rect x="80" y="560" width="720" height="48" fill="#fff" opacity=".01"/></g>
+<g id="07_DESCRIPTION_GUIDE"><rect x="100" y="625" width="680" height="34" fill="#fff" opacity=".01"/></g>
+<g id="08_PAPER_TEXTURE"><rect x="24" y="24" width="830" height="680" fill="#6f604f" filter="url(#grain)" opacity=".5"/></g>
+</svg>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200" height="760" viewBox="0 0 1200 760"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Pirate Theme Park featured concept</title>
+  <desc id="desc">Layered comic-style pirate theme park concept artwork with a cliff-top fortress, pirate ship, rope bridge, lagoon and atmospheric sky.</desc>
+
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3f2a57"/>
+      <stop offset="0.48" stop-color="#7c5a77"/>
+      <stop offset="1" stop-color="#d3a36e"/>
+    </linearGradient>
+
+    <linearGradient id="seaGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#31506a"/>
+      <stop offset="1" stop-color="#132936"/>
+    </linearGradient>
+
+    <linearGradient id="cliffGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4c3b35"/>
+      <stop offset="0.5" stop-color="#2e2929"/>
+      <stop offset="1" stop-color="#181719"/>
+    </linearGradient>
+
+    <linearGradient id="woodGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8b5c34"/>
+      <stop offset="1" stop-color="#422b1e"/>
+    </linearGradient>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+
+    <filter id="roughInk" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="41" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="1.8"/>
+    </filter>
+
+    <filter id="paperNoise" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.45" numOctaves="3" seed="7" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.12"/>
+      </feComponentTransfer>
+    </filter>
+
+    <clipPath id="panelClip">
+      <rect x="8" y="8" width="1184" height="744" rx="2"/>
+    </clipPath>
+  </defs>
+
+  <!-- 01_BACKGROUND -->
+  <g id="01_BACKGROUND">
+    <rect width="1200" height="760" fill="#0a090b"/>
+  </g>
+
+  <!-- 02_SKY -->
+  <g id="02_SKY" clip-path="url(#panelClip)">
+    <rect x="8" y="8" width="1184" height="510" fill="url(#skyGrad)"/>
+    <ellipse cx="930" cy="150" rx="150" ry="75" fill="#f0bd7a" opacity="0.18" filter="url(#softGlow)"/>
+    <ellipse cx="280" cy="170" rx="210" ry="90" fill="#b38cc0" opacity="0.12" filter="url(#softGlow)"/>
+  </g>
+
+  <!-- 03_CLOUDS -->
+  <g id="03_CLOUDS" fill="#eee0d1" opacity="0.18" filter="url(#roughInk)">
+    <path d="M80 135 C140 80 238 94 278 143 C332 111 420 123 450 179 C365 192 235 194 95 181Z"/>
+    <path d="M700 112 C750 68 824 77 856 120 C906 95 970 105 1001 146 C925 160 810 163 724 151Z"/>
+  </g>
+
+  <!-- 04_DISTANT_ISLANDS -->
+  <g id="04_DISTANT_ISLANDS" fill="#261f2a" opacity="0.65">
+    <path d="M0 420 C140 365 240 384 350 430 L350 520 H0Z"/>
+    <path d="M770 405 C905 355 1050 375 1200 430 V520 H770Z"/>
+  </g>
+
+  <!-- 05_SEA -->
+  <g id="05_SEA">
+    <rect x="8" y="410" width="1184" height="342" fill="url(#seaGrad)"/>
+    <g fill="none" stroke="#8fb4c5" stroke-width="5" opacity="0.34">
+      <path d="M35 495 C165 470 290 525 420 494 C550 463 681 514 812 490 C930 469 1055 515 1180 486"/>
+      <path d="M20 560 C155 535 278 582 420 556 C560 530 692 575 820 553 C950 531 1062 570 1190 550"/>
+      <path d="M50 628 C178 602 312 646 450 622 C583 599 721 640 855 618 C986 596 1080 634 1170 616"/>
+    </g>
+  </g>
+
+  <!-- 06_MAIN_CLIFF -->
+  <g id="06_MAIN_CLIFF" filter="url(#roughInk)">
+    <path d="M152 690
+             C170 590 205 506 252 446
+             C290 397 348 358 420 336
+             C488 315 564 321 621 352
+             C677 383 706 435 711 496
+             C716 570 680 630 628 690Z"
+          fill="url(#cliffGrad)" stroke="#0c0b0d" stroke-width="10"/>
+    <path d="M191 672 L268 481 L332 431 L382 674Z" fill="#6e5342" opacity="0.35"/>
+    <path d="M392 674 L458 361 L530 354 L560 674Z" fill="#85644c" opacity="0.25"/>
+    <path d="M568 674 L610 395 L662 442 L646 674Z" fill="#7a5a45" opacity="0.22"/>
+  </g>
+
+  <!-- 07_FORTRESS -->
+  <g id="07_FORTRESS" filter="url(#roughInk)">
+    <path d="M320 340 L320 245 L375 245 L375 205 L430 205 L430 245 L500 245 L500 198 L553 198 L553 245 L610 245 L610 342Z"
+          fill="#29262a" stroke="#0a090b" stroke-width="9"/>
+    <rect x="341" y="268" width="248" height="92" fill="#3b3434" stroke="#0a090b" stroke-width="8"/>
+    <path d="M360 268 V228 H393 V268 M448 268 V224 H481 V268 M535 268 V225 H568 V268"
+          fill="#3b3434" stroke="#0a090b" stroke-width="8"/>
+    <rect x="445" y="297" width="48" height="63" fill="#131214"/>
+    <rect x="362" y="300" width="24" height="34" fill="#e2a84d" opacity="0.85"/>
+    <rect x="550" y="300" width="24" height="34" fill="#e2a84d" opacity="0.85"/>
+  </g>
+
+  <!-- 08_SKULL_GATE -->
+  <g id="08_SKULL_GATE" transform="translate(454 278)">
+    <circle cx="15" cy="15" r="13" fill="#d8c7a5"/>
+    <circle cx="10" cy="13" r="3" fill="#1c1718"/>
+    <circle cx="20" cy="13" r="3" fill="#1c1718"/>
+    <path d="M9 22 H21" stroke="#1c1718" stroke-width="3"/>
+    <path d="M2 30 L28 0 M2 0 L28 30" stroke="#d8c7a5" stroke-width="5"/>
+  </g>
+
+  <!-- 09_ROPE_BRIDGE -->
+  <g id="09_ROPE_BRIDGE">
+    <path d="M604 365 C694 405 752 417 834 385" fill="none" stroke="#3e281a" stroke-width="12"/>
+    <path d="M603 347 C694 388 754 398 836 365" fill="none" stroke="#7b5436" stroke-width="6"/>
+    <g stroke="#5b3b27" stroke-width="5">
+      <path d="M630 361 L632 387"/>
+      <path d="M661 374 L663 400"/>
+      <path d="M694 384 L697 408"/>
+      <path d="M728 389 L731 412"/>
+      <path d="M763 387 L766 407"/>
+      <path d="M797 379 L800 398"/>
+    </g>
+    <path d="M620 370 L812 389" stroke="#b58553" stroke-width="12" stroke-dasharray="18 8"/>
+  </g>
+
+  <!-- 10_WATCH_TOWER -->
+  <g id="10_WATCH_TOWER" filter="url(#roughInk)">
+    <path d="M813 390 L842 250 L892 250 L922 392Z" fill="#332c2a" stroke="#0a090b" stroke-width="8"/>
+    <rect x="823" y="220" width="84" height="54" fill="#423631" stroke="#0a090b" stroke-width="8"/>
+    <path d="M822 220 L842 194 H888 L908 220Z" fill="#241f20" stroke="#0a090b" stroke-width="7"/>
+    <rect x="851" y="235" width="24" height="26" fill="#d9a34d"/>
+  </g>
+
+  <!-- 11_PIRATE_SHIP -->
+  <g id="11_PIRATE_SHIP" transform="translate(770 430)" filter="url(#roughInk)">
+    <path d="M0 122 C55 150 170 153 235 118 L211 165 H32Z"
+          fill="url(#woodGrad)" stroke="#0a090b" stroke-width="9"/>
+    <path d="M48 118 L60 34 M125 130 L130 0 M195 118 L187 48"
+          stroke="#2c2019" stroke-width="10"/>
+    <path d="M62 36 L121 64 L65 92Z" fill="#39263c" stroke="#0a090b" stroke-width="7"/>
+    <path d="M133 9 L207 48 L134 84Z" fill="#4b2a52" stroke="#0a090b" stroke-width="7"/>
+    <path d="M188 53 L231 78 L191 101Z" fill="#382139" stroke="#0a090b" stroke-width="7"/>
+    <path d="M124 22 L124 66" stroke="#d2b56c" stroke-width="6"/>
+    <path d="M111 30 H137" stroke="#d2b56c" stroke-width="6"/>
+    <circle cx="124" cy="39" r="7" fill="#d8c7a5"/>
+    <circle cx="121" cy="37" r="2" fill="#1b1717"/>
+    <circle cx="127" cy="37" r="2" fill="#1b1717"/>
+  </g>
+
+  <!-- 12_FOREGROUND_PALMS -->
+  <g id="12_FOREGROUND_PALMS" fill="#101013" opacity="0.95">
+    <path d="M80 760 C95 640 110 560 145 470 H160 C142 568 130 650 126 760Z"/>
+    <path d="M145 485 C95 440 62 428 24 426 C72 470 99 491 145 508Z"/>
+    <path d="M147 485 C192 433 233 420 275 426 C225 461 193 487 149 506Z"/>
+    <path d="M1040 760 C1032 642 1021 565 991 489 H976 C994 576 1002 654 999 760Z"/>
+    <path d="M988 500 C1030 450 1072 431 1120 435 C1075 472 1037 494 990 520Z"/>
+    <path d="M985 500 C944 452 910 439 870 443 C908 475 944 500 983 519Z"/>
+  </g>
+
+  <!-- 13_FIRELIGHT -->
+  <g id="13_FIRELIGHT">
+    <circle cx="430" cy="337" r="30" fill="#f3a441" opacity="0.18" filter="url(#softGlow)"/>
+    <circle cx="860" cy="250" r="24" fill="#f3a441" opacity="0.16" filter="url(#softGlow)"/>
+  </g>
+
+  <!-- 14_ATMOSPHERE -->
+  <g id="14_ATMOSPHERE">
+    <rect x="8" y="8" width="1184" height="744" fill="#5c2d71" opacity="0.06"/>
+    <rect x="8" y="8" width="1184" height="744" filter="url(#paperNoise)" opacity="0.55"/>
+  </g>
+
+  <!-- 15_FRAME -->
+  <g id="15_FRAME">
+    <rect x="8" y="8" width="1184" height="744" fill="none" stroke="#0a090b" stroke-width="16"/>
+    <rect x="22" y="22" width="1156" height="716" fill="none" stroke="#8a6d73" stroke-width="2" opacity="0.55"/>
+  </g>
+</svg>

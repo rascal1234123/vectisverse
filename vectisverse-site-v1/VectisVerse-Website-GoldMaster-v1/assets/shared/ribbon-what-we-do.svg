@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="180" viewBox="0 0 720 180">
+
+<defs>
+  <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#c86fe8"/>
+    <stop offset=".5" stop-color="#8f39b6"/>
+    <stop offset="1" stop-color="#4a1762"/>
+  </linearGradient>
+  <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f3ecdf"/>
+    <stop offset=".55" stop-color="#e4dacb"/>
+    <stop offset="1" stop-color="#c9baa7"/>
+  </linearGradient>
+  <linearGradient id="silver" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#f4f1f5"/>
+    <stop offset=".5" stop-color="#aaa0ad"/>
+    <stop offset="1" stop-color="#4f4753"/>
+  </linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#160a1c" flood-opacity=".28"/>
+  </filter>
+  <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency=".58" numOctaves="3" seed="42" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="table" tableValues="0 .11"/></feComponentTransfer>
+  </filter>
+  <filter id="rough" x="-15%" y="-15%" width="130%" height="130%">
+    <feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="58" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="1.4"/>
+  </filter>
+</defs>
+
+<g id="01_TRANSPARENT_BASE"><rect width="720" height="180" fill="#fff" opacity="0"/></g>
+<g id="02_SHADOW" filter="url(#shadow)" opacity=".28"><path d="M20 42 H700 L678 144 H36Z" fill="#1b0f1e"/></g>
+<g id="03_RIBBON_BODY" filter="url(#rough)"><path d="M10 30 H710 L686 132 H24Z" fill="#111015"/></g>
+<g id="04_EDGE_HIGHLIGHT"><path d="M35 40 H650" stroke="#6b5f6d" stroke-width="4" opacity=".45"/></g>
+<g id="05_LABEL"><text x="40" y="103" font-family="Impact,Arial Black,sans-serif" font-size="66" fill="#fff" letter-spacing="2">WHAT WE DO</text></g>
+</svg>

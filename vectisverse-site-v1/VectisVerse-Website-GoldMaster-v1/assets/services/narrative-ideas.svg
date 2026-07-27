@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Narrative Ideas icon</title>
+  <desc id="desc">Layered purple lightbulb icon with story spark and radiating idea marks.</desc>
+  <defs>
+    <linearGradient id="purpleMain" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9a35d1"/><stop offset="0.55" stop-color="#6f20a8"/><stop offset="1" stop-color="#4a126f"/>
+    </linearGradient>
+    <linearGradient id="purpleHighlight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d78cff"/><stop offset="1" stop-color="#8b37bf"/>
+    </linearGradient>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#2d0a46" flood-opacity="0.28"/></filter>
+  </defs>
+  <g id="01_SHADOW" opacity="0.24" transform="translate(0 8)">
+    <path d="M176 214C176 151 219 106 276 106C335 106 379 151 379 213C379 256 358 286 331 311C310 330 302 349 299 371L252 371C248 347 239 329 219 311C192 287 176 257 176 214Z" fill="#2d0a46"/>
+  </g>
+  <g id="02_RADIATING_LINES" fill="none" stroke="url(#purpleMain)" stroke-width="16" stroke-linecap="round">
+    <path d="M276 51V13"/><path d="M151 100L122 70"/><path d="M401 100L430 70"/><path d="M112 218H72"/><path d="M440 218H480"/><path d="M154 338L125 367"/><path d="M398 338L427 367"/>
+  </g>
+  <g id="03_SMALL_SPARKS" fill="url(#purpleMain)"><circle cx="92" cy="142" r="9"/><circle cx="460" cy="145" r="9"/><circle cx="151" cy="57" r="8"/><circle cx="402" cy="57" r="8"/><circle cx="82" cy="304" r="8"/><circle cx="470" cy="303" r="8"/></g>
+  <g id="04_BULB_OUTLINE" filter="url(#softShadow)">
+    <path d="M176 214C176 151 219 106 276 106C335 106 379 151 379 213C379 256 358 286 331 311C310 330 302 349 299 371L252 371C248 347 239 329 219 311C192 287 176 257 176 214Z" fill="none" stroke="url(#purpleMain)" stroke-width="20" stroke-linejoin="round"/>
+  </g>
+  <g id="05_BULB_GLOW_FILL" opacity="0.10"><path d="M193 215C193 163 228 125 276 125C325 125 362 163 362 213C362 248 345 273 320 296C297 317 286 339 283 354L267 354C263 335 252 316 231 296C207 274 193 249 193 215Z" fill="url(#purpleHighlight)"/></g>
+  <g id="06_STORY_SPARK">
+    <path d="M252 170L273 202L312 201L282 225L294 263L261 241L228 264L240 226L209 203L248 203Z" fill="url(#purpleMain)"/>
+    <path d="M269 164L281 185L306 184L287 199L294 223" fill="none" stroke="#dba4ff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g id="07_FILAMENT" fill="none" stroke="url(#purpleMain)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><path d="M234 277C244 288 254 301 258 319"/><path d="M318 277C307 288 298 301 294 319"/><path d="M258 319H294"/></g>
+  <g id="08_BULB_BASE" stroke-linecap="round"><path d="M245 379H307" stroke="url(#purpleMain)" stroke-width="18"/><path d="M250 405H302" stroke="url(#purpleMain)" stroke-width="18"/><path d="M259 431H293" stroke="url(#purpleMain)" stroke-width="18"/></g>
+  <g id="09_HIGHLIGHTS" fill="none" stroke="#dca4ff" stroke-width="8" stroke-linecap="round" opacity="0.8"><path d="M215 169C230 142 251 131 273 130"/><path d="M250 379H284"/></g>
+</svg>

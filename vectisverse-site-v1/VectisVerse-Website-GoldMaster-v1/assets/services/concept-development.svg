@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="512" height="512" viewBox="0 0 512 512"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Concept Development icon</title>
+  <desc id="desc">Layered purple comic-style pencil and construction marks icon for Vectis Concepts.</desc>
+
+  <defs>
+    <linearGradient id="purpleMain" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9b39d3"/>
+      <stop offset="0.55" stop-color="#6d22a5"/>
+      <stop offset="1" stop-color="#461167"/>
+    </linearGradient>
+
+    <linearGradient id="purpleLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e0a8ff"/>
+      <stop offset="1" stop-color="#8c3ac0"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7"
+                    flood-color="#2b093f" flood-opacity="0.30"/>
+    </filter>
+
+    <filter id="roughInk" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018"
+                    numOctaves="2" seed="21" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise"
+                         scale="1.4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <!-- 01_SHADOW -->
+  <g id="01_SHADOW" opacity="0.22" transform="translate(0 10)">
+    <path d="M134 354 L304 184 L364 244 L194 414 L116 432Z" fill="#2b093f"/>
+  </g>
+
+  <!-- 02_CONSTRUCTION_CIRCLE -->
+  <g id="02_CONSTRUCTION_CIRCLE"
+     fill="none" stroke="url(#purpleMain)"
+     stroke-width="10" stroke-dasharray="16 14" opacity="0.42">
+    <circle cx="250" cy="254" r="154"/>
+  </g>
+
+  <!-- 03_GUIDE_LINES -->
+  <g id="03_GUIDE_LINES"
+     fill="none" stroke="url(#purpleMain)"
+     stroke-width="9" stroke-linecap="round" opacity="0.55">
+    <path d="M90 254 H410"/>
+    <path d="M250 94 V414"/>
+    <path d="M136 140 L364 368"/>
+    <path d="M364 140 L136 368"/>
+  </g>
+
+  <!-- 04_PENCIL_BODY -->
+  <g id="04_PENCIL_BODY" filter="url(#softShadow)">
+    <path d="M140 350 L302 188 L366 252 L204 414 L126 430Z"
+          fill="url(#purpleLight)"
+          stroke="url(#purpleMain)"
+          stroke-width="18"
+          stroke-linejoin="round"/>
+  </g>
+
+  <!-- 05_PENCIL_FACETS -->
+  <g id="05_PENCIL_FACETS" opacity="0.55">
+    <path d="M140 350 L169 379 L331 217 L302 188Z" fill="#f1d5ff"/>
+    <path d="M169 379 L204 414 L366 252 L331 217Z" fill="#6b229b"/>
+  </g>
+
+  <!-- 06_ERASER -->
+  <g id="06_ERASER">
+    <path d="M302 188 L335 155 Q344 146 353 155 L399 201 Q408 210 399 219 L366 252Z"
+          fill="#c98af0"
+          stroke="url(#purpleMain)"
+          stroke-width="18"
+          stroke-linejoin="round"/>
+    <path d="M322 168 L387 233"
+          fill="none" stroke="#e8bcff"
+          stroke-width="8" stroke-linecap="round" opacity="0.85"/>
+  </g>
+
+  <!-- 07_PENCIL_TIP -->
+  <g id="07_PENCIL_TIP" filter="url(#roughInk)">
+    <path d="M126 430 L140 350 L204 414Z"
+          fill="#efe5d7"
+          stroke="url(#purpleMain)"
+          stroke-width="18"
+          stroke-linejoin="round"/>
+    <path d="M126 430 L154 402 L176 424Z"
+          fill="#3d0e59"/>
+  </g>
+
+  <!-- 08_SKETCH_STROKES -->
+  <g id="08_SKETCH_STROKES"
+     fill="none" stroke="url(#purpleMain)"
+     stroke-width="12" stroke-linecap="round" filter="url(#roughInk)">
+    <path d="M104 130 C156 102 218 100 268 120"/>
+    <path d="M94 170 C154 144 220 145 278 165"/>
+    <path d="M292 329 C338 342 377 368 401 402"/>
+  </g>
+
+  <!-- 09_IDEA_NODES -->
+  <g id="09_IDEA_NODES">
+    <circle cx="104" cy="130" r="12" fill="url(#purpleMain)"/>
+    <circle cx="268" cy="120" r="12" fill="url(#purpleMain)"/>
+    <circle cx="94" cy="170" r="10" fill="url(#purpleMain)"/>
+    <circle cx="278" cy="165" r="10" fill="url(#purpleMain)"/>
+    <circle cx="401" cy="402" r="11" fill="url(#purpleMain)"/>
+  </g>
+
+  <!-- 10_CREATION_SPARKS -->
+  <g id="10_CREATION_SPARKS" fill="url(#purpleMain)">
+    <path d="M102 294 L112 316 L136 320 L116 334
+             L121 359 L102 344 L82 359 L88 334
+             L68 320 L92 316Z"/>
+    <path d="M403 109 L411 127 L432 130 L416 143
+             L420 163 L403 151 L386 163 L390 143
+             L374 130 L395 127Z"/>
+    <circle cx="412" cy="300" r="9"/>
+    <circle cx="84" cy="230" r="8"/>
+  </g>
+
+  <!-- 11_HIGHLIGHTS -->
+  <g id="11_HIGHLIGHTS"
+     fill="none" stroke="#f0d2ff"
+     stroke-width="8" stroke-linecap="round" opacity="0.84">
+    <path d="M161 343 L303 201"/>
+    <path d="M151 366 L179 394"/>
+  </g>
+</svg>

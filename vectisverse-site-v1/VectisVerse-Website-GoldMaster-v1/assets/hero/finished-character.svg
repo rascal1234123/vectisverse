@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="900" height="1200" viewBox="0 0 900 1200"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Vectis Concepts finished character</title>
+  <desc id="desc">Layered fully rendered futuristic hero character with armour, colour, energy accents, highlights and transparent background.</desc>
+
+  <defs>
+    <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d8c0b2"/>
+      <stop offset="0.55" stop-color="#b59486"/>
+      <stop offset="1" stop-color="#80685f"/>
+    </linearGradient>
+
+    <linearGradient id="hair" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2e2632"/>
+      <stop offset="1" stop-color="#120f15"/>
+    </linearGradient>
+
+    <linearGradient id="suit" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#343846"/>
+      <stop offset="0.5" stop-color="#202431"/>
+      <stop offset="1" stop-color="#10141d"/>
+    </linearGradient>
+
+    <linearGradient id="armour" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0eef3"/>
+      <stop offset="0.35" stop-color="#b9b8c4"/>
+      <stop offset="0.7" stop-color="#6c6a77"/>
+      <stop offset="1" stop-color="#34323c"/>
+    </linearGradient>
+
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d06cff"/>
+      <stop offset="0.5" stop-color="#943bcb"/>
+      <stop offset="1" stop-color="#4e1b6c"/>
+    </linearGradient>
+
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8ff5ff"/>
+      <stop offset="1" stop-color="#38abd6"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-30%" y="-20%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="12"
+                    flood-color="#15101a" flood-opacity="0.35"/>
+    </filter>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <style>
+      .outline { fill:none; stroke:#141219; stroke-width:8; stroke-linejoin:round; stroke-linecap:round; }
+      .detail { fill:none; stroke:#28242e; stroke-width:5; stroke-linejoin:round; stroke-linecap:round; }
+      .fine { fill:none; stroke:#5d5865; stroke-width:3.5; stroke-linejoin:round; stroke-linecap:round; }
+      .highlight { fill:none; stroke:#f4f1f7; stroke-width:5; stroke-linecap:round; opacity:.75; }
+    </style>
+  </defs>
+
+  <!-- 01_TRANSPARENT_BASE -->
+  <g id="01_TRANSPARENT_BASE">
+    <rect width="900" height="1200" fill="#fff" opacity="0"/>
+  </g>
+
+  <!-- 02_CAST_SHADOW -->
+  <g id="02_CAST_SHADOW" opacity="0.26" filter="url(#shadow)">
+    <ellipse cx="456" cy="1116" rx="200" ry="36" fill="#19131d"/>
+    <path d="M385 338 C344 506 351 712 326 1045"
+          fill="none" stroke="#19131d" stroke-width="38"/>
+  </g>
+
+  <!-- 03_HEAD -->
+  <g id="03_HEAD">
+    <path d="M399 161
+             C430 127 489 126 527 158
+             C556 182 561 227 548 268
+             C536 305 505 334 458 343
+             C412 334 381 306 369 269
+             C356 228 365 184 399 161Z"
+          fill="url(#skin)" stroke="#141219" stroke-width="8"/>
+    <path d="M389 280 C407 319 432 337 458 343 C486 337 511 318 529 280"
+          class="outline"/>
+  </g>
+
+  <!-- 04_HAIR -->
+  <g id="04_HAIR">
+    <path d="M377 203
+             C362 144 413 101 472 105
+             C532 109 571 149 566 208
+             C541 184 516 166 486 156
+             C446 144 409 158 377 203Z"
+          fill="url(#hair)" stroke="#141219" stroke-width="8"/>
+    <path d="M392 159 L426 117 L458 105 L492 108 L526 125 L552 151"
+          class="fine"/>
+    <path d="M387 188 C428 153 486 147 537 172" class="fine"/>
+  </g>
+
+  <!-- 05_FACE -->
+  <g id="05_FACE">
+    <path d="M394 216 C413 201 437 201 453 216" class="detail"/>
+    <path d="M465 216 C483 201 507 202 523 219" class="detail"/>
+    <path d="M401 220 C417 233 435 233 451 220" class="fine"/>
+    <path d="M468 220 C484 233 503 233 519 221" class="fine"/>
+    <ellipse cx="426" cy="220" rx="5" ry="7" fill="#1e1a22"/>
+    <ellipse cx="491" cy="220" rx="5" ry="7" fill="#1e1a22"/>
+    <path d="M458 224 L448 263 L460 270" class="detail"/>
+    <path d="M425 291 C446 302 470 302 492 291" class="detail"/>
+    <path d="M438 302 C452 309 466 309 480 302" class="fine"/>
+  </g>
+
+  <!-- 06_NECK -->
+  <g id="06_NECK">
+    <path d="M425 333 L420 382" class="outline"/>
+    <path d="M490 332 L496 382" class="outline"/>
+    <path d="M420 381 C437 399 477 399 496 382"
+          fill="url(#skin)" stroke="#141219" stroke-width="8"/>
+  </g>
+
+  <!-- 07_BASE_SUIT -->
+  <g id="07_BASE_SUIT" filter="url(#shadow)">
+    <path d="M305 435
+             C337 401 377 388 420 380
+             C440 399 476 399 496 381
+             C545 388 590 408 618 441
+             C589 498 576 559 580 633
+             C552 668 511 685 456 689
+             C400 685 359 668 332 633
+             C336 559 325 498 305 435Z"
+          fill="url(#suit)" stroke="#141219" stroke-width="9"/>
+  </g>
+
+  <!-- 08_CHEST_ARMOUR -->
+  <g id="08_CHEST_ARMOUR">
+    <path d="M350 447 L400 402 L456 486 L512 402 L565 448
+             L536 606 L456 646 L376 606Z"
+          fill="url(#armour)" stroke="#141219" stroke-width="8"/>
+    <path d="M400 402 L456 486 L512 402" fill="none" stroke="url(#purple)" stroke-width="10"/>
+    <path d="M456 486 V646" class="detail"/>
+    <path d="M376 606 L456 646 L536 606" class="detail"/>
+    <path d="M390 528 H522" class="fine"/>
+    <path d="M404 557 L456 586 L508 557" class="fine"/>
+  </g>
+
+  <!-- 09_CHEST_CORE -->
+  <g id="09_CHEST_CORE" filter="url(#glow)">
+    <path d="M426 440 L456 475 L486 440 L476 515 L456 534 L436 515Z"
+          fill="url(#purple)" stroke="#1d1523" stroke-width="6"/>
+    <path d="M444 467 L456 482 L468 467 L463 497 L456 505 L449 497Z"
+          fill="#dba3ff"/>
+  </g>
+
+  <!-- 10_SHOULDER_ARMOUR -->
+  <g id="10_SHOULDER_ARMOUR">
+    <path d="M304 436 C331 405 367 390 409 383
+             L393 458 L333 480Z"
+          fill="url(#armour)" stroke="#141219" stroke-width="8"/>
+    <path d="M505 383 C552 390 590 408 619 441
+             L579 483 L519 458Z"
+          fill="url(#armour)" stroke="#141219" stroke-width="8"/>
+    <path d="M327 431 L391 414" class="highlight"/>
+    <path d="M523 414 L593 434" class="highlight"/>
+    <path d="M338 458 L389 441" stroke="url(#purple)" stroke-width="6"/>
+    <path d="M526 441 L581 460" stroke="url(#purple)" stroke-width="6"/>
+  </g>
+
+  <!-- 11_LEFT_ARM -->
+  <g id="11_LEFT_ARM">
+    <path d="M305 438 C277 489 260 552 259 619
+             C256 662 266 704 294 745
+             C307 762 327 769 344 757
+             C328 711 302 666 301 632
+             C301 572 314 510 338 450Z"
+          fill="url(#skin)" stroke="#141219" stroke-width="8"/>
+    <path d="M285 519 L324 530 L310 632 L265 620Z"
+          fill="url(#suit)" stroke="#141219" stroke-width="7"/>
+  </g>
+
+  <!-- 12_RIGHT_ARM -->
+  <g id="12_RIGHT_ARM">
+    <path d="M617 441 C646 494 663 553 665 615
+             C670 658 661 701 636 740
+             C624 757 603 766 587 754
+             C603 709 623 670 622 633
+             C624 573 612 512 586 454Z"
+          fill="url(#skin)" stroke="#141219" stroke-width="8"/>
+    <path d="M588 529 L628 518 L664 615 L621 633Z"
+          fill="url(#suit)" stroke="#141219" stroke-width="7"/>
+  </g>
+
+  <!-- 13_GAUNTLETS -->
+  <g id="13_GAUNTLETS">
+    <path d="M275 676 L320 664 L341 733 L301 750Z"
+          fill="url(#armour)" stroke="#141219" stroke-width="7"/>
+    <path d="M594 670 L637 662 L646 733 L606 749Z"
+          fill="url(#armour)" stroke="#141219" stroke-width="7"/>
+    <path d="M286 692 L326 682" stroke="url(#cyan)" stroke-width="6" filter="url(#glow)"/>
+    <path d="M603 685 L641 678" stroke="url(#cyan)" stroke-width="6" filter="url(#glow)"/>
+  </g>
+
+  <!-- 14_HANDS -->
+  <g id="14_HANDS">
+    <path d="M294 744 C282 758 279 778 290 790
+             C303 801 325 793 334 777"
+          fill="url(#skin)" stroke="#141219" stroke-width="7"/>
+    <path d="M636 740 C650 755 652 774 642 787
+             C629 800 607 793 598 777"
+          fill="url(#skin)" stroke="#141219" stroke-width="7"/>
+    <path d="M296 770 L280 788 M309 777 L297 798 M323 775 L315 796" class="fine"/>
+    <path d="M637 763 L654 780 M623 772 L635 793 M609 770 L615 792" class="fine"/>
+  </g>
+
+  <!-- 15_BELT -->
+  <g id="15_BELT">
+    <path d="M376 607 L456 649 L536 607 L527 683
+             C502 702 410 703 385 683Z"
+          fill="#191b23" stroke="#141219" stroke-width="8"/>
+    <rect x="424" y="635" width="65" height="42" rx="8"
+          fill="url(#purple)" stroke="#141219" stroke-width="6"/>
+    <path d="M445 643 L468 643 L456 667Z" fill="#e5b9f1"/>
+    <path d="M391 654 H423 M489 654 H522" stroke="url(#cyan)" stroke-width="5" filter="url(#glow)"/>
+  </g>
+
+  <!-- 16_LEGS -->
+  <g id="16_LEGS">
+    <path d="M385 679 C377 723 378 769 388 817
+             C374 878 357 954 342 1041
+             L383 1041
+             C404 940 428 864 448 796
+             L456 690Z"
+          fill="url(#suit)" stroke="#141219" stroke-width="8"/>
+    <path d="M527 679 C536 724 537 770 527 819
+             C547 889 568 959 592 1038
+             L549 1041
+             C510 940 476 861 448 796
+             L456 690Z"
+          fill="url(#suit)" stroke="#141219" stroke-width="8"/>
+    <path d="M395 760 L446 780" class="fine"/>
+    <path d="M517 760 L462 780" class="fine"/>
+  </g>
+
+  <!-- 17_KNEE_ARMOUR -->
+  <g id="17_KNEE_ARMOUR">
+    <path d="M358 824 L411 817 L424 874 L370 889Z"
+          fill="url(#armour)" stroke="#141219" stroke-width="7"/>
+    <path d="M491 817 L545 824 L535 890 L481 874Z"
+          fill="url(#armour)" stroke="#141219" stroke-width="7"/>
+    <path d="M373 836 L408 832" class="highlight"/>
+    <path d="M497 832 L533 837" class="highlight"/>
+    <path d="M372 873 L418 860" stroke="url(#purple)" stroke-width="5"/>
+    <path d="M486 860 L534 874" stroke="url(#purple)" stroke-width="5"/>
+  </g>
+
+  <!-- 18_BOOTS -->
+  <g id="18_BOOTS">
+    <path d="M342 1041 L383 1041 L376 1111 H306 L322 1084Z"
+          fill="#151821" stroke="#141219" stroke-width="8"/>
+    <path d="M549 1041 L592 1038 L611 1110 H541 L540 1082Z"
+          fill="#151821" stroke="#141219" stroke-width="8"/>
+    <path d="M322 1084 H377 M540 1082 H602" class="fine"/>
+    <path d="M309 1111 H377 M541 1110 H612" class="fine"/>
+    <path d="M314 1095 H370" stroke="url(#cyan)" stroke-width="5" filter="url(#glow)"/>
+    <path d="M548 1094 H604" stroke="url(#cyan)" stroke-width="5" filter="url(#glow)"/>
+  </g>
+
+  <!-- 19_COSTUME_ACCENTS -->
+  <g id="19_COSTUME_ACCENTS" fill="none" stroke="url(#purple)" stroke-width="7" stroke-linecap="round">
+    <path d="M350 447 L400 402"/>
+    <path d="M512 402 L565 448"/>
+    <path d="M391 528 H521"/>
+    <path d="M386 607 L456 646 L526 607"/>
+    <path d="M396 701 L456 720 L516 701"/>
+    <path d="M370 889 L409 878"/>
+    <path d="M503 878 L535 889"/>
+  </g>
+
+  <!-- 20_HIGHLIGHTS -->
+  <g id="20_HIGHLIGHTS" class="highlight">
+    <path d="M409 156 C431 138 461 133 488 139"/>
+    <path d="M363 414 L395 405"/>
+    <path d="M408 420 L440 468"/>
+    <path d="M521 420 L547 439"/>
+    <path d="M393 700 L423 710"/>
+    <path d="M349 1054 H371"/>
+    <path d="M556 1052 H580"/>
+  </g>
+
+  <!-- 21_ENERGY_AURA -->
+  <g id="21_ENERGY_AURA" opacity="0.35" filter="url(#glow)">
+    <path d="M330 380 C270 510 278 730 315 930"
+          fill="none" stroke="#9d4dd2" stroke-width="10"/>
+    <path d="M580 380 C642 514 634 736 592 930"
+          fill="none" stroke="#56dff3" stroke-width="10"/>
+  </g>
+
+  <!-- 22_FLOATING_PARTICLES -->
+  <g id="22_FLOATING_PARTICLES">
+    <circle cx="276" cy="420" r="7" fill="#d06cff" filter="url(#glow)"/>
+    <circle cx="648" cy="448" r="7" fill="#69e8ff" filter="url(#glow)"/>
+    <circle cx="288" cy="708" r="6" fill="#69e8ff" filter="url(#glow)"/>
+    <circle cx="626" cy="742" r="6" fill="#d06cff" filter="url(#glow)"/>
+    <path d="M257 562 l10 20 20 3-15 13 4 20-19-12-17 12 4-20-15-13 20-3z"
+          fill="#b45be4" opacity=".75"/>
+    <path d="M654 610 l8 17 18 3-14 11 4 18-16-10-15 10 3-18-13-11 18-3z"
+          fill="#69e8ff" opacity=".75"/>
+  </g>
+</svg>

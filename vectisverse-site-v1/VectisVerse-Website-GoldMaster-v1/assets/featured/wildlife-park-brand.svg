@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200" height="760" viewBox="0 0 1200 760"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Wildlife Park Brand featured concept</title>
+  <desc id="desc">Layered comic-style wildlife park brand concept featuring an iconic lion emblem, safari landscape, animal silhouettes, signage and brand presentation elements.</desc>
+
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c97d3d"/>
+      <stop offset="0.5" stop-color="#e4ad63"/>
+      <stop offset="1" stop-color="#f2d99b"/>
+    </linearGradient>
+
+    <linearGradient id="groundGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7b6531"/>
+      <stop offset="1" stop-color="#2f3b26"/>
+    </linearGradient>
+
+    <linearGradient id="brandGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5c8339"/>
+      <stop offset="1" stop-color="#263f27"/>
+    </linearGradient>
+
+    <linearGradient id="brandGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f2c46d"/>
+      <stop offset="1" stop-color="#b4752e"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="9"
+                    flood-color="#1d2419" flood-opacity="0.32"/>
+    </filter>
+
+    <filter id="roughInk" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="53" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6"/>
+    </filter>
+
+    <filter id="paperNoise" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.45" numOctaves="3" seed="11" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.11"/>
+      </feComponentTransfer>
+    </filter>
+
+    <clipPath id="panelClip">
+      <rect x="8" y="8" width="1184" height="744"/>
+    </clipPath>
+  </defs>
+
+  <!-- 01_BACKGROUND -->
+  <g id="01_BACKGROUND">
+    <rect width="1200" height="760" fill="#10130e"/>
+  </g>
+
+  <!-- 02_SKY -->
+  <g id="02_SKY" clip-path="url(#panelClip)">
+    <rect x="8" y="8" width="1184" height="470" fill="url(#skyGrad)"/>
+    <circle cx="946" cy="126" r="82" fill="#ffe5a3" opacity="0.78"/>
+  </g>
+
+  <!-- 03_CLOUDS -->
+  <g id="03_CLOUDS" fill="#f8e8c8" opacity="0.24">
+    <path d="M74 137 C129 89 204 95 236 140 C278 113 338 123 360 165 C287 176 183 179 93 166Z"/>
+    <path d="M684 92 C723 58 782 65 807 99 C848 76 899 84 921 121 C860 133 770 135 704 127Z"/>
+  </g>
+
+  <!-- 04_DISTANT_HILLS -->
+  <g id="04_DISTANT_HILLS" fill="#4e5432" opacity="0.72">
+    <path d="M0 390 C140 325 270 337 395 381 C520 425 645 419 752 377 C890 322 1028 333 1200 398 V515 H0Z"/>
+  </g>
+
+  <!-- 05_SAVANNAH -->
+  <g id="05_SAVANNAH">
+    <rect x="8" y="410" width="1184" height="342" fill="url(#groundGrad)"/>
+    <path d="M0 528 C214 487 421 498 621 536 C809 571 1001 566 1200 520 V760 H0Z"
+          fill="#53663a" opacity="0.52"/>
+  </g>
+
+  <!-- 06_ACACIA_TREES -->
+  <g id="06_ACACIA_TREES" fill="#1c281d" filter="url(#roughInk)">
+    <path d="M168 494 L180 379 H194 L205 494Z"/>
+    <path d="M95 380 C140 344 212 344 260 380 C222 397 132 397 95 380Z"/>
+    <path d="M927 491 L939 363 H953 L965 491Z"/>
+    <path d="M854 364 C905 326 982 326 1034 364 C992 385 897 385 854 364Z"/>
+  </g>
+
+  <!-- 07_ANIMAL_SILHOUETTES -->
+  <g id="07_ANIMAL_SILHOUETTES" fill="#1b2119" opacity="0.93">
+    <!-- Elephant -->
+    <path d="M96 557
+             C123 533 173 529 205 548
+             L235 546 L251 565 L240 582
+             L220 578 L215 629 H197 L192 587
+             L159 589 L157 629 H139 L134 587
+             L113 582 L99 596 L84 588Z"/>
+    <path d="M238 560 C264 564 274 578 270 603 C258 590 248 580 238 576Z"/>
+
+    <!-- Giraffe -->
+    <path d="M1036 538 L1053 440 L1074 433 L1088 449 L1078 538Z"/>
+    <path d="M1013 536 C1031 522 1075 522 1096 540 L1090 612 H1074 L1068 560
+             H1042 L1037 612 H1021Z"/>
+    <circle cx="1066" cy="424" r="15"/>
+    <path d="M1057 410 L1053 393 M1074 410 L1079 393" stroke="#1b2119" stroke-width="7"/>
+
+    <!-- Antelope -->
+    <path d="M760 582 C783 562 827 562 851 581 L846 620 H832 L829 592 H790 L787 620 H773Z"/>
+    <path d="M843 574 L863 551 L870 558 L853 582Z"/>
+    <path d="M856 552 L852 527 M865 552 L873 529" stroke="#1b2119" stroke-width="6"/>
+  </g>
+
+  <!-- 08_BRAND_PRESENTATION_PANEL -->
+  <g id="08_BRAND_PRESENTATION_PANEL" filter="url(#softShadow)">
+    <rect x="300" y="115" width="600" height="510" rx="18"
+          fill="#ece4cf" stroke="#1d2419" stroke-width="14"/>
+    <rect x="318" y="133" width="564" height="474" rx="10"
+          fill="#f5eedf" stroke="#8d7d62" stroke-width="3"/>
+  </g>
+
+  <!-- 09_BRAND_HEADER -->
+  <g id="09_BRAND_HEADER">
+    <rect x="350" y="158" width="500" height="84" rx="8"
+          fill="url(#brandGreen)"/>
+    <text x="600" y="212"
+          text-anchor="middle"
+          font-family="Impact, Haettenschweiler, Arial Narrow Bold, sans-serif"
+          font-size="48" letter-spacing="2"
+          fill="#f3dfac">WILDLIFE PARK</text>
+  </g>
+
+  <!-- 10_LION_EMBLEM -->
+  <g id="10_LION_EMBLEM" transform="translate(464 255)" filter="url(#roughInk)">
+    <circle cx="136" cy="118" r="112"
+            fill="url(#brandGold)" stroke="#263f27" stroke-width="14"/>
+    <path d="M136 28
+             L160 53 L197 45 L199 81 L230 99
+             L209 129 L222 165 L184 173
+             L166 206 L136 186
+             L106 206 L88 173 L50 165
+             L63 129 L42 99 L73 81 L75 45 L112 53Z"
+          fill="#6d4322" opacity="0.9"/>
+    <circle cx="136" cy="118" r="64" fill="#c68c43"/>
+    <path d="M99 112 C111 88 127 79 136 79 C146 79 162 88 174 112
+             L166 158 C153 177 119 177 106 158Z"
+          fill="#e6b869" stroke="#263f27" stroke-width="8"/>
+    <path d="M113 116 C120 109 126 109 132 116 M140 116 C146 109 152 109 159 116"
+          fill="none" stroke="#263f27" stroke-width="7" stroke-linecap="round"/>
+    <path d="M128 137 L136 143 L144 137"
+          fill="#263f27"/>
+    <path d="M117 151 C128 161 144 161 155 151"
+          fill="none" stroke="#263f27" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <!-- 11_BRAND_RIBBON -->
+  <g id="11_BRAND_RIBBON">
+    <path d="M415 487 H785 L755 548 H445Z"
+          fill="url(#brandGreen)" stroke="#263f27" stroke-width="10"/>
+    <text x="600" y="528"
+          text-anchor="middle"
+          font-family="Arial, Helvetica, sans-serif"
+          font-size="27" font-weight="700"
+          letter-spacing="4"
+          fill="#f4e6bd">WILD • LOCAL • UNFORGETTABLE</text>
+  </g>
+
+  <!-- 12_BRAND_SWATCHES -->
+  <g id="12_BRAND_SWATCHES">
+    <circle cx="382" cy="576" r="18" fill="#263f27"/>
+    <circle cx="430" cy="576" r="18" fill="#5c8339"/>
+    <circle cx="478" cy="576" r="18" fill="#b4752e"/>
+    <circle cx="526" cy="576" r="18" fill="#f2c46d"/>
+    <rect x="675" y="558" width="140" height="36" rx="6" fill="#263f27"/>
+    <path d="M695 576 H795" stroke="#f3dfac" stroke-width="5"/>
+  </g>
+
+  <!-- 13_LEAF_ACCENTS -->
+  <g id="13_LEAF_ACCENTS" fill="url(#brandGreen)">
+    <path d="M325 278 C353 248 382 244 404 260 C381 287 354 294 325 278Z"/>
+    <path d="M875 278 C847 248 818 244 796 260 C819 287 846 294 875 278Z"/>
+    <path d="M337 322 C358 296 381 291 398 305 C380 328 359 335 337 322Z"/>
+    <path d="M863 322 C842 296 819 291 802 305 C820 328 841 335 863 322Z"/>
+  </g>
+
+  <!-- 14_BRAND_SPARKS -->
+  <g id="14_BRAND_SPARKS" fill="#7e3ca4">
+    <path d="M246 191 L256 213 L280 217 L260 231 L265 256 L246 241 L226 256 L232 231 L212 217 L236 213Z"/>
+    <path d="M954 190 L962 208 L983 211 L967 224 L971 244 L954 232 L937 244 L941 224 L925 211 L946 208Z"/>
+    <circle cx="250" cy="330" r="8"/>
+    <circle cx="950" cy="330" r="8"/>
+  </g>
+
+  <!-- 15_ATMOSPHERE -->
+  <g id="15_ATMOSPHERE">
+    <rect x="8" y="8" width="1184" height="744" fill="#6a3b79" opacity="0.03"/>
+    <rect x="8" y="8" width="1184" height="744" filter="url(#paperNoise)" opacity="0.5"/>
+  </g>
+
+  <!-- 16_FRAME -->
+  <g id="16_FRAME">
+    <rect x="8" y="8" width="1184" height="744" fill="none" stroke="#10130e" stroke-width="16"/>
+    <rect x="22" y="22" width="1156" height="716" fill="none" stroke="#8b764f" stroke-width="2" opacity="0.6"/>
+  </g>
+</svg>

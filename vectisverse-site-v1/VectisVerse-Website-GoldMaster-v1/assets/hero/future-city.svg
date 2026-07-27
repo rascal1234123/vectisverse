@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1600" height="1000" viewBox="0 0 1600 1000"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Vectis Concepts Future City</title>
+  <desc id="desc">Layered futuristic city environment with towers, elevated roads, neon signage, flying vehicles, atmospheric perspective and transparent framing for the Vectis Concepts hero sequence.</desc>
+
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#14112c"/>
+      <stop offset="0.55" stop-color="#2c2453"/>
+      <stop offset="1" stop-color="#5b3b73"/>
+    </linearGradient>
+
+    <linearGradient id="cityGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a54ee2"/>
+      <stop offset="0.5" stop-color="#5f42c3"/>
+      <stop offset="1" stop-color="#2d89bb"/>
+    </linearGradient>
+
+    <linearGradient id="towerFace" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38405f"/>
+      <stop offset="0.55" stop-color="#20263c"/>
+      <stop offset="1" stop-color="#121827"/>
+    </linearGradient>
+
+    <linearGradient id="towerSide" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#171d30"/>
+      <stop offset="1" stop-color="#0b1020"/>
+    </linearGradient>
+
+    <linearGradient id="roadGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1a2030"/>
+      <stop offset="0.5" stop-color="#343a4b"/>
+      <stop offset="1" stop-color="#161b28"/>
+    </linearGradient>
+
+    <linearGradient id="neonPurple" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d26cff"/>
+      <stop offset="1" stop-color="#7d34c5"/>
+    </linearGradient>
+
+    <linearGradient id="neonCyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7ff5ff"/>
+      <stop offset="1" stop-color="#38a9d6"/>
+    </linearGradient>
+
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="roughEdge" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.015"
+                    numOctaves="2" seed="83" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n"
+                         scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.48"
+                    numOctaves="3" seed="18" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.10"/>
+      </feComponentTransfer>
+    </filter>
+
+    <clipPath id="cityClip">
+      <rect x="0" y="0" width="1600" height="1000"/>
+    </clipPath>
+
+    <style>
+      .window { fill:#6deaff; opacity:.82; }
+      .window2 { fill:#c26cff; opacity:.76; }
+      .line { fill:none; stroke:#1a1822; stroke-width:8; stroke-linejoin:round; stroke-linecap:round; }
+      .fine { fill:none; stroke:#4f597b; stroke-width:4; stroke-linejoin:round; stroke-linecap:round; }
+    </style>
+  </defs>
+
+  <!-- 01_BACKGROUND -->
+  <g id="01_BACKGROUND">
+    <rect width="1600" height="1000" fill="url(#skyGrad)"/>
+  </g>
+
+  <!-- 02_SKY_GLOW -->
+  <g id="02_SKY_GLOW" opacity="0.32">
+    <ellipse cx="800" cy="460" rx="540" ry="290" fill="#a44de0" filter="url(#softGlow)"/>
+    <ellipse cx="1240" cy="300" rx="260" ry="170" fill="#44b9e0" filter="url(#softGlow)"/>
+  </g>
+
+  <!-- 03_CLOUD_HAZE -->
+  <g id="03_CLOUD_HAZE" fill="#ccb6df" opacity="0.12" filter="url(#roughEdge)">
+    <path d="M0 200 C180 125 375 150 520 220 C690 300 860 278 1030 210 C1200 145 1410 150 1600 240 V400 H0Z"/>
+    <path d="M0 470 C220 400 390 430 560 500 C725 568 905 552 1080 485 C1260 416 1420 430 1600 500 V640 H0Z"/>
+  </g>
+
+  <!-- 04_DISTANT_CITY -->
+  <g id="04_DISTANT_CITY" opacity="0.48">
+    <rect x="40" y="420" width="90" height="310" fill="#262943"/>
+    <rect x="150" y="360" width="110" height="370" fill="#20243c"/>
+    <rect x="280" y="455" width="80" height="275" fill="#2b2d48"/>
+    <rect x="1180" y="395" width="100" height="335" fill="#262943"/>
+    <rect x="1300" y="330" width="120" height="400" fill="#20243c"/>
+    <rect x="1450" y="440" width="92" height="290" fill="#2b2d48"/>
+    <g fill="#79d8f1" opacity="0.35">
+      <rect x="64" y="458" width="14" height="18"/><rect x="90" y="458" width="14" height="18"/>
+      <rect x="177" y="400" width="16" height="20"/><rect x="210" y="400" width="16" height="20"/>
+      <rect x="1205" y="435" width="16" height="20"/><rect x="1238" y="435" width="16" height="20"/>
+      <rect x="1330" y="380" width="17" height="20"/><rect x="1367" y="380" width="17" height="20"/>
+    </g>
+  </g>
+
+  <!-- 05_LEFT_TOWER -->
+  <g id="05_LEFT_TOWER" filter="url(#roughEdge)">
+    <path d="M110 760 L190 250 L430 250 L500 760Z"
+          fill="url(#towerFace)" stroke="#12131c" stroke-width="10"/>
+    <path d="M430 250 L510 330 L560 760 L500 760Z"
+          fill="url(#towerSide)" stroke="#12131c" stroke-width="10"/>
+    <path d="M190 250 L255 175 H388 L430 250Z"
+          fill="#2d3150" stroke="#12131c" stroke-width="10"/>
+    <rect x="260" y="195" width="112" height="28" rx="10" fill="url(#neonPurple)" filter="url(#neonGlow)"/>
+  </g>
+
+  <!-- 06_LEFT_TOWER_WINDOWS -->
+  <g id="06_LEFT_TOWER_WINDOWS">
+    <g class="window">
+      <rect x="205" y="320" width="34" height="24"/><rect x="262" y="320" width="34" height="24"/><rect x="319" y="320" width="34" height="24"/>
+      <rect x="198" y="375" width="34" height="24"/><rect x="255" y="375" width="34" height="24"/><rect x="312" y="375" width="34" height="24"/>
+      <rect x="190" y="430" width="34" height="24"/><rect x="247" y="430" width="34" height="24"/><rect x="304" y="430" width="34" height="24"/>
+      <rect x="180" y="490" width="34" height="24"/><rect x="237" y="490" width="34" height="24"/><rect x="294" y="490" width="34" height="24"/>
+      <rect x="171" y="550" width="34" height="24"/><rect x="228" y="550" width="34" height="24"/><rect x="285" y="550" width="34" height="24"/>
+    </g>
+    <g class="window2">
+      <rect x="372" y="332" width="30" height="22"/><rect x="382" y="390" width="30" height="22"/><rect x="392" y="448" width="30" height="22"/>
+    </g>
+  </g>
+
+  <!-- 07_RIGHT_TOWER -->
+  <g id="07_RIGHT_TOWER" filter="url(#roughEdge)">
+    <path d="M1120 760 L1180 210 L1400 210 L1490 760Z"
+          fill="url(#towerFace)" stroke="#12131c" stroke-width="10"/>
+    <path d="M1400 210 L1480 300 L1540 760 L1490 760Z"
+          fill="url(#towerSide)" stroke="#12131c" stroke-width="10"/>
+    <path d="M1180 210 L1238 132 H1360 L1400 210Z"
+          fill="#2d3150" stroke="#12131c" stroke-width="10"/>
+    <rect x="1242" y="154" width="108" height="26" rx="10" fill="url(#neonCyan)" filter="url(#neonGlow)"/>
+  </g>
+
+  <!-- 08_RIGHT_TOWER_WINDOWS -->
+  <g id="08_RIGHT_TOWER_WINDOWS">
+    <g class="window">
+      <rect x="1195" y="290" width="34" height="24"/><rect x="1252" y="290" width="34" height="24"/><rect x="1309" y="290" width="34" height="24"/>
+      <rect x="1188" y="345" width="34" height="24"/><rect x="1245" y="345" width="34" height="24"/><rect x="1302" y="345" width="34" height="24"/>
+      <rect x="1180" y="400" width="34" height="24"/><rect x="1237" y="400" width="34" height="24"/><rect x="1294" y="400" width="34" height="24"/>
+      <rect x="1172" y="460" width="34" height="24"/><rect x="1229" y="460" width="34" height="24"/><rect x="1286" y="460" width="34" height="24"/>
+      <rect x="1164" y="520" width="34" height="24"/><rect x="1221" y="520" width="34" height="24"/><rect x="1278" y="520" width="34" height="24"/>
+    </g>
+    <g class="window2">
+      <rect x="1362" y="305" width="28" height="22"/><rect x="1372" y="365" width="28" height="22"/><rect x="1382" y="425" width="28" height="22"/>
+    </g>
+  </g>
+
+  <!-- 09_CENTRAL_TOWER -->
+  <g id="09_CENTRAL_TOWER" filter="url(#roughEdge)">
+    <path d="M560 760 L650 300 L950 300 L1040 760Z"
+          fill="url(#towerFace)" stroke="#12131c" stroke-width="11"/>
+    <path d="M650 300 L720 190 H880 L950 300Z"
+          fill="#303557" stroke="#12131c" stroke-width="10"/>
+    <path d="M720 190 L754 110 H846 L880 190Z"
+          fill="#1f2744" stroke="#12131c" stroke-width="9"/>
+    <rect x="760" y="130" width="80" height="26" rx="9" fill="url(#neonPurple)" filter="url(#neonGlow)"/>
+  </g>
+
+  <!-- 10_CENTRAL_TOWER_WINDOWS -->
+  <g id="10_CENTRAL_TOWER_WINDOWS">
+    <g class="window">
+      <rect x="685" y="360" width="42" height="26"/><rect x="748" y="360" width="42" height="26"/><rect x="811" y="360" width="42" height="26"/><rect x="874" y="360" width="42" height="26"/>
+      <rect x="674" y="425" width="42" height="26"/><rect x="737" y="425" width="42" height="26"/><rect x="800" y="425" width="42" height="26"/><rect x="863" y="425" width="42" height="26"/>
+      <rect x="663" y="490" width="42" height="26"/><rect x="726" y="490" width="42" height="26"/><rect x="789" y="490" width="42" height="26"/><rect x="852" y="490" width="42" height="26"/>
+      <rect x="652" y="555" width="42" height="26"/><rect x="715" y="555" width="42" height="26"/><rect x="778" y="555" width="42" height="26"/><rect x="841" y="555" width="42" height="26"/>
+    </g>
+    <path d="M800 300 V760" stroke="#a559d0" stroke-width="8" opacity=".45"/>
+  </g>
+
+  <!-- 11_SKYBRIDGES -->
+  <g id="11_SKYBRIDGES">
+    <path d="M450 430 C565 405 647 408 704 430"
+          fill="none" stroke="#1a2030" stroke-width="42" stroke-linecap="round"/>
+    <path d="M450 430 C565 405 647 408 704 430"
+          fill="none" stroke="url(#neonCyan)" stroke-width="5" stroke-linecap="round" filter="url(#neonGlow)"/>
+    <path d="M930 415 C1035 392 1124 398 1200 430"
+          fill="none" stroke="#1a2030" stroke-width="42" stroke-linecap="round"/>
+    <path d="M930 415 C1035 392 1124 398 1200 430"
+          fill="none" stroke="url(#neonPurple)" stroke-width="5" stroke-linecap="round" filter="url(#neonGlow)"/>
+  </g>
+
+  <!-- 12_ELEVATED_ROAD_BACK -->
+  <g id="12_ELEVATED_ROAD_BACK">
+    <path d="M-40 690 C260 610 520 615 770 675 C1010 731 1320 718 1640 640"
+          fill="none" stroke="#101521" stroke-width="88" stroke-linecap="round"/>
+    <path d="M-40 690 C260 610 520 615 770 675 C1010 731 1320 718 1640 640"
+          fill="none" stroke="url(#roadGrad)" stroke-width="70" stroke-linecap="round"/>
+    <path d="M-40 690 C260 610 520 615 770 675 C1010 731 1320 718 1640 640"
+          fill="none" stroke="#55dff3" stroke-width="4" stroke-dasharray="30 22" opacity=".78"/>
+  </g>
+
+  <!-- 13_ELEVATED_ROAD_FRONT -->
+  <g id="13_ELEVATED_ROAD_FRONT">
+    <path d="M-40 825 C300 755 590 770 830 830 C1090 895 1350 880 1640 805"
+          fill="none" stroke="#0c1018" stroke-width="108" stroke-linecap="round"/>
+    <path d="M-40 825 C300 755 590 770 830 830 C1090 895 1350 880 1640 805"
+          fill="none" stroke="url(#roadGrad)" stroke-width="88" stroke-linecap="round"/>
+    <path d="M-40 825 C300 755 590 770 830 830 C1090 895 1350 880 1640 805"
+          fill="none" stroke="#bd62ff" stroke-width="5" stroke-dasharray="36 26" opacity=".8"/>
+  </g>
+
+  <!-- 14_ROAD_SUPPORTS -->
+  <g id="14_ROAD_SUPPORTS" fill="#151a26" stroke="#0a0d14" stroke-width="6">
+    <path d="M200 694 L225 694 L245 1000 H170Z"/>
+    <path d="M510 665 L535 668 L545 1000 H475Z"/>
+    <path d="M1030 708 L1055 710 L1090 1000 H1010Z"/>
+    <path d="M1350 682 L1375 680 L1425 1000 H1340Z"/>
+  </g>
+
+  <!-- 15_NEON_SIGNS -->
+  <g id="15_NEON_SIGNS">
+    <rect x="180" y="610" width="220" height="84" rx="10"
+          fill="#181421" stroke="#7f3ba8" stroke-width="7"/>
+    <text x="290" y="665" text-anchor="middle"
+          font-family="Impact, Arial Narrow, sans-serif"
+          font-size="46" fill="#d674ff" filter="url(#neonGlow)">V-TOWN</text>
+
+    <rect x="1160" y="565" width="230" height="84" rx="10"
+          fill="#131a21" stroke="#49b7d6" stroke-width="7"/>
+    <text x="1275" y="620" text-anchor="middle"
+          font-family="Impact, Arial Narrow, sans-serif"
+          font-size="42" fill="#7de8ff" filter="url(#neonGlow)">FUTURE NOW</text>
+  </g>
+
+  <!-- 16_FLYING_VEHICLES -->
+  <g id="16_FLYING_VEHICLES" filter="url(#roughEdge)">
+    <g transform="translate(450 280)">
+      <path d="M0 32 L54 4 H128 L178 32 L140 55 H36Z"
+            fill="#2e3449" stroke="#10141e" stroke-width="7"/>
+      <rect x="58" y="14" width="60" height="18" rx="8" fill="#73e4f7"/>
+      <path d="M12 48 H166" stroke="#b458e0" stroke-width="5" filter="url(#neonGlow)"/>
+    </g>
+    <g transform="translate(980 235) scale(.75)">
+      <path d="M0 32 L54 4 H128 L178 32 L140 55 H36Z"
+            fill="#2e3449" stroke="#10141e" stroke-width="7"/>
+      <rect x="58" y="14" width="60" height="18" rx="8" fill="#d26cff"/>
+      <path d="M12 48 H166" stroke="#65e9ff" stroke-width="5" filter="url(#neonGlow)"/>
+    </g>
+    <g transform="translate(770 185) scale(.5)">
+      <path d="M0 32 L54 4 H128 L178 32 L140 55 H36Z"
+            fill="#2e3449" stroke="#10141e" stroke-width="7"/>
+      <rect x="58" y="14" width="60" height="18" rx="8" fill="#78eaff"/>
+    </g>
+  </g>
+
+  <!-- 17_TRAFFIC_LIGHT_TRAILS -->
+  <g id="17_TRAFFIC_LIGHT_TRAILS" fill="none" stroke-linecap="round" opacity="0.55">
+    <path d="M418 343 C325 330 245 340 168 370" stroke="#6eeeff" stroke-width="5"/>
+    <path d="M1000 297 C1115 287 1230 306 1334 338" stroke="#c466f0" stroke-width="5"/>
+    <path d="M760 223 C716 216 678 221 641 236" stroke="#72f0ff" stroke-width="4"/>
+  </g>
+
+  <!-- 18_STREET_LEVEL -->
+  <g id="18_STREET_LEVEL">
+    <rect x="0" y="760" width="1600" height="240" fill="#111622"/>
+    <path d="M0 900 H1600" stroke="#4d5871" stroke-width="8"/>
+    <path d="M0 932 H1600" stroke="#7d39a7" stroke-width="3" opacity=".65"/>
+    <g fill="#2c3244">
+      <rect x="60" y="800" width="150" height="90"/>
+      <rect x="260" y="825" width="170" height="65"/>
+      <rect x="1110" y="815" width="180" height="75"/>
+      <rect x="1340" y="790" width="170" height="100"/>
+    </g>
+  </g>
+
+  <!-- 19_STREET_LIGHTS -->
+  <g id="19_STREET_LIGHTS">
+    <g transform="translate(120 735)">
+      <rect x="0" y="0" width="10" height="170" fill="#202636"/>
+      <rect x="-24" y="-8" width="58" height="20" rx="8" fill="#74ebff" filter="url(#neonGlow)"/>
+    </g>
+    <g transform="translate(360 750)">
+      <rect x="0" y="0" width="10" height="150" fill="#202636"/>
+      <rect x="-24" y="-8" width="58" height="20" rx="8" fill="#ca68f1" filter="url(#neonGlow)"/>
+    </g>
+    <g transform="translate(1200 740)">
+      <rect x="0" y="0" width="10" height="160" fill="#202636"/>
+      <rect x="-24" y="-8" width="58" height="20" rx="8" fill="#74ebff" filter="url(#neonGlow)"/>
+    </g>
+    <g transform="translate(1440 730)">
+      <rect x="0" y="0" width="10" height="170" fill="#202636"/>
+      <rect x="-24" y="-8" width="58" height="20" rx="8" fill="#ca68f1" filter="url(#neonGlow)"/>
+    </g>
+  </g>
+
+  <!-- 20_HOLOGRAM -->
+  <g id="20_HOLOGRAM" opacity="0.78">
+    <ellipse cx="930" cy="780" rx="95" ry="18" fill="#74eaff" opacity=".35" filter="url(#softGlow)"/>
+    <path d="M930 770 L885 700 L930 650 L975 700Z"
+          fill="#7cefff" opacity=".15" stroke="#7cefff" stroke-width="4" filter="url(#neonGlow)"/>
+    <circle cx="930" cy="692" r="18" fill="none" stroke="#d36fff" stroke-width="4"/>
+  </g>
+
+  <!-- 21_FOREGROUND_SILHOUETTES -->
+  <g id="21_FOREGROUND_SILHOUETTES" fill="#070a10" opacity="0.92">
+    <path d="M0 1000 V840 C35 810 70 812 102 845 V1000Z"/>
+    <path d="M1500 1000 V850 C1535 818 1572 818 1600 848 V1000Z"/>
+    <path d="M80 1000 L120 870 L165 1000Z"/>
+    <path d="M1410 1000 L1450 868 L1492 1000Z"/>
+  </g>
+
+  <!-- 22_ATMOSPHERIC_OVERLAY -->
+  <g id="22_ATMOSPHERIC_OVERLAY">
+    <rect width="1600" height="1000" fill="#6f3e86" opacity="0.035"/>
+    <rect width="1600" height="1000" filter="url(#grain)" opacity="0.45"/>
+  </g>
+
+  <!-- 23_EDGE_VIGNETTE -->
+  <g id="23_EDGE_VIGNETTE" opacity="0.22">
+    <rect x="0" y="0" width="1600" height="1000"
+          fill="none" stroke="#07070b" stroke-width="42"/>
+  </g>
+</svg>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="512" height="512" viewBox="0 0 512 512"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Character Creation icon</title>
+  <desc id="desc">Layered purple comic-style character mask icon for Vectis Concepts.</desc>
+
+  <defs>
+    <linearGradient id="purpleMain" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9b39d3"/>
+      <stop offset="0.55" stop-color="#6d22a5"/>
+      <stop offset="1" stop-color="#461167"/>
+    </linearGradient>
+
+    <linearGradient id="purpleLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e0a8ff"/>
+      <stop offset="1" stop-color="#8c3ac0"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7"
+                    flood-color="#2b093f" flood-opacity="0.30"/>
+    </filter>
+
+    <filter id="roughInk" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018"
+                    numOctaves="2" seed="13" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise"
+                         scale="1.4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <!-- 01_SHADOW -->
+  <g id="01_SHADOW" opacity="0.22" transform="translate(0 8)">
+    <path d="M126 112
+             C164 70 221 48 278 54
+             C340 60 390 94 418 144
+             L394 181
+             L410 237
+             C419 270 414 312 395 345
+             C374 382 340 408 299 422
+             L256 452
+             L213 422
+             C172 408 138 382 117 345
+             C98 312 93 270 102 237
+             L118 181
+             L94 144Z"
+          fill="#2b093f"/>
+  </g>
+
+  <!-- 02_OUTER_HEAD -->
+  <g id="02_OUTER_HEAD" filter="url(#softShadow)">
+    <path d="M126 112
+             C164 70 221 48 278 54
+             C340 60 390 94 418 144
+             L394 181
+             L410 237
+             C419 270 414 312 395 345
+             C374 382 340 408 299 422
+             L256 452
+             L213 422
+             C172 408 138 382 117 345
+             C98 312 93 270 102 237
+             L118 181
+             L94 144Z"
+          fill="none" stroke="url(#purpleMain)"
+          stroke-width="20" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 03_FACE_PLANES -->
+  <g id="03_FACE_PLANES" opacity="0.16" fill="url(#purpleLight)">
+    <path d="M142 154 L226 102 L256 142 L213 230 L135 210Z"/>
+    <path d="M370 154 L286 102 L256 142 L299 230 L377 210Z"/>
+    <path d="M165 247 L225 222 L256 260 L218 337 L152 314Z"/>
+    <path d="M347 247 L287 222 L256 260 L294 337 L360 314Z"/>
+    <path d="M218 337 L294 337 L299 406 L256 438 L213 406Z"/>
+  </g>
+
+  <!-- 04_HAIR_SILHOUETTE -->
+  <g id="04_HAIR_SILHOUETTE" fill="url(#purpleMain)" filter="url(#roughInk)">
+    <path d="M118 173
+             L100 120 L145 133 L135 82 L183 105
+             L205 61 L232 100 L271 49 L287 96
+             L339 66 L343 112 L397 91 L379 144
+             L422 145 L393 184
+             C362 156 319 137 271 136
+             C214 135 163 149 118 173Z"/>
+  </g>
+
+  <!-- 05_EYES -->
+  <g id="05_EYES">
+    <path d="M151 226
+             C182 193 221 192 245 216
+             C219 245 181 251 151 226Z"
+          fill="#f3edf7" stroke="url(#purpleMain)" stroke-width="10"/>
+    <path d="M361 226
+             C330 193 291 192 267 216
+             C293 245 331 251 361 226Z"
+          fill="#f3edf7" stroke="url(#purpleMain)" stroke-width="10"/>
+  </g>
+
+  <!-- 06_PUPILS -->
+  <g id="06_PUPILS" fill="url(#purpleMain)">
+    <ellipse cx="205" cy="222" rx="14" ry="18"/>
+    <ellipse cx="307" cy="222" rx="14" ry="18"/>
+    <circle cx="201" cy="216" r="4" fill="#e4b4ff"/>
+    <circle cx="303" cy="216" r="4" fill="#e4b4ff"/>
+  </g>
+
+  <!-- 07_NOSE -->
+  <g id="07_NOSE" fill="none" stroke="url(#purpleMain)"
+     stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M256 234 L241 293 L256 304 L271 293"/>
+  </g>
+
+  <!-- 08_MOUTH -->
+  <g id="08_MOUTH" fill="none" stroke="url(#purpleMain)"
+     stroke-width="12" stroke-linecap="round">
+    <path d="M207 345 C237 367 275 367 305 345"/>
+    <path d="M226 363 C246 373 266 373 286 363"
+          stroke="#dca4ff" stroke-width="6" opacity="0.85"/>
+  </g>
+
+  <!-- 09_JAW_DETAILS -->
+  <g id="09_JAW_DETAILS" fill="none" stroke="url(#purpleMain)"
+     stroke-width="10" stroke-linecap="round" opacity="0.9">
+    <path d="M152 282 L173 330"/>
+    <path d="M360 282 L339 330"/>
+    <path d="M188 391 L219 405"/>
+    <path d="M324 391 L293 405"/>
+  </g>
+
+  <!-- 10_CREATION_SPARKS -->
+  <g id="10_CREATION_SPARKS" fill="url(#purpleMain)">
+    <path d="M78 210 L88 232 L112 236 L92 250 L97 275 L78 260 L58 275 L64 250 L44 236 L68 232Z"/>
+    <path d="M434 186 L443 205 L465 208 L448 221 L452 243 L434 230 L416 243 L420 221 L403 208 L425 205Z"/>
+    <circle cx="92" cy="322" r="9"/>
+    <circle cx="418" cy="322" r="9"/>
+  </g>
+
+  <!-- 11_HIGHLIGHTS -->
+  <g id="11_HIGHLIGHTS"
+     fill="none" stroke="#dfa7ff"
+     stroke-width="8" stroke-linecap="round" opacity="0.8">
+    <path d="M157 126 C185 95 217 82 247 78"/>
+    <path d="M137 198 C167 170 203 158 235 160"/>
+    <path d="M279 79 C311 84 341 98 365 119"/>
+  </g>
+</svg>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1600" height="420" viewBox="0 0 1600 420"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Vectis Concepts transition arrows</title>
+  <desc id="desc">Layered purple comic-style transition arrows connecting the sketch, refined character, finished character and future city stages.</desc>
+
+  <defs>
+    <linearGradient id="purpleArrow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5a1f75"/>
+      <stop offset="0.45" stop-color="#9c43cf"/>
+      <stop offset="1" stop-color="#d17cff"/>
+    </linearGradient>
+
+    <linearGradient id="cyanArrow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3e9fbd"/>
+      <stop offset="1" stop-color="#7ef0ff"/>
+    </linearGradient>
+
+    <filter id="softGlow" x="-40%" y="-60%" width="180%" height="220%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="roughEdge" x="-10%" y="-20%" width="120%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018"
+                    numOctaves="2" seed="91" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise"
+                         scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <style>
+      .label {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 3px;
+      }
+    </style>
+  </defs>
+
+  <!-- 01_TRANSPARENT_BASE -->
+  <g id="01_TRANSPARENT_BASE">
+    <rect width="1600" height="420" fill="#ffffff" opacity="0"/>
+  </g>
+
+  <!-- 02_ARROW_ONE_SHADOW -->
+  <g id="02_ARROW_ONE_SHADOW" opacity="0.25" transform="translate(0 8)">
+    <path d="M80 210 H390 L360 170 L470 210 L360 250 L390 210"
+          fill="none" stroke="#24112d" stroke-width="30"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 03_ARROW_ONE_MAIN -->
+  <g id="03_ARROW_ONE_MAIN" filter="url(#roughEdge)">
+    <path d="M80 210 H390 L360 170 L470 210 L360 250 L390 210"
+          fill="none" stroke="url(#purpleArrow)" stroke-width="24"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 04_ARROW_ONE_HIGHLIGHT -->
+  <g id="04_ARROW_ONE_HIGHLIGHT" opacity="0.72" filter="url(#softGlow)">
+    <path d="M105 198 H365"
+          fill="none" stroke="#efc9ff" stroke-width="5"
+          stroke-linecap="round"/>
+  </g>
+
+  <!-- 05_ARROW_TWO_SHADOW -->
+  <g id="05_ARROW_TWO_SHADOW" opacity="0.25" transform="translate(0 8)">
+    <path d="M565 210 H875 L845 170 L955 210 L845 250 L875 210"
+          fill="none" stroke="#24112d" stroke-width="30"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 06_ARROW_TWO_MAIN -->
+  <g id="06_ARROW_TWO_MAIN" filter="url(#roughEdge)">
+    <path d="M565 210 H875 L845 170 L955 210 L845 250 L875 210"
+          fill="none" stroke="url(#purpleArrow)" stroke-width="24"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 07_ARROW_TWO_HIGHLIGHT -->
+  <g id="07_ARROW_TWO_HIGHLIGHT" opacity="0.72" filter="url(#softGlow)">
+    <path d="M590 198 H850"
+          fill="none" stroke="#efc9ff" stroke-width="5"
+          stroke-linecap="round"/>
+  </g>
+
+  <!-- 08_ARROW_THREE_SHADOW -->
+  <g id="08_ARROW_THREE_SHADOW" opacity="0.25" transform="translate(0 8)">
+    <path d="M1050 210 H1360 L1330 170 L1440 210 L1330 250 L1360 210"
+          fill="none" stroke="#102632" stroke-width="30"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 09_ARROW_THREE_MAIN -->
+  <g id="09_ARROW_THREE_MAIN" filter="url(#roughEdge)">
+    <path d="M1050 210 H1360 L1330 170 L1440 210 L1330 250 L1360 210"
+          fill="none" stroke="url(#cyanArrow)" stroke-width="24"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 10_ARROW_THREE_HIGHLIGHT -->
+  <g id="10_ARROW_THREE_HIGHLIGHT" opacity="0.78" filter="url(#softGlow)">
+    <path d="M1075 198 H1335"
+          fill="none" stroke="#d9fbff" stroke-width="5"
+          stroke-linecap="round"/>
+  </g>
+
+  <!-- 11_STAGE_LABELS -->
+  <g id="11_STAGE_LABELS" class="label" text-anchor="middle">
+    <text x="275" y="325" fill="#755482">DEVELOP</text>
+    <text x="760" y="325" fill="#755482">REFINE</text>
+    <text x="1245" y="325" fill="#4f8ea1">REALISE</text>
+  </g>
+
+  <!-- 12_PROGRESS_DOTS -->
+  <g id="12_PROGRESS_DOTS">
+    <circle cx="80" cy="210" r="11" fill="#7f35a8"/>
+    <circle cx="565" cy="210" r="11" fill="#9f49ca"/>
+    <circle cx="1050" cy="210" r="11" fill="#4bb3cf"/>
+    <circle cx="1440" cy="210" r="11" fill="#78eafa"/>
+  </g>
+
+  <!-- 13_SPARK_ACCENTS -->
+  <g id="13_SPARK_ACCENTS">
+    <path d="M442 120 l8 18 20 3-15 12 4 20-17-12-16 12 4-20-15-12 20-3z"
+          fill="#b55be0"/>
+    <path d="M928 290 l8 18 20 3-15 12 4 20-17-12-16 12 4-20-15-12 20-3z"
+          fill="#b55be0"/>
+    <path d="M1410 112 l8 18 20 3-15 12 4 20-17-12-16 12 4-20-15-12 20-3z"
+          fill="#6de5f5"/>
+    <circle cx="505" cy="305" r="7" fill="#a94cd3"/>
+    <circle cx="990" cy="120" r="7" fill="#9b4cc5"/>
+    <circle cx="1490" cy="300" r="7" fill="#74ebfa"/>
+  </g>
+
+  <!-- 14_DASHED_GUIDE -->
+  <g id="14_DASHED_GUIDE" opacity="0.24">
+    <path d="M80 355 H1440"
+          fill="none" stroke="#78647f" stroke-width="3"
+          stroke-dasharray="12 16"/>
+  </g>
+</svg>
