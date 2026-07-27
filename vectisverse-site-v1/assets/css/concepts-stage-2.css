@@ -3,8 +3,8 @@
   --line:#5d5553;--max:1500px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;background:#000}
-body{margin:0;background:#000;color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+html{max-width:100%;overflow-x:hidden;scroll-behavior:smooth;background:#000}
+body{max-width:100%;margin:0;overflow-x:hidden;background:#000;color:var(--ink);font-family:Arial,Helvetica,sans-serif}
 img{display:block;max-width:100%}
 a{color:inherit}
 .skip-link{position:fixed;left:12px;top:10px;z-index:1000;transform:translateY(-180%);background:#fff;color:#111;padding:9px 13px;font-weight:800;text-decoration:none}
@@ -67,26 +67,30 @@ a{color:inherit}
  .vc-footer{grid-template-columns:1fr;gap:10px;text-align:center}.footer-brand,.footer-nav{justify-content:center}.footer-meta{text-align:center}
 }
 @media (max-width:700px){
- .concepts-header{height:58px;padding:0 14px}
- .concepts-publisher-mark{width:38px;height:38px;font-size:24px}
+ .concepts-header{height:64px;padding:0 max(16px,env(safe-area-inset-right)) 0 max(16px,env(safe-area-inset-left))}
+ .concepts-publisher-mark{width:40px;height:40px;font-size:25px}
  .concepts-menu-toggle{display:block}
- .concepts-site-nav{display:none;position:absolute;left:0;right:0;top:58px;margin:0;padding:10px 18px 16px;background:#150b20;border-bottom:1px solid rgba(255,255,255,.18);flex-direction:column;align-items:stretch;gap:0}
+ .concepts-menu-toggle{min-width:82px;min-height:44px;padding:10px 14px;font-size:13px;letter-spacing:.06em}
+ .concepts-site-nav{display:none;position:absolute;left:0;right:0;top:64px;margin:0;padding:10px 18px 16px;background:#150b20;border-bottom:1px solid rgba(255,255,255,.18);flex-direction:column;align-items:stretch;gap:0}
  .concepts-site-nav.is-open{display:flex}
  .concepts-site-nav a{padding:13px 4px;border-bottom:1px solid rgba(255,255,255,.12)}
  .concepts-site-nav a:last-child{border-bottom:0}
  .concepts-site-nav a::after{display:none}
  .vc-page{border:0}
  .vc-hero{display:block}
- .vc-hero-copy{padding:28px 20px 20px}
- .vc-logo{max-width:350px}
- .vc-intro{max-width:none;font-size:15px}
- .vc-hero-art{height:360px}
- .vc-section{padding:14px 14px}
+ .vc-hero-copy{padding:24px 18px 22px}
+ .vc-logo{width:min(100%,330px);max-width:100%;height:auto}
+ .vc-intro{max-width:none;margin:12px 0 20px;font-size:15px;line-height:1.5}
+ .vc-btn{min-height:48px;padding:13px 16px;font-size:13px}
+ .vc-hero-art{height:auto;aspect-ratio:1.13/1;overflow:hidden}
+ .vc-hero-art picture{display:block;height:100%}
+ .vc-hero-reference{object-position:58% center}
+ .vc-section{padding:16px}
  .services{grid-template-columns:repeat(2,1fr)}
  .service{grid-template-columns:55px 1fr;padding:10px 8px}
  .service:nth-child(2n){border-right:0}.service:nth-child(3){border-right:1px solid #aaa4a0}
  .cards{grid-template-columns:repeat(2,1fr)}
- .why{min-height:360px}
+ .why{min-height:320px}
  .why::after{width:72%;height:68%;opacity:.055}
  .vc-footer{min-height:300px;background-image:url("../footer/footer-mobile.svg");background-size:cover;padding:30px 18px}
  .footer-nav{flex-wrap:wrap}
@@ -122,7 +126,39 @@ a{color:inherit}
   .vc-hero-art picture,.vc-hero-art img{object-fit:cover}
 }
 @media (max-width:700px){
-  .vc-hero-art{height:340px}
-  .vc-logo{max-width:330px;transform:none}
+  .vc-logo{transform:none}
   .vc-ribbon-text{font-size:17px;min-height:32px}
+}
+@media (max-width:520px){
+  .vc-hero-copy{padding:22px 16px 20px}
+  .vc-logo{width:min(88vw,306px)}
+  .vc-intro{font-size:clamp(14px,4vw,15px);line-height:1.48}
+  .vc-btn{display:flex;width:100%;justify-content:center;gap:10px;box-shadow:5px 5px 0 var(--purple)}
+  .vc-hero-art{aspect-ratio:1.08/1}
+  .vc-section{padding:16px}
+  .vc-ribbon-text{max-width:65%;padding-inline:16px;font-size:16px}
+  .vc-rule{margin-left:150px}
+  .services,.cards{grid-template-columns:1fr}
+  .services{row-gap:0}
+  .service{
+    min-height:78px;
+    grid-template-columns:54px 1fr;
+    gap:10px;
+    padding:11px 6px;
+    border-right:0!important;
+    border-bottom:1px solid #bbb3aa;
+  }
+  .service:last-child{border-bottom:0}
+  .service img{width:50px;height:50px}
+  .service h3{font-size:14px;margin:3px 0 5px}
+  .service p{font-size:12px}
+  .cards{gap:12px}
+  .card-art{aspect-ratio:1.35/1}
+  .card-copy h3{font-size:12px}
+  .card-copy p{font-size:11px}
+  .why{min-height:0;padding:20px 16px 24px}
+  .why h2{font-size:18px;line-height:1.1}
+  .why-list li{font-size:12px;line-height:1.35}
+  .vc-footer{min-height:260px;padding:26px 16px calc(26px + env(safe-area-inset-bottom))}
+  .footer-nav{gap:16px 20px}
 }
