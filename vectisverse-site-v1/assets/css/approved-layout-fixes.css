@@ -67,32 +67,103 @@ body{background:#050505}
 }
 .approved-burst h1 span{display:block;color:#00aeea}
 .approved-burst p{margin:.3rem 0 .9rem;font-weight:700}
-.approved-character-art{
+.approved-story-signals{
   position:absolute;
   z-index:3;
-  right:-1%;
-  bottom:-2px;
-  width:59%;
-  height:100%;
-  pointer-events:none;
+  top:68px;
+  right:24px;
+  bottom:34px;
+  display:grid;
+  width:48%;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:8px;
+  transform:skewX(-6deg);
 }
-.approved-character-art img{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  object-position:right bottom;
-  filter:
-    drop-shadow(0 0 4px rgba(0,198,255,.4))
-    drop-shadow(0 20px 18px rgba(0,0,0,.8));
-}
-.approved-character-art::after{
+.approved-story-signals::after{
   content:"";
   position:absolute;
-  inset:auto 0 0;
-  height:18%;
-  background:linear-gradient(transparent,#050505 96%);
+  z-index:-1;
+  inset:13% 2% 8%;
+  background:radial-gradient(circle,rgba(0,198,255,.22),transparent 62%);
+  filter:blur(18px);
   pointer-events:none;
+}
+.story-signal{
+  position:relative;
+  display:flex;
+  min-width:0;
+  padding:20px 12px 18px;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.22);
+  background:#080b0e;
+  text-align:center;
+  text-transform:uppercase;
+  box-shadow:0 16px 30px rgba(0,0,0,.58);
+}
+.story-signal::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(160deg,rgba(255,255,255,.11),transparent 34%),
+    repeating-linear-gradient(0deg,transparent 0 24px,rgba(255,255,255,.035) 25px 26px);
+}
+.story-signal::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:5px;
+  background:currentColor;
+  box-shadow:0 0 18px currentColor;
+}
+.story-signal > *{
+  position:relative;
+  z-index:1;
+  transform:skewX(6deg);
+}
+.story-signal strong{
+  display:block;
+  margin:8px 0 5px;
+  color:#fff;
+  font:900 2.55rem/.88 Impact,"Arial Narrow",sans-serif;
+  letter-spacing:.02em;
+}
+.story-signal > span:last-child{
+  color:#fff;
+  font-size:.63rem;
+  line-height:1.2;
+  font-weight:900;
+  letter-spacing:.055em;
+}
+.signal-kicker{
+  margin-bottom:auto;
+  font-size:.56rem;
+  font-weight:900;
+  letter-spacing:.16em;
+}
+.signal-riptide{
+  color:#00c6ff;
+  background:
+    radial-gradient(circle at 50% 30%,rgba(0,198,255,.3),transparent 38%),
+    linear-gradient(155deg,#07141a,#030506 68%);
+}
+.signal-v{
+  color:#e945a5;
+  background:
+    radial-gradient(circle at 50% 30%,rgba(116,65,216,.42),transparent 38%),
+    linear-gradient(155deg,#17091b,#030506 68%);
+}
+.signal-v strong{font-size:4.8rem}
+.signal-ftw{
+  color:#d22b2b;
+  background:
+    radial-gradient(circle at 50% 30%,rgba(197,40,40,.38),transparent 38%),
+    linear-gradient(155deg,#190707,#030506 68%);
 }
 .approved-energy{
   position:absolute;
@@ -291,7 +362,14 @@ body{background:#050505}
   .approved-hero-copy{width:100%;padding:8px 22px 290px}
   .approved-hero-logo{width:min(88vw,600px);height:170px}
   .approved-burst{width:360px}
-  .approved-character-art{right:-5%;width:105%;height:355px}
+  .approved-story-signals{
+    top:auto;
+    right:22px;
+    bottom:26px;
+    left:22px;
+    width:auto;
+    height:245px;
+  }
   .approved-promos{grid-template-columns:1fr;padding-inline:18px}
   .approved-promo-card{min-height:240px}
   .promo-copy{min-height:240px}
@@ -310,7 +388,17 @@ body{background:#050505}
   .approved-burst{width:330px;max-width:90%;padding:13px 18px 16px}
   .approved-burst h1{font-size:2.15rem}
   .approved-burst p{font-size:.86rem}
-  .approved-character-art{right:-9%;width:118%;height:290px;opacity:.9}
+  .approved-story-signals{
+    right:15px;
+    bottom:20px;
+    left:15px;
+    height:205px;
+    gap:5px;
+  }
+  .story-signal{padding:12px 7px 14px}
+  .story-signal strong{font-size:1.65rem}
+  .signal-v strong{font-size:3rem}
+  .story-signal > span:last-child{font-size:.5rem}
   .approved-promos{padding-inline:12px}
   .approved-panels .comic-card{aspect-ratio:16/9}
   .promo-heading{font-size:1.82rem}
