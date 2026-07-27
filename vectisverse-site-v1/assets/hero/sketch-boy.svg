@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="900" height="1200" viewBox="0 0 900 1200"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Vectis Concepts layered sketch boy</title>
+  <desc id="desc">Layered rough graphite-style male character concept sketch with construction lines, pose guides, facial features, hair, clothing, annotations and transparent background.</desc>
+
+  <defs>
+    <linearGradient id="graphite" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4a404b"/>
+      <stop offset="0.55" stop-color="#6b5a6f"/>
+      <stop offset="1" stop-color="#2f2932"/>
+    </linearGradient>
+
+    <linearGradient id="purplePencil" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9d5ac0"/>
+      <stop offset="1" stop-color="#592d72"/>
+    </linearGradient>
+
+    <filter id="roughPencil" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.025"
+                    numOctaves="2" seed="67" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise"
+                         scale="1.3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <filter id="softSmudge" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+
+    <style>
+      .construction { fill:none; stroke:#b29db8; stroke-width:5; opacity:.34; stroke-linecap:round; stroke-linejoin:round; }
+      .rough { fill:none; stroke:url(#graphite); stroke-width:7; opacity:.77; stroke-linecap:round; stroke-linejoin:round; }
+      .detail { fill:none; stroke:#433746; stroke-width:6; opacity:.92; stroke-linecap:round; stroke-linejoin:round; }
+      .accent { fill:none; stroke:url(#purplePencil); stroke-width:7; opacity:.72; stroke-linecap:round; stroke-linejoin:round; }
+      .note { font-family: "Comic Sans MS", "Bradley Hand", cursive; font-size:26px; fill:#6f5b73; opacity:.72; }
+    </style>
+  </defs>
+
+  <g id="01_TRANSPARENT_BASE"><rect width="900" height="1200" fill="#ffffff" opacity="0"/></g>
+  <g id="02_SOFT_GRAPHITE_SHADOW" opacity="0.18" filter="url(#softSmudge)"><ellipse cx="456" cy="1110" rx="195" ry="34" fill="#4b3f4f"/><path d="M402 240 C356 360 359 492 378 618 C392 720 377 840 345 1005" fill="none" stroke="#4b3f4f" stroke-width="30"/></g>
+  <g id="03_CONSTRUCTION_LINES" class="construction"><circle cx="456" cy="224" r="84"/><path d="M456 140 V310"/><path d="M380 226 H532"/><path d="M456 310 C454 420 454 548 456 664"/><path d="M456 350 L328 462"/><path d="M456 350 L596 456"/><path d="M456 664 L360 842"/><path d="M456 664 L560 842"/><circle cx="328" cy="462" r="18"/><circle cx="596" cy="456" r="18"/><circle cx="360" cy="842" r="18"/><circle cx="560" cy="842" r="18"/><path d="M328 462 L266 630 L306 744"/><path d="M596 456 L660 616 L624 736"/><path d="M360 842 L330 1048"/><path d="M560 842 L602 1043"/><ellipse cx="456" cy="524" rx="132" ry="194"/></g>
+  <g id="04_GESTURE_LINE" class="accent" opacity="0.48"><path d="M470 143 C431 322 474 482 456 666 C441 829 483 972 545 1090"/><path d="M336 392 C414 427 521 429 601 390"/></g>
+  <g id="05_HEAD_AND_JAW" class="rough" filter="url(#roughPencil)"><path d="M398 164 C432 132 491 130 527 163 C555 188 558 232 544 270 C532 305 503 332 458 340 C414 332 385 306 372 271 C358 232 365 190 398 164Z"/><path d="M389 281 C409 319 432 336 458 341 C485 336 509 318 528 281"/></g>
+  <g id="06_HAIR_MASS" filter="url(#roughPencil)"><path d="M378 202 C366 145 415 103 470 107 C526 111 566 148 564 205 C541 184 516 166 487 157 C446 145 410 157 378 202Z" fill="#5c4a61" opacity="0.16"/><g class="rough"><path d="M378 202 C364 145 414 100 471 106 C529 111 568 148 565 207"/><path d="M395 158 L425 119"/><path d="M425 150 L458 105"/><path d="M462 151 L491 108"/><path d="M500 161 L524 123"/><path d="M532 180 L550 146"/><path d="M387 186 C429 153 484 147 535 172"/></g></g>
+  <g id="07_FACE_FEATURES" class="detail"><path d="M394 218 C413 202 438 201 453 217"/><path d="M465 217 C483 201 507 203 523 220"/><path d="M401 220 C416 232 435 233 451 220"/><path d="M467 220 C484 233 502 233 518 221"/><ellipse cx="426" cy="221" rx="5" ry="7" fill="#433746" stroke="none"/><ellipse cx="491" cy="221" rx="5" ry="7" fill="#433746" stroke="none"/><path d="M458 224 L448 263 L460 270"/><path d="M425 292 C446 302 470 303 492 291"/><path d="M438 302 C452 309 466 309 480 302" stroke-width="4"/><path d="M392 201 C411 188 436 188 453 200"/><path d="M467 200 C486 188 510 192 525 206"/></g>
+  <g id="08_NECK_AND_SHOULDERS" class="rough"><path d="M425 333 L419 379"/><path d="M490 332 L496 380"/><path d="M419 378 C372 387 333 404 306 434"/><path d="M496 379 C546 388 589 407 617 440"/></g>
+  <g id="09_TORSO_OUTLINE" class="rough" filter="url(#roughPencil)"><path d="M306 434 C335 402 376 386 420 378 C439 397 477 398 496 379 C546 387 588 407 618 440 C589 497 576 558 580 632 C552 666 512 683 456 687 C399 683 360 665 332 632 C336 560 326 497 306 434Z"/><path d="M420 379 C430 422 443 453 456 482"/><path d="M496 380 C484 423 470 453 456 482"/><path d="M378 413 C400 454 424 481 456 499"/><path d="M535 414 C512 455 487 483 456 499"/></g>
+  <g id="10_OUTFIT_DESIGN"><path d="M346 447 L400 401 L456 486 L511 401 L566 448 L538 610 L456 650 L373 610Z" fill="#7b4a92" opacity="0.12"/><g class="accent"><path d="M346 447 L400 401 L456 486 L511 401 L566 448"/><path d="M456 486 V650"/><path d="M373 610 L456 650 L538 610"/><path d="M389 527 H523"/><path d="M400 402 L379 495"/><path d="M511 402 L533 497"/></g><g class="detail" stroke-width="4" opacity="0.72"><path d="M402 558 L456 587 L510 558"/><path d="M421 426 L456 470 L491 426"/><path d="M440 614 H472"/></g></g>
+  <g id="11_LEFT_ARM" class="rough"><path d="M308 435 C278 489 260 551 259 618"/><path d="M336 450 C311 510 299 571 300 632"/><path d="M259 618 C254 660 266 704 294 744"/><path d="M300 632 C299 671 309 708 326 741"/><path d="M294 744 C306 761 326 768 343 756"/><path d="M326 741 C340 744 351 750 360 761"/></g>
+  <g id="12_RIGHT_ARM" class="rough"><path d="M616 440 C646 494 663 553 665 614"/><path d="M586 454 C611 512 624 574 622 632"/><path d="M665 614 C671 658 661 700 636 739"/><path d="M622 632 C624 672 617 708 599 744"/><path d="M636 739 C624 756 603 765 587 753"/><path d="M599 744 C589 748 579 753 570 763"/></g>
+  <g id="13_HANDS" class="detail"><path d="M293 744 C280 758 278 778 289 790 C302 801 324 792 333 776"/><path d="M636 739 C650 754 652 773 642 786 C629 799 607 792 598 776"/><path d="M294 770 L278 788 M308 777 L296 798 M322 775 L314 796"/><path d="M637 763 L654 780 M623 772 L635 793 M609 770 L615 792"/></g>
+  <g id="14_HIPS_AND_LEGS" class="rough" filter="url(#roughPencil)"><path d="M385 632 C377 676 377 722 388 770"/><path d="M527 632 C536 677 537 722 527 772"/><path d="M388 770 C374 839 357 925 342 1040"/><path d="M527 772 C547 851 568 930 592 1038"/><path d="M456 689 L448 792"/><path d="M448 792 C428 858 405 936 383 1041"/><path d="M448 792 C476 859 510 938 549 1041"/></g>
+  <g id="15_BOOTS"><path d="M342 1040 L383 1041 L376 1111 L306 1111 L322 1084Z" fill="#4a3d4d" opacity="0.12"/><path d="M549 1041 L592 1038 L611 1110 L541 1110 L540 1082Z" fill="#4a3d4d" opacity="0.12"/><g class="detail"><path d="M342 1040 L383 1041 L376 1111 H306 L322 1084Z"/><path d="M549 1041 L592 1038 L611 1110 H541 L540 1082Z"/><path d="M322 1084 H377"/><path d="M540 1082 H602"/><path d="M309 1111 H377"/><path d="M541 1110 H612"/></g></g>
+  <g id="16_DESIGN_NOTES"><path d="M158 282 C226 287 280 300 348 328" class="accent" stroke-width="4"/><path d="M700 412 C650 418 616 438 576 478" class="accent" stroke-width="4"/><path d="M150 778 C228 752 285 724 339 684" class="accent" stroke-width="4"/><text x="66" y="275" class="note">strong youthful profile</text><text x="652" y="398" class="note">heroic shoulder shape</text><text x="56" y="814" class="note">simple readable costume</text><text x="620" y="884" class="note">clean boot silhouette</text></g>
+  <g id="17_MEASUREMENT_MARKS" class="construction" opacity="0.28"><path d="M712 150 V1110"/><path d="M697 150 H727 M697 320 H727 M697 490 H727 M697 660 H727 M697 830 H727 M697 1000 H727 M697 1110 H727"/><path d="M180 1115 H680"/><path d="M180 1100 V1130 M430 1100 V1130 M680 1100 V1130"/></g>
+  <g id="18_PURPLE_SKETCH_ACCENTS" class="accent" opacity="0.5"><path d="M370 194 C391 145 426 119 472 110"/><path d="M540 190 C560 229 559 270 545 311"/><path d="M316 430 C284 475 265 532 261 591"/><path d="M618 440 C647 491 663 546 665 602"/><path d="M386 633 C369 708 364 772 364 836"/><path d="M527 633 C548 711 559 776 564 845"/></g>
+  <g id="19_GRAPHITE_FLECKS" fill="#493c4c" opacity="0.18"><circle cx="244" cy="198" r="3"/><circle cx="586" cy="232" r="2.5"/><circle cx="255" cy="501" r="3"/><circle cx="653" cy="520" r="4"/><circle cx="279" cy="888" r="3"/><circle cx="630" cy="941" r="2.5"/><path d="M224 392 l12 -4 l5 8 l-11 5z"/><path d="M641 700 l10 3 l-3 9 l-10 -3z"/></g>
+</svg>
