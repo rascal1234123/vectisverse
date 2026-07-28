@@ -8,3 +8,13 @@ body{background:#050505}.site-header{max-width:1320px;min-height:66px;padding:8p
 .approved-promos{max-width:1240px;margin:0 auto 18px;padding:0 28px;display:grid;grid-template-columns:1fr 1fr;gap:12px}.approved-promo-link{display:block;overflow:hidden;border:2px solid #111;background:#f4ecd9;transition:.18s transform,.18s box-shadow}.approved-promo-link:hover,.approved-promo-link:focus-visible{transform:translateY(-3px);box-shadow:0 13px 30px rgba(0,198,255,.16);outline:2px solid #00c6ff}.approved-promo-link.concepts:hover,.approved-promo-link.concepts:focus-visible{outline-color:#7441d8;box-shadow:0 13px 30px rgba(116,65,216,.22)}.approved-promo-link img{display:block;width:100%;height:230px;object-fit:cover}.site-footer{max-width:1320px}
 @media(max-width:900px){.approved-hero{min-height:620px}.approved-hero-copy{padding:14px 22px 30px}.approved-hero-logo{width:min(94vw,820px);max-height:220px}.approved-burst{width:460px}.approved-promos{grid-template-columns:1fr;padding-inline:18px}.approved-promo-link img{height:auto}.comic-grid{padding-inline:18px}}
 @media(max-width:650px){.approved-hero{min-height:560px}.approved-hero-copy{padding:14px 16px 26px}.approved-hero-logo{width:96vw;max-height:190px;margin-bottom:8px}.approved-burst{width:100%;max-width:94%;padding:18px 22px 22px}.approved-burst h1{font-size:2.35rem}.comic-grid{grid-template-columns:1fr}.approved-panels .comic-card{aspect-ratio:auto}.approved-panel-image{height:auto}.approved-promos{padding-inline:12px}.site-nav{top:62px}}
+
+/* Homepage panel clean-up: use one consistent frame and crop legacy artwork from Riptide. */
+.approved-panels .comic-card{border:0;box-shadow:0 0 0 2px #111;isolation:isolate}
+.approved-panels .card-riptide{background:#050505}
+.approved-panels .card-riptide .approved-panel-image{transform:scale(1.075);transform-origin:center bottom}
+@media(max-width:650px){
+  .approved-panels .comic-card{width:100%;aspect-ratio:2.075/1}
+  .approved-panels .approved-panel-image{width:100%;height:100%;object-fit:cover}
+  .approved-panels .card-riptide .approved-panel-image{transform:scale(1.075);transform-origin:center bottom}
+}
