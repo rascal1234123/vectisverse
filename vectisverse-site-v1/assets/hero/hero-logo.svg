@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="650" viewBox="0 0 1500 650" overflow="visible">
+  <defs>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c86fe8"/><stop offset=".5" stop-color="#8f39b6"/><stop offset="1" stop-color="#4a1762"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="170%" height="170%"><feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#160a1c" flood-opacity=".28"/></filter>
+    <filter id="rough" x="-15%" y="-15%" width="130%" height="130%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="58" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.4"/></filter>
+  </defs>
+  <g id="transparent-base"><rect width="1500" height="650" fill="#fff" opacity="0"/></g>
+  <g id="shadow" filter="url(#shadow)" opacity=".45">
+    <text x="70" y="235" font-family="Impact,Arial Black,sans-serif" font-size="245" font-style="italic" fill="#1b101f">VECTIS</text>
+    <text x="70" y="480" font-family="Impact,Arial Black,sans-serif" font-size="220" font-style="italic" textLength="1300" lengthAdjust="spacingAndGlyphs" fill="#1b101f">CONCEPTS</text>
+  </g>
+  <g id="vectis-word"><text x="55" y="220" font-family="Impact,Arial Black,sans-serif" font-size="245" font-style="italic" fill="#111015">VECTIS</text></g>
+  <g id="concepts-word"><text x="55" y="465" font-family="Impact,Arial Black,sans-serif" font-size="220" font-style="italic" textLength="1300" lengthAdjust="spacingAndGlyphs" fill="url(#purple)">CONCEPTS</text></g>
+  <g id="highlight" opacity=".35"><path d="M85 285 H760" stroke="#d9a8ed" stroke-width="8" stroke-linecap="round"/></g>
+  <g id="strapline-brush" filter="url(#rough)"><path d="M55 510 H920 L900 580 H75Z" fill="url(#purple)"/></g>
+  <g id="strapline-text"><text x="90" y="563" font-family="Arial,Helvetica,sans-serif" font-size="50" font-weight="700" letter-spacing="2" fill="#fff">IDEAS THAT BUILD WORLDS.</text></g>
+</svg>
