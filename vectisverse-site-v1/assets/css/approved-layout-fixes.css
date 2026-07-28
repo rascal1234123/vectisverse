@@ -326,3 +326,10 @@ main{display:block}
     margin-bottom:8px;
   }
 }
+
+
+/* Riptide frame normalization v16 — remove the source artwork's inset border. */
+.approved-panels .card-riptide .approved-panel-image{
+  transform:scale(1.035);
+  transform-origin:center;
+}
