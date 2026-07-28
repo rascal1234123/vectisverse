@@ -16,7 +16,7 @@ This repository and configuration are the only authorised production source for 
 
 All future website changes must be committed to `main` inside `vectisverse-site-v1`. Do not build from historical branches, copied folders, ZIP uploads, preview deployments or detached Cloudflare projects.
 
-The `vectis-concepts-production-v1` branch is an archived historical source and must not be used for future editing once its approved assets have been consolidated into `main`.
+The approved Vectis Concepts production assets have now been consolidated into `main`. The `vectis-concepts-production-v1` branch is an archived historical source and must not be used for future editing or deployment.
 
 ## Production domains
 
