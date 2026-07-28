@@ -91,3 +91,45 @@ body{background:#050505}.site-header{max-width:1320px;min-height:66px;padding:8p
   .approved-hero-logo{width:56%;max-width:735px}
   .approved-burst{margin-top:-2px}
 }
+
+
+/* Homepage structure pass v10 — approved desktop grid, caption bands, compact footer and responsive rhythm. */
+:root{--vv-shell:1320px;--vv-content:1200px;--vv-gutter:28px}
+body{overflow-x:hidden}
+.site-header,.approved-hero,.site-footer{width:calc(100% - 28px);max-width:var(--vv-shell)}
+.site-header{height:66px;min-height:66px;padding:7px 16px;border-color:#303030}
+.header-brand{display:flex;align-items:center;gap:11px;min-width:112px}
+.publisher-est{color:#00c6ff;font:800 .68rem/1.28 Arial,Helvetica,sans-serif;letter-spacing:.03em;text-transform:uppercase}
+.site-nav{align-self:stretch;align-items:center}.site-nav a{display:flex;align-items:center;height:100%;padding:.2rem 0}
+main{display:block}
+#comics{width:100%;max-width:none;padding:12px 0 0}
+.comic-grid{width:calc(100% - 84px);max-width:var(--vv-content);padding:0;margin:0 auto 10px;gap:10px}
+.approved-panels .comic-card{position:relative;aspect-ratio:1.18/1;border:1px solid currentColor;box-shadow:none;background:#050505}
+.approved-panels .card-riptide{color:#00c6ef}.approved-panels .card-v{color:#d95e43}.approved-panels .card-ftw{color:#c22626}
+.approved-panels .approved-panel-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:none}
+.approved-panels .card-riptide .approved-panel-image{transform:none}
+.comic-card-caption{position:absolute;z-index:3;left:0;right:0;bottom:0;min-height:77px;padding:12px 15px 10px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(90deg,rgba(2,2,2,.96),rgba(5,5,5,.89));color:#fff;border-top:1px solid rgba(255,255,255,.08)}
+.comic-card-caption strong{font-size:.79rem;line-height:1.12;text-transform:uppercase;letter-spacing:.01em}
+.comic-card-caption span{margin-top:5px;font-size:.68rem;line-height:1.22;color:#f0f0f0}
+.approved-promos{width:calc(100% - 84px);max-width:var(--vv-content);padding:0;margin:0 auto 12px;gap:10px}
+.approved-promo-card{min-height:205px;border-width:1px}
+.promo-copy{min-height:205px;padding-left:17px}.promo-heading{font-size:2rem}.promo-description{margin:8px 0 11px}
+.site-footer{min-height:58px;padding:7px 22px;gap:22px;border-color:#303030}
+.footer-brand{gap:9px;font-size:.78rem;line-height:1}.publisher-mark.small{width:37px;height:42px}.footer-brand small{font-size:.5rem}
+.site-footer nav{gap:24px}.site-footer a{font-size:.67rem;font-weight:700}.site-footer>small{font-size:.57rem;white-space:nowrap}
+@media(max-width:900px){
+  :root{--vv-gutter:18px}
+  .site-header,.approved-hero,.site-footer{width:calc(100% - 20px)}
+  .comic-grid,.approved-promos{width:calc(100% - 36px)}
+  .approved-panels .comic-card{aspect-ratio:1.16/1}
+  .approved-promos{grid-template-columns:1fr 1fr}.approved-promo-card,.promo-copy{min-height:190px}
+  .promo-heading{font-size:1.78rem}.site-footer{flex-wrap:wrap}.site-footer nav{order:initial;width:auto}
+}
+@media(max-width:700px){
+  .site-header,.approved-hero,.site-footer{width:100%}.header-brand{min-width:0}.publisher-est{font-size:.61rem}
+  .comic-grid,.approved-promos{width:calc(100% - 24px);grid-template-columns:1fr;gap:10px}
+  .approved-panels .comic-card{aspect-ratio:1.42/1}
+  .comic-card-caption{min-height:67px;padding:9px 12px}.comic-card-caption strong{font-size:.75rem}.comic-card-caption span{font-size:.64rem}
+  .approved-promos{grid-template-columns:1fr}.approved-promo-card,.promo-copy{min-height:215px}
+  .site-footer{padding:10px 14px;gap:10px;justify-content:space-between}.site-footer nav{order:3;width:100%;justify-content:center;gap:17px}.site-footer>small{margin-left:auto}
+}
