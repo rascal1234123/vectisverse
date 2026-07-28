@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="950" viewBox="0 0 1400 950">
+
+<defs>
+  <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#c86fe8"/>
+    <stop offset=".5" stop-color="#8f39b6"/>
+    <stop offset="1" stop-color="#4a1762"/>
+  </linearGradient>
+  <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f3ecdf"/>
+    <stop offset=".55" stop-color="#e4dacb"/>
+    <stop offset="1" stop-color="#c9baa7"/>
+  </linearGradient>
+  <linearGradient id="silver" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#f4f1f5"/>
+    <stop offset=".5" stop-color="#aaa0ad"/>
+    <stop offset="1" stop-color="#4f4753"/>
+  </linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#160a1c" flood-opacity=".28"/>
+  </filter>
+  <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency=".58" numOctaves="3" seed="42" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="table" tableValues="0 .11"/></feComponentTransfer>
+  </filter>
+  <filter id="rough" x="-15%" y="-15%" width="130%" height="130%">
+    <feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="58" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="1.4"/>
+  </filter>
+</defs>
+
+<g id="01_PANEL_BASE"><rect x="18" y="18" width="1364" height="914" fill="url(#paper)" stroke="#5d535e" stroke-width="6"/></g>
+<g id="02_PAPER_TEXTURE"><rect x="18" y="18" width="1364" height="914" fill="#6e5f4e" filter="url(#grain)" opacity=".58"/></g>
+<g id="03_WATERMARK_V" opacity=".08">
+  <path d="M850 250 H980 L1100 520 L1220 250 H1350 L1170 700 H1030Z" fill="#72577c"/>
+</g>
+<g id="04_CHECK_POSITIONS" fill="none" stroke="url(#purple)" stroke-width="8">
+  <circle cx="110" cy="260" r="24"/><path d="M98 260 l12 12 24-28"/>
+  <circle cx="110" cy="430" r="24"/><path d="M98 430 l12 12 24-28"/>
+  <circle cx="110" cy="600" r="24"/><path d="M98 600 l12 12 24-28"/>
+  <circle cx="110" cy="770" r="24"/><path d="M98 770 l12 12 24-28"/>
+</g>
+<g id="05_TEXT_SAFE_AREAS" opacity=".01" fill="#fff">
+  <rect x="160" y="205" width="860" height="110"/>
+  <rect x="160" y="375" width="860" height="110"/>
+  <rect x="160" y="545" width="860" height="110"/>
+  <rect x="160" y="715" width="860" height="110"/>
+</g>
+<g id="06_SKETCH_ACCENTS" fill="none" stroke="#79677f" stroke-width="4" opacity=".07">
+  <circle cx="1150" cy="500" r="160"/><path d="M990 500 H1310 M1150 340 V660"/>
+</g>
+</svg>
