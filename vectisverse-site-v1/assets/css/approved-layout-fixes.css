@@ -19,3 +19,26 @@ body{background:#050505}.site-header{max-width:1320px;min-height:66px;padding:8p
   .approved-panels .approved-panel-image{width:100%;height:100%;object-fit:cover}
   .approved-panels .card-riptide .approved-panel-image{transform:scale(1.075);transform-origin:center bottom}
 }
+
+
+/* Final homepage Shop + Vectis Concepts modules — matched to the approved cream-paper design. */
+.approved-promo-card{position:relative;isolation:isolate;display:block;min-height:230px;overflow:hidden;border:2px solid #111;background:#f1e8d7;color:#111;text-decoration:none;transition:.18s transform,.18s box-shadow}
+.approved-promo-card::before{content:"";position:absolute;z-index:0;inset:0;background:radial-gradient(circle,rgba(21,18,13,.13) 0 1px,transparent 1.3px) 0 0/27px 27px,linear-gradient(110deg,rgba(255,255,255,.35),transparent 52%);opacity:.35;pointer-events:none}
+.approved-promo-card:hover,.approved-promo-card:focus-visible{transform:translateY(-3px);box-shadow:0 13px 30px rgba(0,198,255,.16);outline:2px solid #00c6ff;outline-offset:2px}
+.approved-promo-card.promo-concepts:hover,.approved-promo-card.promo-concepts:focus-visible{outline-color:#7441d8;box-shadow:0 13px 30px rgba(116,65,216,.22)}
+.promo-copy{position:relative;z-index:3;display:flex;width:46%;min-height:230px;padding:17px 36px 15px 18px;flex-direction:column;align-items:flex-start;justify-content:center;background:linear-gradient(90deg,#f1e8d7 0 73%,rgba(241,232,215,.93) 84%,transparent 100%)}
+.promo-heading{display:block;font:900 2.18rem/.88 Impact,"Arial Narrow",sans-serif;letter-spacing:.01em;text-transform:uppercase}
+.promo-heading strong{display:block;font:inherit}
+.promo-description{display:block;margin:10px 0 13px;font-size:.77rem;line-height:1.23;font-weight:750}
+.promo-button{display:inline-flex;align-items:center;gap:9px;padding:9px 11px;background:#0b0b0b;color:#fff;font-size:.7rem;line-height:1;text-transform:uppercase;font-weight:900;letter-spacing:.035em;box-shadow:3px 3px 0 #7a31bd}
+.promo-shop .promo-button{background:#efb713;color:#090909;box-shadow:3px 3px 0 #111}
+.promo-cart{display:grid;width:19px;height:19px;place-items:center}
+.promo-cart svg{display:block;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.promo-v-mark{display:grid;width:23px;height:23px;margin:-5px -6px -5px 1px;place-items:center;overflow:hidden}
+.promo-v-mark img{display:block;width:100%;height:100%;object-fit:contain}
+.promo-art{position:absolute;z-index:1;display:block;pointer-events:none}
+.promo-shop-art{right:-9px;bottom:-3px;width:74%;height:calc(100% + 6px);object-fit:cover;object-position:right bottom}
+.promo-concepts::after{content:"";position:absolute;z-index:2;top:-12%;right:29%;width:8px;height:125%;background:#111;transform:rotate(10deg);box-shadow:4px 0 0 #7a31bd;pointer-events:none}
+.promo-concepts-art{right:0;bottom:-23%;width:auto;height:142%;object-fit:contain;object-position:right bottom}
+@media(max-width:900px){.approved-promo-card{min-height:240px}.promo-copy{min-height:240px;width:44%}}
+@media(max-width:650px){.approved-promo-card{min-height:225px}.promo-copy{width:55%;min-height:225px;padding-left:15px;padding-right:28px}.promo-heading{font-size:1.85rem}.promo-description{font-size:.72rem}.promo-shop-art{right:-18%;width:88%}.promo-concepts-art{right:-5%;height:132%;bottom:-17%}.promo-concepts::after{right:32%}}
