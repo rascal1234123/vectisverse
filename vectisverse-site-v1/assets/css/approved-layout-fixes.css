@@ -133,3 +133,27 @@ main{display:block}
   .approved-promos{grid-template-columns:1fr}.approved-promo-card,.promo-copy{min-height:215px}
   .site-footer{padding:10px 14px;gap:10px;justify-content:space-between}.site-footer nav{order:3;width:100%;justify-content:center;gap:17px}.site-footer>small{margin-left:auto}
 }
+
+
+/* Comic teaser cleanup v11 — artwork only, fully visible inside each frame. */
+.approved-panels .comic-card{
+  aspect-ratio:3/2;
+  overflow:hidden;
+}
+.approved-panels .approved-panel-image,
+.approved-panels .card-riptide .approved-panel-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  transform:none;
+  background:#050505;
+}
+@media(max-width:900px){
+  .approved-panels .comic-card{aspect-ratio:3/2}
+}
+@media(max-width:700px){
+  .approved-panels .comic-card{aspect-ratio:3/2}
+}
