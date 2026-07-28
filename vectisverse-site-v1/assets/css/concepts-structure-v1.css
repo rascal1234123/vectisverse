@@ -199,6 +199,7 @@ a { color: inherit; }
 :where(a,button):focus-visible{outline:3px solid #b879f2;outline-offset:4px}
 .footer-meta{display:grid;gap:6px;justify-items:end}
 .footer-social{display:flex;gap:13px;justify-content:flex-end}
-.footer-social a{color:#fff;text-decoration:none;text-transform:uppercase;font-size:9px;font-weight:800}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding-inline:8px;color:#fff;text-decoration:none;text-transform:uppercase;font-size:9px;font-weight:800}
+.footer-nav a{display:inline-flex;align-items:center;min-height:44px;padding-block:8px}
 @media(max-width:1050px){.footer-meta{justify-items:center}.footer-social{justify-content:center}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
