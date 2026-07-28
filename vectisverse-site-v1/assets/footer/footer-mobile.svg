@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="720" viewBox="0 0 720 720">
+
+<defs>
+  <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#c86fe8"/>
+    <stop offset=".5" stop-color="#8f39b6"/>
+    <stop offset="1" stop-color="#4a1762"/>
+  </linearGradient>
+  <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f3ecdf"/>
+    <stop offset=".55" stop-color="#e4dacb"/>
+    <stop offset="1" stop-color="#c9baa7"/>
+  </linearGradient>
+  <linearGradient id="silver" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#f4f1f5"/>
+    <stop offset=".5" stop-color="#aaa0ad"/>
+    <stop offset="1" stop-color="#4f4753"/>
+  </linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#160a1c" flood-opacity=".28"/>
+  </filter>
+  <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency=".58" numOctaves="3" seed="42" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="table" tableValues="0 .11"/></feComponentTransfer>
+  </filter>
+  <filter id="rough" x="-15%" y="-15%" width="130%" height="130%">
+    <feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="58" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="1.4"/>
+  </filter>
+</defs>
+
+<defs>
+  <linearGradient id="footerBg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#29103d"/>
+    <stop offset="1" stop-color="#0b0910"/>
+  </linearGradient>
+</defs>
+<g id="01_BACKGROUND"><rect width="720" height="720" fill="url(#footerBg)"/></g>
+<g id="02_TOP_GLOW"><rect width="720" height="8" fill="url(#purple)"/></g>
+<g id="03_PUBLISHER_MARK"><rect x="280" y="70" width="160" height="160" fill="none" stroke="url(#silver)" stroke-width="8"/>
+  <path d="M310 94 H340 L360 170 L380 94 H410 L374 208 H346Z" fill="url(#silver)"/>
+</g>
+<g id="04_BRAND_TEXT">
+  <text x="360" y="300" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="52" font-weight="700" fill="#fff">VECTISVERSE</text>
+  <text x="360" y="345" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="26" fill="#ddd">COMIC PUBLISHING</text>
+</g>
+<g id="05_NAV_GUIDES" opacity=".01" fill="#fff"><rect x="100" y="390" width="520" height="140"/></g>
+<g id="06_COPYRIGHT_GUIDE" opacity=".01" fill="#fff"><rect x="110" y="560" width="500" height="60"/></g>
+<g id="07_SOCIAL_GUIDES" opacity=".01" fill="#fff"><rect x="240" y="630" width="240" height="50"/></g>
+<g id="08_TEXTURE"><rect width="720" height="720" fill="#5d4b68" filter="url(#grain)" opacity=".25"/></g>
+</svg>

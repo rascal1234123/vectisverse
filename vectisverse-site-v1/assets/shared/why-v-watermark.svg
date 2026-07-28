@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420" role="img" aria-labelledby="title desc">
+  <title id="title">Vectis construction V watermark</title>
+  <desc id="desc">A faint graphite construction drawing of the Vectis V mark for use behind the Why panel.</desc>
+  <g fill="none" stroke="#5f5960" stroke-linecap="round" stroke-linejoin="round">
+    <g opacity="0.58" stroke-width="5">
+      <path d="M115 54 L300 354 L380 240 L460 354 L645 54"/>
+      <path d="M170 54 L305 276 L380 170 L455 276 L590 54"/>
+    </g>
+    <g opacity="0.34" stroke-width="2">
+      <path d="M86 54 H674"/>
+      <path d="M115 354 H645"/>
+      <path d="M380 28 V388"/>
+      <path d="M115 54 L645 354"/>
+      <path d="M645 54 L115 354"/>
+      <circle cx="380" cy="240" r="118"/>
+      <circle cx="380" cy="240" r="72"/>
+      <path d="M300 354 A92 92 0 0 1 460 354"/>
+      <path d="M170 54 A235 235 0 0 0 590 54"/>
+    </g>
+    <g opacity="0.24" stroke-width="1.5" stroke-dasharray="9 10">
+      <path d="M70 105 H690"/>
+      <path d="M70 240 H690"/>
+      <path d="M70 354 H690"/>
+      <path d="M170 24 V392"/>
+      <path d="M590 24 V392"/>
+    </g>
+    <g opacity="0.22" stroke-width="1">
+      <path d="M98 44 l34 20 M98 64 l34 -20"/>
+      <path d="M628 44 l34 20 M628 64 l34 -20"/>
+      <path d="M288 344 l34 20 M288 364 l34 -20"/>
+      <path d="M438 344 l34 20 M438 364 l34 -20"/>
+      <path d="M366 226 h28 M380 212 v28"/>
+    </g>
+  </g>
+</svg>

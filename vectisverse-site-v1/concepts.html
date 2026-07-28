@@ -1,80 +1,94 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Vectis Concepts develops stories, characters, worlds and brand identities.">
-  <title>Vectis Concepts | Ideas That Build Worlds</title>
-  <link rel="stylesheet" href="assets/css/site.css?v=stage2">
-  <link rel="stylesheet" href="assets/css/concepts-stage4.css?v=1">
-  <script defer src="assets/js/site.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Vectis Concepts creates stories, characters, worlds and brand identities.">
+<title>Vectis Concepts | Ideas That Build Worlds</title>
+<link rel="stylesheet" href="assets/css/concepts-stage-2.css?v=mobile-hero-2">
+<style>
+@media (max-width:700px){
+  .vc-hero-art{height:auto!important;aspect-ratio:1.62/1!important;overflow:hidden;background:#120b19}
+  .vc-hero-art picture,.vc-hero-art img{display:block;width:100%;height:100%!important}
+  .vc-hero-reference{object-fit:cover!important;object-position:63% center!important}
+}
+@media (max-width:430px){
+  .vc-hero-art{aspect-ratio:1.48/1!important}
+  .vc-hero-reference{object-position:65% center!important}
+}
+</style>
+<script defer src="assets/js/concepts-stage-2.js?v=concepts-nav-2"></script>
 </head>
-<body class="concepts-stage4">
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <a class="publisher-mark" href="index.html" aria-label="VectisVerse home">V</a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
-      <a href="index.html">Home</a><a href="index.html#comics">Comics</a><a href="index.html#shop">Shop</a><a class="active concepts" href="concepts.html">Vectis Concepts</a>
-    </nav>
-  </header>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="concepts-header">
+  <a class="concepts-publisher-mark" href="index.html" aria-label="VectisVerse home">V</a>
+  <button class="concepts-menu-toggle" type="button" aria-expanded="false" aria-controls="concepts-site-nav">Menu</button>
+  <nav id="concepts-site-nav" class="concepts-site-nav" aria-label="Primary navigation">
+    <a href="index.html">Home</a>
+    <a class="active" href="concepts.html" aria-current="page">Vectis Concepts</a>
+    <a href="mailto:contact@vectisverse.com">Contact</a>
+  </nav>
+</header>
+<main class="vc-page" id="main">
+  <section class="vc-hero" aria-labelledby="concepts-title">
+    <div class="vc-hero-copy">
+      <h1 id="concepts-title" class="visually-hidden">Vectis Concepts</h1>
+      <img class="vc-logo" src="assets/hero/hero-logo.svg?v=4" alt="Vectis Concepts — Ideas that build worlds.">
+      <p class="vc-intro">Vectis Concepts is the creative arm of VectisVerse. We partner with brands, businesses and visionaries to create memorable stories, characters and identities that connect with audiences.</p>
+      <a class="vc-btn" href="mailto:contact@vectisverse.com">Let’s create together <span aria-hidden="true">⚡</span></a>
+    </div>
+    <div class="vc-hero-art" aria-label="Concept development progressing from sketches to a finished armoured character and futuristic city">
+      <picture>
+        <source media="(max-width:1050px)" srcset="assets/hero/hero-production-desktop.png?v=3">
+        <img class="vc-hero-reference" src="assets/hero/hero-production-desktop.png?v=3" alt="">
+      </picture>
+    </div>
+  </section>
 
-  <main id="main">
-    <section class="c4-hero">
-      <div class="c4-copy">
-        <p class="c4-kicker">The commercial creative arm of VectisVerse</p>
-        <h1>Vectis <span>Concepts</span></h1>
-        <p class="c4-tag">Ideas that build worlds.</p>
-        <p>We turn early ideas into distinctive characters, stories, worlds and brand identities. From the first sketch to a practical creative system, every concept is designed to connect with a real audience and work across real media.</p>
-        <a class="c4-button" href="#contact">Let’s create together</a>
+  <section class="vc-section" id="services" aria-labelledby="services-title">
+    <div class="vc-ribbon vc-ribbon-text" aria-hidden="true">What we do</div>
+    <h2 id="services-title" class="visually-hidden">What we do</h2>
+    <div class="vc-rule" aria-hidden="true"></div>
+    <div class="services">
+      <article class="service"><img src="assets/services/narrative-ideas.svg" alt=""><div><h3>Narrative ideas</h3><p>Stories that inspire.</p></div></article>
+      <article class="service"><img src="assets/services/character-creation.svg" alt=""><div><h3>Character creation</h3><p>Memorable. Believable. Unique.</p></div></article>
+      <article class="service"><img src="assets/services/world-building.svg" alt=""><div><h3>World building</h3><p>Rich worlds. Real detail.</p></div></article>
+      <article class="service"><img src="assets/services/concept-development.svg" alt=""><div><h3>Concept development</h3><p>From idea to fully realised concept.</p></div></article>
+      <article class="service"><img src="assets/services/brand-storytelling.svg" alt=""><div><h3>Brand storytelling</h3><p>Identity. Voice. Purpose.</p></div></article>
+      <article class="service"><img src="assets/services/creative-strategy.svg" alt=""><div><h3>Creative strategy</h3><p>Smart ideas. Big impact.</p></div></article>
+    </div>
+  </section>
+
+  <section class="vc-section" id="featured" aria-labelledby="featured-title">
+    <div class="featured-proof">
+      <div class="featured-side">
+        <img class="vc-ribbon featured" src="assets/shared/ribbon-featured.svg" alt="">
+        <h2 id="featured-title" class="visually-hidden">Featured concept work</h2>
+        <div class="cards">
+          <article class="card"><div class="card-art"><img src="assets/featured/pirate-theme-park-production.svg" alt="Pirate theme park concept artwork"></div><div class="card-copy"><h3>Pirate Theme Park</h3><p>Concept &amp; Brand Identity</p></div></article>
+          <article class="card"><div class="card-art"><img src="assets/featured/island-ferry-mascot-production.svg" alt="Island ferry mascot concept artwork"></div><div class="card-copy"><h3>Island Ferry Mascot</h3><p>Character Development</p></div></article>
+          <article class="card"><div class="card-art"><img src="assets/featured/wildlife-park-brand-production.svg" alt="Wildlife park brand concept artwork"></div><div class="card-copy"><h3>Wildlife Park Brand</h3><p>Identity &amp; Campaign</p></div></article>
+          <article class="card"><div class="card-art"><img src="assets/featured/historic-castle-experience-production.svg" alt="Historic castle experience concept artwork"></div><div class="card-copy"><h3>Historic Castle Experience</h3><p>Story &amp; Visitor Concept</p></div></article>
+        </div>
       </div>
-      <div class="c4-evolution" aria-label="A concept progressing from sketch to ink to a finished world">
-        <div class="c4-stage c4-sketch" data-label="01 — Rough idea"></div>
-        <div class="c4-arrow" aria-hidden="true">→</div>
-        <div class="c4-stage c4-ink" data-label="02 — Refined design"></div>
-        <div class="c4-arrow" aria-hidden="true">→</div>
-        <div class="c4-stage c4-world" data-label="03 — Living universe"></div>
-      </div>
-    </section>
+      <aside class="why" aria-labelledby="why-title">
+        <h2 id="why-title">Why work with Vectis Concepts?</h2>
+        <ul class="why-list">
+          <li><strong>30+ years of storytelling experience</strong>From comics to campaigns.</li>
+          <li><strong>Creative, reliable, collaborative</strong>We listen. We create. We deliver.</li>
+          <li><strong>Tailored solutions</strong>No templates. Just ideas that fit.</li>
+          <li><strong>Built on passion</strong>We care about your story as much as you do.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
 
-    <section class="c4-section" aria-labelledby="what-we-do">
-      <h2 id="what-we-do" class="c4-label">What we do</h2>
-      <div class="c4-services">
-        <article class="c4-service"><span class="c4-icon">✦</span><h3>Narrative ideas</h3><p>Clear story foundations shaped around audience, purpose and opportunity.</p></article>
-        <article class="c4-service"><span class="c4-icon">◈</span><h3>Character creation</h3><p>Memorable personalities and visual identities designed for repeat use.</p></article>
-        <article class="c4-service"><span class="c4-icon">◉</span><h3>World building</h3><p>Settings, histories and visual rules that make an idea feel complete.</p></article>
-        <article class="c4-service"><span class="c4-icon">✎</span><h3>Concept development</h3><p>A practical route from loose thought to presentation-ready proposition.</p></article>
-        <article class="c4-service"><span class="c4-icon">◆</span><h3>Brand storytelling</h3><p>Identity, voice and narrative that help an organisation stand apart.</p></article>
-        <article class="c4-service"><span class="c4-icon">♜</span><h3>Creative strategy</h3><p>Focused ideas supported by clear decisions and useful deliverables.</p></article>
-      </div>
-    </section>
-
-    <section class="c4-section" aria-labelledby="featured-work">
-      <h2 id="featured-work" class="c4-label">Featured concept work</h2>
-      <div class="c4-work-grid">
-        <article class="c4-project"><div class="c4-project-art" aria-hidden="true"></div><h3>Pirate attraction</h3><p>Story world, visitor experience and brand identity.</p></article>
-        <article class="c4-project"><div class="c4-project-art" aria-hidden="true"></div><h3>Island ferry mascot</h3><p>Character system for families, campaigns and merchandise.</p></article>
-        <article class="c4-project"><div class="c4-project-art" aria-hidden="true"></div><h3>Wildlife park identity</h3><p>Audience proposition, narrative and visual campaign direction.</p></article>
-        <article class="c4-project"><div class="c4-project-art" aria-hidden="true"></div><h3>Historic castle experience</h3><p>Interpretation concept, characters and visitor storytelling.</p></article>
-      </div>
-    </section>
-
-    <section class="c4-section c4-proof" aria-labelledby="why-vectis">
-      <div><h2 id="why-vectis" class="c4-label">Why Vectis Concepts?</h2><p>Commercial creativity needs more than an attractive image. It needs an idea strong enough to survive presentation, production and repeated public use.</p></div>
-      <ul><li>30+ years of storytelling experience</li><li>Original thinking rather than templates</li><li>Clear, practical deliverables</li><li>Characters and ideas built for reuse</li><li>Collaborative development</li><li>Suitable for web, print, campaigns and experiences</li></ul>
-    </section>
-
-    <section id="contact" class="c4-section c4-cta">
-      <h2>Imagine your world.</h2>
-      <p>Start a conversation about your next story, character, campaign, visitor experience or brand.</p>
-      <a class="c4-button" href="mailto:contact@vectisverse.com">Contact Vectis Concepts</a>
-    </section>
-  </main>
-
-  <footer class="site-footer c4-footer">
-    <div class="footer-brand"><span class="publisher-mark small">V</span><span>VectisVerse<br><small>Comic Publishing</small></span></div>
-    <nav aria-label="Footer navigation"><a href="index.html">Home</a><a href="#what-we-do">Services</a><a href="#featured-work">Work</a><a href="#contact">Contact</a></nav>
-    <small>© 2026 VectisVerse. All rights reserved.</small>
+  <footer class="vc-footer">
+    <div class="footer-brand"><span class="footer-mark">V</span><span>VectisVerse<br><small>Comic Publishing</small></span></div>
+    <nav class="footer-nav" aria-label="Footer navigation"><a href="index.html">About us</a><a href="#">News</a><a href="#">Join the crew</a><a href="mailto:contact@vectisverse.com">Contact</a></nav>
+    <div class="footer-meta">© 2026 VectisVerse. All rights reserved.</div>
   </footer>
+</main>
 </body>
 </html>
