@@ -1,0 +1,24 @@
+/* Source-of-truth overrides: all production rendering must resolve from main. */
+.vc-page{
+  background:var(--paper) url("../shared/paper-background.svg") center top/cover repeat-y!important;
+}
+.why{
+  color:#fff;
+  background:linear-gradient(145deg,#1a0d24,#3a174a)!important;
+}
+.why::after{
+  content:"V"!important;
+  right:-2%!important;
+  bottom:-18%!important;
+  width:auto!important;
+  height:auto!important;
+  background:none!important;
+  color:rgba(255,255,255,.065)!important;
+  font:900 italic 260px/1 Impact,"Arial Black",sans-serif!important;
+}
+.vc-footer{
+  background:linear-gradient(115deg,#100719,#291034 55%,#09050e)!important;
+}
+@media (max-width:700px){
+  .vc-footer{background:linear-gradient(145deg,#100719,#291034 62%,#09050e)!important}
+}
