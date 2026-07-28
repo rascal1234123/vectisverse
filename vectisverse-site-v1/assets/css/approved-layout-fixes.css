@@ -231,3 +231,30 @@ main{display:block}
     width:142%;
   }
 }
+
+
+/* Mobile hero tightening v13 — remove empty lower field and raise the cast. */
+@media(max-width:700px){
+  .approved-hero{
+    min-height:420px;
+    height:420px;
+  }
+  .approved-hero-cast{
+    top:125px;
+    right:-26%;
+    bottom:auto;
+    width:155%;
+    max-width:none;
+  }
+}
+@media(max-width:430px){
+  .approved-hero{
+    min-height:420px;
+    height:420px;
+  }
+  .approved-hero-cast{
+    top:125px;
+    right:-27%;
+    width:157%;
+  }
+}
