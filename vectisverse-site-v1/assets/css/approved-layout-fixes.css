@@ -308,3 +308,21 @@ main{display:block}
     padding-top:12px;
   }
 }
+
+
+/* Mobile hero crop correction v15 — preserve the portrait artwork's text-safe area. */
+@media(max-width:700px){
+  .approved-hero-art .approved-hero-cast{
+    object-position:center top;
+  }
+  .approved-burst{
+    width:235px;
+    max-width:66%;
+    min-height:118px;
+    padding:14px 16px 13px;
+  }
+  .approved-burst h1{
+    font-size:1.82rem;
+    margin-bottom:8px;
+  }
+}
