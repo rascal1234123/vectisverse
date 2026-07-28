@@ -157,3 +157,77 @@ main{display:block}
 @media(max-width:700px){
   .approved-panels .comic-card{aspect-ratio:3/2}
 }
+
+
+/* Mobile homepage composition v12 — compact hero and Safari-safe teaser rendering. */
+@media(max-width:700px){
+  .approved-hero{
+    min-height:520px;
+    height:520px;
+  }
+  .approved-hero-copy{
+    position:relative;
+    z-index:6;
+    padding:14px 10px 12px;
+  }
+  .approved-hero-logo{
+    display:block;
+    width:100%;
+    max-width:none;
+    height:auto;
+    margin:0 auto 2px;
+    object-fit:contain;
+    object-position:center;
+  }
+  .approved-hero-tagline{
+    width:100%;
+    margin:0 0 8px;
+    text-align:center;
+    font-size:.92rem;
+  }
+  .approved-burst{
+    position:relative;
+    left:auto;
+    bottom:auto;
+    width:250px;
+    max-width:72%;
+    min-height:128px;
+    margin:0;
+    padding:16px 18px 15px;
+  }
+  .approved-burst h1{
+    font-size:2rem;
+    line-height:.88;
+    margin-bottom:9px;
+  }
+  .approved-burst .button{
+    padding:9px 11px;
+    font-size:.63rem;
+  }
+  .approved-hero-cast{
+    top:205px;
+    right:-18%;
+    bottom:auto;
+    width:138%;
+    max-width:none;
+  }
+  .approved-energy{
+    top:8px;
+    left:0;
+    width:100%;
+    height:210px;
+    opacity:.42;
+  }
+  #comics{padding-top:10px}
+}
+@media(max-width:430px){
+  .approved-hero{
+    min-height:500px;
+    height:500px;
+  }
+  .approved-hero-cast{
+    top:198px;
+    right:-20%;
+    width:142%;
+  }
+}
