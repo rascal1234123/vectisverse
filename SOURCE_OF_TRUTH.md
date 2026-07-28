@@ -7,6 +7,8 @@ This repository and configuration are the only authorised production source for 
 - Repository: `rascal1234123/vectisverse`
 - Production branch: `main`
 - Website directory: `vectisverse-site-v1`
+- Canonical Cloudflare Pages project: `vectisverse-pages`
+- Production Pages domain: `vectisverse-pages.pages.dev`
 - Cloudflare framework preset: `None`
 - Build command: `exit 0`
 - Root directory: `vectisverse-site-v1`
@@ -18,13 +20,17 @@ All future website changes must be committed to `main` inside `vectisverse-site-
 
 The approved Vectis Concepts production assets have now been consolidated into `main`. The `vectis-concepts-production-v1` branch is an archived historical source and must not be used for future editing or deployment.
 
+## Cloudflare cleanup
+
+The `vectisverse-pages` project is the only production project to retain automatic deployments and the public custom domains.
+
+The older `vecverse` Pages project is a duplicate. Remove any VectisVerse custom domains from it, pause automatic deployments, and delete it only after the canonical project and both custom domains have been verified.
+
 ## Production domains
 
-Only one Cloudflare Pages project should have automatic deployments enabled and carry the public custom domains. Any duplicate Pages projects should be paused or deleted after the canonical project is verified.
-
-The public domains should be attached to the canonical Pages project only:
+Attach these domains to `vectisverse-pages` only:
 
 - `vectisverse.com`
 - `www.vectisverse.com`
 
-The non-canonical Pages project must not retain either custom domain.
+No other Cloudflare Pages project should retain either custom domain.
