@@ -351,3 +351,12 @@ main{display:block}
     background-position:center top;
   }
 }
+
+
+/* Desktop hero containment v18 — preserve complete character silhouettes. */
+@media(min-width:701px){
+  .approved-hero{
+    background-size:auto 100%;
+    background-position:right center;
+  }
+}
