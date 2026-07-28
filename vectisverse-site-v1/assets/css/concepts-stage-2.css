@@ -10,7 +10,7 @@ a{color:inherit}
 .skip-link{position:fixed;left:12px;top:10px;z-index:1000;transform:translateY(-180%);background:#fff;color:#111;padding:9px 13px;font-weight:800;text-decoration:none}
 .skip-link:focus{transform:none}
 .concepts-header{position:sticky;top:0;z-index:100;max-width:var(--max);height:64px;margin:0 auto;padding:0 34px;display:flex;align-items:center;background:rgba(13,8,20,.96);border-inline:1px solid #28202c;border-bottom:1px solid rgba(255,255,255,.16);color:#fff;backdrop-filter:blur(10px)}
-.concepts-publisher-mark{width:42px;height:42px;display:grid;place-items:center;border:2px solid #ddd;text-decoration:none;font:900 italic 27px/1 Impact,sans-serif}
+.concepts-publisher-mark{width:44px;height:52px;display:grid;place-items:center;text-decoration:none}.concepts-publisher-mark img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 7px rgba(0,191,255,.24))}
 .concepts-site-nav{margin-left:auto;display:flex;align-items:center;gap:30px}
 .concepts-site-nav a{position:relative;color:#fff;text-decoration:none;text-transform:uppercase;font-size:12px;font-weight:900;letter-spacing:.08em;padding:24px 0 21px}
 .concepts-site-nav a::after{content:"";position:absolute;left:0;right:0;bottom:12px;height:2px;background:#8d43d4;transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
@@ -53,7 +53,7 @@ a{color:inherit}
 .why-list strong{display:block;text-transform:uppercase}
 .vc-footer{position:relative;min-height:90px;background:#150b20 url("https://raw.githubusercontent.com/rascal1234123/vectisverse/vectis-concepts-production-v1/vectisverse-site-v1/assets/footer/footer-desktop.svg") center/cover no-repeat;color:#fff;display:grid;grid-template-columns:300px 1fr 320px;align-items:center;padding:14px 44px}
 .footer-brand{display:flex;align-items:center;gap:12px;font-weight:800;text-transform:uppercase}
-.footer-mark{width:44px;height:44px;border:2px solid #ddd;display:grid;place-items:center;font:900 italic 28px/1 Impact,sans-serif}
+.footer-mark{width:36px;height:43px;display:grid;place-items:center}.footer-mark img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 7px rgba(0,191,255,.22))}
 .footer-brand small{font-size:9px}
 .footer-nav{display:flex;justify-content:center;gap:28px}
 .footer-nav a{text-decoration:none;text-transform:uppercase;font-size:11px;font-weight:800}
@@ -68,7 +68,7 @@ a{color:inherit}
 }
 @media (max-width:700px){
  .concepts-header{height:64px;padding:0 max(16px,env(safe-area-inset-right)) 0 max(16px,env(safe-area-inset-left))}
- .concepts-publisher-mark{width:40px;height:40px;font-size:25px}
+ .concepts-publisher-mark{width:40px;height:47px}
  .concepts-menu-toggle{display:block}
  .concepts-menu-toggle{min-width:82px;min-height:44px;padding:10px 14px;font-size:13px;letter-spacing:.06em}
  .concepts-site-nav{display:none;position:absolute;left:0;right:0;top:64px;margin:0;padding:10px 18px 16px;background:#150b20;border-bottom:1px solid rgba(255,255,255,.18);flex-direction:column;align-items:stretch;gap:0}
