@@ -333,3 +333,21 @@ main{display:block}
   transform:scale(1.035);
   transform-origin:center;
 }
+
+
+/* Critical hero rendering and performance remediation v17. */
+.approved-hero{
+  background-color:#02040a;
+  background-image:url("../hero/vectisverse-hero-desktop-v2.webp");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center 40%;
+}
+.approved-hero-art{display:none}
+@media(max-width:700px){
+  .approved-hero{
+    background-image:url("../hero/vectisverse-hero-mobile-v1.webp");
+    background-size:cover;
+    background-position:center top;
+  }
+}
