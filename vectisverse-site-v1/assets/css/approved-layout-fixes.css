@@ -82,3 +82,12 @@ body{background:#050505}.site-header{max-width:1320px;min-height:66px;padding:8p
   .approved-burst{position:absolute;left:10px;bottom:17px;width:270px;max-width:72%;min-height:139px;padding:18px 20px 16px}
   .approved-burst h1{font-size:2.15rem;margin-bottom:10px}.approved-energy{left:0;top:34px;width:100%;height:260px}
 }
+
+
+/* Hero composition v9 — placeholder cast framing. Swap only the cast asset when the approved master is ready. */
+@media(min-width:901px){
+  .approved-hero{min-height:455px}
+  .approved-hero-cast{top:8px;right:-11%;bottom:auto;width:88%}
+  .approved-hero-logo{width:56%;max-width:735px}
+  .approved-burst{margin-top:-2px}
+}
