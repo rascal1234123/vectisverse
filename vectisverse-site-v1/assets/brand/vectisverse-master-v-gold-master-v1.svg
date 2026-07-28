@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -25 168 190" role="img" aria-label="VectisVerse Master V - Gold Master">
+<title>VectisVerse Master V - Gold Master</title>
+
+<defs>
+  <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset="0.18" stop-color="#d9e0e5"/>
+    <stop offset="0.38" stop-color="#ffffff"/>
+    <stop offset="0.62" stop-color="#77838c"/>
+    <stop offset="0.82" stop-color="#e8eef2"/>
+    <stop offset="1" stop-color="#aab4bb"/>
+  </linearGradient>
+  <linearGradient id="blueEdge" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#7cecff"/>
+    <stop offset="0.5" stop-color="#00bfff"/>
+    <stop offset="1" stop-color="#005ec8"/>
+  </linearGradient>
+  <radialGradient id="flare" cx="50%" cy="50%" r="50%">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset="0.22" stop-color="#dff8ff"/>
+    <stop offset="0.55" stop-color="#00bfff" stop-opacity=".8"/>
+    <stop offset="1" stop-color="#00bfff" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="4"/>
+  </filter>
+  <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+    <feOffset dx="4" dy="7" result="off"/>
+    <feColorMatrix in="off" type="matrix"
+      values="0 0 0 0 0
+              0 0 0 0 0
+              0 0 0 0 0.03
+              0 0 0 .85 0"/>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+
+
+<g id="master-v" transform="translate(10,18) scale(1.08,1.16)">
+  <path d="M 0 0 L 24 0 L 50 100 L 76 0 L 100 0 L 63 132 L 37 132 Z" fill="#06101d" stroke="#02050a" stroke-width="8" vector-effect="non-scaling-stroke"/>
+  <path d="M 0 0 L 24 0 L 50 100 L 76 0 L 100 0 L 63 132 L 37 132 Z" fill="#071827" stroke="url(#blueEdge)" stroke-width="5" vector-effect="non-scaling-stroke"/>
+  <path d="M 0 0 L 24 0 L 50 100 L 76 0 L 100 0 L 63 132 L 37 132 Z" fill="#121a22" stroke="#effbff" stroke-width="2.3" vector-effect="non-scaling-stroke"/>
+  <path d="M 0 0 L 24 0 L 50 100 L 76 0 L 100 0 L 63 132 L 37 132 Z" fill="url(#chrome)" stroke="#344552" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
+  <path d="M 0 0 L 24 0 L 50 100 L 76 0 L 100 0 L 63 132 L 37 132 Z" transform="translate(0,1.6) scale(1,.965)" fill="none" stroke="#ffffff" stroke-opacity=".45" stroke-width=".8" vector-effect="non-scaling-stroke"/>
+</g>
+<g id="master-flare" transform="translate(64.0,8)">
+  <circle r="26" fill="url(#flare)" filter="url(#glow)"/>
+  <path d="M0,-23 L2,-3 L23,0 L2,3 L0,23 L-2,3 L-23,0 L-2,-3 Z" fill="#ffffff" stroke="#8ee9ff" stroke-width="1"/>
+  <path d="M-15,-15 L-2,-2 L15,-15 L2,0 L15,15 L2,2 L-15,15 L-2,0 Z" fill="#dff8ff" opacity=".9"/>
+</g>
+
+</svg>
