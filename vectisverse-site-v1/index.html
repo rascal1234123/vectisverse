@@ -6,9 +6,9 @@
   <meta name="description" content="VectisVerse — One Island. Endless Stories.">
   <title>VectisVerse | One Island. Endless Stories.</title>
   <link rel="preload" as="image" href="assets/brand/vectisverse-website-hero-logo-transparent-v1.svg?v=20260728-1" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/site.css?v=stage2-master-v-1">
+  <link rel="stylesheet" href="assets/css/site.css?v=accessibility-qa-1">
   <link rel="stylesheet" href="assets/css/approved-layout-fixes.css?v=10">
-  <script defer src="assets/js/site.js"></script>
+  <script defer src="assets/js/site.js?v=accessibility-qa-1"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -19,7 +19,7 @@
     </div>
     <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
-      <a class="active" href="index.html">Home</a>
+      <a class="active" href="index.html" aria-current="page">Home</a>
       <a href="#comics">Comics</a>
       <a href="#shop">Shop</a>
       <a href="concepts.html">Vectis Concepts</a>
@@ -63,7 +63,7 @@
         <span class="promo-copy">
           <span class="promo-heading">Shop the <strong>VectisVerse</strong></span>
           <span class="promo-description">Official merch.<br>Exclusive designs.<br>Rep your favourites.</span>
-          <span class="promo-button">Visit our store <span class="promo-cart" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 1.9-1.4L21 8H7M10 20a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm9 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg></span></span>
+          <span class="promo-button">Visit our store <span class="visually-hidden">(opens in a new tab)</span> <span class="promo-cart" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 1.9-1.4L21 8H7M10 20a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm9 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg></span></span>
         </span>
         <img class="promo-art promo-shop-art" src="assets/shop/home-merchandise.png?v=20260728-1" alt="" loading="lazy" decoding="async">
       </a>
@@ -81,8 +81,8 @@
 
   <footer class="site-footer">
     <div class="footer-brand"><span class="publisher-mark small"><img src="assets/brand/vectisverse-master-v-gold-master-v1.svg?v=20260728-1" alt="" width="168" height="190" loading="lazy"></span><span>VectisVerse<br><small>Comic Publishing</small></span></div>
-    <nav aria-label="Footer navigation"><a href="index.html">Home</a><a href="#comics">Comics</a><a href="#shop">Shop</a><a href="concepts.html">Vectis Concepts</a></nav>
-    <small>© 2026 VectisVerse. All rights reserved.</small>
+    <nav aria-label="Footer navigation"><a href="index.html" aria-current="page">Home</a><a href="#comics">Comics</a><a href="#shop">Shop</a><a href="concepts.html">Vectis Concepts</a><a href="mailto:contact@vectisverse.com">Contact</a><a href="accessibility.html">Accessibility</a></nav>
+    <div class="footer-meta"><small>© 2026 VectisVerse. All rights reserved.</small><span class="footer-social"><a href="https://www.instagram.com/vectisversecomics/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.facebook.com/share/18xPJdpeTn/" target="_blank" rel="noopener noreferrer">Facebook</a></span></div>
   </footer>
 </body>
 </html>
