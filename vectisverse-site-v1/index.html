@@ -55,7 +55,7 @@
           <img class="approved-panel-image" src="assets/v/v-pop-home-teaser-v9.svg?v=20260729-4" alt="V POP">
         </article>
         <article class="comic-card card-ftw">
-          <img class="approved-panel-image" src="assets/ftw/ftw-home-teaser-v3.webp?v=20260729-2" alt="FTW — Royle stands ready to fight before the Isle of Wight, surrounded by the FTW villains">
+          <img id="ftw-home-teaser" class="approved-panel-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="FTW — Royle stands ready to fight before the Isle of Wight, surrounded by the FTW villains">
         </article>
       </div>
     </section>
@@ -86,5 +86,19 @@
     <nav aria-label="Footer navigation"><a href="index.html" aria-current="page">Home</a><a href="#comics">Comics</a><a href="#shop">Shop</a><a href="concepts.html">Vectis Concepts</a><a href="mailto:contact@vectisverse.com">Contact</a><a href="accessibility.html">Accessibility</a></nav>
     <div class="footer-meta"><small>© 2026 VectisVerse. All rights reserved.</small><span class="footer-social"><a href="https://www.instagram.com/vectisversecomics?igsh=b3VjM3c4OThxNmRk&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="VectisVerse on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm11.5 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg></a><a href="https://www.facebook.com/share/1D2ZVtFuBp/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="VectisVerse on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4.2c-.5-.1-2.2-.2-4.2-.2C8.7 4 6 6.5 6 7.1V10H3v4h3v8h4v-8h3.1l.9-4H10V7.5c0-1.2.3-2 2-2H14V8Z" transform="translate(2 0)"/></svg></a></span></div>
   </footer>
+  <script>
+    fetch('assets/ftw/ftw-home-teaser-v4.b64?v=20260729-1')
+      .then(function (response) {
+        if (!response.ok) throw new Error('FTW teaser payload failed to load');
+        return response.text();
+      })
+      .then(function (payload) {
+        var image = document.getElementById('ftw-home-teaser');
+        if (image) image.src = 'data:image/webp;base64,' + payload.trim();
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  </script>
 </body>
 </html>
