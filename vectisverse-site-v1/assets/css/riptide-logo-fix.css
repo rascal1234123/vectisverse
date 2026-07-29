@@ -1,17 +1,18 @@
-/* Riptide homepage panel: remove the obsolete VectisVerse branding baked into the top of the legacy teaser artwork.
-   The crop is anchored to the bottom so the approved Riptide composition remains intact. */
+/* Riptide homepage panel safeguard.
+   Restore the approved artwork at its original scale so no part of Rip's head or composition is cropped.
+   The obsolete embedded logo must be removed from the source artwork rather than hidden by scaling. */
 .approved-panels .card-riptide {
   overflow: hidden;
 }
 
 .approved-panels .card-riptide .approved-panel-image {
-  transform: scale(1.16);
-  transform-origin: center bottom;
+  transform: none;
+  transform-origin: center center;
 }
 
 @media (max-width: 650px) {
   .approved-panels .card-riptide .approved-panel-image {
-    transform: scale(1.16);
-    transform-origin: center bottom;
+    transform: none;
+    transform-origin: center center;
   }
 }
