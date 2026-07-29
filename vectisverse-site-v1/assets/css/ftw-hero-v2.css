@@ -1,0 +1,21 @@
+/* FTW homepage panel — locked 2026 hero artwork */
+.approved-panels .card-ftw {
+  position: relative;
+  overflow: hidden;
+  background: #080808;
+}
+
+.approved-panels .card-ftw .approved-panel-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 50%;
+  transform: none;
+}
+
+@media (max-width: 650px) {
+  .approved-panels .card-ftw .approved-panel-image {
+    object-position: 50% 48%;
+  }
+}
