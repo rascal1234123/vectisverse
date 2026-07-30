@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Contact VectisVerse about comics, publishing, collaborations and creative projects.">
+  <title>Contact | VectisVerse</title>
+  <link rel="stylesheet" href="assets/css/site.css?v=accessibility-2">
+  <link rel="stylesheet" href="assets/css/approved-layout-fixes.css?v=18">
+  <link rel="stylesheet" href="assets/css/contact.css?v=20260730-1">
+  <script defer src="assets/js/site.js?v=accessibility-qa-1"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-brand">
+      <a class="publisher-mark" href="index.html" aria-label="VectisVerse home"><img src="assets/brand/vectisverse-master-v-gold-master-v1.svg?v=20260728-1" alt="" width="168" height="190"></a>
+      <span class="publisher-est" aria-label="Established 2025">EST.<br>2025</span>
+    </div>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="index.html#comics">Comics</a>
+      <a href="index.html#shop">Shop</a>
+      <a href="concepts.html">Vectis Concepts</a>
+      <a class="active" href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main" class="contact-page">
+    <section class="contact-intro" aria-labelledby="contact-title">
+      <p class="contact-kicker">Start a conversation</p>
+      <h1 id="contact-title">Contact VectisVerse</h1>
+      <p>Questions about our comics, publishing, collaborations or Vectis Concepts? Send us a message and we’ll get back to you as soon as we can.</p>
+    </section>
+
+    <section class="contact-panel" aria-label="Contact form">
+      <form id="contact-form" class="contact-form" action="/api/contact" method="post">
+        <div class="contact-field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" maxlength="120" required>
+        </div>
+
+        <div class="contact-field">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required>
+        </div>
+
+        <div class="contact-field contact-field-wide">
+          <label for="subject">What is your message about?</label>
+          <select id="subject" name="subject" required>
+            <option value="">Select a subject</option>
+            <option value="General enquiry">General enquiry</option>
+            <option value="Comics and publishing">Comics and publishing</option>
+            <option value="Vectis Concepts">Vectis Concepts</option>
+            <option value="Press and partnerships">Press and partnerships</option>
+            <option value="Website feedback">Website feedback</option>
+          </select>
+        </div>
+
+        <div class="contact-field contact-field-wide">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="8" maxlength="5000" required></textarea>
+        </div>
+
+        <div class="contact-honeypot" aria-hidden="true">
+          <label for="company">Company website</label>
+          <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="contact-actions contact-field-wide">
+          <button class="button contact-submit" type="submit">Send message</button>
+          <p id="form-status" class="contact-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand"><span class="publisher-mark small"><img src="assets/brand/vectisverse-master-v-gold-master-v1.svg?v=20260728-1" alt="" width="168" height="190" loading="lazy"></span><span>VectisVerse<br><small>Comic Publishing</small></span></div>
+    <nav aria-label="Footer navigation"><a href="index.html">Home</a><a href="index.html#comics">Comics</a><a href="index.html#shop">Shop</a><a href="concepts.html">Vectis Concepts</a><a href="contact.html" aria-current="page">Contact</a><a href="accessibility.html">Accessibility</a></nav>
+    <div class="footer-meta"><small>© 2026 VectisVerse. All rights reserved.</small><span class="footer-social"><a href="https://www.instagram.com/vectisversecomics?igsh=b3VjM3c4OThxNmRk&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.facebook.com/share/1D2ZVtFuBp/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></span></div>
+  </footer>
+
+  <script>
+    (() => {
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('form-status');
+      const button = form.querySelector('button[type="submit"]');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        status.textContent = 'Sending your message…';
+        button.disabled = true;
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' }
+          });
+          const result = await response.json().catch(() => ({}));
+          if (!response.ok) throw new Error(result.error || 'Message could not be sent.');
+          form.reset();
+          status.textContent = 'Thank you. Your message has been sent.';
+        } catch (error) {
+          status.textContent = error.message || 'Message could not be sent. Please try again.';
+        } finally {
+          button.disabled = false;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
