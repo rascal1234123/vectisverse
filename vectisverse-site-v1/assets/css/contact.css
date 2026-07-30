@@ -8,6 +8,7 @@
 }
 
 .contact-intro,
+.contact-hero,
 .contact-panel {
   width: min(100%, 980px);
   margin-inline: auto;
@@ -38,6 +39,20 @@
   color: #d4e3ec;
   font-size: clamp(1rem, 2vw, 1.25rem);
   line-height: 1.65;
+}
+
+.contact-hero {
+  overflow: hidden;
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid rgba(92, 221, 255, .34);
+  background: #fff;
+  box-shadow: 0 1.75rem 5rem rgba(0, 0, 0, .35);
+}
+
+.contact-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .contact-panel {
@@ -167,6 +182,11 @@
 
   .contact-field-wide {
     grid-column: auto;
+  }
+
+  .contact-hero {
+    margin-inline: calc(clamp(1.25rem, 5vw, 5rem) * -.35);
+    width: auto;
   }
 }
 
