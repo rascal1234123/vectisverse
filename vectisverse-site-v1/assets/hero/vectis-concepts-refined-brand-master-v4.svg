@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     width="2400" height="900" viewBox="0 0 2400 900"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Vectis Concepts refined brand master v4</title>
+  <desc id="desc">A layered identity transitioning from blueprint wireframe through intermediate construction into finished chrome and purple forms.</desc>
+
+  <defs>
+    <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.10" stop-color="#717b84"/>
+      <stop offset="0.22" stop-color="#f8fafb"/>
+      <stop offset="0.38" stop-color="#3f4851"/>
+      <stop offset="0.54" stop-color="#ffffff"/>
+      <stop offset="0.72" stop-color="#616b75"/>
+      <stop offset="0.88" stop-color="#eef1f3"/>
+      <stop offset="1" stop-color="#8a949d"/>
+    </linearGradient>
+    <linearGradient id="chromeMid" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7f8992" stop-opacity=".18"/>
+      <stop offset=".45" stop-color="#f7f9fa" stop-opacity=".65"/>
+      <stop offset="1" stop-color="#68727c" stop-opacity=".92"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8c8ff"/>
+      <stop offset=".18" stop-color="#b250e4"/>
+      <stop offset=".38" stop-color="#7f22b8"/>
+      <stop offset=".58" stop-color="#4b0082"/>
+      <stop offset=".80" stop-color="#8f37c6"/>
+      <stop offset="1" stop-color="#2a003d"/>
+    </linearGradient>
+    <linearGradient id="purpleMid" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7f2db4" stop-opacity=".16"/>
+      <stop offset=".50" stop-color="#a85ed3" stop-opacity=".58"/>
+      <stop offset="1" stop-color="#5c0d86" stop-opacity=".95"/>
+    </linearGradient>
+    <radialGradient id="disc" cx="50%" cy="42%" r="62%">
+      <stop offset="0" stop-color="#170424"/>
+      <stop offset=".66" stop-color="#050108"/>
+      <stop offset="1" stop-color="#000000"/>
+    </radialGradient>
+
+    <filter id="shadow" x="-35%" y="-35%" width="190%" height="200%">
+      <feDropShadow dx="8" dy="11" stdDeviation="6" flood-color="#08010c" flood-opacity=".72"/>
+    </filter>
+    <filter id="flareGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+
+    <clipPath id="vectis-wire"><rect x="620" y="105" width="300" height="360"/></clipPath>
+    <clipPath id="vectis-mid"><rect x="820" y="105" width="520" height="360"/></clipPath>
+    <clipPath id="vectis-final"><rect x="1180" y="105" width="1080" height="360"/></clipPath>
+    <clipPath id="concepts-wire"><rect x="620" y="440" width="340" height="270"/></clipPath>
+    <clipPath id="concepts-mid"><rect x="860" y="440" width="560" height="270"/></clipPath>
+    <clipPath id="concepts-final"><rect x="1260" y="440" width="1000" height="270"/></clipPath>
+
+    <linearGradient id="cogMaskGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="black"/>
+      <stop offset=".34" stop-color="black"/>
+      <stop offset=".55" stop-color="#777"/>
+      <stop offset=".74" stop-color="white"/>
+      <stop offset="1" stop-color="white"/>
+    </linearGradient>
+    <mask id="cogFinishedMask"><rect x="120" y="100" width="650" height="690" fill="url(#cogMaskGrad)"/></mask>
+  </defs>
+
+  <g id="optional-tan-background" inkscape:groupmode="layer" inkscape:label="00 Optional Tan Background" style="display:none">
+    <rect width="2400" height="900" fill="#ead9bf"/>
+  </g>
+
+  <g id="blueprint-guides" inkscape:groupmode="layer" inkscape:label="01 Blueprint Guides"
+     fill="none" stroke="#7d2cb2" stroke-width="2" opacity=".56">
+    <line x1="80" y1="120" x2="52" y2="720"/>
+<line x1="114" y1="120" x2="86" y2="720"/>
+<line x1="148" y1="120" x2="120" y2="720"/>
+<line x1="182" y1="120" x2="154" y2="720"/>
+<line x1="216" y1="120" x2="188" y2="720"/>
+<line x1="250" y1="120" x2="222" y2="720"/>
+<line x1="284" y1="120" x2="256" y2="720"/>
+<line x1="318" y1="120" x2="290" y2="720"/>
+<line x1="352" y1="120" x2="324" y2="720"/>
+<line x1="386" y1="120" x2="358" y2="720"/>
+<line x1="65" y1="150" x2="430" y2="102"/>
+<line x1="65" y1="184" x2="430" y2="136"/>
+<line x1="65" y1="218" x2="430" y2="170"/>
+<line x1="65" y1="252" x2="430" y2="204"/>
+<line x1="65" y1="286" x2="430" y2="238"/>
+<line x1="65" y1="320" x2="430" y2="272"/>
+<line x1="65" y1="354" x2="430" y2="306"/>
+<line x1="65" y1="388" x2="430" y2="340"/>
+<line x1="65" y1="422" x2="430" y2="374"/>
+<line x1="65" y1="456" x2="430" y2="408"/>
+<line x1="65" y1="490" x2="430" y2="442"/>
+<line x1="65" y1="524" x2="430" y2="476"/>
+<line x1="65" y1="558" x2="430" y2="510"/>
+<line x1="65" y1="592" x2="430" y2="544"/>
+<line x1="65" y1="626" x2="430" y2="578"/>
+<line x1="65" y1="660" x2="430" y2="612"/>
+<line x1="65" y1="694" x2="430" y2="646"/>
+<line x1="65" y1="728" x2="430" y2="680"/>
+    <circle cx="420" cy="420" r="195"/>
+    <circle cx="420" cy="420" r="155"/>
+    <line x1="80" y1="420" x2="710" y2="420"/>
+    <line x1="420" y1="100" x2="420" y2="755"/>
+  </g>
+
+  <g id="cog-wireframe" inkscape:groupmode="layer" inkscape:label="02A Cog Wireframe"
+     fill="none" stroke="#7f2db4" stroke-width="3" opacity=".95">
+    <polygon points="420.0,208.0 448.6,166.6 476.7,171.4 490.0,219.9 512.0,229.0 555.7,204.1 579.0,220.6 569.9,270.1 585.7,287.8 635.9,284.3 649.7,309.4 620.1,350.0 626.7,372.8 673.4,391.4 675.0,420.0 630.7,443.7 626.7,467.2 660.7,504.2 649.7,530.6 599.5,532.8 585.7,552.2 600.3,600.3 579.0,619.4 532.8,599.5 512.0,611.0 504.2,660.7 476.7,668.6 443.7,630.7 420.0,632.0 391.4,673.4 363.3,668.6 350.0,620.1 328.0,611.0 284.3,635.9 261.0,619.4 270.1,569.9 254.3,552.2 204.1,555.7 190.3,530.6 219.9,490.0 213.3,467.2 166.6,448.6 165.0,420.0 209.3,396.3 213.3,372.8 179.3,335.8 190.3,309.4 240.5,307.2 254.3,287.8 239.7,239.7 261.0,220.6 307.2,240.5 328.0,229.0 335.8,179.3 363.3,171.4 396.3,209.3"/>
+    <circle cx="420" cy="420" r="192"/>
+    <circle cx="420" cy="420" r="174"/>
+  </g>
+
+  <g id="cog-intermediate" inkscape:groupmode="layer" inkscape:label="02B Cog Intermediate" opacity=".72">
+    <polygon points="420.0,208.0 448.6,166.6 476.7,171.4 490.0,219.9 512.0,229.0 555.7,204.1 579.0,220.6 569.9,270.1 585.7,287.8 635.9,284.3 649.7,309.4 620.1,350.0 626.7,372.8 673.4,391.4 675.0,420.0 630.7,443.7 626.7,467.2 660.7,504.2 649.7,530.6 599.5,532.8 585.7,552.2 600.3,600.3 579.0,619.4 532.8,599.5 512.0,611.0 504.2,660.7 476.7,668.6 443.7,630.7 420.0,632.0 391.4,673.4 363.3,668.6 350.0,620.1 328.0,611.0 284.3,635.9 261.0,619.4 270.1,569.9 254.3,552.2 204.1,555.7 190.3,530.6 219.9,490.0 213.3,467.2 166.6,448.6 165.0,420.0 209.3,396.3 213.3,372.8 179.3,335.8 190.3,309.4 240.5,307.2 254.3,287.8 239.7,239.7 261.0,220.6 307.2,240.5 328.0,229.0 335.8,179.3 363.3,171.4 396.3,209.3" fill="url(#chromeMid)" stroke="#8d3fbd" stroke-width="6"/>
+    <circle cx="420" cy="420" r="192" fill="none" stroke="#d6dce0" stroke-width="14" opacity=".72"/>
+  </g>
+
+  <g id="cog-finished" inkscape:groupmode="layer" inkscape:label="02C Cog Finished"
+     filter="url(#shadow)" mask="url(#cogFinishedMask)">
+    <polygon points="420.0,208.0 448.6,166.6 476.7,171.4 490.0,219.9 512.0,229.0 555.7,204.1 579.0,220.6 569.9,270.1 585.7,287.8 635.9,284.3 649.7,309.4 620.1,350.0 626.7,372.8 673.4,391.4 675.0,420.0 630.7,443.7 626.7,467.2 660.7,504.2 649.7,530.6 599.5,532.8 585.7,552.2 600.3,600.3 579.0,619.4 532.8,599.5 512.0,611.0 504.2,660.7 476.7,668.6 443.7,630.7 420.0,632.0 391.4,673.4 363.3,668.6 350.0,620.1 328.0,611.0 284.3,635.9 261.0,619.4 270.1,569.9 254.3,552.2 204.1,555.7 190.3,530.6 219.9,490.0 213.3,467.2 166.6,448.6 165.0,420.0 209.3,396.3 213.3,372.8 179.3,335.8 190.3,309.4 240.5,307.2 254.3,287.8 239.7,239.7 261.0,220.6 307.2,240.5 328.0,229.0 335.8,179.3 363.3,171.4 396.3,209.3" fill="url(#chrome)" stroke="#202833" stroke-width="12"/>
+    <circle cx="420" cy="420" r="192" fill="url(#disc)" stroke="#69737c" stroke-width="18"/>
+    <circle cx="420" cy="420" r="177" fill="none" stroke="#9d34d5" stroke-width="5"/>
+  </g>
+
+  <g id="inner-disc" inkscape:groupmode="layer" inkscape:label="03 Inner Disc">
+    <circle cx="420" cy="420" r="166" fill="url(#disc)"/>
+    <circle cx="420" cy="420" r="151" fill="none" stroke="#341046" stroke-width="2"/>
+  </g>
+
+  <g id="master-v" inkscape:groupmode="layer" inkscape:label="04 Master V" filter="url(#shadow)">
+    <polygon points="300,275 370,275 420,500 470,275 540,275 454,610 386,610"
+             fill="url(#chrome)" stroke="#9e39d6" stroke-width="6" stroke-linejoin="round"/>
+    <polygon points="338,308 378,308 420,493 462,308 502,308 440,572 400,572"
+             fill="#ffffff" fill-opacity=".10" stroke="#ffffff" stroke-width="2.5" opacity=".55"/>
+  </g>
+
+  <g id="flare" inkscape:groupmode="layer" inkscape:label="05 Controlled Flare">
+    <circle cx="420" cy="245" r="24" fill="#b300ff" opacity=".38" filter="url(#flareGlow)"/>
+    <path d="M420 213 L425 240 L452 245 L425 250 L420 277 L415 250 L388 245 L415 240 Z"
+          fill="#ffffff" stroke="#d18cff" stroke-width="2"/>
+  </g>
+
+  <g id="vectis-wireframe" inkscape:groupmode="layer" inkscape:label="06A VECTIS Wireframe" clip-path="url(#vectis-wire)">
+    <text x="650" y="405" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif"
+          font-size="250" font-weight="900" letter-spacing="-8"
+          fill="none" stroke="#7f2db4" stroke-width="3">VECTIS</text>
+    <text x="650" y="405" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif"
+          font-size="250" font-weight="900" letter-spacing="-8"
+          fill="none" stroke="#d7a9ef" stroke-width="1" stroke-dasharray="7 7">VECTIS</text>
+  </g>
+
+  <g id="vectis-intermediate" inkscape:groupmode="layer" inkscape:label="06B VECTIS Intermediate" clip-path="url(#vectis-mid)">
+    <text x="650" y="405" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif"
+          font-size="250" font-weight="900" letter-spacing="-8"
+          fill="url(#chromeMid)" stroke="#8b43b9" stroke-width="7" paint-order="stroke">VECTIS</text>
+    <text x="650" y="405" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif"
+          font-size="250" font-weight="900" letter-spacing="-8"
+          fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="2">VECTIS</text>
+  </g>
+
+  <g id="vectis-finished" inkscape:groupmode="layer" inkscape:label="06C VECTIS Finished"
+     clip-path="url(#vectis-final)" filter="url(#shadow)">
+    <text x="650" y="405" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif"
+          font-size="250" font-weight="900" letter-spacing="-8"
+          fill="#14051d" stroke="#08020b" stroke-width="23" paint-order="stroke">VECTIS</text>
+    <text x="650" y="405" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif"
+          font-size="250" font-weight="900" letter-spacing="-8"
+          fill="url(#chrome)" stroke="#9d38d5" stroke-width="5.5" paint-order="stroke">VECTIS</text>
+  </g>
+
+  <g id="concepts-wireframe" inkscape:groupmode="layer" inkscape:label="07A CONCEPTS Wireframe" clip-path="url(#concepts-wire)">
+    <text x="675" y="635" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif"
+          font-size="188" font-weight="900" letter-spacing="2"
+          fill="none" stroke="#7f2db4" stroke-width="3">CONCEPTS</text>
+    <text x="675" y="635" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif"
+          font-size="188" font-weight="900" letter-spacing="2"
+          fill="none" stroke="#d9b1f0" stroke-width="1" stroke-dasharray="7 7">CONCEPTS</text>
+  </g>
+
+  <g id="concepts-intermediate" inkscape:groupmode="layer" inkscape:label="07B CONCEPTS Intermediate" clip-path="url(#concepts-mid)">
+    <text x="675" y="635" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif"
+          font-size="188" font-weight="900" letter-spacing="2"
+          fill="url(#purpleMid)" stroke="#9d57c6" stroke-width="7" paint-order="stroke">CONCEPTS</text>
+    <text x="675" y="635" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif"
+          font-size="188" font-weight="900" letter-spacing="2"
+          fill="none" stroke="#ffffff" stroke-opacity=".46" stroke-width="2">CONCEPTS</text>
+  </g>
+
+  <g id="concepts-finished" inkscape:groupmode="layer" inkscape:label="07C CONCEPTS Finished"
+     clip-path="url(#concepts-final)" filter="url(#shadow)">
+    <text x="675" y="635" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif"
+          font-size="188" font-weight="900" letter-spacing="2"
+          fill="#13031b" stroke="#08020b" stroke-width="21" paint-order="stroke">CONCEPTS</text>
+    <text x="675" y="635" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif"
+          font-size="188" font-weight="900" letter-spacing="2"
+          fill="url(#purple)" stroke="#ead7f6" stroke-width="4" paint-order="stroke">CONCEPTS</text>
+  </g>
+
+  <g id="tagline" inkscape:groupmode="layer" inkscape:label="08 Tagline and Rules" fill="#5f168f">
+    <rect x="755" y="755" width="150" height="4" rx="2"/>
+    <rect x="2050" y="755" width="150" height="4" rx="2"/>
+    <text x="1485" y="785" text-anchor="middle"
+          font-family="Arial, Helvetica, sans-serif"
+          font-size="48" font-weight="700" letter-spacing="4">IDEAS THAT BUILD WORLDS.</text>
+  </g>
+</svg>
