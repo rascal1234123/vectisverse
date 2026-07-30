@@ -20,7 +20,8 @@
   background:linear-gradient(115deg,#100719,#291034 55%,#09050e)!important;
 }
 
-/* Vectis Concepts hero logo optimisation */
+/* Controlled Vectis Concepts hero layout.
+   Keep the supplied Gold Master SVG intact and scale it only within its column. */
 .vc-hero-copy{
   overflow:visible!important;
   background:var(--paper) url("../shared/paper-background.svg") center top/cover repeat-y!important;
@@ -36,20 +37,21 @@
   pointer-events:none;
 }
 .vc-logo{
-  width:116%!important;
-  max-width:none!important;
+  display:block!important;
+  width:100%!important;
+  max-width:650px!important;
   height:auto!important;
-  margin-left:8px!important;
-  margin-bottom:-4px!important;
+  margin:0 auto 12px!important;
+  transform:none!important;
   overflow:visible!important;
-  filter:drop-shadow(0 5px 5px rgba(36,8,50,.22));
+  filter:drop-shadow(0 4px 4px rgba(36,8,50,.18));
 }
 .vc-intro{
   position:relative;
   z-index:2;
   color:var(--ink)!important;
   margin-top:0!important;
-  margin-bottom:15px!important;
+  margin-bottom:18px!important;
 }
 .vc-btn{
   position:relative;
@@ -88,23 +90,36 @@
 }
 
 @media (min-width:1051px){
+  .vc-hero{
+    grid-template-columns:43% 57%!important;
+  }
+  .vc-hero-copy{
+    padding:30px 34px 24px!important;
+  }
   .vc-logo{
-    width:122%!important;
-    margin-left:10px!important;
+    width:100%!important;
+    max-width:650px!important;
+    margin:0 auto 10px!important;
   }
   .vc-intro{
-    margin-top:-5px!important;
+    max-width:520px!important;
   }
 }
 
 @media (max-width:1050px) and (min-width:701px){
+  .vc-hero{
+    grid-template-columns:44% 56%!important;
+  }
+  .vc-hero-copy{
+    padding:28px 28px 24px!important;
+  }
   .vc-logo{
-    width:118%!important;
-    margin-left:6px!important;
-    margin-top:-4px!important;
+    width:100%!important;
+    max-width:560px!important;
+    margin:0 auto 12px!important;
   }
   .vc-intro{
-    margin-top:-3px!important;
+    margin-top:0!important;
   }
   .vc-btn{
     font-size:13px!important;
@@ -115,12 +130,12 @@
 
 @media (max-width:700px){
   .vc-logo{
-    width:min(108%,430px)!important;
-    max-width:none!important;
-    margin:0 0 2px 0!important;
+    width:100%!important;
+    max-width:430px!important;
+    margin:0 auto 12px!important;
   }
   .vc-intro{
-    margin-top:6px!important;
+    margin-top:0!important;
   }
   .vc-footer{background:linear-gradient(145deg,#100719,#291034 62%,#09050e)!important}
   .concepts-header-social{
@@ -137,8 +152,9 @@
 
 @media (max-width:520px){
   .vc-logo{
-    width:104%!important;
-    margin-left:0!important;
+    width:100%!important;
+    max-width:390px!important;
+    margin:0 auto 12px!important;
   }
   .vc-btn{
     width:92%!important;
