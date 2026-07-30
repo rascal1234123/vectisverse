@@ -1,27 +1,34 @@
-/* FTW homepage panel — locked 2026 hero artwork */
-.approved-panels .card-ftw {
+/* FTW homepage panel — single-frame presentation matched to V POP and Riptide */
+.approved-panels .comic-card.card-ftw {
   position: relative;
   overflow: hidden;
   background: #080808;
   border: 0 !important;
-  outline: 0;
-  box-shadow: 0 0 0 2px #111;
+  border-color: transparent !important;
+  outline: 0 !important;
+  box-shadow: none !important;
 }
 
-.approved-panels .card-ftw .approved-panel-image {
+.approved-panels .comic-card.card-ftw::before,
+.approved-panels .comic-card.card-ftw::after {
+  content: none !important;
+  display: none !important;
+}
+
+.approved-panels .comic-card.card-ftw .approved-panel-image {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
   object-position: 50% 50%;
   transform: none;
-  border: 0;
-  outline: 0;
-  box-shadow: none;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
 }
 
 @media (max-width: 650px) {
-  .approved-panels .card-ftw .approved-panel-image {
+  .approved-panels .comic-card.card-ftw .approved-panel-image {
     object-position: 50% 48%;
   }
 }
