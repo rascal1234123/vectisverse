@@ -21,7 +21,8 @@
   display: block;
   object-fit: cover;
   object-position: 50% 50%;
-  transform: none;
+  transform: scale(1.08);
+  transform-origin: center center;
   border: 0 !important;
   outline: 0 !important;
   box-shadow: none !important;
@@ -30,5 +31,6 @@
 @media (max-width: 650px) {
   .approved-panels .comic-card.card-ftw .approved-panel-image {
     object-position: 50% 48%;
+    transform: scale(1.08);
   }
 }
