@@ -19,6 +19,73 @@
 .vc-footer{
   background:linear-gradient(115deg,#100719,#291034 55%,#09050e)!important;
 }
+
+/* Vectis Concepts hero logo optimisation */
+.vc-hero-copy{
+  overflow:visible!important;
+}
+.vc-logo{
+  width:116%!important;
+  max-width:none!important;
+  height:auto!important;
+  margin-left:8px!important;
+  margin-bottom:-4px!important;
+  overflow:visible!important;
+  filter:drop-shadow(0 5px 5px rgba(36,8,50,.22));
+}
+.vc-intro{
+  margin-top:0!important;
+  margin-bottom:15px!important;
+}
+.vc-btn{
+  padding-inline:16px!important;
+  box-shadow:5px 5px 0 var(--purple)!important;
+}
+
+@media (min-width:1051px){
+  .vc-logo{
+    width:122%!important;
+    margin-left:10px!important;
+  }
+  .vc-intro{
+    margin-top:-5px!important;
+  }
+}
+
+@media (max-width:1050px) and (min-width:701px){
+  .vc-logo{
+    width:128%!important;
+    margin-left:10px!important;
+    margin-top:-8px!important;
+  }
+  .vc-intro{
+    margin-top:-7px!important;
+  }
+  .vc-btn{
+    font-size:13px!important;
+    padding-inline:15px!important;
+  }
+}
+
 @media (max-width:700px){
+  .vc-logo{
+    width:min(112%,430px)!important;
+    max-width:none!important;
+    margin:0 0 -2px 4px!important;
+  }
+  .vc-intro{
+    margin-top:2px!important;
+  }
   .vc-footer{background:linear-gradient(145deg,#100719,#291034 62%,#09050e)!important}
+}
+
+@media (max-width:520px){
+  .vc-logo{
+    width:108%!important;
+    margin-left:0!important;
+  }
+  .vc-btn{
+    width:92%!important;
+    margin-left:0!important;
+  }
 }
