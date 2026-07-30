@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="2020" height="660" viewBox="40 110 2020 660" role="img" aria-labelledby="title desc">
+<title id="title">Vectis Concepts production web master v3</title>
+<desc id="desc">Vectis Concepts logo transitioning from blueprint wireframe construction into finished chrome and purple artwork.</desc>
+<defs>
+  <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".16" stop-color="#9ca5ad"/><stop offset=".31" stop-color="#f9fbfc"/><stop offset=".49" stop-color="#5e6872"/><stop offset=".66" stop-color="#f6f8fa"/><stop offset=".83" stop-color="#77828c"/><stop offset="1" stop-color="#d9dee2"/></linearGradient>
+  <linearGradient id="purple" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3d7ff"/><stop offset=".18" stop-color="#b75ce7"/><stop offset=".43" stop-color="#fff"/><stop offset=".62" stop-color="#5a0b87"/><stop offset=".84" stop-color="#a944dc"/><stop offset="1" stop-color="#2a003e"/></linearGradient>
+  <radialGradient id="disc" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#160524"/><stop offset=".65" stop-color="#050209"/><stop offset="1" stop-color="#000"/></radialGradient>
+  <linearGradient id="solidFade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000"/><stop offset=".35" stop-color="#000"/><stop offset=".58" stop-color="#888"/><stop offset=".72" stop-color="#fff"/><stop offset="1" stop-color="#fff"/></linearGradient>
+  <linearGradient id="wireFade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff"/><stop offset=".38" stop-color="#fff"/><stop offset=".62" stop-color="#777"/><stop offset=".78" stop-color="#000"/><stop offset="1" stop-color="#000"/></linearGradient>
+  <mask id="cogSolidMask" maskUnits="userSpaceOnUse"><rect x="120" y="150" width="580" height="560" fill="url(#solidFade)"/></mask>
+  <mask id="cogWireMask" maskUnits="userSpaceOnUse"><rect x="70" y="120" width="620" height="620" fill="url(#wireFade)"/></mask>
+  <mask id="vectisSolidMask" maskUnits="userSpaceOnUse"><rect x="650" y="150" width="1410" height="330" fill="url(#solidFade)"/></mask>
+  <mask id="vectisWireMask" maskUnits="userSpaceOnUse"><rect x="650" y="150" width="1410" height="330" fill="url(#wireFade)"/></mask>
+  <mask id="conceptsSolidMask" maskUnits="userSpaceOnUse"><rect x="665" y="420" width="1390" height="250" fill="url(#solidFade)"/></mask>
+  <mask id="conceptsWireMask" maskUnits="userSpaceOnUse"><rect x="665" y="420" width="1390" height="250" fill="url(#wireFade)"/></mask>
+  <filter id="shadow" x="-30%" y="-30%" width="180%" height="190%"><feDropShadow dx="10" dy="14" stdDeviation="8" flood-color="#07010b" flood-opacity=".72"/></filter>
+  <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+
+<g id="construction-grid" inkscape:groupmode="layer" inkscape:label="01 Construction Grid" fill="none" stroke="#7f2fb2" stroke-width="2.2" opacity=".68">
+  <path d="M60 150H385M55 180H390M50 210H395M45 240H400M40 270H405M40 300H410M40 330H415M40 360H420M40 390H425M40 420H430M40 450H435M40 480H440M40 510H445M40 540H450M40 570H455M40 600H460M40 630H465M40 660H470"/>
+  <path d="M70 120V700M95 120V700M120 120V700M145 120V700M170 120V700M195 120V700M220 120V700M245 120V700M270 120V700M295 120V700M320 120V700M345 120V700"/>
+  <circle cx="410" cy="420" r="205"/><circle cx="410" cy="420" r="184"/><circle cx="410" cy="420" r="155"/>
+  <path d="M70 690L590 150M65 580L500 145M110 710L620 200M40 420H700M410 110V760"/>
+</g>
+
+<g id="glow" inkscape:groupmode="layer" inkscape:label="02 Glow"><ellipse cx="780" cy="420" rx="660" ry="235" fill="#8a2be2" opacity=".1" filter="url(#softGlow)"/><circle cx="410" cy="230" r="75" fill="#b300ff" opacity=".34" filter="url(#softGlow)"/></g>
+
+<g id="cog-wireframe" inkscape:groupmode="layer" inkscape:label="03 Cog Wireframe" mask="url(#cogWireMask)" fill="none" stroke="#8a2be2" stroke-width="3">
+  <polygon points="410,215 437,177 465,181 478,227 499,235 540,213 563,228 555,275 570,292 617,290 631,314 604,352 610,374 653,393 655,420 614,443 610,466 641,501 631,526 584,529 570,548 583,593 563,612 519,594 499,605 491,651 465,659 433,624 410,625 383,663 355,659 342,614 321,605 280,627 257,612 265,565 250,548 203,550 189,526 217,488 210,466 167,447 165,420 206,397 210,374 179,339 189,314 236,311 250,292 237,247 257,228 301,246 321,235 329,189 355,181 387,216"/>
+  <circle cx="410" cy="420" r="184"/><circle cx="410" cy="420" r="170"/><circle cx="410" cy="420" r="155"/>
+  <path d="M205 420H615M410 215V625M266 276L554 564M266 564L554 276" opacity=".75"/>
+</g>
+
+<g id="cog-solid" inkscape:groupmode="layer" inkscape:label="04 Cog Solid" mask="url(#cogSolidMask)" filter="url(#shadow)">
+  <polygon points="410,215 437,177 465,181 478,227 499,235 540,213 563,228 555,275 570,292 617,290 631,314 604,352 610,374 653,393 655,420 614,443 610,466 641,501 631,526 584,529 570,548 583,593 563,612 519,594 499,605 491,651 465,659 433,624 410,625 383,663 355,659 342,614 321,605 280,627 257,612 265,565 250,548 203,550 189,526 217,488 210,466 167,447 165,420 206,397 210,374 179,339 189,314 236,311 250,292 237,247 257,228 301,246 321,235 329,189 355,181 387,216" fill="url(#chrome)" stroke="#262f38" stroke-width="12"/>
+  <circle cx="410" cy="420" r="184" fill="url(#disc)" stroke="#747e87" stroke-width="18"/><circle cx="410" cy="420" r="170" fill="none" stroke="#a93fe2" stroke-width="5"/><circle cx="410" cy="420" r="155" fill="none" stroke="#321048" stroke-width="2"/>
+</g>
+
+<g id="master-v" inkscape:groupmode="layer" inkscape:label="05 Master V" filter="url(#shadow)"><polygon points="290,260 365,260 410,485 455,260 530,260 445,610 375,610" fill="url(#chrome)" stroke="#b451e3" stroke-width="5" stroke-linejoin="round"/><polygon points="335,295 375,295 410,485 445,295 485,295 425,565 395,565" fill="#fff" fill-opacity=".1" stroke="#fff" stroke-width="3" opacity=".62"/></g>
+<g id="flare" inkscape:groupmode="layer" inkscape:label="06 Flare"><circle cx="410" cy="232" r="42" fill="#b300ff" opacity=".52" filter="url(#softGlow)"/><path d="M410 178L416 222 460 232 416 240 410 286 404 240 360 232 404 222Z" fill="#fff" stroke="#d798ff" stroke-width="3"/></g>
+
+<g id="vectis-wireframe" inkscape:groupmode="layer" inkscape:label="07 VECTIS Wireframe" mask="url(#vectisWireMask)" fill="none" stroke="#8a2be2" stroke-width="3" opacity=".9">
+  <text x="690" y="410" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif" font-size="250" font-weight="900" letter-spacing="-8">VECTIS</text>
+  <text x="696" y="404" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif" font-size="250" font-weight="900" letter-spacing="-8" opacity=".55">VECTIS</text>
+  <path d="M650 180H1150M650 220H1150M650 260H1150M650 300H1150M650 340H1150M650 380H1150M690 150V445M740 150V445M790 150V445M840 150V445M890 150V445M940 150V445M990 150V445M1040 150V445" opacity=".55"/>
+</g>
+<g id="vectis-solid" inkscape:groupmode="layer" inkscape:label="08 VECTIS Solid" mask="url(#vectisSolidMask)" filter="url(#shadow)"><text x="690" y="410" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif" font-size="250" font-weight="900" letter-spacing="-8" fill="#16051f" stroke="#08020c" stroke-width="24" paint-order="stroke">VECTIS</text><text x="690" y="410" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif" font-size="250" font-weight="900" letter-spacing="-8" fill="url(#chrome)" stroke="#a83fe1" stroke-width="6" paint-order="stroke">VECTIS</text></g>
+
+<g id="concepts-wireframe" inkscape:groupmode="layer" inkscape:label="09 CONCEPTS Wireframe" mask="url(#conceptsWireMask)" fill="none" stroke="#8a2be2" stroke-width="3" opacity=".9"><text x="700" y="630" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif" font-size="190" font-weight="900" letter-spacing="3">CONCEPTS</text><text x="706" y="624" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif" font-size="190" font-weight="900" letter-spacing="3" opacity=".55">CONCEPTS</text><path d="M670 455H1140M670 490H1140M670 525H1140M670 560H1140M670 595H1140M700 430V660M750 430V660M800 430V660M850 430V660M900 430V660M950 430V660M1000 430V660M1050 430V660" opacity=".55"/></g>
+<g id="concepts-solid" inkscape:groupmode="layer" inkscape:label="10 CONCEPTS Solid" mask="url(#conceptsSolidMask)" filter="url(#shadow)"><text x="700" y="630" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif" font-size="190" font-weight="900" letter-spacing="3" fill="#14041c" stroke="#08020c" stroke-width="22" paint-order="stroke">CONCEPTS</text><text x="700" y="630" font-family="Eurostile, Bank Gothic, Orbitron, Arial Black, sans-serif" font-size="190" font-weight="900" letter-spacing="3" fill="url(#purple)" stroke="#ead7f7" stroke-width="4" paint-order="stroke">CONCEPTS</text></g>
+
+<g id="tagline" inkscape:groupmode="layer" inkscape:label="11 Tagline" fill="#692094"><rect x="730" y="725" width="130" height="5" rx="2.5"/><rect x="1910" y="725" width="130" height="5" rx="2.5"/><text x="1385" y="750" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="800" letter-spacing="4">IDEAS THAT BUILD WORLDS.</text></g>
+</svg>
