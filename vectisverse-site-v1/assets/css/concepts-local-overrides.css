@@ -89,6 +89,9 @@
   fill:currentColor;
 }
 
+/* Social links are part of the opened mobile menu. */
+.concepts-menu-social{display:none}
+
 @media (min-width:1051px){
   .vc-hero{
     grid-template-columns:43% 57%!important;
@@ -138,15 +141,38 @@
     margin-top:0!important;
   }
   .vc-footer{background:linear-gradient(145deg,#100719,#291034 62%,#09050e)!important}
-  .concepts-header-social{
-    position:absolute;
-    right:112px;
-    margin-left:0;
-    gap:7px;
+  .concepts-header-social{display:none}
+  .concepts-menu-social{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    padding:14px 4px 2px;
   }
-  .concepts-header-social a{
-    width:32px;
-    height:32px;
+  .concepts-menu-social a{
+    display:flex!important;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    min-height:44px;
+    padding:10px 12px!important;
+    border:1px solid rgba(255,255,255,.22)!important;
+    border-radius:4px;
+    background:rgba(141,67,212,.18);
+    color:#fff;
+    text-decoration:none;
+  }
+  .concepts-menu-social a::after{display:none!important}
+  .concepts-menu-social svg{
+    width:18px;
+    height:18px;
+    flex:0 0 auto;
+    fill:currentColor;
+  }
+  .concepts-menu-social span{
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:.06em;
+    text-transform:uppercase;
   }
 }
 
@@ -160,10 +186,8 @@
     width:92%!important;
     margin-left:0!important;
   }
-  .concepts-header-social{right:106px}
 }
 
 @media (max-width:390px){
-  .concepts-header-social{right:101px;gap:5px}
-  .concepts-header-social a{width:29px;height:29px}
+  .concepts-menu-social{grid-template-columns:1fr}
 }
