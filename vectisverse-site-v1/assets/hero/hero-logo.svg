@@ -1,18 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="650" viewBox="0 0 1500 650" overflow="visible">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="650" viewBox="0 0 1800 650" role="img" aria-labelledby="title desc">
+  <title id="title">Vectis Concepts</title>
+  <desc id="desc">Vectis Concepts — Ideas That Build Worlds.</desc>
   <defs>
-    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c86fe8"/><stop offset=".5" stop-color="#8f39b6"/><stop offset="1" stop-color="#4a1762"/></linearGradient>
-    <filter id="shadow" x="-30%" y="-30%" width="170%" height="170%"><feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#160a1c" flood-opacity=".28"/></filter>
-    <filter id="rough" x="-15%" y="-15%" width="130%" height="130%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="58" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.4"/></filter>
+    <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff"/><stop offset=".2" stop-color="#dbe2e7"/><stop offset=".42" stop-color="#fff"/><stop offset=".65" stop-color="#707d87"/><stop offset=".84" stop-color="#e8eef2"/><stop offset="1" stop-color="#a8b2b9"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2dcff"/><stop offset=".2" stop-color="#bd6bea"/><stop offset=".43" stop-color="#fff"/><stop offset=".64" stop-color="#4b0082"/><stop offset=".84" stop-color="#a64ddd"/><stop offset="1" stop-color="#30004f"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="150%" height="160%"><feDropShadow dx="5" dy="8" stdDeviation="5" flood-color="#08020c" flood-opacity=".78"/></filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5"/></filter>
   </defs>
-  <g id="transparent-base"><rect width="1500" height="650" fill="#fff" opacity="0"/></g>
-  <g id="shadow" filter="url(#shadow)" opacity=".45">
-    <text x="70" y="235" font-family="Impact,Arial Black,sans-serif" font-size="245" font-style="italic" fill="#1b101f">VECTIS</text>
-    <text x="70" y="480" font-family="Impact,Arial Black,sans-serif" font-size="220" font-style="italic" textLength="1300" lengthAdjust="spacingAndGlyphs" fill="#1b101f">CONCEPTS</text>
+
+  <g transform="translate(295 315)" filter="url(#shadow)">
+    <path d="M0-226 34-185 84-195 98-145 146-126 187-156 216-119 188-76 210-29 260-19 260 27 210 38 188 84 216 127 187 164 146 134 98 153 84 203 34 193 0 234-34 193-84 203-98 153-146 134-187 164-216 127-188 84-210 38-260 27-260-19-210-29-188-76-216-119-187-156-146-126-98-145-84-195-34-185Z" fill="url(#chrome)" stroke="#202933" stroke-width="9"/>
+    <circle r="160" fill="#05060a" stroke="#6b747d" stroke-width="14"/>
+    <circle r="148" fill="#020307" stroke="#a43ee0" stroke-width="5"/>
+    <g opacity=".38" fill="none" stroke="#2c3139" stroke-width="2">
+      <path d="M-260-19 260 27M-216-119 216 127M-146-126 146 134M-84-195 84 203M0-226 0 234"/>
+    </g>
+    <image href="../brand/vectisverse-master-v-gold-master-v1.svg" x="-98" y="-135" width="196" height="270" preserveAspectRatio="xMidYMid meet"/>
+    <g transform="translate(0,-167)">
+      <circle r="35" fill="#b300ff" opacity=".55" filter="url(#glow)"/>
+      <path d="M0-29 3-4 29 0 3 4 0 29-3 4-29 0-3-4Z" fill="#fff" stroke="#d58cff"/>
+    </g>
   </g>
-  <g id="vectis-word"><text x="55" y="220" font-family="Impact,Arial Black,sans-serif" font-size="245" font-style="italic" fill="#111015">VECTIS</text></g>
-  <g id="concepts-word"><text x="55" y="465" font-family="Impact,Arial Black,sans-serif" font-size="220" font-style="italic" textLength="1300" lengthAdjust="spacingAndGlyphs" fill="url(#purple)">CONCEPTS</text></g>
-  <g id="highlight" opacity=".35"><path d="M85 285 H760" stroke="#d9a8ed" stroke-width="8" stroke-linecap="round"/></g>
-  <g id="strapline-brush" filter="url(#rough)"><path d="M55 510 H920 L900 580 H75Z" fill="url(#purple)"/></g>
-  <g id="strapline-text"><text x="90" y="563" font-family="Arial,Helvetica,sans-serif" font-size="50" font-weight="700" letter-spacing="2" fill="#fff">IDEAS THAT BUILD WORLDS.</text></g>
+
+  <g transform="translate(585 120)" filter="url(#shadow)">
+    <image href="../brand/vectisverse-wordmark-gold-master-v1.svg" x="0" y="0" width="930" height="210" preserveAspectRatio="xMinYMid meet"/>
+  </g>
+
+  <g filter="url(#shadow)" transform="skewX(-7)">
+    <text x="635" y="445" font-family="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif" font-size="150" font-weight="900" letter-spacing="4" fill="#15051f" stroke="#08020c" stroke-width="16" paint-order="stroke">CONCEPTS</text>
+    <text x="635" y="445" font-family="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif" font-size="150" font-weight="900" letter-spacing="4" fill="url(#purple)" stroke="#efe5f7" stroke-width="3" paint-order="stroke">CONCEPTS</text>
+  </g>
+
+  <g fill="#4b0082">
+    <rect x="665" y="525" width="105" height="4" rx="2"/><rect x="1560" y="525" width="105" height="4" rx="2"/>
+    <text x="1165" y="543" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="37" font-weight="700" letter-spacing="3">IDEAS THAT BUILD WORLDS.</text>
+  </g>
 </svg>
