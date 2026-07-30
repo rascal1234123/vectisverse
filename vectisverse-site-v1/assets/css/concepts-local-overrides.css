@@ -23,6 +23,17 @@
 /* Vectis Concepts hero logo optimisation */
 .vc-hero-copy{
   overflow:visible!important;
+  background:var(--paper) url("../shared/paper-background.svg") center top/cover repeat-y!important;
+  color:var(--ink)!important;
+  isolation:isolate;
+}
+.vc-hero-copy::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:rgba(238,229,213,.96);
+  pointer-events:none;
 }
 .vc-logo{
   width:116%!important;
@@ -34,10 +45,15 @@
   filter:drop-shadow(0 5px 5px rgba(36,8,50,.22));
 }
 .vc-intro{
+  position:relative;
+  z-index:2;
+  color:var(--ink)!important;
   margin-top:0!important;
   margin-bottom:15px!important;
 }
 .vc-btn{
+  position:relative;
+  z-index:2;
   padding-inline:16px!important;
   box-shadow:5px 5px 0 var(--purple)!important;
 }
@@ -54,12 +70,12 @@
 
 @media (max-width:1050px) and (min-width:701px){
   .vc-logo{
-    width:128%!important;
-    margin-left:10px!important;
-    margin-top:-8px!important;
+    width:118%!important;
+    margin-left:6px!important;
+    margin-top:-4px!important;
   }
   .vc-intro{
-    margin-top:-7px!important;
+    margin-top:-3px!important;
   }
   .vc-btn{
     font-size:13px!important;
@@ -69,19 +85,19 @@
 
 @media (max-width:700px){
   .vc-logo{
-    width:min(112%,430px)!important;
+    width:min(108%,430px)!important;
     max-width:none!important;
-    margin:0 0 -2px 4px!important;
+    margin:0 0 2px 0!important;
   }
   .vc-intro{
-    margin-top:2px!important;
+    margin-top:6px!important;
   }
   .vc-footer{background:linear-gradient(145deg,#100719,#291034 62%,#09050e)!important}
 }
 
 @media (max-width:520px){
   .vc-logo{
-    width:108%!important;
+    width:104%!important;
     margin-left:0!important;
   }
   .vc-btn{
