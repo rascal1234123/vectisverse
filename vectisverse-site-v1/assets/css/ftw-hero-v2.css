@@ -1,10 +1,10 @@
-/* FTW homepage panel — single-frame presentation matched to V POP and Riptide */
+/* FTW homepage panel — sized and framed to match V POP and Riptide */
 .approved-panels .comic-card.card-ftw {
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
   background: #080808;
-  border: 0 !important;
-  border-color: transparent !important;
+  border: 2px solid #b51f1a !important;
   outline: 0 !important;
   box-shadow: none !important;
 }
