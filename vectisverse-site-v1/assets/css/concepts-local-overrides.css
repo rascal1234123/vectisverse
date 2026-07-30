@@ -21,7 +21,7 @@
 }
 
 /* Controlled Vectis Concepts hero layout.
-   Keep the supplied Gold Master SVG intact and scale it only within its column. */
+   Keep the supplied Gold Master SVG intact and never scale it beyond its container. */
 .vc-hero-copy{
   overflow:visible!important;
   background:var(--paper) url("../shared/paper-background.svg") center top/cover repeat-y!important;
@@ -132,13 +132,38 @@
 }
 
 @media (max-width:700px){
+  .vc-hero-copy{
+    padding:18px 18px 26px!important;
+    text-align:left;
+  }
   .vc-logo{
-    width:100%!important;
-    max-width:430px!important;
-    margin:0 auto 12px!important;
+    width:min(100%,520px)!important;
+    max-width:520px!important;
+    height:auto!important;
+    margin:-2px auto 4px!important;
+    transform:translateX(8px)!important;
+    filter:drop-shadow(0 3px 4px rgba(36,8,50,.16));
   }
   .vc-intro{
-    margin-top:0!important;
+    max-width:none!important;
+    margin:0 0 22px!important;
+    font-size:16px!important;
+    line-height:1.45!important;
+    font-weight:700!important;
+  }
+  .vc-btn{
+    display:flex!important;
+    width:90%!important;
+    min-height:48px!important;
+    margin:0 auto 8px!important;
+    justify-content:center!important;
+    padding:12px 14px!important;
+    font-size:13px!important;
+    line-height:1.15!important;
+    box-shadow:5px 5px 0 var(--purple)!important;
+  }
+  .vc-hero-art{
+    border-top:1px solid rgba(17,16,21,.2);
   }
   .vc-footer{background:linear-gradient(145deg,#100719,#291034 62%,#09050e)!important}
   .concepts-header-social{display:none}
@@ -177,17 +202,39 @@
 }
 
 @media (max-width:520px){
+  .vc-hero-copy{
+    padding:16px 16px 24px!important;
+  }
   .vc-logo{
-    width:100%!important;
-    max-width:390px!important;
-    margin:0 auto 12px!important;
+    width:min(100%,430px)!important;
+    max-width:430px!important;
+    margin:-2px auto 2px!important;
+    transform:translateX(6px)!important;
+  }
+  .vc-intro{
+    font-size:15.5px!important;
+    line-height:1.45!important;
+    margin-bottom:20px!important;
   }
   .vc-btn{
-    width:92%!important;
-    margin-left:0!important;
+    width:90%!important;
+    margin:0 auto 8px!important;
+    padding:12px 12px!important;
   }
 }
 
 @media (max-width:390px){
+  .vc-logo{
+    width:100%!important;
+    max-width:360px!important;
+    transform:translateX(4px)!important;
+  }
+  .vc-intro{
+    font-size:15px!important;
+  }
+  .vc-btn{
+    width:92%!important;
+    font-size:12.5px!important;
+  }
   .concepts-menu-social{grid-template-columns:1fr}
 }
