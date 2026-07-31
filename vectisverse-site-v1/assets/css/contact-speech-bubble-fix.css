@@ -1,0 +1,7 @@
+/* Neutral rollback shim for previously cached Contact page HTML.
+   Intentionally contains no overlay styling. */
+.contact-hero::before,
+.contact-hero::after {
+  content: none !important;
+  display: none !important;
+}
