@@ -1,0 +1,38 @@
+Vectis Concepts Gold Production Master v2.0
+
+Authoritative website derivative:
+vectisverse-site-v1/assets/brand/vectis-concepts-logo.svg
+
+Canvas: 4096 × 1536 px
+ViewBox: 1200 × 450
+Aspect ratio: 8:3
+Background: Transparent
+
+Locked layer order
+01 Construction Grid
+02 Cog Geometry
+03 Cog Chrome
+04 Inner Disc
+05 V Monogram
+06 Wordmark Chrome
+07 Purple Edge Bevel
+08 Reflections
+09 Ambient Shadow
+10 Ground Shadow
+11 Tagline
+12 Guide Rules
+13 Lens Flare
+14 Export Guides
+
+Locked production refinements
+- Tight, restrained wordmark shadow.
+- Reduced construction-line prominence.
+- Raised and optically balanced tagline.
+- Shortened tagline rules.
+- Narrower, softer ground shadows.
+- Composition reduced and shifted inward.
+- Shared chrome lighting direction across monogram and wordmark.
+- No duplicate wordmark layers, CSS shadows or decorative white sweep.
+- Fixed intrinsic dimensions to prevent layout shift.
+
+This version is the authoritative Vectis Concepts Gold Production Master unless the owner explicitly commissions a later numbered master. Website, print and promotional derivatives must be produced from this specification rather than by editing earlier logo files.
