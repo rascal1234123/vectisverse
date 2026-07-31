@@ -8,10 +8,19 @@
 }
 
 .contact-intro,
-.contact-hero,
 .contact-panel {
   width: min(100%, 980px);
   margin-inline: auto;
+}
+
+.contact-hero {
+  width: min(100%, 780px);
+  margin: clamp(1.5rem, 3vw, 2.5rem) auto clamp(2rem, 5vw, 4rem);
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .contact-intro {
@@ -41,23 +50,13 @@
   line-height: 1.65;
 }
 
-/* Keep the editable HTML heading and introduction above. The source artwork also
-   contains a duplicate copy of that text, so this viewport crops the image to
-   show only Rip Tidewell and the Get In Touch speech bubble. */
-.contact-hero {
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  margin-bottom: clamp(1.5rem, 4vw, 3rem);
-  border: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
 .contact-hero img {
   display: block;
-  width: 100%;
+  width: min(100%, 720px);
   height: auto;
-  transform: translateY(-48%);
+  margin-inline: auto;
+  object-fit: contain;
+  transform: none;
 }
 
 .contact-panel {
@@ -207,8 +206,13 @@
   }
 
   .contact-hero {
-    margin-inline: calc(clamp(1.25rem, 5vw, 5rem) * -.35);
-    width: auto;
+    width: min(100%, 560px);
+    margin-top: 1.25rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .contact-hero img {
+    width: min(100%, 520px);
   }
 }
 
