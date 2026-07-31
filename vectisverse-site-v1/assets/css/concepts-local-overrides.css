@@ -1,4 +1,4 @@
-/* Source-of-truth overrides: all production rendering must resolve from main. */
+/* Source-of-truth overrides for the Vectis Concepts page. */
 .vc-page{
   background:var(--paper) url("../shared/paper-background.svg") center top/cover repeat-y!important;
 }
@@ -20,9 +20,9 @@
   background:linear-gradient(115deg,#100719,#291034 55%,#09050e)!important;
 }
 
-/* Refined Vectis Concepts hero presentation. */
+/* Gold Master v2 hero implementation: one self-contained SVG, no compensating effects. */
 .vc-hero-copy{
-  overflow:visible!important;
+  overflow:hidden!important;
   background:var(--paper) url("../shared/paper-background.svg") center top/cover repeat-y!important;
   color:var(--ink)!important;
   isolation:isolate;
@@ -37,19 +37,23 @@
 }
 .vc-logo{
   display:block!important;
-  width:112%!important;
-  max-width:735px!important;
+  width:95%!important;
+  max-width:720px!important;
   height:auto!important;
-  margin:-8px -6% 2px!important;
+  aspect-ratio:8 / 3!important;
+  margin:0 auto 8px!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  filter:none!important;
   transform:none!important;
-  overflow:visible!important;
-  filter:drop-shadow(0 3px 3px rgba(36,8,50,.14));
+  animation:none!important;
+  contain:layout paint;
 }
 .vc-intro{
   position:relative;
   z-index:2;
   color:var(--ink)!important;
-  margin-top:-2px!important;
+  margin-top:0!important;
   margin-bottom:18px!important;
 }
 .vc-btn{
@@ -90,42 +94,17 @@
 .concepts-menu-social{display:none}
 
 @media (min-width:1051px){
-  .vc-hero{
-    grid-template-columns:46% 54%!important;
-  }
-  .vc-hero-copy{
-    padding:24px 26px 22px!important;
-  }
-  .vc-logo{
-    width:114%!important;
-    max-width:760px!important;
-    margin:-10px -7% 0!important;
-  }
-  .vc-intro{
-    max-width:540px!important;
-    margin-top:-4px!important;
-  }
+  .vc-hero{grid-template-columns:46% 54%!important}
+  .vc-hero-copy{padding:22px 30px 22px!important}
+  .vc-logo{width:95%!important;max-width:720px!important;margin:0 auto 6px!important}
+  .vc-intro{max-width:540px!important}
 }
 
 @media (max-width:1050px) and (min-width:701px){
-  .vc-hero{
-    grid-template-columns:46% 54%!important;
-  }
-  .vc-hero-copy{
-    padding:24px 22px 22px!important;
-  }
-  .vc-logo{
-    width:112%!important;
-    max-width:640px!important;
-    margin:-8px -6% 2px!important;
-  }
-  .vc-intro{
-    margin-top:-2px!important;
-  }
-  .vc-btn{
-    font-size:13px!important;
-    padding-inline:15px!important;
-  }
+  .vc-hero{grid-template-columns:46% 54%!important}
+  .vc-hero-copy{padding:22px 24px!important}
+  .vc-logo{width:96%!important;max-width:610px!important;margin:0 auto 6px!important}
+  .vc-btn{font-size:13px!important;padding-inline:15px!important}
   .concepts-header-social{margin-left:16px}
 }
 
@@ -135,16 +114,13 @@
     text-align:left;
   }
   .vc-logo{
-    width:min(110%,580px)!important;
-    max-width:580px!important;
-    height:auto!important;
-    margin:-6px -5% 0!important;
-    transform:none!important;
-    filter:drop-shadow(0 2px 3px rgba(36,8,50,.13));
+    width:96%!important;
+    max-width:540px!important;
+    margin:0 auto 8px!important;
   }
   .vc-intro{
     max-width:none!important;
-    margin:-2px 0 20px!important;
+    margin:0 0 20px!important;
     font-size:16px!important;
     line-height:1.45!important;
     font-weight:700!important;
@@ -158,11 +134,8 @@
     padding:12px 14px!important;
     font-size:13px!important;
     line-height:1.15!important;
-    box-shadow:5px 5px 0 var(--purple)!important;
   }
-  .vc-hero-art{
-    border-top:1px solid rgba(17,16,21,.2);
-  }
+  .vc-hero-art{border-top:1px solid rgba(17,16,21,.2)}
   .vc-footer{background:linear-gradient(145deg,#100719,#291034 62%,#09050e)!important}
   .concepts-header-social{display:none}
   .concepts-menu-social{
@@ -185,82 +158,20 @@
     text-decoration:none;
   }
   .concepts-menu-social a::after{display:none!important}
-  .concepts-menu-social svg{
-    width:18px;
-    height:18px;
-    flex:0 0 auto;
-    fill:currentColor;
-  }
-  .concepts-menu-social span{
-    font-size:11px;
-    font-weight:900;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-  }
+  .concepts-menu-social svg{width:18px;height:18px;flex:0 0 auto;fill:currentColor}
+  .concepts-menu-social span{font-size:11px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
 }
 
 @media (max-width:520px){
-  .vc-hero-copy{
-    padding:12px 14px 22px!important;
-  }
-  .vc-logo{
-    width:108%!important;
-    max-width:480px!important;
-    margin:-5px -4% 0!important;
-    transform:none!important;
-  }
-  .vc-intro{
-    font-size:15.5px!important;
-    line-height:1.45!important;
-    margin:-2px 0 18px!important;
-  }
-  .vc-btn{
-    width:90%!important;
-    margin:0 auto 8px!important;
-    padding:12px 12px!important;
-  }
+  .vc-hero-copy{padding:12px 14px 22px!important}
+  .vc-logo{width:97%!important;max-width:460px!important}
+  .vc-intro{font-size:15.5px!important;line-height:1.45!important;margin:0 0 18px!important}
+  .vc-btn{width:90%!important;padding:12px!important}
 }
 
 @media (max-width:390px){
-  .vc-logo{
-    width:106%!important;
-    max-width:400px!important;
-    margin:-4px -3% 0!important;
-  }
-  .vc-intro{
-    font-size:15px!important;
-  }
-  .vc-btn{
-    width:92%!important;
-    font-size:12.5px!important;
-  }
+  .vc-logo{width:98%!important;max-width:380px!important}
+  .vc-intro{font-size:15px!important}
+  .vc-btn{width:92%!important;font-size:12.5px!important}
   .concepts-menu-social{grid-template-columns:1fr}
-}
-
-/* Stable production-logo layout: no negative margins, duplicate shadows or late transforms. */
-.vc-logo{
-  width:100%!important;
-  max-width:760px!important;
-  aspect-ratio:8 / 3!important;
-  margin:0 0 8px!important;
-  object-fit:contain!important;
-  object-position:left center!important;
-  filter:none!important;
-  transform:none!important;
-  animation:none!important;
-  contain:layout paint;
-}
-.vc-hero-copy{
-  overflow:hidden!important;
-}
-@media (min-width:1051px){
-  .vc-hero-copy{padding:20px 28px 22px!important}
-  .vc-logo{width:100%!important;max-width:760px!important;margin:0 0 6px!important}
-  .vc-intro{margin-top:0!important}
-}
-@media (max-width:1050px) and (min-width:701px){
-  .vc-logo{width:100%!important;max-width:640px!important;margin:0 0 6px!important}
-}
-@media (max-width:700px){
-  .vc-logo{width:100%!important;max-width:580px!important;margin:0 0 8px!important}
 }
