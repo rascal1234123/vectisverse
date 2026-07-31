@@ -20,8 +20,7 @@
   background:linear-gradient(115deg,#100719,#291034 55%,#09050e)!important;
 }
 
-/* Controlled Vectis Concepts hero layout.
-   Keep the supplied Gold Master SVG intact and never scale it beyond its container. */
+/* Refined Vectis Concepts hero presentation. */
 .vc-hero-copy{
   overflow:visible!important;
   background:var(--paper) url("../shared/paper-background.svg") center top/cover repeat-y!important;
@@ -38,19 +37,19 @@
 }
 .vc-logo{
   display:block!important;
-  width:100%!important;
-  max-width:650px!important;
+  width:112%!important;
+  max-width:735px!important;
   height:auto!important;
-  margin:0 auto 12px!important;
+  margin:-8px -6% 2px!important;
   transform:none!important;
   overflow:visible!important;
-  filter:drop-shadow(0 4px 4px rgba(36,8,50,.18));
+  filter:drop-shadow(0 3px 3px rgba(36,8,50,.14));
 }
 .vc-intro{
   position:relative;
   z-index:2;
   color:var(--ink)!important;
-  margin-top:0!important;
+  margin-top:-2px!important;
   margin-bottom:18px!important;
 }
 .vc-btn{
@@ -88,41 +87,40 @@
   height:16px;
   fill:currentColor;
 }
-
-/* Social links are part of the opened mobile menu. */
 .concepts-menu-social{display:none}
 
 @media (min-width:1051px){
   .vc-hero{
-    grid-template-columns:43% 57%!important;
+    grid-template-columns:46% 54%!important;
   }
   .vc-hero-copy{
-    padding:30px 34px 24px!important;
+    padding:24px 26px 22px!important;
   }
   .vc-logo{
-    width:100%!important;
-    max-width:650px!important;
-    margin:0 auto 10px!important;
+    width:114%!important;
+    max-width:760px!important;
+    margin:-10px -7% 0!important;
   }
   .vc-intro{
-    max-width:520px!important;
+    max-width:540px!important;
+    margin-top:-4px!important;
   }
 }
 
 @media (max-width:1050px) and (min-width:701px){
   .vc-hero{
-    grid-template-columns:44% 56%!important;
+    grid-template-columns:46% 54%!important;
   }
   .vc-hero-copy{
-    padding:28px 28px 24px!important;
+    padding:24px 22px 22px!important;
   }
   .vc-logo{
-    width:100%!important;
-    max-width:560px!important;
-    margin:0 auto 12px!important;
+    width:112%!important;
+    max-width:640px!important;
+    margin:-8px -6% 2px!important;
   }
   .vc-intro{
-    margin-top:0!important;
+    margin-top:-2px!important;
   }
   .vc-btn{
     font-size:13px!important;
@@ -133,20 +131,20 @@
 
 @media (max-width:700px){
   .vc-hero-copy{
-    padding:18px 18px 26px!important;
+    padding:14px 16px 24px!important;
     text-align:left;
   }
   .vc-logo{
-    width:min(100%,520px)!important;
-    max-width:520px!important;
+    width:min(110%,580px)!important;
+    max-width:580px!important;
     height:auto!important;
-    margin:-2px auto 4px!important;
-    transform:translateX(8px)!important;
-    filter:drop-shadow(0 3px 4px rgba(36,8,50,.16));
+    margin:-6px -5% 0!important;
+    transform:none!important;
+    filter:drop-shadow(0 2px 3px rgba(36,8,50,.13));
   }
   .vc-intro{
     max-width:none!important;
-    margin:0 0 22px!important;
+    margin:-2px 0 20px!important;
     font-size:16px!important;
     line-height:1.45!important;
     font-weight:700!important;
@@ -203,18 +201,18 @@
 
 @media (max-width:520px){
   .vc-hero-copy{
-    padding:16px 16px 24px!important;
+    padding:12px 14px 22px!important;
   }
   .vc-logo{
-    width:min(100%,430px)!important;
-    max-width:430px!important;
-    margin:-2px auto 2px!important;
-    transform:translateX(6px)!important;
+    width:108%!important;
+    max-width:480px!important;
+    margin:-5px -4% 0!important;
+    transform:none!important;
   }
   .vc-intro{
     font-size:15.5px!important;
     line-height:1.45!important;
-    margin-bottom:20px!important;
+    margin:-2px 0 18px!important;
   }
   .vc-btn{
     width:90%!important;
@@ -225,9 +223,9 @@
 
 @media (max-width:390px){
   .vc-logo{
-    width:100%!important;
-    max-width:360px!important;
-    transform:translateX(4px)!important;
+    width:106%!important;
+    max-width:400px!important;
+    margin:-4px -3% 0!important;
   }
   .vc-intro{
     font-size:15px!important;
