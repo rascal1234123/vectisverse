@@ -221,3 +221,10 @@
     transform: none;
   }
 }
+
+/* Hard rollback guard: suppress any cached temporary speech-bubble pseudo-element. */
+.contact-hero::before,
+.contact-hero::after {
+  content: none !important;
+  display: none !important;
+}
