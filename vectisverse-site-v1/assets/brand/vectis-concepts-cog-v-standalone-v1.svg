@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+<title id="title">Vectis Concepts V-in-cog mark</title>
+<desc id="desc">Standalone chrome and purple V-in-cog identity mark for the Vectis Concepts page header and footer.</desc>
+<defs>
+  <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".08" stop-color="#59636c"/><stop offset=".20" stop-color="#fafcfd"/><stop offset=".34" stop-color="#1c2228"/><stop offset=".50" stop-color="#ffffff"/><stop offset=".67" stop-color="#4a545d"/><stop offset=".84" stop-color="#f2f4f5"/><stop offset="1" stop-color="#737d86"/></linearGradient>
+  <radialGradient id="disc"><stop offset="0" stop-color="#180425"/><stop offset=".68" stop-color="#050108"/><stop offset="1" stop-color="#000000"/></radialGradient>
+  <filter id="shadow" x="-40%" y="-40%" width="200%" height="220%"><feDropShadow dx="8" dy="10" stdDeviation="7" flood-color="#000000" flood-opacity=".76"/></filter>
+  <filter id="flareGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="10"/></filter>
+</defs>
+<g id="shadow-layer" inkscape:groupmode="layer" inkscape:label="01 Shadow Layer"><ellipse cx="264" cy="455" rx="165" ry="18" fill="#000000" opacity=".24"/></g>
+<g id="final-chrome-layer" inkscape:groupmode="layer" inkscape:label="02 Final Chrome Layer" filter="url(#shadow)">
+  <polygon points="256.0,74.0 277.1,42.0 297.9,45.1 308.8,81.8 325.6,87.9 357.4,66.4 375.4,77.2 371.5,115.3 384.7,127.3 422.2,119.6 434.8,136.6 416.5,170.2 424.1,186.4 461.7,193.6 466.9,214.1 437.1,238.2 438.0,256.0 470.0,277.1 466.9,297.9 430.2,308.8 424.1,325.6 445.6,357.4 434.8,375.4 396.7,371.5 384.7,384.7 392.4,422.2 375.4,434.8 341.8,416.5 325.6,424.1 318.4,461.7 297.9,466.9 273.8,437.1 256.0,438.0 234.9,470.0 214.1,466.9 203.2,430.2 186.4,424.1 154.6,445.6 136.6,434.8 140.5,396.7 127.3,384.7 89.8,392.4 77.2,375.4 95.5,341.8 87.9,325.6 50.3,318.4 45.1,297.9 74.9,273.8 74.0,256.0 42.0,234.9 45.1,214.1 81.8,203.2 87.9,186.4 66.4,154.6 77.2,136.6 115.3,140.5 127.3,127.3 119.6,89.8 136.6,77.2 170.2,95.5 186.4,87.9 193.6,50.3 214.1,45.1 238.2,74.9" fill="url(#chrome)" stroke="#24272c" stroke-width="12"/>
+  <circle cx="256" cy="256" r="170" fill="url(#disc)" stroke="#8b2fcd" stroke-width="7"/>
+  <circle cx="256" cy="256" r="152" fill="none" stroke="#3e1a59" stroke-width="4"/>
+  <path d="M156 112h52l48 236 52-236h52l-70 330h-68z" fill="url(#chrome)" stroke="#7f21bd" stroke-width="7" stroke-linejoin="round"/>
+</g>
+<g id="purple-bevel-layer" inkscape:groupmode="layer" inkscape:label="03 Purple Bevel Layer"><circle cx="256" cy="256" r="170" fill="none" stroke="#a153e1" stroke-width="5"/><path d="M156 112h52l48 236 52-236h52l-70 330h-68z" fill="none" stroke="#cf8fff" stroke-width="4" stroke-linejoin="round"/></g>
+<g id="flare-layer" inkscape:groupmode="layer" inkscape:label="04 Flare Layer"><circle cx="256" cy="67" r="28" fill="#bc44ff" opacity=".38" filter="url(#flareGlow)"/><path d="M256 36l6 25 25 6-25 6-6 25-6-25-25-6 25-6z" fill="#ffffff" stroke="#d99eff" stroke-width="2"/></g>
+</svg>
