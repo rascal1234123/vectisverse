@@ -1,0 +1,51 @@
+/*
+ * Temporary speech-bubble contrast fix.
+ * Rollback: remove this stylesheet link from contact.html or revert the commit.
+ * This places a responsive white ellipse behind the bubble area in the existing
+ * transparent WebP without changing the source image.
+ */
+.contact-hero {
+  position: relative;
+  isolation: isolate;
+}
+
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 2.5%;
+  left: 50%;
+  width: 76%;
+  aspect-ratio: 2.05 / 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 0 0 3px rgba(0, 0, 0, .78),
+    0 0 24px rgba(89, 220, 255, .35);
+  pointer-events: none;
+}
+
+.contact-hero img {
+  position: relative;
+  z-index: 1;
+}
+
+/* Tablet tuning */
+@media (min-width: 721px) and (max-width: 1024px) {
+  .contact-hero::before {
+    top: 2.8%;
+    width: 77%;
+  }
+}
+
+/* Mobile tuning */
+@media (max-width: 720px) {
+  .contact-hero::before {
+    top: 3%;
+    width: 79%;
+    box-shadow:
+      0 0 0 2px rgba(0, 0, 0, .78),
+      0 0 18px rgba(89, 220, 255, .3);
+  }
+}
