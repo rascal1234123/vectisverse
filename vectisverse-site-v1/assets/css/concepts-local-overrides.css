@@ -93,6 +93,76 @@
 }
 .concepts-menu-social{display:none}
 
+/* Featured Concept Work production-board layout.
+   The existing proof panel is visually moved below What We Do and above the artwork,
+   while the four boards use the full content width in a two-column grid. */
+#featured{
+  padding-top:4px!important;
+}
+.featured-proof{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:14px!important;
+  border:0!important;
+  margin-top:0!important;
+}
+.why{
+  order:1!important;
+  min-height:130px!important;
+  padding:22px 30px!important;
+  border:1px solid rgba(77,63,80,.7)!important;
+}
+.why h2{
+  font-size:20px!important;
+  margin-bottom:17px!important;
+}
+.why-list{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:0!important;
+}
+.why-list li{
+  min-height:58px!important;
+  padding:2px 22px 2px 34px!important;
+  border-right:1px solid rgba(255,255,255,.17)!important;
+  font-size:11px!important;
+}
+.why-list li:last-child{
+  border-right:0!important;
+}
+.featured-side{
+  order:2!important;
+  width:100%!important;
+  padding:0!important;
+  border:0!important;
+}
+.vc-ribbon.featured{
+  margin:0 0 12px 10px!important;
+}
+.cards{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:16px!important;
+}
+.card{
+  background:#f3ecdf!important;
+  border:1px solid rgba(90,83,82,.48)!important;
+  box-shadow:0 3px 9px rgba(22,12,27,.14)!important;
+}
+.card-art{
+  aspect-ratio:auto!important;
+  overflow:visible!important;
+  border:0!important;
+}
+.card-art img{
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:auto!important;
+  object-fit:contain!important;
+}
+.card-copy{
+  display:none!important;
+}
+
 @media (min-width:1051px){
   .vc-hero{grid-template-columns:46% 54%!important}
   .vc-hero-copy{padding:22px 30px 22px!important}
@@ -106,6 +176,8 @@
   .vc-logo{width:96%!important;max-width:610px!important;margin:0 auto 6px!important}
   .vc-btn{font-size:13px!important;padding-inline:15px!important}
   .concepts-header-social{margin-left:16px}
+  .why-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;row-gap:16px!important}
+  .why-list li:nth-child(2){border-right:0!important}
 }
 
 @media (max-width:700px){
@@ -160,6 +232,12 @@
   .concepts-menu-social a::after{display:none!important}
   .concepts-menu-social svg{width:18px;height:18px;flex:0 0 auto;fill:currentColor}
   .concepts-menu-social span{font-size:11px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+  .why{padding:20px!important;min-height:0!important}
+  .why-list{grid-template-columns:1fr!important;gap:14px!important}
+  .why-list li{border-right:0!important;border-bottom:1px solid rgba(255,255,255,.14)!important;padding-bottom:14px!important}
+  .why-list li:last-child{border-bottom:0!important;padding-bottom:2px!important}
+  .cards{grid-template-columns:1fr!important;gap:14px!important}
+  .vc-ribbon.featured{margin-left:0!important}
 }
 
 @media (max-width:520px){
