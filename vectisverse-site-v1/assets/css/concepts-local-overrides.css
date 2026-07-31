@@ -236,3 +236,31 @@
   }
   .concepts-menu-social{grid-template-columns:1fr}
 }
+
+/* Stable production-logo layout: no negative margins, duplicate shadows or late transforms. */
+.vc-logo{
+  width:100%!important;
+  max-width:760px!important;
+  aspect-ratio:8 / 3!important;
+  margin:0 0 8px!important;
+  object-fit:contain!important;
+  object-position:left center!important;
+  filter:none!important;
+  transform:none!important;
+  animation:none!important;
+  contain:layout paint;
+}
+.vc-hero-copy{
+  overflow:hidden!important;
+}
+@media (min-width:1051px){
+  .vc-hero-copy{padding:20px 28px 22px!important}
+  .vc-logo{width:100%!important;max-width:760px!important;margin:0 0 6px!important}
+  .vc-intro{margin-top:0!important}
+}
+@media (max-width:1050px) and (min-width:701px){
+  .vc-logo{width:100%!important;max-width:640px!important;margin:0 0 6px!important}
+}
+@media (max-width:700px){
+  .vc-logo{width:100%!important;max-width:580px!important;margin:0 0 8px!important}
+}
