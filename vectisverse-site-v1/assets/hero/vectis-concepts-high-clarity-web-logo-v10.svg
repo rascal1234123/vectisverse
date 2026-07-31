@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+ xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+ width="1200" height="450" viewBox="0 35 1200 425" role="img" aria-labelledby="title desc">
+<title id="title">Vectis Concepts</title>
+<desc id="desc">Vectis Concepts logo with an extended blueprint-to-CAD-to-chrome transition, enlarged tagline and refined presentation.</desc>
+<defs>
+  <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".08" stop-color="#59636c"/>
+    <stop offset=".20" stop-color="#fafcfd"/><stop offset=".34" stop-color="#1c2228"/>
+    <stop offset=".50" stop-color="#ffffff"/><stop offset=".67" stop-color="#4a545d"/>
+    <stop offset=".84" stop-color="#f2f4f5"/><stop offset="1" stop-color="#737d86"/>
+  </linearGradient>
+  <linearGradient id="semiChrome" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#676f78" stop-opacity=".12"/>
+    <stop offset=".48" stop-color="#ffffff" stop-opacity=".68"/>
+    <stop offset="1" stop-color="#59636d" stop-opacity=".96"/>
+  </linearGradient>
+  <linearGradient id="purple" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#dfc1ff"/><stop offset=".18" stop-color="#a946df"/>
+    <stop offset=".40" stop-color="#701aa5"/><stop offset=".62" stop-color="#3b0068"/>
+    <stop offset=".82" stop-color="#9137ca"/><stop offset="1" stop-color="#210032"/>
+  </linearGradient>
+  <radialGradient id="disc"><stop offset="0" stop-color="#180425"/><stop offset=".68" stop-color="#050108"/><stop offset="1"/></radialGradient>
+  <linearGradient id="chromeSweep" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+    <stop offset=".45" stop-color="#fff" stop-opacity="0"/>
+    <stop offset=".56" stop-color="#fff" stop-opacity=".72"/>
+    <stop offset=".66" stop-color="#fff" stop-opacity=".12"/>
+    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+  <pattern id="cadGrid" width="11" height="11" patternUnits="userSpaceOnUse">
+    <path d="M11 0H0V11" fill="none" stroke="#eadcf8" stroke-width=".9" opacity=".82"/>
+  </pattern>
+  <filter id="shadow" x="-35%" y="-35%" width="180%" height="190%">
+    <feDropShadow dx="4" dy="6" stdDeviation="4.2" flood-color="#000" flood-opacity=".54"/>
+  </filter>
+  <filter id="flareGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="7"/></filter>
+  <clipPath id="wireClip"><rect x="288" y="28" width="390" height="350"/></clipPath>
+  <clipPath id="cadClip"><rect x="635" y="28" width="205" height="350"/></clipPath>
+  <clipPath id="semiClip"><rect x="795" y="28" width="145" height="350"/></clipPath>
+  <clipPath id="finalClip"><rect x="900" y="28" width="280" height="350"/></clipPath>
+</defs>
+
+<g id="blueprint-layer" inkscape:groupmode="layer" inkscape:label="01 Blueprint Layer"
+ fill="none" stroke="#a66add" stroke-width="2" opacity=".98">
+  <line x1="25" y1="220" x2="285" y2="220"/><line x1="155" y1="60" x2="155" y2="380"/>
+  <circle cx="155" cy="220" r="72"/><circle cx="155" cy="220" r="92"/>
+  <circle cx="155" cy="220" r="108"/><circle cx="155" cy="220" r="128"/>
+  <polygon points="155,112 168,93 180,95 186,117 196,120 215,107 226,114 224,137 231,144 254,139 261,149 250,169 255,179 278,183 281,195 263,209 263,220 282,233 281,245 258,251 255,261 268,280 261,291 239,289 231,296 236,319 226,326 206,315 196,320 192,343 180,346 166,328 155,328 143,347 130,346 124,323 114,320 95,333 84,326 87,304 79,296 56,301 49,291 60,271 55,261 33,257 30,245 48,231 47,220 28,208 30,195 52,189 55,179 42,160 49,149 72,152 79,144 74,121 84,114 104,125 114,120 118,98 130,95 145,113"/>
+  <path d="M95 126h28l32 156 34-156h28l-44 220h-36z"/>
+  <text x="300" y="224" font-family="Arial Black, Arial, sans-serif" font-size="110" font-weight="900"
+        fill="none" stroke="#7b249f" stroke-width="7" paint-order="stroke" letter-spacing="-3" clip-path="url(#wireClip)">VECTIS</text>
+  <text x="300" y="338" font-family="Arial Black, Arial, sans-serif" font-size="96" font-weight="900"
+        fill="none" stroke="#7b249f" stroke-width="7" paint-order="stroke" letter-spacing="-4" clip-path="url(#wireClip)">CONCEPTS</text>
+  <text x="300" y="224" font-family="Arial Black, Arial, sans-serif" font-size="110" font-weight="900"
+        fill="none" stroke="#fff8ff" stroke-width="2.8" letter-spacing="-3" clip-path="url(#wireClip)">VECTIS</text>
+  <text x="300" y="338" font-family="Arial Black, Arial, sans-serif" font-size="96" font-weight="900"
+        fill="none" stroke="#fff8ff" stroke-width="2.8" letter-spacing="-4" clip-path="url(#wireClip)">CONCEPTS</text>
+  <g stroke-width="1.45" opacity="1">
+    <line x1="300" y1="105" x2="790" y2="105"/><line x1="300" y1="197" x2="790" y2="197"/>
+    <line x1="300" y1="240" x2="790" y2="240"/><line x1="300" y1="327" x2="790" y2="327"/>
+    <line x1="360" y1="88" x2="360" y2="353"/><line x1="450" y1="88" x2="450" y2="353"/>
+    <line x1="540" y1="88" x2="540" y2="353"/><line x1="630" y1="88" x2="630" y2="353"/>
+  </g>
+</g>
+
+<g id="intermediate-cad-layer" inkscape:groupmode="layer" inkscape:label="02 Intermediate CAD Layer">
+  <text x="300" y="224" font-family="Arial Black, Arial, sans-serif" font-size="110" font-weight="900"
+        fill="url(#cadGrid)" stroke="#f3eaff" stroke-width="3.2" letter-spacing="-3" clip-path="url(#cadClip)">VECTIS</text>
+  <text x="300" y="338" font-family="Arial Black, Arial, sans-serif" font-size="96" font-weight="900"
+        fill="url(#cadGrid)" stroke="#f3eaff" stroke-width="3.2" letter-spacing="-4" clip-path="url(#cadClip)">CONCEPTS</text>
+</g>
+
+<g id="semi-rendered-chrome-layer" inkscape:groupmode="layer" inkscape:label="03 Semi-rendered Chrome Layer">
+  <text x="300" y="224" font-family="Arial Black, Arial, sans-serif" font-size="110" font-weight="900"
+        fill="url(#semiChrome)" stroke="#a35cd8" stroke-width="3.4" letter-spacing="-3" clip-path="url(#semiClip)">VECTIS</text>
+  <text x="300" y="338" font-family="Arial Black, Arial, sans-serif" font-size="96" font-weight="900"
+        fill="url(#semiChrome)" stroke="#a35cd8" stroke-width="3.4" letter-spacing="-4" clip-path="url(#semiClip)">CONCEPTS</text>
+</g>
+
+<g id="final-chrome-layer" inkscape:groupmode="layer" inkscape:label="04 Final Chrome Layer" filter="url(#shadow)">
+  <polygon points="155,112 168,93 180,95 186,117 196,120 215,107 226,114 224,137 231,144 254,139 261,149 250,169 255,179 278,183 281,195 263,209 263,220 282,233 281,245 258,251 255,261 268,280 261,291 239,289 231,296 236,319 226,326 206,315 196,320 192,343 180,346 166,328 155,328 143,347 130,346 124,323 114,320 95,333 84,326 87,304 79,296 56,301 49,291 60,271 55,261 33,257 30,245 48,231 47,220 28,208 30,195 52,189 55,179 42,160 49,149 72,152 79,144 74,121 84,114 104,125 114,120 118,98 130,95 145,113" fill="url(#chrome)" stroke="#24272c" stroke-width="7"/>
+  <circle cx="155" cy="220" r="101" fill="url(#disc)" stroke="#8b2fcd" stroke-width="4"/>
+  <circle cx="155" cy="220" r="91" fill="none" stroke="#3e1a59" stroke-width="2"/>
+  <path d="M95 126h28l32 156 34-156h28l-44 220h-36z" fill="url(#chrome)" stroke="#7f21bd" stroke-width="3.5"/>
+  <text x="300" y="224" font-family="Arial Black, Arial, sans-serif" font-size="110" font-weight="900"
+        fill="url(#chrome)" stroke="#08080a" stroke-width="9" paint-order="stroke" letter-spacing="-3" clip-path="url(#finalClip)">VECTIS</text>
+  <text x="300" y="338" font-family="Arial Black, Arial, sans-serif" font-size="96" font-weight="900"
+        fill="url(#chrome)" stroke="#08080a" stroke-width="9" paint-order="stroke" letter-spacing="-4" clip-path="url(#finalClip)">CONCEPTS</text>
+</g>
+
+<g id="purple-bevel-layer" inkscape:groupmode="layer" inkscape:label="05 Purple Bevel Layer">
+  <circle cx="155" cy="220" r="101" fill="none" stroke="#a153e1" stroke-width="3.2"/>
+  <path d="M95 126h28l32 156 34-156h28l-44 220h-36z" fill="none" stroke="#cf8fff" stroke-width="2"/>
+  <text x="300" y="224" font-family="Arial Black, Arial, sans-serif" font-size="110" font-weight="900"
+        fill="none" stroke="#9c46d8" stroke-width="3.4" letter-spacing="-3" clip-path="url(#finalClip)">VECTIS</text>
+  <text x="300" y="338" font-family="Arial Black, Arial, sans-serif" font-size="96" font-weight="900"
+        fill="url(#chrome)" stroke="#9c46d8" stroke-width="2.4" letter-spacing="-4" clip-path="url(#finalClip)">CONCEPTS</text>
+</g>
+
+<g id="highlight-layer" inkscape:groupmode="layer" inkscape:label="06 Chrome Highlight">
+  <rect x="890" y="85" width="250" height="270" fill="url(#chromeSweep)" clip-path="url(#finalClip)" transform="skewX(-10)"/>
+</g>
+
+<g id="shadow-layer" inkscape:groupmode="layer" inkscape:label="07 Shadow Layer">
+  <ellipse cx="650" cy="362" rx="310" ry="9" fill="#000" opacity=".08"/>
+  <ellipse cx="158" cy="354" rx="96" ry="8" fill="#000" opacity=".12"/>
+</g>
+
+<g id="flare-layer" inkscape:groupmode="layer" inkscape:label="08 Flare Layer">
+  <circle cx="155" cy="100" r="20" fill="#bc44ff" opacity=".32" filter="url(#flareGlow)"/>
+  <path d="M155 80l4 16 16 4-16 4-4 16-4-16-16-4 16-4z" fill="#fff" stroke="#d99eff" stroke-width="1.5"/>
+</g>
+
+<g id="tagline-layer" inkscape:groupmode="layer" inkscape:label="09 Tagline Layer">
+  <line x1="245" y1="392" x2="390" y2="392" stroke="#7f29be" stroke-width="3"/>
+  <line x1="945" y1="392" x2="1090" y2="392" stroke="#7f29be" stroke-width="3"/>
+  <text x="670" y="408" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="800"
+        fill="#7e2bb9" text-anchor="middle" letter-spacing="3.5">IDEAS THAT BUILD WORLDS.</text>
+</g>
+</svg>
