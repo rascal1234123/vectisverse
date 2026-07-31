@@ -1,8 +1,8 @@
 /*
- * Temporary speech-bubble contrast fix.
- * Rollback: remove this stylesheet link from contact.html or revert the commit.
- * This places a responsive white ellipse behind the bubble area in the existing
- * transparent WebP without changing the source image.
+ * Temporary speech-bubble readability fix.
+ * Rollback: remove this stylesheet link from contact.html or revert this file.
+ * This overlays a compact white speech bubble over the low-contrast bubble
+ * already contained in the WebP. The source image is unchanged.
  */
 .contact-hero {
   position: relative;
@@ -10,19 +10,29 @@
 }
 
 .contact-hero::before {
-  content: "";
+  content: "Get in touch!";
   position: absolute;
-  z-index: 0;
-  top: 2.5%;
-  left: 50%;
-  width: 76%;
-  aspect-ratio: 2.05 / 1;
+  z-index: 2;
+  top: 1.8%;
+  left: 55%;
+  width: 58%;
+  aspect-ratio: 2.15 / 1;
   transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 5% 4% 7%;
+  border: clamp(2px, .35vw, 4px) solid #111;
   border-radius: 50%;
   background: #fff;
-  box-shadow:
-    0 0 0 3px rgba(0, 0, 0, .78),
-    0 0 24px rgba(89, 220, 255, .35);
+  color: #111;
+  box-shadow: 0 0 18px rgba(89, 220, 255, .28);
+  font-size: clamp(1.25rem, 4.2vw, 2.65rem);
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
   pointer-events: none;
 }
 
@@ -31,21 +41,22 @@
   z-index: 1;
 }
 
-/* Tablet tuning */
 @media (min-width: 721px) and (max-width: 1024px) {
   .contact-hero::before {
-    top: 2.8%;
-    width: 77%;
+    top: 2%;
+    left: 55%;
+    width: 57%;
+    font-size: clamp(1.6rem, 4vw, 2.35rem);
   }
 }
 
-/* Mobile tuning */
 @media (max-width: 720px) {
   .contact-hero::before {
-    top: 3%;
-    width: 79%;
-    box-shadow:
-      0 0 0 2px rgba(0, 0, 0, .78),
-      0 0 18px rgba(89, 220, 255, .3);
+    top: 1.5%;
+    left: 55%;
+    width: 56%;
+    padding: 5% 3% 7%;
+    font-size: clamp(1.15rem, 7vw, 2rem);
+    box-shadow: 0 0 12px rgba(89, 220, 255, .22);
   }
 }
