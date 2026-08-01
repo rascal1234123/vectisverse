@@ -1,0 +1,21 @@
+/* Isle of Night homepage card — keeps the approved three-column comic grid unchanged. */
+.approved-panels .card-isle-night {
+  border: 2px solid #35c759;
+  box-shadow: 0 0 0 1px rgba(53, 199, 89, .28), 0 0 18px rgba(53, 199, 89, .14);
+  background: #050505;
+}
+
+.approved-panels .card-isle-night .approved-panel-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 650px) {
+  .approved-panels .card-isle-night {
+    width: 100%;
+    aspect-ratio: 2.075 / 1;
+  }
+}
