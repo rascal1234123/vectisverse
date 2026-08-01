@@ -1,0 +1,10 @@
+/*
+  Vectis Concepts production stylesheet candidate.
+
+  This file is intentionally NOT linked from production HTML yet.
+  It preserves the established cascade order through imports and provides a
+  single future stylesheet reference for controlled visual-equivalence testing.
+*/
+@import url("concepts-structure-v1.css?v=accessibility-3");
+@import url("concepts-local-overrides.css?v=20260731-preview-layout-2");
+@import url("concepts-visual-refinements-v1.css?v=20260801-1");
