@@ -1,0 +1,71 @@
+/* VectisVerse visual refinements v1
+   Final override layer. Keeps the existing static build and approved layouts intact. */
+
+/* Keep Rip above the form while reducing the amount of scrolling required to reach it. */
+.contact-page {
+  padding-top: clamp(2.5rem, 6vw, 5rem);
+}
+
+.contact-intro {
+  margin-bottom: 1.25rem;
+}
+
+.contact-hero {
+  width: min(100%, 580px);
+  margin: clamp(1rem, 2vw, 1.75rem) auto clamp(1.35rem, 3vw, 2.5rem);
+}
+
+.contact-hero img {
+  width: min(100%, 540px);
+}
+
+/* Social controls are available inside the standard mobile navigation. */
+.mobile-menu-social {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .contact-page {
+    padding-top: 2.25rem;
+  }
+
+  .contact-intro {
+    margin-bottom: .85rem;
+  }
+
+  .contact-hero {
+    width: min(100%, 400px);
+    margin-top: .75rem;
+    margin-bottom: 1.35rem;
+  }
+
+  .contact-hero img {
+    width: min(100%, 360px);
+  }
+
+  .mobile-menu-social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,.18);
+  }
+
+  .mobile-menu-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid rgba(255,255,255,.22) !important;
+  }
+
+  .mobile-menu-social svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+}
