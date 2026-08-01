@@ -1,0 +1,56 @@
+name: VectisVerse Static QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "vectisverse-site-v1/**"
+      - "scripts/qa_static_site.py"
+      - ".github/workflows/site-qa.yml"
+  pull_request:
+    paths:
+      - "vectisverse-site-v1/**"
+      - "scripts/qa_static_site.py"
+      - ".github/workflows/site-qa.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-qa:
+    name: Static site checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate production files
+        id: validation
+        continue-on-error: true
+        run: python3 scripts/qa_static_site.py | tee qa-output.txt
+
+      - name: Publish QA summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "## VectisVerse static QA"
+            echo
+            if [[ "${{ steps.validation.outcome }}" == "success" ]]; then
+              echo "✅ Structural checks passed."
+            else
+              echo "⚠️ Structural checks reported errors. This workflow is informational and does not alter or deploy the site."
+            fi
+            echo
+            echo '```text'
+            cat qa-output.txt 2>/dev/null || echo "No QA output was produced."
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Record informational result
+        if: always()
+        run: |
+          if [[ "${{ steps.validation.outcome }}" != "success" ]]; then
+            echo "QA reported issues. Review the job summary before the next site update."
+          fi
