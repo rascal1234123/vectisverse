@@ -28,7 +28,10 @@ jobs:
       - name: Validate production files
         id: validation
         continue-on-error: true
-        run: python3 scripts/qa_static_site.py | tee qa-output.txt
+        shell: bash
+        run: |
+          set -o pipefail
+          python3 scripts/qa_static_site.py | tee qa-output.txt
 
       - name: Publish QA summary
         if: always()
@@ -50,6 +53,7 @@ jobs:
 
       - name: Record informational result
         if: always()
+        shell: bash
         run: |
           if [[ "${{ steps.validation.outcome }}" != "success" ]]; then
             echo "QA reported issues. Review the job summary before the next site update."
