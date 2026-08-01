@@ -1,4 +1,30 @@
 (() => {
+  const refinementHref = 'assets/css/concepts-visual-refinements-v1.css?v=20260801-1';
+  if (!document.querySelector(`link[href="${refinementHref}"]`)) {
+    const refinementStyles = document.createElement('link');
+    refinementStyles.rel = 'stylesheet';
+    refinementStyles.href = refinementHref;
+    document.head.appendChild(refinementStyles);
+  }
+
+  const galleryImages = document.querySelectorAll('.cards .card-art img');
+  galleryImages.forEach(image => {
+    image.loading = 'lazy';
+    image.decoding = 'async';
+
+    const recordIntrinsicDimensions = () => {
+      if (!image.hasAttribute('width') && image.naturalWidth > 0) {
+        image.setAttribute('width', String(image.naturalWidth));
+      }
+      if (!image.hasAttribute('height') && image.naturalHeight > 0) {
+        image.setAttribute('height', String(image.naturalHeight));
+      }
+    };
+
+    if (image.complete) recordIntrinsicDimensions();
+    else image.addEventListener('load', recordIntrinsicDimensions, { once: true });
+  });
+
   const menuButton = document.querySelector('.concepts-menu-toggle');
   const menu = document.querySelector('.concepts-site-nav');
 
