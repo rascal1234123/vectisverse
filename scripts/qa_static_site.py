@@ -75,8 +75,9 @@ def local_path(raw_reference: str, source: Path) -> Path | None:
         candidate = SITE_DIR / path_text.lstrip("/")
     else:
         candidate = source.parent / path_text
+    site_root = SITE_DIR.resolve()
     try:
-        return candidate.resolve().relative_to(Path.cwd().resolve())
+        return candidate.resolve().relative_to(site_root)
     except ValueError:
         return Path("__outside_site__")
 
@@ -114,9 +115,9 @@ def main() -> int:
             if candidate is None:
                 continue
             if candidate == Path("__outside_site__"):
-                errors.append(f"{page}: {attribute} escapes the repository site directory: {reference}")
+                errors.append(f"{page}: {attribute} escapes the production directory: {reference}")
                 continue
-            absolute = Path.cwd() / candidate
+            absolute = SITE_DIR / candidate
             if not absolute.exists():
                 errors.append(f"{page}: missing local {attribute} target: {reference}")
 
@@ -143,9 +144,9 @@ def main() -> int:
             if candidate is None:
                 continue
             if candidate == Path("__outside_site__"):
-                errors.append(f"{stylesheet}: CSS url escapes the repository site directory: {reference}")
+                errors.append(f"{stylesheet}: CSS url escapes the production directory: {reference}")
                 continue
-            if not (Path.cwd() / candidate).exists():
+            if not (SITE_DIR / candidate).exists():
                 errors.append(f"{stylesheet}: missing local CSS asset: {reference}")
 
     for text_file in text_files:
