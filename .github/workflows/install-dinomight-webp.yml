@@ -1,0 +1,36 @@
+name: Install Dinomight WebP
+
+on:
+  push:
+    paths:
+      - 'vectisverse-site-v1/assets/Dinomight/dinomight-upload.trigger'
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild and install Dinomight WebP
+        shell: bash
+        run: |
+          set -euo pipefail
+          dir='vectisverse-site-v1/assets/Dinomight'
+          marker="$dir/dinomight-upload.trigger"
+          target="$dir/dino-might-unleashed-2027-homepage.webp"
+          if [ ! -f "$marker" ]; then
+            echo 'No upload marker present; nothing to do.'
+            exit 0
+          fi
+          cat "$dir"/dino-might-unleashed-2027-homepage.part* > "$dir/dino-might-unleashed-2027-homepage.b64"
+          base64 --decode "$dir/dino-might-unleashed-2027-homepage.b64" > "$target"
+          echo '5250503e7ad2a26197e95780741919aa7c57451bd3e7d086e638b227366e2102  '"$target" | sha256sum --check
+          rm -f "$dir"/dino-might-unleashed-2027-homepage.part* "$dir/dino-might-unleashed-2027-homepage.b64" "$marker"
+          git rm .github/workflows/install-dinomight-webp.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$dir"
+          git commit -m 'Add Dinomight Unleashed homepage WebP'
+          git push
