@@ -26,7 +26,7 @@ jobs:
           fi
           cat "$dir"/dino-might-unleashed-2027-homepage.part* > "$dir/dino-might-unleashed-2027-homepage.b64"
           base64 --decode "$dir/dino-might-unleashed-2027-homepage.b64" > "$target"
-          echo '5250503e7ad2a26197e95780741919aa7c57451bd3e7d086e638b227366e2102  '"$target" | sha256sum --check
+          echo 'cc8044aa03ada0c8109d915902a0e3136dbf8f86ac31d050a721df58753bcd98  '"$target" | sha256sum --check
           rm -f "$dir"/dino-might-unleashed-2027-homepage.part* "$dir/dino-might-unleashed-2027-homepage.b64" "$marker"
           git rm .github/workflows/install-dinomight-webp.yml
           git config user.name 'github-actions[bot]'
