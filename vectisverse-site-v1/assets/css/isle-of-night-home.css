@@ -16,6 +16,11 @@
 @media (max-width: 650px) {
   .approved-panels .card-isle-night {
     width: 100%;
-    aspect-ratio: 2.075 / 1;
+    aspect-ratio: auto;
+  }
+
+  .approved-panels .card-isle-night .approved-panel-image {
+    height: auto;
+    object-fit: contain;
   }
 }
