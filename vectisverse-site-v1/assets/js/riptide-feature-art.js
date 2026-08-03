@@ -3,15 +3,26 @@
   const frame = image?.closest('[data-riptide-feature-frame]');
   if (!image || !frame) return;
 
-  const avifChunkUrls = Array.from(
-    { length: 10 },
-    (_, index) => `assets/riptide/riptide-kraken-avif-${String(index + 1).padStart(2, '0')}.b64?v=20260803-1`
-  );
+  // The 900 × 1125 WebP was uploaded in ten base64 chunks. The first four
+  // retained the original "hd" filename, while chunks five to ten were
+  // inadvertently given an "avif" filename even though they are continuations
+  // of the same WebP file. Load the complete sequence before using the smaller
+  // 400 × 500 WebP as a true fallback.
+  const hdWebpChunkUrls = [
+    ...Array.from(
+      { length: 4 },
+      (_, index) => `assets/riptide/riptide-kraken-hd-${String(index + 1).padStart(2, '0')}.b64?v=20260803-2`
+    ),
+    ...Array.from(
+      { length: 6 },
+      (_, index) => `assets/riptide/riptide-kraken-avif-${String(index + 5).padStart(2, '0')}.b64?v=20260803-2`
+    )
+  ];
 
-  const webpChunkUrls = [
-    'assets/riptide/riptide-kraken-01.b64?v=20260803-1',
-    'assets/riptide/riptide-kraken-02.b64?v=20260803-1',
-    'assets/riptide/riptide-kraken-03.b64?v=20260803-1'
+  const fallbackWebpChunkUrls = [
+    'assets/riptide/riptide-kraken-01.b64?v=20260803-2',
+    'assets/riptide/riptide-kraken-02.b64?v=20260803-2',
+    'assets/riptide/riptide-kraken-03.b64?v=20260803-2'
   ];
 
   const createArtworkUrl = async (urls, type) => {
@@ -50,12 +61,12 @@
 
   const loadArtwork = async () => {
     try {
-      const avifUrl = await createArtworkUrl(avifChunkUrls, 'image/avif');
-      await showImage(avifUrl);
-    } catch (avifError) {
-      console.warn('AVIF artwork unavailable; using WebP fallback.', avifError);
-      const webpUrl = await createArtworkUrl(webpChunkUrls, 'image/webp');
-      await showImage(webpUrl);
+      const hdWebpUrl = await createArtworkUrl(hdWebpChunkUrls, 'image/webp');
+      await showImage(hdWebpUrl);
+    } catch (hdError) {
+      console.warn('High-resolution artwork unavailable; using the smaller WebP fallback.', hdError);
+      const fallbackWebpUrl = await createArtworkUrl(fallbackWebpChunkUrls, 'image/webp');
+      await showImage(fallbackWebpUrl);
     }
   };
 
