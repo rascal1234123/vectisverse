@@ -1,4 +1,8 @@
-/* Riptide feature artwork placed between the title information and comic links. */
+/* Riptide page-specific artwork and spacing. */
+.riptide .comic-title-intro {
+  margin-top: clamp(24px, 3vw, 42px);
+}
+
 .comic-title-feature-art {
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(250px, 0.55fr);
@@ -52,6 +56,10 @@
 }
 
 @media (max-width: 900px) {
+  .riptide .comic-title-intro {
+    margin-top: 22px;
+  }
+
   .comic-title-feature-art {
     grid-template-columns: 1fr;
   }
@@ -62,6 +70,10 @@
 }
 
 @media (max-width: 700px) {
+  .riptide .comic-title-intro {
+    margin-top: 16px;
+  }
+
   .comic-title-feature-art {
     padding-inline: 14px;
   }
