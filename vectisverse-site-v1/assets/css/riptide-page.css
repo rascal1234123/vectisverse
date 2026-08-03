@@ -1,0 +1,60 @@
+/* Riptide feature artwork placed between the title information and comic links. */
+.comic-title-feature-art {
+  padding: 0 clamp(22px, 6vw, 82px) clamp(58px, 7vw, 90px);
+}
+
+.comic-title-feature-frame {
+  position: relative;
+  width: min(100%, 500px);
+  aspect-ratio: 4 / 5;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(22, 200, 238, 0.5);
+  background:
+    radial-gradient(circle at 50% 35%, rgba(22, 200, 238, 0.09), transparent 48%),
+    #05080b;
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.5),
+    0 0 34px rgba(22, 200, 238, 0.12);
+}
+
+.comic-title-feature-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.comic-title-feature-frame img.is-loaded {
+  opacity: 1;
+}
+
+.comic-title-feature-fallback,
+.comic-title-feature-frame.has-error::after {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 24px;
+  color: rgba(255, 255, 255, 0.76);
+  text-align: center;
+}
+
+.comic-title-feature-frame.has-error::after {
+  content: "Artwork could not be loaded.";
+}
+
+@media (max-width: 700px) {
+  .comic-title-feature-art {
+    padding-inline: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .comic-title-feature-frame img {
+    transition: none;
+  }
+}
