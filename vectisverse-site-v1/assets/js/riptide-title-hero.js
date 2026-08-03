@@ -2,7 +2,7 @@
   const image = document.getElementById('riptide-title-hero');
   const chunks = window.__RIPTIDE_HERO_CHUNKS;
 
-  if (!image || !Array.isArray(chunks) || chunks.length !== 6) return;
+  if (!image || !Array.isArray(chunks) || chunks.length !== 11) return;
 
   try {
     const binary = atob(chunks.join(''));
