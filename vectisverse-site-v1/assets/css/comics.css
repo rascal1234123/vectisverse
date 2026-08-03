@@ -38,9 +38,9 @@
 .comic-title-page.ftw{--title-accent:#e53d35;--title-accent-rgb:229,61,53}
 .comic-title-page.dino-might{--title-accent:#8df24b;--title-accent-rgb:141,242,75}
 .comic-title-page.isle-of-night{--title-accent:#d11d32;--title-accent-rgb:209,29,50}
-.comic-title-hero{position:relative;min-height:clamp(430px,57vw,760px);overflow:hidden;background:#020407}
+.comic-title-hero{position:relative;overflow:hidden;background:#020407}
 .comic-title-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 48%,rgba(2,4,7,.2) 68%,#020407 100%);pointer-events:none}
-.comic-title-hero img{display:block;width:100%;height:100%;min-height:inherit;object-fit:cover;object-position:center}
+.comic-title-hero img{display:block;width:100%;height:auto;object-fit:contain;object-position:center}
 .comic-title-intro{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(250px,.55fr);gap:clamp(26px,5vw,72px);margin-top:-72px;padding:0 clamp(22px,6vw,82px) clamp(54px,7vw,96px)}
 .comic-title-copy,.comic-title-facts{background:rgba(8,11,15,.94);border:1px solid rgba(var(--title-accent-rgb),.42);box-shadow:0 18px 50px rgba(0,0,0,.42)}
 .comic-title-copy{padding:clamp(28px,5vw,58px)}
@@ -74,7 +74,6 @@
   .comics-menu:hover .comics-submenu{display:none}
   .comics-menu.is-open .comics-submenu,.comics-menu:focus-within .comics-submenu{display:grid}
   .site-nav .comics-submenu a,.concepts-site-nav .comics-submenu a{padding-left:18px}
-  .comic-title-hero{min-height:370px}
   .comic-title-intro{margin-top:-22px;padding-inline:14px}
   .comic-title-copy{padding:27px 22px}
   .comic-title-copy h1{font-size:clamp(3rem,17vw,5rem)}
