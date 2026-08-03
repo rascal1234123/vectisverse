@@ -3,38 +3,64 @@
   const frame = image?.closest('[data-riptide-feature-frame]');
   if (!image || !frame) return;
 
-  const chunkUrls = [
+  const avifChunkUrls = Array.from(
+    { length: 10 },
+    (_, index) => `assets/riptide/riptide-kraken-avif-${String(index + 1).padStart(2, '0')}.b64?v=20260803-1`
+  );
+
+  const webpChunkUrls = [
     'assets/riptide/riptide-kraken-01.b64?v=20260803-1',
     'assets/riptide/riptide-kraken-02.b64?v=20260803-1',
     'assets/riptide/riptide-kraken-03.b64?v=20260803-1'
   ];
 
-  Promise.all(chunkUrls.map((url) => fetch(url).then((response) => {
-    if (!response.ok) {
-      throw new Error(`Unable to load artwork data: ${url}`);
-    }
-    return response.text();
-  })))
-    .then((chunks) => {
-      const binary = atob(chunks.join('').replace(/\s+/g, ''));
-      const bytes = new Uint8Array(binary.length);
-
-      for (let index = 0; index < binary.length; index += 1) {
-        bytes[index] = binary.charCodeAt(index);
+  const createArtworkUrl = async (urls, type) => {
+    const chunks = await Promise.all(urls.map(async (url) => {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Unable to load artwork data: ${url}`);
       }
+      return response.text();
+    }));
 
-      const objectUrl = URL.createObjectURL(new Blob([bytes], { type: 'image/webp' }));
+    const binary = atob(chunks.join('').replace(/\s+/g, ''));
+    const bytes = Uint8Array.from(binary, character => character.charCodeAt(0));
+    return URL.createObjectURL(new Blob([bytes], { type }));
+  };
 
-      image.addEventListener('load', () => {
-        image.hidden = false;
-        requestAnimationFrame(() => image.classList.add('is-loaded'));
-        URL.revokeObjectURL(objectUrl);
-      }, { once: true });
+  const showImage = objectUrl => new Promise((resolve, reject) => {
+    image.onload = () => {
+      image.onload = null;
+      image.onerror = null;
+      image.hidden = false;
+      requestAnimationFrame(() => image.classList.add('is-loaded'));
+      URL.revokeObjectURL(objectUrl);
+      resolve();
+    };
 
-      image.src = objectUrl;
-    })
-    .catch((error) => {
-      frame.classList.add('has-error');
-      console.error('Unable to load the Riptide feature artwork.', error);
-    });
+    image.onerror = () => {
+      image.onload = null;
+      image.onerror = null;
+      URL.revokeObjectURL(objectUrl);
+      reject(new Error('The browser could not decode the artwork.'));
+    };
+
+    image.src = objectUrl;
+  });
+
+  const loadArtwork = async () => {
+    try {
+      const avifUrl = await createArtworkUrl(avifChunkUrls, 'image/avif');
+      await showImage(avifUrl);
+    } catch (avifError) {
+      console.warn('AVIF artwork unavailable; using WebP fallback.', avifError);
+      const webpUrl = await createArtworkUrl(webpChunkUrls, 'image/webp');
+      await showImage(webpUrl);
+    }
+  };
+
+  loadArtwork().catch((error) => {
+    frame.classList.add('has-error');
+    console.error('Unable to load the Riptide feature artwork.', error);
+  });
 })();
