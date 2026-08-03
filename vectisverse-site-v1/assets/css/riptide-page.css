@@ -1,13 +1,17 @@
 /* Riptide feature artwork placed between the title information and comic links. */
 .comic-title-feature-art {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(250px, 0.55fr);
+  gap: clamp(26px, 5vw, 72px);
   padding: 0 clamp(22px, 6vw, 82px) clamp(58px, 7vw, 90px);
 }
 
 .comic-title-feature-frame {
   position: relative;
-  width: min(100%, 500px);
+  grid-column: 1;
+  width: 100%;
   aspect-ratio: 4 / 5;
-  margin: 0 auto;
+  margin: 0;
   overflow: hidden;
   border: 1px solid rgba(22, 200, 238, 0.5);
   background:
@@ -45,6 +49,16 @@
 
 .comic-title-feature-frame.has-error::after {
   content: "Artwork could not be loaded.";
+}
+
+@media (max-width: 900px) {
+  .comic-title-feature-art {
+    grid-template-columns: 1fr;
+  }
+
+  .comic-title-feature-frame {
+    grid-column: auto;
+  }
 }
 
 @media (max-width: 700px) {
