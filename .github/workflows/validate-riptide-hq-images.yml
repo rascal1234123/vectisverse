@@ -1,0 +1,64 @@
+name: Validate Riptide HQ images
+
+on:
+  pull_request:
+    paths:
+      - 'vectisverse-site-v1/assets/js/riptide-hq-avif-*.js'
+      - 'vectisverse-site-v1/assets/js/riptide-hq.js'
+      - 'vectisverse-site-v1/riptide-hq.html'
+  workflow_dispatch:
+
+jobs:
+  validate-images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate embedded AVIF files
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const vm = require('vm');
+          const crypto = require('crypto');
+
+          const root = 'vectisverse-site-v1/assets/js';
+          const files = [
+            'riptide-hq-avif-d01.js',
+            'riptide-hq-avif-d02.js',
+            'riptide-hq-avif-d03.js',
+            'riptide-hq-avif-d04.js',
+            'riptide-hq-avif-m01.js',
+            'riptide-hq-avif-m02.js',
+            'riptide-hq-avif-final.js'
+          ];
+
+          const context = { window: {} };
+          vm.createContext(context);
+          for (const file of files) {
+            vm.runInContext(fs.readFileSync(`${root}/${file}`, 'utf8'), context, { filename: file });
+          }
+
+          const desktopBase64 = [
+            ...(context.window.RIPTIDE_HQ_DESKTOP_HIRES_PARTS || []),
+            ...(context.window.RIPTIDE_HQ_DESKTOP_AVIF_PARTS || [])
+          ].join('');
+          const mobileBase64 = (context.window.RIPTIDE_HQ_MOBILE_AVIF_PARTS || []).join('');
+
+          function validate(name, base64, expectedBytes, expectedSha256) {
+            const data = Buffer.from(base64, 'base64');
+            const hash = crypto.createHash('sha256').update(data).digest('hex');
+            if (data.length !== expectedBytes) {
+              throw new Error(`${name}: expected ${expectedBytes} bytes, got ${data.length}`);
+            }
+            if (hash !== expectedSha256) {
+              throw new Error(`${name}: expected SHA-256 ${expectedSha256}, got ${hash}`);
+            }
+            if (data.subarray(4, 8).toString('ascii') !== 'ftyp') {
+              throw new Error(`${name}: invalid AVIF/ISO-BMFF signature`);
+            }
+            console.log(`${name}: valid (${data.length} bytes, ${hash})`);
+          }
+
+          validate('desktop', desktopBase64, 40633, '572fc771e916341b4c254958c521df481d88c1d18b21e0bad3060cc55910a8c8');
+          validate('mobile', mobileBase64, 21708, '95391ad2b12fecb30db246406d6b98a50f5deaebdf8815dbaf808d8700fbd8e2');
+          NODE
