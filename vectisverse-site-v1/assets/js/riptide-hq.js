@@ -6,9 +6,10 @@
   const desktopImage = document.querySelector('[data-hq-desktop]');
   const mobileSource = document.querySelector('[data-hq-mobile]');
 
-  const desktopData = window.RIPTIDE_HQ_DESKTOP_AVIF_PARTS
-    ? window.RIPTIDE_HQ_DESKTOP_AVIF_PARTS.join('')
-    : '';
+  const desktopData = [
+    ...(window.RIPTIDE_HQ_DESKTOP_HIRES_PARTS || []),
+    ...(window.RIPTIDE_HQ_DESKTOP_AVIF_PARTS || [])
+  ].join('');
   const mobileData = window.RIPTIDE_HQ_MOBILE_AVIF_PARTS
     ? window.RIPTIDE_HQ_MOBILE_AVIF_PARTS.join('')
     : '';
