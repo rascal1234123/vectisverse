@@ -1,0 +1,67 @@
+name: Verify Riptide HQ native images
+
+on:
+  push:
+    branches:
+      - test/riptide-hq-hires-assets-v3
+    paths:
+      - 'vectisverse-site-v1/assets/riptide/hq/*.webp'
+      - 'vectisverse-site-v1/riptide-hq-image-test.html'
+      - '.github/workflows/verify-riptide-hq-native-images.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify byte size, SHA-256 and WebP signature
+        shell: bash
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          import hashlib
+
+          expected = {
+              Path('vectisverse-site-v1/assets/riptide/hq/riptide-hq-desktop.webp'): {
+                  'bytes': 910072,
+                  'sha256': 'df93902a716a7f2ea7db0f723dc32471b7d7b0b0944e94ca4c1a85705bbbd2ce',
+              },
+              Path('vectisverse-site-v1/assets/riptide/hq/riptide-hq-mobile.webp'): {
+                  'bytes': 452928,
+                  'sha256': '8d26b69f7527331a74e6f8447e82ea42de1c7a616736148a6d16c26a05bd3e5e',
+              },
+          }
+
+          failed = False
+          for path, spec in expected.items():
+              if not path.exists():
+                  print(f'FAIL {path}: file is missing')
+                  failed = True
+                  continue
+
+              data = path.read_bytes()
+              digest = hashlib.sha256(data).hexdigest()
+              signature_ok = data[:4] == b'RIFF' and data[8:12] == b'WEBP'
+              size_ok = len(data) == spec['bytes']
+              hash_ok = digest == spec['sha256']
+
+              print(f'{path}:')
+              print(f'  bytes: {len(data)} (expected {spec["bytes"]})')
+              print(f'  sha256: {digest}')
+              print(f'  RIFF/WEBP signature: {signature_ok}')
+
+              if not (signature_ok and size_ok and hash_ok):
+                  print('  RESULT: FAIL')
+                  failed = True
+              else:
+                  print('  RESULT: PASS')
+
+          if failed:
+              raise SystemExit('One or more Riptide HQ image files failed verification.')
+          print('All Riptide HQ native image files passed verification.')
+          PY
