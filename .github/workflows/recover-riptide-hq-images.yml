@@ -1,0 +1,125 @@
+name: Recover Riptide HQ images from uploaded files
+
+on:
+  push:
+    branches:
+      - test/riptide-hq-hires-assets-v3
+    paths:
+      - 'vectisverse-site-v1/assets/riptide/hq/riptide_hq_interactive_standalone*.html'
+      - '.github/workflows/recover-riptide-hq-images.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: test/riptide-hq-hires-assets-v3
+          fetch-depth: 0
+
+      - name: Inspect uploaded standalone files and recover approved artwork
+        shell: bash
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          import base64
+          import hashlib
+          import re
+          import sys
+
+          root = Path('vectisverse-site-v1/assets/riptide/hq')
+          expected = {
+              (2560, 1920): {
+                  'name': 'riptide-hq-desktop.webp',
+                  'bytes': 910072,
+                  'sha256': 'df93902a716a7f2ea7db0f723dc32471b7d7b0b0944e94ca4c1a85705bbbd2ce',
+              },
+              (1440, 2560): {
+                  'name': 'riptide-hq-mobile.webp',
+                  'bytes': 452928,
+                  'sha256': '8d26b69f7527331a74e6f8447e82ea42de1c7a616736148a6d16c26a05bd3e5e',
+              },
+          }
+
+          def webp_dimensions(data: bytes):
+              if len(data) < 30 or data[:4] != b'RIFF' or data[8:12] != b'WEBP':
+                  return None
+              chunk = data[12:16]
+              payload = 20
+              if chunk == b'VP8X' and len(data) >= 30:
+                  w = 1 + int.from_bytes(data[24:27], 'little')
+                  h = 1 + int.from_bytes(data[27:30], 'little')
+                  return w, h
+              if chunk == b'VP8 ' and len(data) >= payload + 10:
+                  if data[payload + 3:payload + 6] == b'\x9d\x01\x2a':
+                      w = int.from_bytes(data[payload + 6:payload + 8], 'little') & 0x3fff
+                      h = int.from_bytes(data[payload + 8:payload + 10], 'little') & 0x3fff
+                      return w, h
+              if chunk == b'VP8L' and len(data) >= payload + 5 and data[payload] == 0x2f:
+                  bits = int.from_bytes(data[payload + 1:payload + 5], 'little')
+                  w = 1 + (bits & 0x3fff)
+                  h = 1 + ((bits >> 14) & 0x3fff)
+                  return w, h
+              return None
+
+          files = sorted(root.glob('riptide_hq_interactive_standalone*.html'))
+          if not files:
+              raise SystemExit('No uploaded standalone HTML files were found.')
+
+          candidates = []
+          pattern = re.compile(rb'data:image/(webp|avif|png|jpeg);base64,([A-Za-z0-9+/=\r\n]+)', re.I)
+          for path in files:
+              raw = path.read_bytes()
+              print(f'Inspecting {path}: {len(raw):,} bytes')
+              matches = list(pattern.finditer(raw))
+              print(f'  data-image candidates: {len(matches)}')
+              for index, match in enumerate(matches, 1):
+                  mime = match.group(1).decode('ascii').lower()
+                  encoded = re.sub(rb'\s+', b'', match.group(2))
+                  try:
+                      data = base64.b64decode(encoded, validate=True)
+                  except Exception as exc:
+                      print(f'  candidate {index}: invalid base64: {exc}')
+                      continue
+                  digest = hashlib.sha256(data).hexdigest()
+                  dimensions = webp_dimensions(data) if mime == 'webp' else None
+                  print(f'  candidate {index}: {mime}, {len(data):,} bytes, dimensions={dimensions}, sha256={digest}')
+                  candidates.append((path, mime, data, dimensions, digest))
+
+          recovered = []
+          for source, mime, data, dimensions, digest in candidates:
+              spec = expected.get(dimensions)
+              if not spec or mime != 'webp':
+                  continue
+              if len(data) != spec['bytes'] or digest != spec['sha256']:
+                  print(f'Candidate from {source} has the right dimensions but is not the approved original.')
+                  continue
+              destination = root / spec['name']
+              destination.write_bytes(data)
+              recovered.append(destination)
+              print(f'RECOVERED {destination}')
+
+          required = {root / spec['name'] for spec in expected.values()}
+          if set(recovered) != required:
+              print('The uploaded HTML files did not contain both exact approved WebP originals.')
+              print('No production image replacement has been committed.')
+              raise SystemExit(2)
+
+          for path in files:
+              path.unlink()
+          print('Both approved images recovered and temporary standalone HTML uploads removed.')
+          PY
+
+      - name: Commit recovered artwork
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add vectisverse-site-v1/assets/riptide/hq/
+          git commit -m "Recover verified Riptide HQ artwork from uploaded files"
+          git push origin HEAD:test/riptide-hq-hires-assets-v3
