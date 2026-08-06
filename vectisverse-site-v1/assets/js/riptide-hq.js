@@ -1,9 +1,20 @@
 (() => {
   const artefacts = window.RIPTIDE_ARTEFACTS || [];
   const maps = window.RIPTIDE_HOTSPOTS || {};
-  const byId = new Map(artefacts.map(item => [item.id, item]));
   const layer = document.querySelector('[data-hotspot-layer]');
   const dialog = document.querySelector('[data-artefact-dialog]');
+  const desktopImage = document.querySelector('[data-hq-desktop]');
+  const mobileSource = document.querySelector('[data-hq-mobile]');
+
+  if (desktopImage && window.RIPTIDE_HQ_DESKTOP_PARTS) {
+    desktopImage.src = `data:image/webp;base64,${window.RIPTIDE_HQ_DESKTOP_PARTS.join('')}`;
+  }
+  if (mobileSource && window.RIPTIDE_HQ_MOBILE_PARTS) {
+    mobileSource.srcset = `data:image/webp;base64,${window.RIPTIDE_HQ_MOBILE_PARTS.join('')}`;
+  }
+
+  if (!layer || !dialog || !artefacts.length || !maps.desktop || !maps.mobile) return;
+
   const title = dialog.querySelector('[data-title]');
   const teaser = dialog.querySelector('[data-teaser]');
   const body = dialog.querySelector('[data-body]');
