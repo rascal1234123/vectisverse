@@ -1,26 +1,8 @@
-// Riptide HQ high-resolution artwork loader.
 (() => {
   const artefacts = window.RIPTIDE_ARTEFACTS || [];
   const maps = window.RIPTIDE_HOTSPOTS || {};
   const layer = document.querySelector('[data-hotspot-layer]');
   const dialog = document.querySelector('[data-artefact-dialog]');
-  const desktopImage = document.querySelector('[data-hq-desktop]');
-  const mobileSource = document.querySelector('[data-hq-mobile]');
-
-  const desktopData = [
-    ...(window.RIPTIDE_HQ_DESKTOP_HIRES_PARTS || []),
-    ...(window.RIPTIDE_HQ_DESKTOP_AVIF_PARTS || [])
-  ].join('');
-  const mobileData = window.RIPTIDE_HQ_MOBILE_AVIF_PARTS
-    ? window.RIPTIDE_HQ_MOBILE_AVIF_PARTS.join('')
-    : '';
-
-  if (desktopImage && desktopData) {
-    desktopImage.src = `data:image/avif;base64,${desktopData}`;
-  }
-  if (mobileSource && mobileData) {
-    mobileSource.srcset = `data:image/avif;base64,${mobileData}`;
-  }
 
   if (!layer || !dialog || !artefacts.length || !maps.desktop || !maps.mobile) return;
 
@@ -54,6 +36,7 @@
     button.setAttribute('aria-label', item.ariaLabel);
     button.setAttribute('aria-haspopup', 'dialog');
     button.style.cssText = hotspotStyle(item.id);
+
     const label = document.createElement('span');
     label.className = 'hotspot-label';
     label.textContent = item.title;
@@ -75,9 +58,11 @@
     quote.querySelector('p').textContent = `“${item.quote}”`;
     category.textContent = item.category;
     indexText.textContent = `${currentIndex + 1} / ${artefacts.length}`;
+
     visited.add(item.id);
     const hotspot = layer.querySelector(`[data-artefact-id="${CSS.escape(item.id)}"]`);
     if (hotspot) hotspot.dataset.visited = 'true';
+
     updateProgress();
     live.textContent = `${item.title} opened. ${visited.size} of ${artefacts.length} artefacts discovered.`;
   }
@@ -96,17 +81,26 @@
   previousButton.addEventListener('click', () => renderArtefact(currentIndex - 1));
   nextButton.addEventListener('click', () => renderArtefact(currentIndex + 1));
   closeButton.addEventListener('click', closeDialog);
+
   dialog.addEventListener('click', event => {
     const rect = dialog.getBoundingClientRect();
     const inside = event.clientX >= rect.left && event.clientX <= rect.right && event.clientY >= rect.top && event.clientY <= rect.bottom;
     if (!inside) closeDialog();
   });
+
   dialog.addEventListener('close', () => {
     if (returnFocus && typeof returnFocus.focus === 'function') returnFocus.focus();
   });
+
   dialog.addEventListener('keydown', event => {
-    if (event.key === 'ArrowLeft') { event.preventDefault(); renderArtefact(currentIndex - 1); }
-    if (event.key === 'ArrowRight') { event.preventDefault(); renderArtefact(currentIndex + 1); }
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      renderArtefact(currentIndex - 1);
+    }
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      renderArtefact(currentIndex + 1);
+    }
   });
 
   updateProgress();
