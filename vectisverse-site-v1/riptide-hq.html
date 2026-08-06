@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#100a06">
+  <meta name="description" content="Step inside Riptide HQ and explore ten interactive artefacts revealing Rip Tidewell, his team and their adventures.">
+  <link rel="canonical" href="https://www.vectisverse.com/riptide-hq.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VectisVerse">
+  <meta property="og:title" content="Riptide HQ | VectisVerse">
+  <meta property="og:description" content="Explore the artefacts inside Riptide HQ and discover the story of Rip Tidewell and his team.">
+  <meta property="og:url" content="https://www.vectisverse.com/riptide-hq.html">
+  <meta property="og:image" content="https://www.vectisverse.com/assets/riptide/riptide-team-hero-hd.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Riptide HQ | VectisVerse">
+  <meta name="twitter:description" content="Explore the artefacts inside Riptide HQ and discover the story of Rip Tidewell and his team.">
+  <meta name="twitter:image" content="https://www.vectisverse.com/assets/riptide/riptide-team-hero-hd.webp">
+  <title>Riptide HQ | VectisVerse</title>
+  <link rel="stylesheet" href="assets/css/site.css?v=accessibility-2">
+  <link rel="stylesheet" href="assets/css/approved-layout-fixes.css?v=18">
+  <link rel="stylesheet" href="assets/css/riptide-hq.css?v=20260806-1">
+  <script defer src="assets/js/site.js?v=20260803-comics-1"></script>
+  <script defer src="assets/js/riptide-hq-desktop-1.js?v=20260806-1"></script>
+  <script defer src="assets/js/riptide-hq-desktop-2.js?v=20260806-1"></script>
+  <script defer src="assets/js/riptide-hq-desktop-3.js?v=20260806-1"></script>
+  <script defer src="assets/js/riptide-hq-desktop-4.js?v=20260806-1"></script>
+  <script defer src="assets/js/riptide-hq-mobile-1.js?v=20260806-1"></script>
+  <script defer src="assets/js/riptide-hq-mobile-2.js?v=20260806-1"></script>
+  <script defer src="assets/js/riptide-hq-data.js?v=20260806-1"></script>
+  <script defer src="assets/js/riptide-hq.js?v=20260806-1"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-brand"><a class="publisher-mark" href="index.html" aria-label="VectisVerse home"><img src="assets/brand/vectisverse-master-v-gold-master-v1.svg?v=20260728-1" alt="" width="168" height="190"></a><span class="publisher-est" aria-label="Established 2025">EST.<br>2025</span></div>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="riptide.html">Riptide</a><a href="concepts.html">Vectis Concepts</a><a href="contact.html">Contact</a></nav>
+  </header>
+
+  <main id="main" class="hq-shell hq-page-main">
+    <header class="hq-intro">
+      <div>
+        <h1>Inside Riptide HQ</h1>
+        <p>Select an artefact to uncover part of Rip Tidewell’s history, character and world.</p>
+      </div>
+      <div class="hq-toolbar">
+        <a class="hq-site-return" href="riptide.html">Return to Riptide</a>
+        <div class="hq-progress" data-progress aria-live="polite">0 of 10 discovered</div>
+      </div>
+    </header>
+
+    <section aria-labelledby="hq-instructions">
+      <p id="hq-instructions" class="visually-hidden">An interactive illustration containing ten selectable artefacts. Use Tab to move between artefacts and Enter or Space to open one.</p>
+      <div class="hq-stage">
+        <picture>
+          <source media="(max-width:760px)" data-hq-mobile type="image/webp">
+          <img data-hq-desktop alt="Illustrated shelves inside Riptide HQ displaying a map, compass, journal, radio, Royal Marines mug, medals, team photograph, newspaper, specimen jar and the central Riptide logo." width="560" height="420" decoding="async" fetchpriority="high">
+        </picture>
+        <div class="hotspot-layer" data-hotspot-layer></div>
+      </div>
+      <p class="hq-help">Desktop: hover or use <kbd>Tab</kbd>. Mobile: tap a marked artefact. Press <kbd>Esc</kbd> to close.</p>
+    </section>
+  </main>
+
+  <dialog class="artefact-dialog" data-artefact-dialog aria-labelledby="artefact-title">
+    <article class="dialog-inner">
+      <div class="dialog-top">
+        <div>
+          <p class="artefact-category" data-category></p>
+          <h2 class="artefact-title" id="artefact-title" data-title></h2>
+        </div>
+        <button type="button" class="close-button" data-close aria-label="Close artefact information">×</button>
+      </div>
+      <p class="artefact-teaser" data-teaser></p>
+      <p class="artefact-body" data-body></p>
+      <blockquote class="artefact-quote" data-quote><p></p><footer>— Rip Tidewell</footer></blockquote>
+      <nav class="dialog-nav" aria-label="Browse artefacts">
+        <button type="button" data-previous>← Previous</button>
+        <span class="dialog-index" data-dialog-index></span>
+        <button type="button" data-next>Next →</button>
+      </nav>
+    </article>
+  </dialog>
+  <p class="visually-hidden" data-live aria-live="polite"></p>
+
+  <footer class="site-footer"><div class="footer-brand"><span class="publisher-mark small"><img src="assets/brand/vectisverse-master-v-gold-master-v1.svg?v=20260728-1" alt="" width="168" height="190" loading="lazy"></span><span>VectisVerse<br><small>Entertainment</small></span></div><nav aria-label="Footer navigation"><a href="index.html">Home</a><a href="riptide.html">Riptide</a><a href="concepts.html">Vectis Concepts</a><a href="contact.html">Contact</a><a href="accessibility.html">Accessibility</a></nav><div class="footer-meta"><small>© 2026 VectisVerse. All rights reserved.</small></div></footer>
+</body>
+</html>
