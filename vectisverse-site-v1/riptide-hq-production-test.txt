@@ -1,1 +1,0 @@
-Verified native WebP integration branch. Do not merge until Cloudflare preview confirms the artwork and hotspots render correctly.
