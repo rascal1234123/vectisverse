@@ -1,0 +1,90 @@
+name: Install verified Riptide HQ upload pack
+
+on:
+  push:
+    branches:
+      - test/riptide-hq-hires-assets-v3
+    paths:
+      - 'vectisverse-site-v1/assets/riptide/hq/riptide-hq-verified-upload-pack.zip'
+      - '.github/workflows/install-riptide-hq-upload-pack.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: test/riptide-hq-hires-assets-v3
+          fetch-depth: 0
+
+      - name: Extract and verify approved artwork
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT='vectisverse-site-v1/assets/riptide/hq'
+          PACK="$ROOT/riptide-hq-verified-upload-pack.zip"
+          TMP="$(mktemp -d)"
+
+          test -f "$PACK"
+          unzip -q "$PACK" -d "$TMP"
+
+          python3 - "$TMP" "$ROOT" <<'PY'
+          from pathlib import Path
+          import hashlib
+          import shutil
+          import sys
+
+          source = Path(sys.argv[1])
+          destination = Path(sys.argv[2])
+
+          expected = {
+              'riptide-hq-desktop.webp': {
+                  'bytes': 910072,
+                  'sha256': 'df93902a716a7f2ea7db0f723dc32471b7d7b0b0944e94ca4c1a85705bbbd2ce',
+              },
+              'riptide-hq-mobile.webp': {
+                  'bytes': 452928,
+                  'sha256': '8d26b69f7527331a74e6f8447e82ea42de1c7a616736148a6d16c26a05bd3e5e',
+              },
+          }
+
+          for name, spec in expected.items():
+              path = source / name
+              if not path.exists():
+                  raise SystemExit(f'Missing {name} from upload pack.')
+
+              data = path.read_bytes()
+              digest = hashlib.sha256(data).hexdigest()
+              signature_ok = data[:4] == b'RIFF' and data[8:12] == b'WEBP'
+
+              print(f'{name}: {len(data):,} bytes, SHA-256 {digest}, WebP signature {signature_ok}')
+
+              if len(data) != spec['bytes']:
+                  raise SystemExit(f'{name}: incorrect byte size.')
+              if digest != spec['sha256']:
+                  raise SystemExit(f'{name}: checksum does not match the approved original.')
+              if not signature_ok:
+                  raise SystemExit(f'{name}: invalid WebP signature.')
+
+              shutil.copyfile(path, destination / name)
+
+          print('Both approved originals passed verification and were installed.')
+          PY
+
+          rm -f "$PACK"
+          rm -f "$ROOT"/riptide_hq_interactive_standalone*.html
+          rm -rf .riptide-hq-upload
+
+      - name: Commit verified native images
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Install verified high-resolution Riptide HQ artwork'
+          git push origin HEAD:test/riptide-hq-hires-assets-v3
