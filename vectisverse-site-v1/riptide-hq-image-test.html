@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Riptide HQ Image Delivery Test</title>
+  <style>
+    :root{color-scheme:dark;--bg:#100a06;--panel:#1a100a;--ink:#f5ead5;--muted:#c9baa1;--ok:#72d572;--bad:#ff7b72;--line:#6d5126}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    main{width:min(1180px,calc(100% - 32px));margin:auto;padding:32px 0 64px} h1{margin:0 0 8px;font-size:clamp(2rem,5vw,3.5rem)} p{color:var(--muted)}
+    .notice,.card{border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:18px;margin-top:20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    img{display:block;width:100%;height:auto;background:#2b190e;border-radius:8px;border:1px solid #49351d}.status{font-weight:700}.ok{color:var(--ok)}.bad{color:var(--bad)}
+    code{overflow-wrap:anywhere;color:#f0c36c}.meta{margin:.7rem 0 0;padding:0;list-style:none}.meta li{margin:.25rem 0}.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    a{color:#f0c36c}.button{display:inline-flex;padding:.65rem .9rem;border:1px solid var(--line);border-radius:8px;text-decoration:none}.button:hover,.button:focus-visible{background:#2a1a0e;outline:2px solid #f0c36c;outline-offset:2px}
+  </style>
+</head>
+<body>
+<main>
+  <h1>Riptide HQ image delivery test</h1>
+  <p>This isolated page tests only the native high-resolution artwork files. It does not alter the working Riptide HQ page or its hotspots.</p>
+
+  <section class="notice" aria-labelledby="summary-heading">
+    <h2 id="summary-heading">Test summary</h2>
+    <p id="summary" class="status">Testing both image files…</p>
+    <div class="links">
+      <a class="button" href="assets/riptide/hq/riptide-hq-desktop.webp?v=20260806-test-1" target="_blank" rel="noopener">Open desktop file directly</a>
+      <a class="button" href="assets/riptide/hq/riptide-hq-mobile.webp?v=20260806-test-1" target="_blank" rel="noopener">Open mobile file directly</a>
+      <a class="button" href="riptide-hq.html">Open working HQ page</a>
+    </div>
+  </section>
+
+  <div class="grid">
+    <section class="card" aria-labelledby="desktop-heading">
+      <h2 id="desktop-heading">Desktop artwork</h2>
+      <p>Expected source dimensions: <strong>2560 × 1920</strong>.</p>
+      <img id="desktop-image" src="assets/riptide/hq/riptide-hq-desktop.webp?v=20260806-test-1" alt="Desktop Riptide HQ artwork test" width="2560" height="1920">
+      <p id="desktop-status" class="status">Loading…</p>
+      <ul id="desktop-meta" class="meta"></ul>
+    </section>
+
+    <section class="card" aria-labelledby="mobile-heading">
+      <h2 id="mobile-heading">Mobile artwork</h2>
+      <p>Expected source dimensions: <strong>1440 × 2560</strong>.</p>
+      <img id="mobile-image" src="assets/riptide/hq/riptide-hq-mobile.webp?v=20260806-test-1" alt="Mobile Riptide HQ artwork test" width="1440" height="2560">
+      <p id="mobile-status" class="status">Loading…</p>
+      <ul id="mobile-meta" class="meta"></ul>
+    </section>
+  </div>
+</main>
+<script>
+(() => {
+  const tests = [
+    {name:'desktop', expectedWidth:2560, expectedHeight:1920},
+    {name:'mobile', expectedWidth:1440, expectedHeight:2560}
+  ];
+  const results = new Map();
+
+  function escapeText(value){return String(value ?? 'unknown');}
+
+  async function inspect(test){
+    const image = document.getElementById(`${test.name}-image`);
+    const status = document.getElementById(`${test.name}-status`);
+    const meta = document.getElementById(`${test.name}-meta`);
+
+    function add(label,value){
+      const li=document.createElement('li');
+      const strong=document.createElement('strong');
+      strong.textContent=`${label}: `;
+      li.append(strong,document.createTextNode(escapeText(value)));
+      meta.appendChild(li);
+    }
+
+    try{
+      await image.decode();
+      const dimensionsCorrect=image.naturalWidth===test.expectedWidth && image.naturalHeight===test.expectedHeight;
+      status.textContent=dimensionsCorrect?'PASS — image decoded at the expected resolution.':'FAIL — image decoded, but the dimensions are incorrect.';
+      status.className=`status ${dimensionsCorrect?'ok':'bad'}`;
+      add('Natural dimensions',`${image.naturalWidth} × ${image.naturalHeight}`);
+      add('Current source',image.currentSrc);
+
+      let responseInfo={status:'not checked',type:'unknown',length:'unknown'};
+      try{
+        const response=await fetch(image.currentSrc,{method:'HEAD',cache:'no-store'});
+        responseInfo={status:`${response.status} ${response.statusText}`,type:response.headers.get('content-type'),length:response.headers.get('content-length')};
+      }catch(error){responseInfo.status=`HEAD request failed: ${error.message}`;}
+      add('HTTP response',responseInfo.status);
+      add('Content-Type',responseInfo.type);
+      add('Content-Length',responseInfo.length);
+      results.set(test.name,dimensionsCorrect && String(responseInfo.type).includes('image/webp'));
+    }catch(error){
+      status.textContent=`FAIL — browser could not decode this image: ${error.message}`;
+      status.className='status bad';
+      add('Requested source',image.src);
+      results.set(test.name,false);
+    }
+    updateSummary();
+  }
+
+  function updateSummary(){
+    if(results.size<tests.length)return;
+    const summary=document.getElementById('summary');
+    const passed=[...results.values()].every(Boolean);
+    summary.textContent=passed?'PASS — both native WebP files load, decode and report the expected dimensions.':'FAIL — one or both native WebP files did not pass. Do not connect these files to the live HQ page.';
+    summary.className=`status ${passed?'ok':'bad'}`;
+  }
+
+  tests.forEach(inspect);
+})();
+</script>
+</body>
+</html>
