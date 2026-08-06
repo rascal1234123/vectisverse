@@ -1,3 +1,4 @@
+// Riptide HQ high-resolution artwork loader.
 (() => {
   const artefacts = window.RIPTIDE_ARTEFACTS || [];
   const maps = window.RIPTIDE_HOTSPOTS || {};
