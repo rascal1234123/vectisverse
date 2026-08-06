@@ -1,3 +1,4 @@
+// Riptide HQ high-resolution artwork loader.
 (() => {
   const artefacts = window.RIPTIDE_ARTEFACTS || [];
   const maps = window.RIPTIDE_HOTSPOTS || {};
@@ -6,11 +7,19 @@
   const desktopImage = document.querySelector('[data-hq-desktop]');
   const mobileSource = document.querySelector('[data-hq-mobile]');
 
-  if (desktopImage && window.RIPTIDE_HQ_DESKTOP_PARTS) {
-    desktopImage.src = `data:image/webp;base64,${window.RIPTIDE_HQ_DESKTOP_PARTS.join('')}`;
+  const desktopData = [
+    ...(window.RIPTIDE_HQ_DESKTOP_HIRES_PARTS || []),
+    ...(window.RIPTIDE_HQ_DESKTOP_AVIF_PARTS || [])
+  ].join('');
+  const mobileData = window.RIPTIDE_HQ_MOBILE_AVIF_PARTS
+    ? window.RIPTIDE_HQ_MOBILE_AVIF_PARTS.join('')
+    : '';
+
+  if (desktopImage && desktopData) {
+    desktopImage.src = `data:image/avif;base64,${desktopData}`;
   }
-  if (mobileSource && window.RIPTIDE_HQ_MOBILE_PARTS) {
-    mobileSource.srcset = `data:image/webp;base64,${window.RIPTIDE_HQ_MOBILE_PARTS.join('')}`;
+  if (mobileSource && mobileData) {
+    mobileSource.srcset = `data:image/avif;base64,${mobileData}`;
   }
 
   if (!layer || !dialog || !artefacts.length || !maps.desktop || !maps.mobile) return;

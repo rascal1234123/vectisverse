@@ -1,0 +1,19 @@
+desktop parts: 5
+desktop part lengths: 12000,18195,19624,12000,6180
+desktop base64 length: 67999
+desktop decoded bytes: 50997
+desktop expected bytes: 40633
+desktop sha256: 5b60e1063a21859a0dc7610cb15f4e6813db3937bfb0f65224d25a0fcb981a26
+desktop expected sha256: 572fc771e916341b4c254958c521df481d88c1d18b21e0bad3060cc55910a8c8
+desktop signature: ftyp
+desktop valid: false
+
+mobile parts: 3
+mobile part lengths: 12000,12005,10673
+mobile base64 length: 34678
+mobile decoded bytes: 18003
+mobile expected bytes: 21708
+mobile sha256: ed66998f05ab31294808a948886e27afe3f7876206734664170116b97803f885
+mobile expected sha256: 95391ad2b12fecb30db246406d6b98a50f5deaebdf8815dbaf808d8700fbd8e2
+mobile signature: ftyp
+mobile valid: false

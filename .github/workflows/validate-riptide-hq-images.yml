@@ -1,0 +1,91 @@
+name: Diagnose Riptide HQ images
+
+on:
+  push:
+    branches:
+      - fix/riptide-hq-resolution-v2
+    paths:
+      - 'vectisverse-site-v1/assets/js/riptide-hq-avif-*.js'
+      - 'vectisverse-site-v1/assets/js/riptide-hq.js'
+      - 'vectisverse-site-v1/riptide-hq.html'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose-images:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/riptide-hq-resolution-v2
+      - name: Write image diagnostics
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const vm = require('vm');
+          const crypto = require('crypto');
+
+          const root = 'vectisverse-site-v1/assets/js';
+          const files = [
+            'riptide-hq-avif-d01.js',
+            'riptide-hq-avif-d02.js',
+            'riptide-hq-avif-d03.js',
+            'riptide-hq-avif-d04.js',
+            'riptide-hq-avif-m01.js',
+            'riptide-hq-avif-m02.js',
+            'riptide-hq-avif-final.js'
+          ];
+
+          const context = { window: {} };
+          vm.createContext(context);
+          for (const file of files) {
+            vm.runInContext(fs.readFileSync(`${root}/${file}`, 'utf8'), context, { filename: file });
+          }
+
+          const desktopParts = [
+            ...(context.window.RIPTIDE_HQ_DESKTOP_HIRES_PARTS || []),
+            ...(context.window.RIPTIDE_HQ_DESKTOP_AVIF_PARTS || [])
+          ];
+          const mobileParts = context.window.RIPTIDE_HQ_MOBILE_AVIF_PARTS || [];
+          const desktopBase64 = desktopParts.join('');
+          const mobileBase64 = mobileParts.join('');
+
+          function report(name, parts, base64, expectedBytes, expectedSha256) {
+            const data = Buffer.from(base64, 'base64');
+            const hash = crypto.createHash('sha256').update(data).digest('hex');
+            const signature = data.subarray(4, 8).toString('ascii');
+            return [
+              `${name} parts: ${parts.length}`,
+              `${name} part lengths: ${parts.map(part => part.length).join(',')}`,
+              `${name} base64 length: ${base64.length}`,
+              `${name} decoded bytes: ${data.length}`,
+              `${name} expected bytes: ${expectedBytes}`,
+              `${name} sha256: ${hash}`,
+              `${name} expected sha256: ${expectedSha256}`,
+              `${name} signature: ${signature}`,
+              `${name} valid: ${data.length === expectedBytes && hash === expectedSha256 && signature === 'ftyp'}`
+            ].join('\n');
+          }
+
+          const output = [
+            report('desktop', desktopParts, desktopBase64, 40633, '572fc771e916341b4c254958c521df481d88c1d18b21e0bad3060cc55910a8c8'),
+            '',
+            report('mobile', mobileParts, mobileBase64, 21708, '95391ad2b12fecb30db246406d6b98a50f5deaebdf8815dbaf808d8700fbd8e2'),
+            ''
+          ].join('\n');
+
+          fs.writeFileSync('riptide-hq-image-diagnostics.txt', output);
+          console.log(output);
+          NODE
+      - name: Commit diagnostics
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add riptide-hq-image-diagnostics.txt
+          git commit -m "Add Riptide HQ image diagnostics [skip ci]" || exit 0
+          git push origin HEAD:fix/riptide-hq-resolution-v2
