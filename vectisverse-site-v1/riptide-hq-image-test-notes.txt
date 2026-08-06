@@ -1,0 +1,1 @@
+This branch is for Cloudflare preview testing only. Do not merge until both native WebP assets pass the image-only test in Safari and on mobile.
