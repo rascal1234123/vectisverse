@@ -6,11 +6,9 @@
   <meta name="theme-color" content="#090b0d">
   <meta name="description" content="A standalone virtual tour prototype of Riptide HQ.">
   <title>Riptide HQ Virtual Tour | VectisVerse</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
-  <link rel="stylesheet" href="assets/css/riptide-hq-tour.css?v=20260807-2">
-  <script defer src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+  <link rel="stylesheet" href="assets/css/riptide-hq-tour.css?v=20260807-3">
   <script defer src="assets/js/riptide-hq-tour-config.js?v=20260807-1"></script>
-  <script defer src="assets/js/riptide-hq-tour.js?v=20260807-2"></script>
+  <script defer src="assets/js/riptide-hq-tour.js?v=20260807-3"></script>
 </head>
 <body class="hq-tour-page">
   <a class="tour-skip" href="#tour-controls">Skip to tour controls</a>
@@ -21,21 +19,11 @@
       <button class="tour-move tour-move--forward" data-move="next" type="button" aria-label="Move forward" hidden><span aria-hidden="true">▲</span></button>
       <button class="tour-move tour-move--back" data-move="previous" type="button" aria-label="Move back" hidden><span aria-hidden="true">▼</span></button>
     </section>
-
     <div class="tour-ui" id="tour-controls">
-      <div class="tour-location" aria-live="polite">
-        <span data-quarter>Q2</span>
-        <strong data-location>Team Area</strong>
-      </div>
-      <div class="tour-quarter-track" aria-label="Tour location">
-        <span data-q="Q2" class="is-current">Q2</span><span data-q="Q3">Q3</span><span data-q="Q4">Q4</span>
-      </div>
-      <div class="tour-actions">
-        <button type="button" data-reset>Return to Start</button>
-        <a href="riptide.html" data-exit>Exit Tour</a>
-      </div>
+      <div class="tour-location" aria-live="polite"><span data-quarter>Q2</span><strong data-location>Team Area</strong></div>
+      <div class="tour-quarter-track" aria-label="Tour location"><span data-q="Q2" class="is-current">Q2</span><span data-q="Q3">Q3</span><span data-q="Q4">Q4</span></div>
+      <div class="tour-actions"><button type="button" data-reset>Return to Start</button><a href="riptide.html" data-exit>Exit Tour</a></div>
     </div>
-
     <p class="tour-help">Drag to look around. Use W/S or the floor markers to move through HQ.</p>
     <p class="tour-live" data-live aria-live="polite"></p>
   </main>
