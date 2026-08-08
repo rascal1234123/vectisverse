@@ -179,7 +179,7 @@ for x in (-2.7,2.7):
 # Daylight behind seaward window.
 bpy.ops.object.light_add(type='AREA',location=(0,L+1.5,window_z)); dl=bpy.context.object; dl.data.energy=850; dl.data.color=(.52,.72,1.0); dl.data.size=5.5; dl.rotation_euler=(math.pi/2,0,0)
 
-s.render.engine='CYCLES'; s.cycles.samples=20; s.cycles.use_denoising=True
+s.render.engine='CYCLES'; s.cycles.samples=20; s.cycles.use_denoising=False
 for node,y in {'01':4.,'02':8.,'03':12.,'04':16.,'05':20.}.items():
     d=bpy.data.cameras.new('CAM_NODE_'+node); d.type='PANO'; d.panorama_type='EQUIRECTANGULAR'
     c=bpy.data.objects.new('CAM_NODE_'+node,d); s.collection.objects.link(c); c.location=(0,y,EYE); c.rotation_euler=(math.radians(90),0,0); s.camera=c
