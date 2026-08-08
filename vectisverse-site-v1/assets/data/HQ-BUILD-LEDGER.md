@@ -1,6 +1,6 @@
 # RIPTIDE HQ — BUILD LEDGER
 
-Version: 1.2
+Version: 1.3
 Status: ACTIVE
 
 ## 2026-08-08 — Autonomous directive reconciliation
@@ -15,50 +15,46 @@ Status: ACTIVE
 - Five-node Gate 4.3/4.4 production route is authoritative over the older seven-node concept where they conflict.
 - Locked topology confirmed: Q1/Q2 partition; Q2/Q3 open; Q3/Q4 open; one continuous Q2→Q3→Q4 environment; single Q4 seaward circular window; 0° seaward.
 
-### Lowest failing layer
-Current blocker is primarily Layer F/H (export/encoding and asset delivery), not Layer A/B/G:
-- Pannellum is already integrated.
-- Geometry/topology is already represented deterministically.
-- Node 01 config references `node-01-production-beta.webp`.
-- Nodes 02–05 config still references SVG beta stand-ins.
-- Therefore the current build is not a final release candidate.
-
 ### Production-control files established
 - `HQ-PRODUCTION-MANIFEST.md`
 - `HQ-BUILD-RULES.md`
 - `HQ-QA-CHECKLIST.md`
 - `HQ-BUILD-LEDGER.md`
 
-## 2026-08-08 — Continuation phase: recovery + client delivery
+## 2026-08-08 — Recovery + client delivery
 
 ### Historical raster recovery investigation
-- Git history confirms commit `c9b09000f21420a9abdf929057b3c589b9607f17` contained files named as raster panorama assets for Nodes 02–05 under `assets/riptide/hq-tour/node-0X/node-0X-2560.webp`.
+- Git history confirms commit `c9b09000f21420a9abdf929057b3c589b9607f17` contained files named as raster panorama assets for Nodes 02–05.
 - Exact historical blobs were reattached without modification on isolated branch `riptide-hq-recovery-staging`.
 - Staging recovery commit: `d1cf16bfc2be7fec57cad665618b7c3596758a49`.
 - Staging config wiring commit: `45f902ec0a5cf8f13bd100ced06444d324989b2e`.
-- Draft PR #14 was created solely to run repository-native binary QA; it is not approved for merge.
+- Draft PR #14 exists solely for repository-native binary QA and is not approved for merge.
 
 ### Binary QA result — historical recovery rejected
 - VectisVerse Static QA: PASS.
 - Riptide HQ Panorama QA: FAIL.
-- Nodes 02, 03 and 04 cannot be identified by Pillow as image files.
-- Node 05 presents as a WebP/RIFF-type object but the decoder cannot create a decoder object.
-- Therefore all four historical raster blobs are classified CORRUPTED / INVALID FOR PRODUCTION.
-- They must never be promoted, renamed as final assets, or used as visual masters.
+- Node 02: 14,997 bytes; non-image magic; decode FAIL.
+- Node 03: 14,999 bytes; non-image magic; decode FAIL.
+- Node 04: 14,997 bytes; non-image magic; decode FAIL.
+- Node 05: 4,255 bytes; RIFF/WebP header present but decoder creation FAIL.
+- All four historical raster blobs are CORRUPTED / INVALID FOR PRODUCTION and must never be promoted.
 
-### Surviving raw production asset inventory
-- Library inventory confirms the surviving Node 01 production pair exists as raw WebPs:
-  - `node-01-q2-production-equirect-v2.webp`
-  - `node-01-q2-production-equirect-v2-mobile.webp`
-- No corresponding raw Node 02–05 WebP delivery files are present in the Library inventory.
-- Approved QA / panorama boards survive for Nodes 02–05 and document the intended visual result, orientation and seam metrics, but those boards are reference material rather than the original 8192×4096 sources.
+### Node 01 repository corruption found and mitigated
+- Repository `assets/riptide-hq/node-01-production-beta.webp` was extracted through GitHub Actions and tested independently.
+- It is only 15,009 bytes and fails WebP decoder creation.
+- This means the prior `main` starting panorama was also corrupted at Layer F/H.
+- Library production sources survive intact:
+  - `node-01-q2-production-equirect-v2.webp` — 1,041,454 bytes, WEBP, 4096×2048, 2:1, decode PASS.
+  - `node-01-q2-production-equirect-v2-mobile.webp` — 426,782 bytes, WEBP, 2048×1024, 2:1, decode PASS.
+- Until the validated Library pair can be reintroduced as repository binaries, `main` has been restored to the valid shared-geometry Node 01 SVG fallback.
+- Fallback config commit: `56c67002137273ef458865cf002350c6f003c997`.
+- Cache-bust commit: `d4e5a3ac425f74f2f8543e09a5f849158229457c`.
 
 ### Client delivery defect found and corrected
-- Defect: current Pannellum loader used `n.image` unconditionally and ignored configured `n.mobile` assets.
-- Layer: J / H (client delivery / asset selection), not design or geometry.
-- Fix committed to `main`: `15ee1d65e15ff5433d6742efd73972c5e488aa1f`.
-- Page cache bust committed to `main`: `5f42a883d704ee697b2bfe803493313532f96a4b`.
-- Result: below 760 px, the loader now uses a node's mobile asset when present; desktop continues to use the desktop source.
+- Defect: Pannellum loader ignored configured `mobile` assets.
+- Fix: `15ee1d65e15ff5433d6742efd73972c5e488aa1f`.
+- Page cache bust: `5f42a883d704ee697b2bfe803493313532f96a4b`.
+- Result: viewport ≤760 px uses `mobile` when supplied; desktop uses `image`.
 
 ### Current regression state
 PASS:
@@ -66,16 +62,17 @@ PASS:
 - Pannellum remains the renderer.
 - 0° = seaward convention unchanged.
 - Locked geometry untouched.
-- Desktop/mobile source-selection logic now behaves as configured.
-- Historical recovery was tested safely without modifying `main`.
+- All five configured `main` assets are now geometry-valid SVG stand-ins rather than corrupt raster binaries.
+- Historical recovery was tested safely without contaminating `main`.
 
 BLOCKED:
-- Historical Node 02–05 binaries are invalid and cannot be reused.
-- Final production panoramas for Nodes 02–05 must therefore be reconstructed from authoritative geometry plus approved visual masters.
-- Final production smoke test cannot be claimed until genuine final WebP panoramas are installed and deployed.
+- Final production raster assets are absent from the repository.
+- Node 01 has valid production sources in the Library but requires safe binary reintroduction.
+- Nodes 02–05 require genuine reconstruction from authoritative geometry plus approved visual masters; historical Git rasters are unusable.
+- Final release, browser QA and deployment smoke test remain blocked until that final raster set exists.
 
 ### Next autonomous production action
-Reconstruct Nodes 02–05 as genuine 2:1 equirectangular production panoramas from the locked shared environment and approved visual masters; create desktop/mobile WebP derivatives; run binary decode, dimensions, seam/orientation, visual continuity, Pannellum, forward/reverse navigation, responsive, iPhone Safari and deployment smoke QA before promotion to `main`.
+Reconstruct / reintroduce genuine 2:1 production panoramas, generate desktop/mobile WebP derivatives, then run decode, dimensions, seam/orientation, visual continuity, Pannellum, navigation, responsive, iPhone Safari and deployment smoke QA before promotion.
 
 ### Escalation state
-No creative approval gate is currently identified. The remaining blocker is production rendering/reconstruction at Layer E/F, not repository access, navigation, Pannellum, or approved design.
+No creative approval gate is currently identified. The remaining blocker is Layer E/F production rendering and safe binary delivery, not repository permissions, Pannellum, navigation or approved design.
