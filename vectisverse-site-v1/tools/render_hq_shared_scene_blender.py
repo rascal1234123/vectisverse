@@ -25,8 +25,8 @@ def rack(name,x,y,m):
         for iz in (.62,1.18): cyl(name+f'_weight{ix}{iz}',(x+ix,y-.1,iz),.17,.18,m,rot=(math.pi/2,0,0),vertices=24)
 
 clear(); s=bpy.context.scene; s.unit_settings.system='METRIC'; s.render.resolution_x=1024; s.render.resolution_y=512; s.render.resolution_percentage=100; s.render.image_settings.file_format='PNG'; s.render.film_transparent=False
-# Explicit exposure and ambient strength make dark proxy geometry inspectable; no geometry changes.
-s.view_settings.look='AgX - Medium High Contrast'; s.view_settings.exposure=1.8
+# Bright neutral validation exposure; this is not the production lighting treatment.
+s.view_settings.look='AgX - Medium High Contrast'; s.view_settings.exposure=2.4
 s.world.use_nodes=True; bg=s.world.node_tree.nodes.get('Background'); bg.inputs['Color'].default_value=(.055,.055,.065,1); bg.inputs['Strength'].default_value=.55
 WOOD=mat('Warm timber',(.30,.15,.07),.72); WOOD2=mat('Light timber',(.48,.26,.12),.68); DARK=mat('Dark equipment',(.05,.06,.075),.45,.15); SOFA=mat('Sofa charcoal',(.10,.11,.12),.82); RUBBER=mat('Rubber floor',(.07,.075,.08),.9); SCREEN=mat('Technology screen',(.01,.07,.14),.25,.1); GLASS=mat('Sea window',(.10,.42,.62),.12)
 # Continuous shell.
@@ -44,9 +44,9 @@ cube('Q3_RUBBER_TILES',(0,12,.025),(7.4,7.2,.05),RUBBER); rack('Q3_SMITH_MACHINE
 cube('Q4_SHIELD_TABLE_BODY',(0,20,.48),(3.8,3.7,.22),WOOD2); bpy.ops.mesh.primitive_cone_add(vertices=3,radius1=2.2,depth=.22,location=(0,22,.48),rotation=(0,0,math.pi)); bpy.context.object.data.materials.append(WOOD2); bpy.context.object.name='Q4_SHIELD_TABLE_NOSE'
 for i,(x,y,a) in enumerate([(-2.2,18.8,0),(2.2,18.8,0),(-2.3,20.2,0),(2.3,20.2,0),(-1.9,21.6,0),(1.9,21.6,0),(-.8,22.4,0),(.8,22.4,0)]): chair(f'Q4_CHAIR_{i+1}',x,y,a,SOFA)
 cube('Q4_TECH_WALL',(W/2-.10,20,1.55),(WALL,5,2.2),SCREEN); cube('Q4_BOOKSHELF',(-W/2+.30,20,1.25),(.55,5,2.5),DARK)
-# Distributed overhead lighting; rotation points area emitters downward.
+# Omnidirectional point lights illuminate vertical walls, floor and equipment uniformly for geometry QA.
 for y in [2,5,8,11,14,17,20,23]:
-    bpy.ops.object.light_add(type='AREA',location=(0,y,4.15),rotation=(0,0,0)); l=bpy.context.object; l.data.energy=1100; l.data.shape='DISK'; l.data.size=2.4
+    bpy.ops.object.light_add(type='POINT',location=(0,y,2.7)); l=bpy.context.object; l.data.energy=900; l.data.shadow_soft_size=1.2
 # Cycles true equirectangular render.
 s.render.engine='CYCLES'; s.cycles.samples=12; s.cycles.use_denoising=False
 for node,y in {'01':4.,'02':8.,'03':12.,'04':16.,'05':20.}.items():
