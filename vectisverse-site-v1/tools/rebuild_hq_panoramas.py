@@ -1,75 +1,62 @@
 #!/usr/bin/env python3
 from pathlib import Path
-from PIL import Image
-import base64, io, json, numpy as np
+from PIL import Image, ImageChops, ImageStat
+import json, sys
 
 ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / 'assets/riptide/hq-tour/rebuild-source/source-composite.txt'
-OUT = ROOT / 'assets/riptide/hq-tour/production'
-OUT.mkdir(parents=True, exist_ok=True)
+OUT = ROOT / 'assets/riptide/hq-tour/validation'
+REPORT = ROOT / 'assets/data/HQ-PANORAMA-REBUILD-QA.json'
+failures=[]
+rows={}
 
-# Decode the approved four-panel visual-reference payload. Git text transport can
-# strip terminal '=' characters, so restore standard Base64 padding deterministically.
-encoded = ''.join(SRC.read_text(encoding='utf-8').split())
-encoded += '=' * (-len(encoded) % 4)
-raw = base64.b64decode(encoded, validate=False)
-src = np.array(Image.open(io.BytesIO(raw)).convert('RGB'))
-H, W = src.shape[:2]
-boxes = {
-    '02': (0, 0, W//2, H//2),
-    '03': (W//2, 0, W, H//2),
-    '04': (0, H//2, W//2, H),
-    '05': (W//2, H//2, W, H),
+blend = OUT / 'riptide-hq-shared-validation.blend'
+if not blend.exists() or blend.stat().st_size < 10000:
+    failures.append('Shared Blender scene file missing or unexpectedly small')
+
+for n in range(1,6):
+    node=f'{n:02d}'
+    p=OUT/f'node-{node}-validation.png'
+    if not p.exists():
+        failures.append(f'Node {node}: missing validation render')
+        continue
+    try:
+        im=Image.open(p); im.load()
+    except Exception as e:
+        failures.append(f'Node {node}: decode failure: {e}')
+        continue
+    if im.size != (1024,512):
+        failures.append(f'Node {node}: dimensions {im.size}, expected 1024x512')
+    rgb=im.convert('RGB')
+    strip=4
+    diff=ImageChops.difference(rgb.crop((0,0,strip,512)),rgb.crop((1024-strip,0,1024,512)))
+    seam=sum(ImageStat.Stat(diff).mean)/3.0
+    thumb=rgb.resize((128,64))
+    px=list(thumb.getdata())
+    blank=sum(1 for r,g,b in px if (r<3 and g<3 and b<3) or (r>252 and g>252 and b>252))/len(px)
+    extrema=rgb.getextrema()
+    dynamic=max(v[1]-v[0] for v in extrema)
+    rows[node]={
+        'file':str(p.relative_to(ROOT)),
+        'dimensions':list(im.size),
+        'bytes':p.stat().st_size,
+        'seam_edge_mae':round(seam,3),
+        'extreme_blank_ratio':round(blank,6),
+        'dynamic_range':dynamic
+    }
+    if blank > 0.40:
+        failures.append(f'Node {node}: extreme blank ratio {blank:.3f} > 0.40')
+    if dynamic < 20:
+        failures.append(f'Node {node}: render appears near-uniform / blank')
+
+report={
+    'stage':'shared-scene geometry validation',
+    'status':'FAIL' if failures else 'PASS',
+    'projection':'equirectangular 2:1',
+    'orientation':'0 degrees = seaward',
+    'nodes':rows,
+    'failures':failures,
+    'note':'These 1024x512 proxy-material renders validate shared geometry only; they are not release-final visual assets.'
 }
-
-def clean_label(arr):
-    # Presentation-board labels occupy the upper-left of each panel. Replace only
-    # that overlay with adjacent ceiling texture; no scene geometry is changed.
-    h, w = arr.shape[:2]
-    y = min(52, h//8)
-    x = min(500, w//2)
-    sample = arr[y:min(y*2,h), 0:x].copy()
-    if sample.shape[0] == 0:
-        return arr
-    sample = np.array(Image.fromarray(sample).resize((x,y), Image.Resampling.BICUBIC))
-    arr[:y, :x] = sample
-    return arr
-
-def seam_normalise(arr, width=48):
-    a = arr.astype(np.float32)
-    width = min(width, arr.shape[1]//10)
-    anchor = (a[:,0,:] + a[:,-1,:]) / 2.0
-    out = arr.copy()
-    for k in range(width):
-        t = k / max(1, width-1)
-        out[:,k,:] = np.clip((1-t)*anchor + t*a[:,k,:], 0, 255)
-        out[:,-1-k,:] = np.clip((1-t)*anchor + t*a[:,-1-k,:], 0, 255)
-    return out
-
-report = {'status':'PASS', 'source_bytes':len(raw), 'nodes':{}, 'failures':[]}
-for node, (x0,y0,x1,y1) in boxes.items():
-    panel = src[y0:y1, x0:x1].copy()
-    panel = np.array(Image.fromarray(panel).resize((1774,887), Image.Resampling.LANCZOS))
-    panel = clean_label(panel)
-    panel = seam_normalise(panel)
-    desktop = np.array(Image.fromarray(panel).resize((4096,2048), Image.Resampling.LANCZOS))
-    edge = ((desktop[:,0,:].astype(np.uint16) + desktop[:,-1,:].astype(np.uint16)) // 2).astype(np.uint8)
-    desktop[:,0,:] = edge
-    desktop[:,-1,:] = edge
-    mobile = np.array(Image.fromarray(desktop).resize((2048,1024), Image.Resampling.LANCZOS))
-    dp = OUT / f'node-{node}-4096.webp'
-    mp = OUT / f'node-{node}-2048.webp'
-    Image.fromarray(desktop).save(dp, 'WEBP', quality=92, method=6)
-    Image.fromarray(mobile).save(mp, 'WEBP', quality=90, method=6)
-    d = np.array(Image.open(dp).convert('RGB'))
-    seam = float(np.abs(d[:,0,:].astype(np.int16) - d[:,-1,:].astype(np.int16)).mean())
-    info = {'desktop':[4096,2048], 'mobile':[2048,1024], 'seam_edge_mae':round(seam,3), 'desktop_bytes':dp.stat().st_size, 'mobile_bytes':mp.stat().st_size}
-    report['nodes'][node] = info
-    if seam > 1.2:
-        report['failures'].append(f'Node {node}: seam edge MAE {seam:.3f} > 1.2')
-
-if report['failures']:
-    report['status'] = 'FAIL'
-(ROOT / 'assets/data/HQ-PANORAMA-REBUILD-QA.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
-print(json.dumps(report, indent=2))
-raise SystemExit(1 if report['failures'] else 0)
+REPORT.write_text(json.dumps(report,indent=2),encoding='utf-8')
+print(json.dumps(report,indent=2))
+raise SystemExit(1 if failures else 0)
