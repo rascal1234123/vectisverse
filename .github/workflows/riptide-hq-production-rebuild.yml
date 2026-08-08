@@ -1,0 +1,60 @@
+name: Riptide HQ Production Rebuild
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'vectisverse-site-v1/assets/riptide/hq-tour/rebuild-source/**'
+      - 'vectisverse-site-v1/tools/rebuild_hq_panoramas.py'
+      - '.github/workflows/riptide-hq-production-rebuild.yml'
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install renderer dependencies
+        run: python -m pip install --disable-pip-version-check pillow numpy
+      - name: Rebuild Node 02-05 delivery panoramas
+        run: python vectisverse-site-v1/tools/rebuild_hq_panoramas.py
+      - name: Validate generated binaries
+        run: |
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          import json, sys
+          root=Path('vectisverse-site-v1')
+          failures=[]; rows=[]
+          for n in range(2,6):
+              for size in (4096,2048):
+                  p=root/f'assets/riptide/hq-tour/production/node-{n:02d}-{size}.webp'
+                  if not p.exists(): failures.append(f'missing {p}'); continue
+                  try:
+                      im=Image.open(p); im.load()
+                  except Exception as e:
+                      failures.append(f'{p}: decode {e}'); continue
+                  expected=(4096,2048) if size==4096 else (2048,1024)
+                  if im.size != expected: failures.append(f'{p}: {im.size} != {expected}')
+                  if im.format != 'WEBP': failures.append(f'{p}: {im.format} != WEBP')
+                  rows.append({'file':str(p),'size':im.size,'format':im.format,'bytes':p.stat().st_size})
+          Path('artifacts').mkdir(exist_ok=True)
+          Path('artifacts/hq-production-binary-qa.json').write_text(json.dumps({'status':'FAIL' if failures else 'PASS','files':rows,'failures':failures},indent=2))
+          print(json.dumps({'failures':failures,'files':rows},indent=2))
+          if failures: sys.exit(1)
+          PY
+      - name: Upload rebuilt panoramas and QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: riptide-hq-production-rebuild
+          path: |
+            vectisverse-site-v1/assets/riptide/hq-tour/production/
+            vectisverse-site-v1/assets/data/HQ-PANORAMA-REBUILD-QA.json
+            artifacts/
+          if-no-files-found: error
