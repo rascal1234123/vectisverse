@@ -17,7 +17,8 @@ scene = bpy.context.scene
 
 BLACK = bpy.data.materials.get('blackened steel')
 SKYGLASS = bpy.data.materials.get('skylight glass')
-if BLACK is None or SKYGLASS is None:
+TIMBER_LIGHT = bpy.data.materials.get('oak furniture')
+if BLACK is None or SKYGLASS is None or TIMBER_LIGHT is None:
     raise RuntimeError('Required approved-treatment materials are missing')
 
 W, EAVES, RIDGE = 10.5, 2.75, 6.2
@@ -68,6 +69,52 @@ for side in (-1, 1):
         frame['hq_fixture_class'] = 'approved_skylight_recessed_frame'
         glass['hq_fixture_class'] = 'approved_skylight_glazing'
 
+# Replace the deliberately neutral Q4 table placeholder with the LOCKED outer shield
+# silhouette traced from "Riptide HQ Table Silhouette Correction Board.png".
+# Source contour (12 points) was extracted from the top-down corrected table master,
+# preserving the crown, shoulders, curved taper and landward point. The contour is
+# normalized here and scaled into the previously approved table envelope only; no
+# architecture, circulation or chair positions are changed.
+placeholder = bpy.data.objects.get('Q4_SHIELD_TABLE_EXACT_OUTLINE_PENDING')
+if placeholder is None:
+    raise RuntimeError('Q4 shield-table placeholder missing')
+bpy.data.objects.remove(placeholder, do_unlink=True)
+
+# Pixel contour from authoritative correction board, clockwise from seaward crown.
+source_pts = [
+    (484,119),(394,129),(329,158),(332,329),(354,471),(389,526),
+    (465,591),(514,554),(569,491),(590,405),(600,296),(601,155)
+]
+minx,maxx = min(p[0] for p in source_pts), max(p[0] for p in source_pts)
+miny,maxy = min(p[1] for p in source_pts), max(p[1] for p in source_pts)
+cx,cy = (minx+maxx)/2.0, (miny+maxy)/2.0
+TABLE_W,TABLE_L = 3.55,4.55
+z0,z1 = .52,.70
+xy=[]
+for px,py in source_pts:
+    x=((px-cx)/(maxx-minx))*TABLE_W
+    # image top = seaward; scene +Y = seaward
+    y=20.45-((py-cy)/(maxy-miny))*TABLE_L
+    xy.append((x,y))
+verts=[(x,y,z0) for x,y in xy] + [(x,y,z1) for x,y in xy]
+n=len(xy)
+faces=[tuple(range(n-1,-1,-1)), tuple(range(n,2*n))]
+for i in range(n):
+    j=(i+1)%n
+    faces.append((i,j,n+j,n+i))
+mesh=bpy.data.meshes.new('Q4_SHIELD_TABLE_LOCKED_MESH')
+mesh.from_pydata(verts,[],faces); mesh.update()
+table=bpy.data.objects.new('Q4_SHIELD_TABLE_LOCKED_OUTLINE',mesh)
+bpy.context.collection.objects.link(table)
+table.data.materials.append(TIMBER_LIGHT)
+table['hq_fixture_class']='locked_exact_shield_table_outline'
+table['source_master']='Riptide HQ Table Silhouette Correction Board.png'
+table['source_rule']='outer shield silhouette locked; broad crown seaward, point landward'
+# Small bevel for production furniture edge treatment; silhouette itself is unchanged.
+bpy.context.view_layer.objects.active=table; table.select_set(True)
+bev=table.modifiers.new('table edge softening','BEVEL'); bev.width=.045; bev.segments=3
+bpy.ops.object.modifier_apply(modifier=bev.name); table.select_set(False)
+
 # Quality refinement only. Do not enable OIDN: Ubuntu CI Blender may not provide it.
 scene.render.resolution_x = 2048
 scene.render.resolution_y = 1024
@@ -88,4 +135,4 @@ for idx, cam in enumerate(cameras, start=1):
     bpy.ops.render.render(write_still=True)
 
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT / 'riptide-hq-production-treatment-refined.blend'))
-print('HQ production-treatment refinement complete: true skylight apertures, 5 locked cameras, 2048x1024 previews.')
+print('HQ production-treatment refinement complete: true skylight apertures, locked shield table outline, 5 locked cameras, 2048x1024 previews.')
