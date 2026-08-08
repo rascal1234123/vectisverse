@@ -1,0 +1,1 @@
+The base64 payload under assets/riptide/hq-tour/rebuild-source is an encoded WebP representation of the approved Node 02–05 four-panel panorama visual-reference board. It is a reconstruction source, not an authoritative design master. The locked geometry master remains authoritative for topology and spatial rules.
