@@ -5,7 +5,7 @@ window.RIPTIDE_HQ_TOUR = {
   defaultPitch: 0,
   defaultFov: 75,
   nodes: [
-    { id:'01', quarter:'Q2', label:'Team Area', image:'hq-node-01-diag.svg', mobile:'hq-node-01-diag.svg', previous:null, next:'02' },
+    { id:'01', quarter:'Q2', label:'Team Area', image:'hq-node-01-diag.svg?v=2', mobile:'hq-node-01-diag.svg?v=2', previous:null, next:'02' },
     { id:'02', quarter:'Q2', label:'Team / Training Transition', image:'hq-node-02-diag.svg', mobile:'hq-node-02-diag.svg', previous:'01', next:'03' },
     { id:'03', quarter:'Q3', label:'Training Area', image:'hq-node-03-diag.svg', mobile:'hq-node-03-diag.svg', previous:'02', next:'04' },
     { id:'04', quarter:'Q3', label:'Training / Briefing Transition', image:'hq-node-04-diag.svg', mobile:'hq-node-04-diag.svg', previous:'03', next:'05' },
