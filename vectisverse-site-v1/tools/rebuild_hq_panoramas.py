@@ -8,8 +8,11 @@ SRC = ROOT / 'assets/riptide/hq-tour/rebuild-source/source-composite.txt'
 OUT = ROOT / 'assets/riptide/hq-tour/production'
 OUT.mkdir(parents=True, exist_ok=True)
 
-# Decode the approved four-panel visual-reference payload.
-raw = base64.b64decode(''.join(SRC.read_text(encoding='utf-8').split()))
+# Decode the approved four-panel visual-reference payload. Git text transport can
+# strip terminal '=' characters, so restore standard Base64 padding deterministically.
+encoded = ''.join(SRC.read_text(encoding='utf-8').split())
+encoded += '=' * (-len(encoded) % 4)
+raw = base64.b64decode(encoded, validate=False)
 src = np.array(Image.open(io.BytesIO(raw)).convert('RGB'))
 H, W = src.shape[:2]
 boxes = {
@@ -43,7 +46,7 @@ def seam_normalise(arr, width=48):
         out[:,-1-k,:] = np.clip((1-t)*anchor + t*a[:,-1-k,:], 0, 255)
     return out
 
-report = {'status':'PASS', 'nodes':{}, 'failures':[]}
+report = {'status':'PASS', 'source_bytes':len(raw), 'nodes':{}, 'failures':[]}
 for node, (x0,y0,x1,y1) in boxes.items():
     panel = src[y0:y1, x0:x1].copy()
     panel = np.array(Image.fromarray(panel).resize((1774,887), Image.Resampling.LANCZOS))
