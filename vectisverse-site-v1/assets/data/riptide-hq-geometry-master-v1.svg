@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="760" viewBox="0 0 1600 760">
+<rect width="100%" height="100%" fill="#090b0d"/>
+<style>text{font-family:Arial,sans-serif;fill:#fff}.h{font-weight:700;font-size:34px}.s{font-size:18px}.z{font-weight:700;font-size:24px}.n{font-size:16px;fill:#c9d2da}.node{fill:#0b83d5;stroke:white;stroke-width:3}.open{stroke:#f1a51b;stroke-width:6;stroke-dasharray:14 12}.solid{stroke:#5ac85a;stroke-width:7}.end{stroke:#ab79d2;stroke-width:7}</style>
+<text x="70" y="70" class="h">RIPTIDE HQ — DETERMINISTIC GEOMETRY MASTER v1</text>
+<text x="70" y="108" class="s">Topology lock for Beta build — one continuous model, five camera nodes, 0° = seaward</text>
+<rect x="140" y="160" width="330" height="310" rx="4" fill="#263228" stroke="#9ca6ad" stroke-width="2"/>
+<text x="305" y="285" text-anchor="middle" class="z">Q1</text><text x="305" y="325" text-anchor="middle" class="s">PRIVATE / NOT ACCESSIBLE</text>
+<rect x="470" y="160" width="330" height="310" rx="4" fill="#593719" stroke="#9ca6ad" stroke-width="2"/>
+<text x="635" y="285" text-anchor="middle" class="z">Q2</text><text x="635" y="325" text-anchor="middle" class="s">TEAM AREA</text>
+<rect x="800" y="160" width="330" height="310" rx="4" fill="#1e3341" stroke="#9ca6ad" stroke-width="2"/>
+<text x="965" y="285" text-anchor="middle" class="z">Q3</text><text x="965" y="325" text-anchor="middle" class="s">TRAINING AREA</text>
+<rect x="1130" y="160" width="330" height="310" rx="4" fill="#493052" stroke="#9ca6ad" stroke-width="2"/>
+<text x="1295" y="285" text-anchor="middle" class="z">Q4</text><text x="1295" y="325" text-anchor="middle" class="s">BRIEFING AREA</text>
+<line x1="470" y1="160" x2="470" y2="470" class="solid"/>
+<line x1="800" y1="160" x2="800" y2="470" class="open"/>
+<line x1="1130" y1="160" x2="1130" y2="470" class="open"/>
+<line x1="1460" y1="160" x2="1460" y2="470" class="end"/><circle cx="1460" cy="315" r="72" fill="none" stroke="#61b9e7" stroke-width="7"/>
+<circle cx="635" cy="315" r="25" class="node"/><text x="635" y="321" text-anchor="middle" class="s">01</text>
+<circle cx="800" cy="315" r="25" class="node"/><text x="800" y="321" text-anchor="middle" class="s">02</text>
+<circle cx="965" cy="315" r="25" class="node"/><text x="965" y="321" text-anchor="middle" class="s">03</text>
+<circle cx="1130" cy="315" r="25" class="node"/><text x="1130" y="321" text-anchor="middle" class="s">04</text>
+<circle cx="1295" cy="315" r="25" class="node"/><text x="1295" y="321" text-anchor="middle" class="s">05</text>
+<line x1="470" y1="560" x2="1460" y2="560" stroke="#ffd34c" stroke-width="5"/><polygon points="1460,560 1435,545 1435,575" fill="#ffd34c"/>
+<text x="965" y="600" text-anchor="middle" class="s">SEAWARD / +Z / YAW 0°</text>
+<text x="70" y="635" class="z">LOCKED INVARIANTS</text>
+<text x="70" y="670" class="n">Q1/Q2 = full-height partition + door  •  Q2/Q3 = OPEN  •  Q3/Q4 = OPEN  •  Q3 equipment only in Q3</text>
+<text x="70" y="703" class="n">Q4 briefing only in Q4  •  ONE circular seaward window  •  no invented internal doors or duplicate side windows</text>
+<text x="70" y="736" class="n">Absolute Q2/Q4 lengths are not invented; Beta geometry uses normalised quarter units until an approved scale source exists.</text>
+</svg>
