@@ -1,0 +1,116 @@
+name: Riptide HQ Panorama QA
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'vectisverse-site-v1/assets/riptide/hq-tour/recovery/**'
+      - 'vectisverse-site-v1/assets/js/riptide-hq-tour-config.js'
+      - '.github/workflows/riptide-hq-panorama-qa.yml'
+  workflow_dispatch:
+
+jobs:
+  panorama-qa:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install QA dependencies
+        run: python -m pip install --disable-pip-version-check pillow
+      - name: Validate recovered panoramas and tour config
+        shell: bash
+        run: |
+          python - <<'PY'
+          from PIL import Image, ImageChops, ImageStat
+          from pathlib import Path
+          import json, re, sys
+
+          root = Path('vectisverse-site-v1')
+          pano_dir = root / 'assets/riptide/hq-tour/recovery'
+          expected = [f'node-{n:02d}-2560.webp' for n in range(2, 6)]
+          report = {'status':'PASS','nodes':{},'config':{},'failures':[]}
+
+          for name in expected:
+              p = pano_dir / name
+              node = name[5:7]
+              if not p.exists():
+                  report['failures'].append(f'Node {node}: missing {p}')
+                  continue
+              try:
+                  im = Image.open(p)
+                  im.load()
+              except Exception as e:
+                  report['failures'].append(f'Node {node}: decode failure: {e}')
+                  continue
+              w, h = im.size
+              fmt = im.format
+              ratio = w / h if h else 0
+              rgb = im.convert('RGB')
+              strip = max(1, min(8, w // 256))
+              left = rgb.crop((0, 0, strip, h))
+              right = rgb.crop((w-strip, 0, w, h))
+              diff = ImageChops.difference(left, right)
+              seam_mae = sum(ImageStat.Stat(diff).mean) / 3.0
+              thumb = rgb.resize((256, 128))
+              px = list(thumb.getdata())
+              blank = sum(1 for r,g,b in px if (r < 4 and g < 4 and b < 4) or (r > 251 and g > 251 and b > 251)) / len(px)
+              node_result = {
+                  'file': str(p), 'format': fmt, 'width': w, 'height': h,
+                  'aspect_ratio': round(ratio, 6), 'seam_edge_mae': round(seam_mae, 3),
+                  'extreme_blank_ratio': round(blank, 6), 'decode':'PASS'
+              }
+              report['nodes'][node] = node_result
+              if fmt != 'WEBP':
+                  report['failures'].append(f'Node {node}: format {fmt}, expected WEBP')
+              if abs(ratio - 2.0) > 0.0001:
+                  report['failures'].append(f'Node {node}: aspect ratio {ratio:.6f}, expected 2:1')
+              if w < 2048 or h < 1024:
+                  report['failures'].append(f'Node {node}: resolution {w}x{h} below minimum 2048x1024')
+              if blank > 0.25:
+                  report['failures'].append(f'Node {node}: extreme blank ratio {blank:.3f} exceeds 0.25')
+
+          cfg_path = root / 'assets/js/riptide-hq-tour-config.js'
+          cfg = cfg_path.read_text(encoding='utf-8')
+          ids = re.findall(r"id:'(\d\d)'", cfg)
+          report['config']['node_ids'] = ids
+          report['config']['linear_sequence'] = ids == ['01','02','03','04','05']
+          for n in range(2,6):
+              token = f"assets/riptide/hq-tour/recovery/node-{n:02d}-2560.webp"
+              report['config'][f'node_{n:02d}_recovered_path'] = token in cfg
+              if token not in cfg:
+                  report['failures'].append(f'Config: Node {n:02d} not wired to recovered panorama')
+          if ids != ['01','02','03','04','05']:
+              report['failures'].append(f'Config: unexpected node sequence {ids}')
+
+          if report['failures']:
+              report['status'] = 'FAIL'
+          Path('artifacts').mkdir(exist_ok=True)
+          Path('artifacts/hq-panorama-qa.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
+
+          with open(Path.cwd() / 'artifacts/hq-panorama-qa.md', 'w', encoding='utf-8') as f:
+              f.write(f"# Riptide HQ recovered panorama QA — {report['status']}\n\n")
+              f.write('| Node | Format | Resolution | Aspect | Seam edge MAE | Extreme blank |\n')
+              f.write('|---|---|---:|---:|---:|---:|\n')
+              for node, d in sorted(report['nodes'].items()):
+                  f.write(f"| {node} | {d['format']} | {d['width']}×{d['height']} | {d['aspect_ratio']} | {d['seam_edge_mae']} | {d['extreme_blank_ratio']} |\n")
+              if report['failures']:
+                  f.write('\n## Failures\n')
+                  for x in report['failures']:
+                      f.write(f'- {x}\n')
+
+          print(json.dumps(report, indent=2))
+          if report['failures']:
+              sys.exit(1)
+          PY
+          cat artifacts/hq-panorama-qa.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload QA report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: riptide-hq-panorama-qa
+          path: artifacts/
+          if-no-files-found: error
