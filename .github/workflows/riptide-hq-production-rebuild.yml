@@ -7,6 +7,7 @@ on:
       - 'vectisverse-site-v1/tools/render_hq_shared_scene_blender.py'
       - 'vectisverse-site-v1/tools/validate_hq_shared_scene_blender.py'
       - 'vectisverse-site-v1/tools/rebuild_hq_panoramas.py'
+      - 'vectisverse-site-v1/tools/render_hq_production_preview_blender.py'
       - 'vectisverse-site-v1/assets/data/HQ-PANORAMA-REBUILD-**'
       - 'vectisverse-site-v1/assets/data/HQ-SHARED-SCENE-GEOMETRY-QA.json'
       - '.github/workflows/riptide-hq-production-rebuild.yml'
@@ -39,4 +40,24 @@ jobs:
             vectisverse-site-v1/assets/riptide/hq-tour/validation/
             vectisverse-site-v1/assets/data/HQ-PANORAMA-REBUILD-QA.json
             vectisverse-site-v1/assets/data/HQ-SHARED-SCENE-GEOMETRY-QA.json
+          if-no-files-found: error
+
+  production-treatment-preview:
+    needs: shared-scene-validation
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Blender
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y blender
+      - name: Render approved-treatment five-node preview
+        run: blender -b --python vectisverse-site-v1/tools/render_hq_production_preview_blender.py
+      - name: Upload production-treatment preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: riptide-hq-production-treatment-preview
+          path: vectisverse-site-v1/assets/riptide/hq-tour/production-preview/
           if-no-files-found: error
