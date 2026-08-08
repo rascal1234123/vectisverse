@@ -1,6 +1,6 @@
 # RIPTIDE HQ — BUILD LEDGER
 
-Version: 1.1
+Version: 1.2
 Status: ACTIVE
 
 ## 2026-08-08 — Autonomous directive reconciliation
@@ -32,17 +32,32 @@ Current blocker is primarily Layer F/H (export/encoding and asset delivery), not
 ## 2026-08-08 — Continuation phase: recovery + client delivery
 
 ### Historical raster recovery investigation
-- Git history confirms commit `c9b09000f21420a9abdf929057b3c589b9607f17` contained raster panorama assets for Nodes 02–05 under `assets/riptide/hq-tour/node-0X/node-0X-2560.webp`.
-- Historical blob for Node 02 remains present in Git (`6fd90753456c5c8c5ef9f1c00a0dc2ac8ed31ee7`).
-- Library QA / recovery reports also document prior 4096×2048 and 2048×1024 WebP exports for Nodes 02–05 and prior PASS seam/orientation results.
-- Those historical assets are recovery evidence only. They are not automatically promoted to AUTHORITATIVE because the later deterministic shared-geometry correction superseded older scene implementations where they conflict.
-- The current tool runtime can inspect historical Git blobs through the GitHub connector but cannot mount those binary blobs into the image-analysis runtime. Low-resolution report thumbnails are therefore explicitly rejected as substitutes for final panorama sources.
+- Git history confirms commit `c9b09000f21420a9abdf929057b3c589b9607f17` contained files named as raster panorama assets for Nodes 02–05 under `assets/riptide/hq-tour/node-0X/node-0X-2560.webp`.
+- Exact historical blobs were reattached without modification on isolated branch `riptide-hq-recovery-staging`.
+- Staging recovery commit: `d1cf16bfc2be7fec57cad665618b7c3596758a49`.
+- Staging config wiring commit: `45f902ec0a5cf8f13bd100ced06444d324989b2e`.
+- Draft PR #14 was created solely to run repository-native binary QA; it is not approved for merge.
+
+### Binary QA result — historical recovery rejected
+- VectisVerse Static QA: PASS.
+- Riptide HQ Panorama QA: FAIL.
+- Nodes 02, 03 and 04 cannot be identified by Pillow as image files.
+- Node 05 presents as a WebP/RIFF-type object but the decoder cannot create a decoder object.
+- Therefore all four historical raster blobs are classified CORRUPTED / INVALID FOR PRODUCTION.
+- They must never be promoted, renamed as final assets, or used as visual masters.
+
+### Surviving raw production asset inventory
+- Library inventory confirms the surviving Node 01 production pair exists as raw WebPs:
+  - `node-01-q2-production-equirect-v2.webp`
+  - `node-01-q2-production-equirect-v2-mobile.webp`
+- No corresponding raw Node 02–05 WebP delivery files are present in the Library inventory.
+- Approved QA / panorama boards survive for Nodes 02–05 and document the intended visual result, orientation and seam metrics, but those boards are reference material rather than the original 8192×4096 sources.
 
 ### Client delivery defect found and corrected
 - Defect: current Pannellum loader used `n.image` unconditionally and ignored configured `n.mobile` assets.
 - Layer: J / H (client delivery / asset selection), not design or geometry.
 - Fix committed to `main`: `15ee1d65e15ff5433d6742efd73972c5e488aa1f`.
-- Page cache bust + production-neutral metadata cleanup committed to `main`: `5f42a883d704ee697b2bfe803493313532f96a4b`.
+- Page cache bust committed to `main`: `5f42a883d704ee697b2bfe803493313532f96a4b`.
 - Result: below 760 px, the loader now uses a node's mobile asset when present; desktop continues to use the desktop source.
 
 ### Current regression state
@@ -52,13 +67,15 @@ PASS:
 - 0° = seaward convention unchanged.
 - Locked geometry untouched.
 - Desktop/mobile source-selection logic now behaves as configured.
+- Historical recovery was tested safely without modifying `main`.
 
 BLOCKED:
-- Final image-level QA for Nodes 02–05 cannot pass while current config points to SVG geometry stand-ins.
+- Historical Node 02–05 binaries are invalid and cannot be reused.
+- Final production panoramas for Nodes 02–05 must therefore be reconstructed from authoritative geometry plus approved visual masters.
 - Final production smoke test cannot be claimed until genuine final WebP panoramas are installed and deployed.
 
 ### Next autonomous production action
-Recover or reconstruct genuine final 2:1 WebP panoramas from authoritative visual sources, install desktop/mobile variants, update config, then run panorama integrity, seam/orientation, forward/reverse navigation, responsive, iPhone Safari and deployment smoke regression.
+Reconstruct Nodes 02–05 as genuine 2:1 equirectangular production panoramas from the locked shared environment and approved visual masters; create desktop/mobile WebP derivatives; run binary decode, dimensions, seam/orientation, visual continuity, Pannellum, forward/reverse navigation, responsive, iPhone Safari and deployment smoke QA before promotion to `main`.
 
 ### Escalation state
-No creative approval gate is currently identified. The remaining blocker is technical asset availability / recoverability at Layer F/H.
+No creative approval gate is currently identified. The remaining blocker is production rendering/reconstruction at Layer E/F, not repository access, navigation, Pannellum, or approved design.
