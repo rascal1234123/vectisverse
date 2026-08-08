@@ -57,8 +57,6 @@ def rack(name,x,y,dark):
 clear()
 scene=bpy.context.scene
 scene.unit_settings.system='METRIC'
-scene.render.engine='BLENDER_EEVEE_NEXT' if not hasattr(scene, 'cycles') else 'BLENDER_EEVEE_NEXT'
-# Switch to Cycles after all scene setup; panoramic equirectangular camera support is authoritative there.
 scene.render.resolution_x=1024
 scene.render.resolution_y=512
 scene.render.resolution_percentage=100
