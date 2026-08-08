@@ -1,9 +1,9 @@
 (()=>{'use strict';
 const cfg=window.RIPTIDE_HQ_TOUR;if(!cfg)return;
 const viewport=document.querySelector('[data-tour-viewport]'),pano=document.querySelector('[data-panorama]'),loading=document.querySelector('[data-loading]'),live=document.querySelector('[data-live]'),locationEl=document.querySelector('[data-location]'),quarterEl=document.querySelector('[data-quarter]'),reset=document.querySelector('[data-reset]'),moves=[...document.querySelectorAll('[data-move]')],quarters=[...document.querySelectorAll('[data-q]')];
-const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches,mobileMedia=matchMedia('(max-width:760px)');
 const state={currentNode:cfg.startNode,yaw:0,pitch:cfg.defaultPitch,fov:cfg.defaultFov,transitioning:false,viewer:null,loadedNodes:new Set()};
-const node=id=>cfg.nodes.find(n=>n.id===id),asset=n=>n.image;
+const node=id=>cfg.nodes.find(n=>n.id===id),asset=n=>mobileMedia.matches&&n.mobile?n.mobile:n.image;
 function updateUI(){const n=node(state.currentNode);locationEl.textContent=n.label;quarterEl.textContent=n.quarter;viewport.setAttribute('aria-label',`Riptide HQ virtual tour — ${n.label}`);quarters.forEach(q=>q.classList.toggle('is-current',q.dataset.q===n.quarter));moves.forEach(b=>{const target=b.dataset.move==='next'?n.next:n.previous;b.hidden=!target;if(target){const t=node(target);b.setAttribute('aria-label',`${b.dataset.move==='next'?'Move forward to':'Move back to'} ${t.label}`)}})}
 function capture(){if(!state.viewer)return;state.yaw=state.viewer.getYaw();state.pitch=state.viewer.getPitch();state.fov=state.viewer.getHfov()}
 function destroy(){if(state.viewer){state.viewer.destroy();state.viewer=null}pano.replaceChildren()}
