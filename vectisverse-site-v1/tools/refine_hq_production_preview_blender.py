@@ -1,6 +1,7 @@
 # Riptide HQ — downstream production-treatment refinement
 # Corrects only production-treatment fixtures/materials after the validated shared shell is built.
 # Spatial authority: Definitive Floor Plan v1.2 / 3D Block-out Master v1.0.
+# Fidelity gate: rerender after material, wall-assignment, gym-window and skylight corrections.
 import bpy, math, runpy
 from pathlib import Path
 
@@ -38,31 +39,23 @@ def delete_prefix(prefix):
     for o in list(bpy.data.objects):
         if o.name.startswith(prefix): bpy.data.objects.remove(o,do_unlink=True)
 
-# ------------------------------------------------------------------
 # LOCKED WALL ASSIGNMENTS — Floor Plan v1.2 wins over earlier preview placement.
-# Facing seaward: living kitchen RIGHT / entry LEFT; HQ monitor LEFT / display shelf RIGHT.
 mirror_x(('Q2_KITCHEN_','Q2_FRIDGE','Q2_OVEN','Q2_SINK','Q2_OPEN_SHELF_','Q2_SHELF_PLANT_','Q2_EXTERIOR_ENTRY'))
 mirror_x(('Q4_BOOKSHELF_BASE','Q4_ARTEFACT_','Q4_TECH_CABINET','Q4_WIDESCREEN','Q4_PLANT_'))
-
-# Gym: singular smith/power station and dumbbell equipment belong on RIGHT wall.
-# Remove surplus left-wall test racks and mirror the retained station to the right.
 for p in ('Q3_POWER_RACK_12.1','Q3_POWER_RACK_14.6'): delete_prefix(p)
 mirror_x(('Q3_POWER_RACK_9.6',))
 
-# Required paired LEFT-wall gym windows. These are authoritative openings from Floor Plan v1.2.
 left_wall=bpy.data.objects.get('LOWER_WALL')
 if left_wall is None: raise RuntimeError('Validated left wall missing')
 for i,y in enumerate((10.7,13.4)):
     z=1.48
     cutter=cube(f'_Q3_WINDOW_CUT_{i}',(-W/2,y,z),(.55,1.55,1.35))
     cut(left_wall,cutter); bpy.data.objects.remove(cutter,do_unlink=True)
-    # glazing plus four dark timber/steel trim bars
     cube(f'Q3_LEFT_WINDOW_GLASS_{i}',(-W/2+.005,y,z),(.035,1.38,1.18),SKYGLASS)
     for yy in (y-.735,y+.735): cube(f'Q3_LEFT_WINDOW_H_{i}_{yy}',(-W/2+.025,yy,z),(.12,.09,1.34),BLACK)
     for zz in (z-.63,z+.63): cube(f'Q3_LEFT_WINDOW_V_{i}_{zz}',(-W/2+.025,y,zz),(.12,1.56,.09),BLACK)
 
-# ------------------------------------------------------------------
-# TRUE SKYLIGHTS — remove old surface panels, cut roof, then use BORDER bars rather than a solid black frame.
+# TRUE SKYLIGHTS
 for o in list(bpy.data.objects):
     if o.name.startswith('SKYLIGHT_FRAME_') or o.name.startswith('SKYLIGHT_GLASS_'):
         bpy.data.objects.remove(o,do_unlink=True)
@@ -73,15 +66,13 @@ for side in (-1,1):
         x=side*2.55; z=EAVES+rise*(1-abs(x)/(W/2)); rot=(0,side*ang,0)
         cutter=cube(f'_SKYLIGHT_CUT_{side}_{i}',(x,y,z),(1.25,1.55,.52),rot=rot)
         cut(roof,cutter); bpy.data.objects.remove(cutter,do_unlink=True)
-        # border only: aperture remains optically open, eliminating the black-panel defect
         cube(f'SKYLIGHT_TOP_{side}_{i}',(x,y+.79,z-.025),(1.47,.10,.075),BLACK,rot)
         cube(f'SKYLIGHT_BOTTOM_{side}_{i}',(x,y-.79,z-.025),(1.47,.10,.075),BLACK,rot)
         cube(f'SKYLIGHT_LEFT_{side}_{i}',(x-side*.66,y,z-.025),(.10,1.50,.075),BLACK,rot)
         cube(f'SKYLIGHT_RIGHT_{side}_{i}',(x+side*.66,y,z-.025),(.10,1.50,.075),BLACK,rot)
         g=cube(f'SKYLIGHT_GLAZING_{side}_{i}',(x,y,z-.035),(1.18,1.42,.025),SKYGLASS,rot); g['hq_fixture_class']='approved_skylight_glazing'
 
-# ------------------------------------------------------------------
-# LOCKED SHIELD TABLE — traced outer silhouette, broad crown seaward / point landward.
+# LOCKED SHIELD TABLE
 ph=bpy.data.objects.get('Q4_SHIELD_TABLE_EXACT_OUTLINE_PENDING')
 if ph is None: raise RuntimeError('Q4 shield table placeholder missing')
 bpy.data.objects.remove(ph,do_unlink=True)
@@ -96,14 +87,12 @@ t=bpy.data.objects.new('Q4_SHIELD_TABLE_LOCKED_OUTLINE',me); bpy.context.collect
 t['hq_fixture_class']='locked_exact_shield_table_outline'; t['source_master']='Riptide HQ Table Silhouette Correction Board.png'
 bpy.context.view_layer.objects.active=t; t.select_set(True); b=t.modifiers.new('table edge softening','BEVEL'); b.width=.045; b.segments=3; bpy.ops.object.modifier_apply(modifier=b.name); t.select_set(False)
 
-# ------------------------------------------------------------------
-# VISUAL-FIDELITY PASS — neutralise the orange wash and restore approved warm timber / white-clad / charcoal language.
+# VISUAL-FIDELITY PASS
 def base(mat,rgba,rough=None,metal=None):
     bs=mat.node_tree.nodes.get('Principled BSDF'); bs.inputs['Base Color'].default_value=(*rgba,1)
     if rough is not None: bs.inputs['Roughness'].default_value=rough
     if metal is not None: bs.inputs['Metallic'].default_value=metal
 base(TIMBER,(.20,.095,.035),.58); base(OAK,(.36,.17,.055),.48); base(PLASTER,(.72,.70,.64),.82); base(LEATHER,(.16,.055,.018),.42)
-# subtle procedural timber grain shared by floor/roof; geometry unchanged
 for mat in (TIMBER,OAK):
     nt=mat.node_tree; bs=nt.nodes.get('Principled BSDF'); tex=nt.nodes.new('ShaderNodeTexNoise'); tex.inputs['Scale'].default_value=5.0; tex.inputs['Detail'].default_value=2.0; tex.inputs['Roughness'].default_value=.6
     ramp=nt.nodes.new('ShaderNodeValToRGB'); ramp.color_ramp.elements[0].color=(.035,.012,.004,1); ramp.color_ramp.elements[1].color=(.32,.13,.035,1)
@@ -114,7 +103,6 @@ for o in bpy.data.objects:
     if o.type=='LIGHT':
         if o.data.type=='POINT': o.data.energy=190; o.data.color=(1.0,.83,.68); o.data.shadow_soft_size=1.25
         elif o.data.type=='AREA': o.data.energy=260; o.data.color=(.72,.84,1.0)
-# broad cool skylight fill, deliberately soft and secondary to the harbour window
 for y in (5,10,15,20):
     bpy.ops.object.light_add(type='AREA',location=(0,y,4.75)); l=bpy.context.object; l.name=f'DAYLIGHT_SKYLIGHT_FILL_{y}'; l.data.energy=320; l.data.color=(.64,.78,1.0); l.data.shape='RECTANGLE'; l.data.size=4.0; l.data.size_y=2.2
 
