@@ -1,6 +1,6 @@
 # RIPTIDE HQ — PRODUCTION MANIFEST
 
-Version: 1.1
+Version: 1.2
 Status: ACTIVE
 Production baseline: `main`
 
@@ -11,6 +11,7 @@ Production baseline: `main`
 - Gate 4.3 panorama production rules: five-node sequence 01 ⇄ 02 ⇄ 03 ⇄ 04 ⇄ 05; 2:1 equirectangular delivery; 0° = seaward.
 - Gate 4.4.2 navigation UI visual master: restrained forward/back floor-positioned movement, Q2/Q3/Q4 location indication, Return to Start, Exit Tour, drag/touch look-around, limited zoom, keyboard support and reduced-motion crossfade.
 - Approved production design masters for Q2 Team Area, Q3 Training Area and Q4 Briefing Area.
+- Approved Node 02–05 panorama QA / reconstruction boards as visual-reference evidence only; they document the intended viewpoints, spatial relationships, orientation and accepted seam results but are not substitutes for raw delivery masters.
 
 ### DERIVED
 - Delivery panoramas rendered from the authoritative shared environment.
@@ -24,15 +25,22 @@ Production baseline: `main`
 - Pannellum 2.5.7 integration.
 - Responsive panorama selection: desktop uses `image`; viewport ≤760 px uses `mobile` when supplied.
 
-### RECOVERY REFERENCE — NOT FINAL AUTHORITY
-- Historical commit `c9b09000f21420a9abdf929057b3c589b9607f17` contains raster Node 02–05 panorama assets from the earlier Gate 4.5 implementation.
-- Historical Node 02 raster blob confirmed intact as Git blob `6fd90753456c5c8c5ef9f1c00a0dc2ac8ed31ee7`.
-- Library panorama QA / delivery reports document prior 4096×2048 and 2048×1024 WebP exports and seam/orientation PASS results.
-- These sources may be used for recovery comparison, but may not override the later shared-geometry master or be promoted directly to release-final without current geometry / visual QA.
+### SURVIVING RAW PRODUCTION ASSETS
+- Library: `node-01-q2-production-equirect-v2.webp` — Node 01 desktop production equirectangular.
+- Library: `node-01-q2-production-equirect-v2-mobile.webp` — Node 01 mobile production equirectangular.
+
+### CORRUPTED / INVALID — PROHIBITED FROM PROMOTION
+Historical files from commit `c9b09000f21420a9abdf929057b3c589b9607f17` that were named as Node 02–05 WebPs have been binary-tested in GitHub Actions and rejected:
+- Node 02 historical blob `6fd90753456c5c8c5ef9f1c00a0dc2ac8ed31ee7` — decode FAIL.
+- Node 03 historical blob `e09a7b462930fa40b72b6b2248d67383fed29379` — decode FAIL.
+- Node 04 historical blob `9807dd3f2402c6f6bc6be373270597a7a4080606` — decode FAIL.
+- Node 05 historical blob `6739b102e69da0a9cf3e7a469e257544a231110b` — decoder creation FAIL.
+- These objects are recovery evidence only and must never be used as final, authoritative, or deployed panorama assets.
 
 ### OBSOLETE / EXPERIMENTAL
-- Branch `riptide-hq-tour-gate-4-5` as a production baseline; it is behind current `main` and uses an earlier custom WebGL viewer and mixed 1024/2560 assets.
+- Branch `riptide-hq-tour-gate-4-5` as a production baseline; it is behind current `main` and uses an earlier custom WebGL viewer and mixed assets.
 - `hq-node-02-beta.svg` through `hq-node-05-beta.svg` as final panorama assets. They are geometry-validation stand-ins only.
+- `riptide-hq-recovery-staging` and draft PR #14 are technical recovery/QA scaffolding only; no recovered historical raster from that branch is approved for production.
 - Earlier seven-node virtual-tour concept material where it conflicts with the later five-node production route.
 - Any derivative render that has not passed the current QA checklist.
 
@@ -48,9 +56,10 @@ Production baseline: `main`
 - Camera eye height: 1.675 m unless an authoritative master supersedes it.
 - 0° yaw = seaward.
 
-## Release blockers at v1.1
-1. Node 01 remains production-beta rather than release-final.
-2. Nodes 02–05 remain SVG beta geometry stand-ins in current configuration and do not meet the final WebP 2:1 panorama requirement.
-3. Historical raster assets are recoverable references but require validation against the later shared-geometry lock before reuse.
-4. Full cross-browser and iPhone Safari release QA must be rerun against the final WebP asset set.
-5. Production smoke test must be run after final assets and config are deployed.
+## Release blockers at v1.2
+1. Node 01 remains production-beta in repository configuration and requires final asset-path normalization against the surviving production pair.
+2. Nodes 02–05 remain SVG beta geometry stand-ins in current `main` configuration.
+3. Historical Node 02–05 raster recovery has definitively failed binary decode QA and is closed as a production route.
+4. Nodes 02–05 must be reconstructed from authoritative geometry plus approved visual-reference masters and exported as genuine 2:1 WebPs.
+5. Full cross-browser and iPhone Safari release QA must be rerun against that final WebP asset set.
+6. Production smoke test must be run after final assets and config are deployed.
