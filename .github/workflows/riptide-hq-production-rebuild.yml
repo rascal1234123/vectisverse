@@ -5,8 +5,10 @@ on:
     branches: [main]
     paths:
       - 'vectisverse-site-v1/tools/render_hq_shared_scene_blender.py'
+      - 'vectisverse-site-v1/tools/validate_hq_shared_scene_blender.py'
       - 'vectisverse-site-v1/tools/rebuild_hq_panoramas.py'
       - 'vectisverse-site-v1/assets/data/HQ-PANORAMA-REBUILD-**'
+      - 'vectisverse-site-v1/assets/data/HQ-SHARED-SCENE-GEOMETRY-QA.json'
       - '.github/workflows/riptide-hq-production-rebuild.yml'
   workflow_dispatch:
 
@@ -24,6 +26,8 @@ jobs:
           python3 -m pip install --break-system-packages --disable-pip-version-check pillow
       - name: Render five-node shared-scene equirectangular validation set
         run: blender -b --python vectisverse-site-v1/tools/render_hq_shared_scene_blender.py
+      - name: Audit saved Blender scene topology and geometry
+        run: blender -b vectisverse-site-v1/assets/riptide/hq-tour/validation/riptide-hq-shared-validation.blend --python vectisverse-site-v1/tools/validate_hq_shared_scene_blender.py
       - name: Validate equirectangular output
         run: python3 vectisverse-site-v1/tools/rebuild_hq_panoramas.py
       - name: Upload scene and validation panoramas
@@ -34,4 +38,5 @@ jobs:
           path: |
             vectisverse-site-v1/assets/riptide/hq-tour/validation/
             vectisverse-site-v1/assets/data/HQ-PANORAMA-REBUILD-QA.json
+            vectisverse-site-v1/assets/data/HQ-SHARED-SCENE-GEOMETRY-QA.json
           if-no-files-found: error
