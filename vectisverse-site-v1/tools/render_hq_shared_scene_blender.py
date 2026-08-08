@@ -1,145 +1,54 @@
 # Riptide HQ — deterministic five-node shared-scene validation renderer
-# Generated under RIPTIDE HQ Autonomous Production Directive v1.0.
-# Purpose: geometry/topology validation only. It does not promote proxy materials as visual masters.
-
+# Geometry/topology validation only; proxy materials are not visual masters.
 import bpy, math
 from pathlib import Path
-
-ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "assets/riptide/hq-tour/validation"
-OUT.mkdir(parents=True, exist_ok=True)
-
-W = 9.1
-L = 24.0
-EAVES = 2.75
-RIDGE = 4.9
-EYE = 1.675
-WALL = 0.12
+ROOT=Path(__file__).resolve().parents[1]
+OUT=ROOT/'assets/riptide/hq-tour/validation'; OUT.mkdir(parents=True,exist_ok=True)
+W,L,EAVES,RIDGE,EYE,WALL=9.1,24.0,2.75,4.9,1.675,0.12
 
 def clear():
-    bpy.ops.object.select_all(action='SELECT')
-    bpy.ops.object.delete(use_global=False)
-
-def mat(name, color, rough=0.6, metallic=0.0):
-    m = bpy.data.materials.new(name)
-    m.diffuse_color = (*color,1)
-    m.use_nodes = True
-    bsdf = m.node_tree.nodes.get('Principled BSDF')
-    bsdf.inputs['Base Color'].default_value = (*color,1)
-    bsdf.inputs['Roughness'].default_value = rough
-    bsdf.inputs['Metallic'].default_value = metallic
+    bpy.ops.object.select_all(action='SELECT'); bpy.ops.object.delete(use_global=False)
+def mat(name,c,rough=.6,metal=.0):
+    m=bpy.data.materials.new(name); m.use_nodes=True; m.diffuse_color=(*c,1)
+    b=m.node_tree.nodes.get('Principled BSDF'); b.inputs['Base Color'].default_value=(*c,1); b.inputs['Roughness'].default_value=rough; b.inputs['Metallic'].default_value=metal
     return m
+def cube(name,loc,dims,m,rot=(0,0,0)):
+    bpy.ops.mesh.primitive_cube_add(location=loc,rotation=rot); o=bpy.context.object; o.name=name; o.dimensions=dims; bpy.ops.object.transform_apply(location=False,rotation=False,scale=True); o.data.materials.append(m); return o
+def cyl(name,loc,r,d,m,rot=(0,0,0),vertices=48):
+    bpy.ops.mesh.primitive_cylinder_add(vertices=vertices,radius=r,depth=d,location=loc,rotation=rot); o=bpy.context.object; o.name=name; o.data.materials.append(m); return o
+def chair(name,x,y,a,m):
+    cube(name+'_seat',(x,y,.48),(.55,.55,.12),m,rot=(0,0,a)); cube(name+'_back',(x,y-.23*math.cos(a),.9),(.55,.12,.8),m,rot=(0,0,a))
+def rack(name,x,y,m):
+    cube(name+'_frame',(x,y,1.2),(1.7,.65,2.4),m)
+    for z in (.45,1.0,1.55): cube(name+f'_shelf{z}',(x,y,z),(1.5,.7,.08),m)
+    for ix in (-.55,0,.55):
+        for iz in (.62,1.18): cyl(name+f'_weight{ix}{iz}',(x+ix,y-.1,iz),.17,.18,m,rot=(math.pi/2,0,0),vertices=24)
 
-def cube(name, loc, dims, material, rot=(0,0,0)):
-    bpy.ops.mesh.primitive_cube_add(location=loc, rotation=rot)
-    o=bpy.context.object; o.name=name; o.dimensions=dims
-    bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
-    o.data.materials.append(material)
-    return o
-
-def cyl(name, loc, radius, depth, material, rot=(0,0,0), vertices=48):
-    bpy.ops.mesh.primitive_cylinder_add(vertices=vertices, radius=radius, depth=depth, location=loc, rotation=rot)
-    o=bpy.context.object; o.name=name; o.data.materials.append(material)
-    return o
-
-def chair(name, x,y,angle, dark):
-    cube(name+"_seat",(x,y,0.48),(0.55,0.55,0.12),dark,rot=(0,0,angle))
-    cube(name+"_back",(x,y-0.23*math.cos(angle),0.9),(0.55,0.12,0.8),dark,rot=(0,0,angle))
-
-def rack(name,x,y,dark):
-    cube(name+"_frame",(x,y,1.2),(1.7,0.65,2.4),dark)
-    for z in (0.45,1.0,1.55):
-        cube(name+f"_shelf{z}",(x,y,z),(1.5,0.7,0.08),dark)
-    for ix in (-0.55,0,0.55):
-        for iz in (0.62,1.18):
-            cyl(name+f"_weight{ix}{iz}",(x+ix,y-0.1,iz),0.17,0.18,dark,rot=(math.pi/2,0,0),vertices=24)
-
-clear()
-scene=bpy.context.scene
-scene.unit_settings.system='METRIC'
-scene.render.resolution_x=1024
-scene.render.resolution_y=512
-scene.render.resolution_percentage=100
-scene.render.image_settings.file_format='PNG'
-scene.render.film_transparent=False
-
-M_WOOD=mat('Warm timber',(0.30,0.15,0.07),0.72)
-M_WOOD2=mat('Light timber',(0.48,0.26,0.12),0.68)
-M_DARK=mat('Dark equipment',(0.035,0.045,0.055),0.45,0.15)
-M_SOFA=mat('Sofa charcoal',(0.08,0.09,0.10),0.82)
-M_RUBBER=mat('Rubber floor',(0.055,0.06,0.065),0.9)
-M_SCREEN=mat('Technology screen',(0.01,0.05,0.10),0.25,0.1)
-M_GLASS=mat('Sea window',(0.10,0.35,0.52),0.12)
-
-cube('FLOOR',(0,L/2,-0.08),(W,L,0.16),M_WOOD2)
-cube('LOWER_WALL',(-W/2,L/2,EAVES/2),(WALL,L,EAVES),M_WOOD)
-cube('UPPER_WALL',( W/2,L/2,EAVES/2),(WALL,L,EAVES),M_WOOD)
-half=W/2; rise=RIDGE-EAVES; slope=math.hypot(half,rise); ang=math.atan2(rise,half)
-cube('ROOF_LOWER',(-W/4,L/2,EAVES+rise/2),(slope,L,0.14),M_WOOD,rot=(0,ang,0))
-cube('ROOF_UPPER',( W/4,L/2,EAVES+rise/2),(slope,L,0.14),M_WOOD,rot=(0,-ang,0))
-
-door_x=2.8; door_w=1.0; door_h=2.15
-cube('Q1Q2_WALL_LEFT',((-W/2+door_x-door_w/2)/2,0,EAVES/2),(door_x-door_w/2+W/2,WALL,EAVES),M_WOOD)
-cube('Q1Q2_WALL_RIGHT',((door_x+door_w/2+W/2)/2,0,EAVES/2),(W/2-(door_x+door_w/2),WALL,EAVES),M_WOOD)
-cube('Q1Q2_WALL_HEADER',(door_x,0,door_h+(EAVES-door_h)/2),(door_w,WALL,EAVES-door_h),M_WOOD)
-
-win_r=2.0
-cube('Q4_END_LEFT',(-(W/2+win_r)/2,L,EAVES/2),(W/2-win_r,WALL,EAVES),M_WOOD)
-cube('Q4_END_RIGHT',((W/2+win_r)/2,L,EAVES/2),(W/2-win_r,WALL,EAVES),M_WOOD)
-cube('Q4_END_BOTTOM',(0,L,0.45),(2*win_r,WALL,0.9),M_WOOD)
-cube('Q4_END_TOP',(0,L,(EAVES+win_r+0.9)/2),(2*win_r,WALL,max(0.2,EAVES-(win_r+0.9))),M_WOOD)
-cyl('SINGLE_CIRCULAR_SEAWARD_WINDOW',(0,L+0.04,1.55),win_r,0.04,M_GLASS,rot=(math.pi/2,0,0),vertices=96)
-
-# Q2 Team Area only.
-cube('Q2_KITCHEN_BASE',(-W/2+0.45,3.0,0.55),(0.75,4.8,1.1),M_DARK)
-cube('Q2_KITCHEN_TOP',(-W/2+0.42,3.0,1.55),(0.65,4.8,0.9),M_DARK)
-cube('Q2_EXTERIOR_ENTRY',(W/2-0.08,3.2,1.05),(WALL,1.05,2.1),M_DARK)
-cube('Q2_SOFA_A_LONG',(-1.45,4.1,0.45),(2.8,0.85,0.9),M_SOFA)
-cube('Q2_SOFA_A_SHORT',(-2.45,4.95,0.45),(0.85,1.7,0.9),M_SOFA)
-cube('Q2_SOFA_B_LONG',(1.45,4.1,0.45),(2.8,0.85,0.9),M_SOFA)
-cube('Q2_SOFA_B_SHORT',(2.45,3.25,0.45),(0.85,1.7,0.9),M_SOFA)
-cyl('Q2_ROUND_COFFEE_TABLE',(0,4.1,0.36),0.72,0.72,M_WOOD2)
-
-# Q3 training content only.
-cube('Q3_RUBBER_TILES',(0,12.0,0.025),(7.4,7.2,0.05),M_RUBBER)
-rack('Q3_SMITH_MACHINE',-3.55,10.0,M_DARK)
-cube('Q3_ADJUSTABLE_BENCH',(-2.2,11.0,0.35),(1.6,0.55,0.25),M_DARK,rot=(0,0,0.15))
-rack('Q3_DUMBBELL_RACK',-3.6,13.0,M_DARK)
-rack('Q3_KETTLEBELL_RACK',-3.6,15.0,M_DARK)
-cube('Q3_RESISTANCE_BANDS',(3.65,10.0,1.35),(0.25,1.2,2.4),M_DARK)
-cube('Q3_PLYO_BOXES',(3.2,13.0,0.55),(1.4,1.4,1.1),M_WOOD2)
-rack('Q3_MED_BALL_RACK',3.55,15.0,M_DARK)
-
-# Q4 briefing content only.
-cube('Q4_SHIELD_TABLE_BODY',(0,20.0,0.48),(3.8,3.7,0.22),M_WOOD2)
-bpy.ops.mesh.primitive_cone_add(vertices=3, radius1=2.2, depth=0.22, location=(0,22.0,0.48), rotation=(0,0,math.pi))
-bpy.context.object.data.materials.append(M_WOOD2); bpy.context.object.name='Q4_SHIELD_TABLE_NOSE'
-for i,(x,y,a) in enumerate([(-2.2,18.8,0),(2.2,18.8,0),(-2.3,20.2,0),(2.3,20.2,0),(-1.9,21.6,0),(1.9,21.6,0),(-0.8,22.4,0),(0.8,22.4,0)]):
-    chair(f'Q4_CHAIR_{i+1}',x,y,a,M_SOFA)
-cube('Q4_TECH_WALL',(W/2-0.10,20.0,1.55),(WALL,5.0,2.2),M_SCREEN)
-cube('Q4_BOOKSHELF',(-W/2+0.30,20.0,1.25),(0.55,5.0,2.5),M_DARK)
-
+clear(); s=bpy.context.scene; s.unit_settings.system='METRIC'; s.render.resolution_x=1024; s.render.resolution_y=512; s.render.resolution_percentage=100; s.render.image_settings.file_format='PNG'; s.render.film_transparent=False
+# Explicit exposure and ambient strength make dark proxy geometry inspectable; no geometry changes.
+s.view_settings.look='AgX - Medium High Contrast'; s.view_settings.exposure=1.8
+s.world.use_nodes=True; bg=s.world.node_tree.nodes.get('Background'); bg.inputs['Color'].default_value=(.055,.055,.065,1); bg.inputs['Strength'].default_value=.55
+WOOD=mat('Warm timber',(.30,.15,.07),.72); WOOD2=mat('Light timber',(.48,.26,.12),.68); DARK=mat('Dark equipment',(.05,.06,.075),.45,.15); SOFA=mat('Sofa charcoal',(.10,.11,.12),.82); RUBBER=mat('Rubber floor',(.07,.075,.08),.9); SCREEN=mat('Technology screen',(.01,.07,.14),.25,.1); GLASS=mat('Sea window',(.10,.42,.62),.12)
+# Continuous shell.
+cube('FLOOR',(0,L/2,-.08),(W,L,.16),WOOD2); cube('LOWER_WALL',(-W/2,L/2,EAVES/2),(WALL,L,EAVES),WOOD); cube('UPPER_WALL',(W/2,L/2,EAVES/2),(WALL,L,EAVES),WOOD)
+half=W/2; rise=RIDGE-EAVES; slope=math.hypot(half,rise); ang=math.atan2(rise,half); cube('ROOF_LOWER',(-W/4,L/2,EAVES+rise/2),(slope,L,.14),WOOD,rot=(0,ang,0)); cube('ROOF_UPPER',(W/4,L/2,EAVES+rise/2),(slope,L,.14),WOOD,rot=(0,-ang,0))
+# Q1/Q2 partition with one access opening; no partitions at Q2/Q3 or Q3/Q4.
+dx,dw,dh=2.8,1.0,2.15; cube('Q1Q2_WALL_LEFT',((-W/2+dx-dw/2)/2,0,EAVES/2),(dx-dw/2+W/2,WALL,EAVES),WOOD); cube('Q1Q2_WALL_RIGHT',((dx+dw/2+W/2)/2,0,EAVES/2),(W/2-(dx+dw/2),WALL,EAVES),WOOD); cube('Q1Q2_WALL_HEADER',(dx,0,dh+(EAVES-dh)/2),(dw,WALL,EAVES-dh),WOOD)
+# Single seaward circular-window relationship.
+wr=2.0; cube('Q4_END_LEFT',(-(W/2+wr)/2,L,EAVES/2),(W/2-wr,WALL,EAVES),WOOD); cube('Q4_END_RIGHT',((W/2+wr)/2,L,EAVES/2),(W/2-wr,WALL,EAVES),WOOD); cube('Q4_END_BOTTOM',(0,L,.45),(2*wr,WALL,.9),WOOD); cube('Q4_END_TOP',(0,L,(EAVES+wr+.9)/2),(2*wr,WALL,max(.2,EAVES-(wr+.9))),WOOD); cyl('SINGLE_CIRCULAR_SEAWARD_WINDOW',(0,L+.04,1.55),wr,.04,GLASS,rot=(math.pi/2,0,0),vertices=96)
+# Q2 content only.
+cube('Q2_KITCHEN_BASE',(-W/2+.45,3,.55),(.75,4.8,1.1),DARK); cube('Q2_KITCHEN_TOP',(-W/2+.42,3,1.55),(.65,4.8,.9),DARK); cube('Q2_EXTERIOR_ENTRY',(W/2-.08,3.2,1.05),(WALL,1.05,2.1),DARK); cube('Q2_SOFA_A_LONG',(-1.45,4.1,.45),(2.8,.85,.9),SOFA); cube('Q2_SOFA_A_SHORT',(-2.45,4.95,.45),(.85,1.7,.9),SOFA); cube('Q2_SOFA_B_LONG',(1.45,4.1,.45),(2.8,.85,.9),SOFA); cube('Q2_SOFA_B_SHORT',(2.45,3.25,.45),(.85,1.7,.9),SOFA); cyl('Q2_ROUND_COFFEE_TABLE',(0,4.1,.36),.72,.72,WOOD2)
+# Q3 content only.
+cube('Q3_RUBBER_TILES',(0,12,.025),(7.4,7.2,.05),RUBBER); rack('Q3_SMITH_MACHINE',-3.55,10,DARK); cube('Q3_ADJUSTABLE_BENCH',(-2.2,11,.35),(1.6,.55,.25),DARK,rot=(0,0,.15)); rack('Q3_DUMBBELL_RACK',-3.6,13,DARK); rack('Q3_KETTLEBELL_RACK',-3.6,15,DARK); cube('Q3_RESISTANCE_BANDS',(3.65,10,1.35),(.25,1.2,2.4),DARK); cube('Q3_PLYO_BOXES',(3.2,13,.55),(1.4,1.4,1.1),WOOD2); rack('Q3_MED_BALL_RACK',3.55,15,DARK)
+# Q4 content only.
+cube('Q4_SHIELD_TABLE_BODY',(0,20,.48),(3.8,3.7,.22),WOOD2); bpy.ops.mesh.primitive_cone_add(vertices=3,radius1=2.2,depth=.22,location=(0,22,.48),rotation=(0,0,math.pi)); bpy.context.object.data.materials.append(WOOD2); bpy.context.object.name='Q4_SHIELD_TABLE_NOSE'
+for i,(x,y,a) in enumerate([(-2.2,18.8,0),(2.2,18.8,0),(-2.3,20.2,0),(2.3,20.2,0),(-1.9,21.6,0),(1.9,21.6,0),(-.8,22.4,0),(.8,22.4,0)]): chair(f'Q4_CHAIR_{i+1}',x,y,a,SOFA)
+cube('Q4_TECH_WALL',(W/2-.10,20,1.55),(WALL,5,2.2),SCREEN); cube('Q4_BOOKSHELF',(-W/2+.30,20,1.25),(.55,5,2.5),DARK)
+# Distributed overhead lighting; rotation points area emitters downward.
 for y in [2,5,8,11,14,17,20,23]:
-    bpy.ops.object.light_add(type='AREA', location=(0,y,4.2))
-    lamp=bpy.context.object; lamp.data.energy=420; lamp.data.shape='DISK'; lamp.data.size=2.0
-scene.world.color=(0.025,0.025,0.03)
-
-# Cycles is required for true panorama rendering.
-scene.render.engine='CYCLES'
-scene.cycles.samples=8
-scene.cycles.use_denoising=False
-
-cams={'01':4.0,'02':8.0,'03':12.0,'04':16.0,'05':20.0}
-for node,y in cams.items():
-    data=bpy.data.cameras.new(f'CAM_NODE_{node}')
-    data.type='PANO'; data.panorama_type='EQUIRECTANGULAR'
-    cam=bpy.data.objects.new(f'CAM_NODE_{node}',data)
-    bpy.context.scene.collection.objects.link(cam)
-    cam.location=(0,y,EYE)
-    # Camera local -Z maps to world +Y: panorama centre / yaw 0 = seaward.
-    cam.rotation_euler=(math.radians(90),0,0)
-    scene.camera=cam
-    scene.render.filepath=str(OUT/f'node-{node}-validation.png')
-    bpy.ops.render.render(write_still=True)
-
+    bpy.ops.object.light_add(type='AREA',location=(0,y,4.15),rotation=(0,0,0)); l=bpy.context.object; l.data.energy=1100; l.data.shape='DISK'; l.data.size=2.4
+# Cycles true equirectangular render.
+s.render.engine='CYCLES'; s.cycles.samples=12; s.cycles.use_denoising=False
+for node,y in {'01':4.,'02':8.,'03':12.,'04':16.,'05':20.}.items():
+    d=bpy.data.cameras.new('CAM_NODE_'+node); d.type='PANO'; d.panorama_type='EQUIRECTANGULAR'; c=bpy.data.objects.new('CAM_NODE_'+node,d); s.collection.objects.link(c); c.location=(0,y,EYE); c.rotation_euler=(math.radians(90),0,0); s.camera=c; s.render.filepath=str(OUT/f'node-{node}-validation.png'); bpy.ops.render.render(write_still=True)
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'riptide-hq-shared-validation.blend'))
