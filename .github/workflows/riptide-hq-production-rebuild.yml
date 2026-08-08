@@ -8,6 +8,7 @@ on:
       - 'vectisverse-site-v1/tools/validate_hq_shared_scene_blender.py'
       - 'vectisverse-site-v1/tools/rebuild_hq_panoramas.py'
       - 'vectisverse-site-v1/tools/render_hq_production_preview_blender.py'
+      - 'vectisverse-site-v1/tools/refine_hq_production_preview_blender.py'
       - 'vectisverse-site-v1/assets/data/HQ-PANORAMA-REBUILD-**'
       - 'vectisverse-site-v1/assets/data/HQ-SHARED-SCENE-GEOMETRY-QA.json'
       - '.github/workflows/riptide-hq-production-rebuild.yml'
@@ -53,11 +54,11 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y blender
-      - name: Render approved-treatment five-node preview
-        run: blender -b --python vectisverse-site-v1/tools/render_hq_production_preview_blender.py
-      - name: Upload production-treatment preview
+      - name: Render approved-treatment five-node preview with skylight fidelity refinement
+        run: blender -b --python vectisverse-site-v1/tools/refine_hq_production_preview_blender.py
+      - name: Upload refined production-treatment preview
         uses: actions/upload-artifact@v4
         with:
-          name: riptide-hq-production-treatment-preview
-          path: vectisverse-site-v1/assets/riptide/hq-tour/production-preview/
+          name: riptide-hq-production-treatment-preview-refined
+          path: vectisverse-site-v1/assets/riptide/hq-tour/production-preview-refined/
           if-no-files-found: error
