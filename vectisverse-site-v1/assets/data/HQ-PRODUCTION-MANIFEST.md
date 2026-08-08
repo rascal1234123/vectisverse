@@ -1,6 +1,6 @@
 # RIPTIDE HQ — PRODUCTION MANIFEST
 
-Version: 1.0
+Version: 1.1
 Status: ACTIVE
 Production baseline: `main`
 
@@ -22,6 +22,13 @@ Production baseline: `main`
 - `assets/js/riptide-hq-tour.js`
 - `assets/js/riptide-hq-tour-config.js`
 - Pannellum 2.5.7 integration.
+- Responsive panorama selection: desktop uses `image`; viewport ≤760 px uses `mobile` when supplied.
+
+### RECOVERY REFERENCE — NOT FINAL AUTHORITY
+- Historical commit `c9b09000f21420a9abdf929057b3c589b9607f17` contains raster Node 02–05 panorama assets from the earlier Gate 4.5 implementation.
+- Historical Node 02 raster blob confirmed intact as Git blob `6fd90753456c5c8c5ef9f1c00a0dc2ac8ed31ee7`.
+- Library panorama QA / delivery reports document prior 4096×2048 and 2048×1024 WebP exports and seam/orientation PASS results.
+- These sources may be used for recovery comparison, but may not override the later shared-geometry master or be promoted directly to release-final without current geometry / visual QA.
 
 ### OBSOLETE / EXPERIMENTAL
 - Branch `riptide-hq-tour-gate-4-5` as a production baseline; it is behind current `main` and uses an earlier custom WebGL viewer and mixed 1024/2560 assets.
@@ -41,8 +48,9 @@ Production baseline: `main`
 - Camera eye height: 1.675 m unless an authoritative master supersedes it.
 - 0° yaw = seaward.
 
-## Release blockers at v1.0 manifest creation
-1. Node 01 is still marked production-beta rather than release-final.
-2. Nodes 02–05 are still SVG beta geometry stand-ins and therefore do not meet the final WebP 2:1 panorama requirement.
-3. Full cross-browser and iPhone Safari release QA must be rerun against the final WebP asset set.
-4. Production smoke test must be run after final assets and config are deployed.
+## Release blockers at v1.1
+1. Node 01 remains production-beta rather than release-final.
+2. Nodes 02–05 remain SVG beta geometry stand-ins in current configuration and do not meet the final WebP 2:1 panorama requirement.
+3. Historical raster assets are recoverable references but require validation against the later shared-geometry lock before reuse.
+4. Full cross-browser and iPhone Safari release QA must be rerun against the final WebP asset set.
+5. Production smoke test must be run after final assets and config are deployed.
