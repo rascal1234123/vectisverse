@@ -1,0 +1,79 @@
+{
+  "schema": "riptide-hq-geometry-master/v1",
+  "status": "BETA_GEOMETRY_LOCK",
+  "coordinate_system": {
+    "units": "normalised-quarter-units",
+    "x_axis": "lower-wall to upper-wall; x=-0.5 lower wall, x=+0.5 upper wall",
+    "z_axis": "landward to seaward; increasing z is seaward",
+    "y_axis": "floor to ceiling",
+    "yaw_convention": {
+      "0": "seaward/+z",
+      "90": "upper wall/+x",
+      "180": "landward/-z",
+      "270": "lower wall/-x"
+    },
+    "note": "Normalised longitudinal geometry is used until an approved absolute Q2/Q4 length is available. This fixes topology, adjacency and camera relationships without inventing dimensions."
+  },
+  "envelope": {
+    "width_normalised": 1.0,
+    "quarters": {
+      "Q1": {"z_min": -1.0, "z_max": 0.0, "accessible": false},
+      "Q2": {"z_min": 0.0, "z_max": 1.0, "role": "Living Room / Team Area"},
+      "Q3": {"z_min": 1.0, "z_max": 2.0, "role": "Gym / Training Area"},
+      "Q4": {"z_min": 2.0, "z_max": 3.0, "role": "Briefing / Conference Area"}
+    },
+    "q3_reference_dimensions": {
+      "building_width_m": 9.1,
+      "eaves_height_m": 2.75,
+      "apex_height_m": 4.9,
+      "source_scope": "Q3 transverse section only; not extrapolated as approved Q2/Q4 dimensions"
+    }
+  },
+  "boundaries": [
+    {"id": "Q1_Q2", "z": 0.0, "type": "full_height_partition", "door": true, "locked": true},
+    {"id": "Q2_Q3", "z": 1.0, "type": "open_transition", "wall": false, "door": false, "locked": true},
+    {"id": "Q3_Q4", "z": 2.0, "type": "open_transition", "wall": false, "door": false, "locked": true},
+    {"id": "Q4_SEAWARD", "z": 3.0, "type": "end_wall", "feature": "single very large circular window", "locked": true}
+  ],
+  "long_walls": {
+    "lower_x_negative": {
+      "Q2": ["kitchen only"],
+      "Q3": ["all gym / training equipment"],
+      "Q4": ["approved bookshelf / briefing furnishings only"]
+    },
+    "upper_x_positive": {
+      "Q2": ["exterior entrance door", "high windows / skylights"],
+      "Q3": ["clear training wall", "established skylights only"],
+      "Q4": ["technology / display system"]
+    }
+  },
+  "zone_rules": {
+    "Q2": {
+      "required": ["two L-shaped sofas facing each other", "round coffee table", "kitchen on lower wall", "exterior entrance on upper wall", "access door to Q1", "open view into Q3"],
+      "forbidden": ["gym equipment", "dining table", "Q3 or Q4 objects"]
+    },
+    "Q3": {
+      "required": ["Smith machine / power rack", "adjustable bench", "barbell and weight plate storage", "dumbbell rack", "kettlebell rack", "medicine / slam ball rack", "resistance bands", "plyometric boxes", "rubber training tiles"],
+      "forbidden": ["walls or doors at Q2/Q3", "walls or doors at Q3/Q4", "Q2 lounge furniture", "Q4 briefing furniture"]
+    },
+    "Q4": {
+      "required": ["Riptide shield-shaped briefing table", "approximately 8 chairs", "clear circulation", "technology / display wall", "single very large circular seaward window", "approved bookshelf"],
+      "forbidden": ["gym equipment", "dining table", "wall or door at Q3/Q4", "duplicate circular windows"]
+    }
+  },
+  "cameras": [
+    {"node": "01", "zone": "Q2", "position": {"x": 0.0, "z": 0.50}, "eye_height_m": 1.675, "initial_yaw_deg": 0, "purpose": "Q2 Team Area centre / start"},
+    {"node": "02", "zone": "Q2_Q3", "position": {"x": 0.0, "z": 1.00}, "eye_height_m": 1.675, "initial_yaw_deg": 0, "purpose": "Q2/Q3 open transition threshold"},
+    {"node": "03", "zone": "Q3", "position": {"x": 0.0, "z": 1.50}, "eye_height_m": 1.675, "initial_yaw_deg": 0, "purpose": "Q3 Training Area centre"},
+    {"node": "04", "zone": "Q3_Q4", "position": {"x": 0.0, "z": 2.00}, "eye_height_m": 1.675, "initial_yaw_deg": 0, "purpose": "Q3/Q4 open transition threshold"},
+    {"node": "05", "zone": "Q4", "position": {"x": 0.0, "z": 2.50}, "eye_height_m": 1.675, "initial_yaw_deg": 0, "purpose": "Q4 Briefing Area centre"}
+  ],
+  "topology_invariants": [
+    "There is one continuous longitudinal sightline from Q2 through Q3 into Q4.",
+    "Q2/Q3 and Q3/Q4 transitions are open: no wall and no door.",
+    "Q3 equipment remains entirely in Q3.",
+    "Q4 briefing configuration remains entirely in Q4.",
+    "Exactly one circular seaward window exists, at Q4 seaward end.",
+    "No invented internal side doors or duplicate circular windows are permitted."
+  ]
+}
