@@ -1,0 +1,28 @@
+name: Fix Isle of Night homepage image
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-isle-of-night-image.yml'
+      - 'vectisverse-site-v1/assets/ion/isle-of-night-homepage-fixed.webp.b64'
+
+permissions:
+  contents: write
+
+jobs:
+  restore-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decode verified WebP
+        run: |
+          base64 -d vectisverse-site-v1/assets/ion/isle-of-night-homepage-fixed.webp.b64 > vectisverse-site-v1/assets/ion/isle-of-night-homepage.webp
+          file vectisverse-site-v1/assets/ion/isle-of-night-homepage.webp
+      - name: Commit repaired image
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add vectisverse-site-v1/assets/ion/isle-of-night-homepage.webp
+          git commit -m 'Repair Isle of Night homepage WebP' || exit 0
+          git push
