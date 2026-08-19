@@ -9,6 +9,14 @@
   box-shadow: none !important;
 }
 
+/* Match the shared homepage comic-card hover/focus treatment. */
+.approved-panels .comic-card.card-ftw:hover,
+.approved-panels .comic-card.card-ftw:focus-within {
+  border-color: #00c6ff !important;
+  box-shadow: 0 0 0 3px #00c6ff, 0 14px 34px rgba(0,198,255,.2) !important;
+  transform: translateY(-3px);
+}
+
 .approved-panels .comic-card.card-ftw::before,
 .approved-panels .comic-card.card-ftw::after {
   content: none !important;
